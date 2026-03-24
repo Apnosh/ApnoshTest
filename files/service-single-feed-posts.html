@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Single Feed Posts — Apnosh</title>
+<meta name="description" content="Brand-aligned feed posts with SEO-optimized captions for Instagram, Facebook & TikTok. Professional graphics that build trust and convert profile visitors. From $35/post.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#4abd98;--brand-d:#2e9a78;--brand-t:#eaf7f3;--brand-g:rgba(74,189,152,.14);
+  --ink:#1d1d1f;--ink2:#424245;--ink3:#6e6e73;--ink4:#aeaeb2;--ink5:#d2d2d7;--ink6:#f0f0f5;
+  --bg:#fff;--bg2:#f5f5f7;
+  --fd:'Playfair Display',Georgia,serif;--fb:'Inter',-apple-system,sans-serif;
+  --s2:0 4px 16px rgba(0,0,0,.07);--s3:0 8px 32px rgba(0,0,0,.09);--s4:0 16px 56px rgba(0,0,0,.11);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:1080px;margin:0 auto;padding:0 40px}
+.wmd{max-width:820px;margin:0 auto;padding:0 40px}
+.wsm{max-width:640px;margin:0 auto;padding:0 40px}
+@media(max-width:600px){.w,.wmd,.wsm{padding:0 20px}}
+.tc{text-align:center}
+.kicker{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);margin-bottom:14px}
+.h1{font-family:var(--fd);font-size:clamp(36px,5.5vw,62px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink)}
+.h1 em{font-style:italic;color:var(--brand-d)}
+.h2{font-family:var(--fd);font-size:clamp(24px,3.5vw,40px);font-weight:400;line-height:1.12;letter-spacing:-.02em;color:var(--ink)}
+.h2 em{font-style:italic;color:var(--brand-d)}
+.h3{font-family:var(--fd);font-size:clamp(18px,2.2vw,24px);font-weight:400;line-height:1.2;letter-spacing:-.015em;color:var(--ink)}
+.lead{font-size:clamp(15px,1.8vw,18px);font-weight:300;color:var(--ink2);line-height:1.72}
+.body{font-size:15px;font-weight:300;color:var(--ink3);line-height:1.7}
+.sm{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65}
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fb);font-weight:500;font-size:14px;text-decoration:none;border:none;cursor:pointer;border-radius:99px;padding:12px 24px;transition:all .2s;white-space:nowrap;line-height:1}
+.btn-primary{background:var(--ink);color:#fff}.btn-primary:hover{background:#2d2d2f;transform:translateY(-1px);box-shadow:var(--s3)}
+.btn-brand{background:var(--brand);color:var(--ink);font-weight:600}.btn-brand:hover{background:var(--brand-d);color:#fff;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink5)}.btn-outline:hover{border-color:var(--ink3);transform:translateY(-1px)}
+.btn-ghost-dark{background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.13)}.btn-ghost-dark:hover{background:rgba(255,255,255,.14)}
+.btn-sm{padding:9px 18px;font-size:13px}.btn-lg{padding:15px 32px;font-size:15px}
+.arr{transition:transform .2s;display:inline-block}
+a:hover .arr{transform:translateX(3px)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:44px;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.07);display:flex;align-items:center;transition:box-shadow .2s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.nav-inner{width:100%;max-width:1080px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.nav-logo em{font-style:italic;color:var(--brand-d)}
+.nav-back{font-size:12px;font-weight:400;color:var(--ink3);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .15s}
+.nav-back:hover{color:var(--ink)}
+.nav-back-arr{display:inline-block;transform:rotate(180deg)}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-audit{font-size:12px;font-weight:600;color:#fff;background:var(--brand-d);padding:7px 16px;border-radius:99px;text-decoration:none;transition:all .15s}
+.nav-audit:hover{background:var(--brand)}
+.nav-plain{font-size:12px;color:rgba(0,0,0,.45);text-decoration:none;padding:0 10px;transition:color .15s}
+.nav-plain:hover{color:var(--ink)}
+
+/* BREADCRUMB */
+.breadcrumb{padding:56px 0 0;background:var(--bg)}
+.bc-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink4)}
+@media(max-width:600px){.bc-inner{padding:0 20px}}
+.bc-link{color:var(--ink4);text-decoration:none;transition:color .15s}.bc-link:hover{color:var(--brand-d)}
+.bc-sep{color:var(--ink5)}
+.bc-current{color:var(--ink2);font-weight:500}
+
+/* HERO */
+.hero{padding:32px 0 64px;background:var(--bg);overflow:hidden;position:relative}
+@media(max-width:600px){.hero{padding:28px 0 48px}}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(74,189,152,.06) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1080px;margin:0 auto;padding:0 40px;position:relative;z-index:1}
+@media(max-width:600px){.hero-inner{padding:0 20px}}
+.hero-service-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);border:1px solid rgba(74,189,152,.22);padding:5px 14px;border-radius:99px;margin-bottom:20px}
+.hero-h{font-family:var(--fd);font-size:clamp(34px,5vw,58px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink);max-width:760px;margin-bottom:20px}
+.hero-h em{font-style:italic;color:var(--brand-d)}
+.hero-lead{font-size:clamp(15px,1.8vw,18px);font-weight:300;color:var(--ink2);line-height:1.72;max-width:580px;margin-bottom:32px}
+.hero-btns{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.hero-trust{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.ht-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink4)}
+.ht-check{color:var(--brand-d);font-weight:700}
+
+/* STAT BAR */
+.stat-bar{background:var(--ink);padding:36px 0}
+.stat-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr)}
+@media(max-width:700px){.stat-inner{grid-template-columns:1fr 1fr;padding:0 24px}}
+.stat-cell{padding:0 24px;text-align:center;border-right:1px solid rgba(255,255,255,.07)}
+.stat-cell:last-child{border-right:none}
+@media(max-width:700px){.stat-cell:nth-child(2){border-right:none}.stat-cell:nth-child(3){border-top:1px solid rgba(255,255,255,.07);padding-top:24px;margin-top:24px}.stat-cell:nth-child(4){border-top:1px solid rgba(255,255,255,.07);padding-top:24px;margin-top:24px;border-right:none}}
+.stat-n{font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--brand);letter-spacing:-.03em;line-height:1;margin-bottom:6px}
+.stat-n em{font-style:normal;font-size:.65em;color:rgba(74,189,152,.6)}
+.stat-l{font-size:11px;font-weight:400;color:rgba(255,255,255,.32);line-height:1.5}
+
+/* PROBLEM / WHO SECTION */
+.problem-section{padding:80px 0;background:var(--bg2)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:0}
+@media(max-width:780px){.problem-grid{grid-template-columns:1fr;gap:40px}}
+.problem-list{display:flex;flex-direction:column;gap:16px;margin-top:28px}
+.prob-item{display:flex;align-items:flex-start;gap:12px;padding:16px 18px;background:var(--bg);border:1px solid var(--ink6);border-radius:12px}
+.prob-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.prob-title{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px;letter-spacing:-.01em}
+.prob-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.6}
+.solution-list{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.sol-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:300;color:var(--ink2);line-height:1.6}
+.sol-check{width:20px;height:20px;border-radius:50%;background:var(--brand-t);border:1px solid rgba(74,189,152,.25);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--brand-d);flex-shrink:0;margin-top:2px}
+
+/* WHAT'S INCLUDED SECTION */
+.included-section{padding:80px 0;background:var(--bg)}
+.platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+@media(max-width:780px){.platform-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.platform-grid{grid-template-columns:1fr}}
+.platform-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:16px;padding:24px;transition:border-color .2s,transform .2s}
+.platform-card:hover{border-color:rgba(74,189,152,.2);transform:translateY(-2px)}
+.pc-icon{font-size:28px;margin-bottom:12px;display:block}
+.pc-name{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em}
+.pc-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.62;margin-bottom:14px}
+.pc-tags{display:flex;flex-wrap:wrap;gap:5px}
+.pc-tag{font-size:10px;font-weight:500;color:var(--brand-d);background:var(--brand-t);padding:2px 8px;border-radius:99px}
+
+.deliverables-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:48px}
+@media(max-width:600px){.deliverables-grid{grid-template-columns:1fr}}
+.del-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:14px;padding:20px 22px;display:flex;align-items:flex-start;gap:12px}
+.del-icon-wrap{width:38px;height:38px;border-radius:10px;background:var(--brand-t);border:1px solid rgba(74,189,152,.15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.del-title{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px;letter-spacing:-.01em}
+.del-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.6}
+
+/* PROCESS SECTION */
+.process-section{padding:80px 0;background:var(--bg2)}
+.process-steps{display:flex;flex-direction:column;gap:0;margin-top:48px;max-width:680px;margin-left:auto;margin-right:auto}
+.process-step{display:flex;align-items:flex-start;gap:20px;padding:0 0 36px;position:relative}
+.process-step:last-child{padding-bottom:0}
+.process-step::before{content:'';position:absolute;left:18px;top:40px;bottom:0;width:1px;background:var(--ink6)}
+.process-step:last-child::before{display:none}
+.ps-num{width:36px;height:36px;border-radius:50%;background:var(--brand-t);border:2px solid var(--brand-d);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:14px;font-weight:500;color:var(--brand-d);flex-shrink:0;position:relative;z-index:1}
+.ps-title{font-family:var(--fd);font-size:17px;font-weight:500;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+.ps-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65}
+.ps-detail{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ps-det-tag{font-size:10px;font-weight:500;color:var(--brand-d);background:var(--brand-t);padding:2px 9px;border-radius:99px}
+
+/* PRICING TIERS */
+.pricing-section{padding:80px 0;background:var(--bg)}
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+@media(max-width:780px){.tier-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.tier-grid{grid-template-columns:1fr}}
+.tier{background:var(--bg2);border:1px solid var(--ink6);border-radius:18px;padding:28px 24px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.tier:hover{transform:translateY(-3px);box-shadow:var(--s4)}
+.tier.featured{background:var(--ink);border-color:var(--ink)}
+.tier.featured:hover{box-shadow:0 16px 56px rgba(0,0,0,.25)}
+.tier-pop{position:absolute;top:14px;right:14px;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--brand);color:var(--ink);padding:3px 9px;border-radius:99px}
+.tier-bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand-d));opacity:0;transition:opacity .2s}
+.tier:not(.featured):hover .tier-bar{opacity:1}
+.tier.featured .tier-bar{opacity:1}
+.tier-name{font-family:var(--fd);font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.tier.featured .tier-name{color:rgba(255,255,255,.88)}
+.tier-tagline{font-size:11px;font-weight:300;color:var(--ink4);margin-bottom:20px;line-height:1.5;min-height:32px}
+.tier.featured .tier-tagline{color:rgba(255,255,255,.32)}
+.tier-price{font-family:var(--fd);font-size:34px;font-weight:400;color:var(--ink);letter-spacing:-.03em;line-height:1;margin-bottom:4px}
+.tier.featured .tier-price{color:#fff}
+.tier-price span{font-size:14px;font-weight:300;font-family:var(--fb);color:var(--ink4)}
+.tier.featured .tier-price span{color:rgba(255,255,255,.32)}
+.tier-billed{font-size:11px;color:var(--brand-d);margin-bottom:20px;min-height:16px}
+.tier.featured .tier-billed{color:rgba(74,189,152,.8)}
+.tier-divider{height:1px;background:var(--ink6);margin:0 0 16px}
+.tier.featured .tier-divider{background:rgba(255,255,255,.07)}
+.tier-inc-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px}
+.tier.featured .tier-inc-label{color:rgba(255,255,255,.24)}
+.tier-features{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;flex:1}
+.tier-feat{display:flex;align-items:flex-start;gap:8px;font-size:12px;font-weight:300;color:var(--ink2);line-height:1.55}
+.tier.featured .tier-feat{color:rgba(255,255,255,.6)}
+.tier-feat.ai{color:var(--ink)}
+.tier.featured .tier-feat.ai{color:rgba(255,255,255,.9)}
+.tier-feat-icon{font-size:11px;flex-shrink:0;margin-top:1px;width:14px;text-align:center}
+.tier-cta{display:block;width:100%;text-align:center;padding:12px 0;border-radius:99px;font-family:var(--fb);font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
+.tier:not(.featured) .tier-cta{background:var(--ink6);color:var(--ink)}
+.tier:not(.featured):hover .tier-cta{background:var(--ink);color:#fff}
+.tier.featured .tier-cta{background:var(--brand);color:var(--ink)}
+.tier.featured:hover .tier-cta{background:var(--brand-d);color:#fff}
+
+/* EXAMPLES */
+.examples-section{padding:80px 0;background:var(--bg2)}
+.examples-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+@media(max-width:780px){.examples-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.examples-grid{grid-template-columns:1fr}}
+.example-card{background:var(--bg);border:1px solid var(--ink6);border-radius:16px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.example-card:hover{transform:translateY(-3px);box-shadow:var(--s3)}
+.ex-visual{background:var(--ink);position:relative;height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+.ex-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(74,189,152,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(74,189,152,.04) 1px,transparent 1px);background-size:36px 36px}
+.ex-orb{position:absolute;border-radius:50%;filter:blur(40px);background:rgba(74,189,152,.1);width:160px;height:160px;top:50%;left:50%;transform:translate(-50%,-50%)}
+.ex-type{position:relative;z-index:1;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(74,189,152,.7);background:rgba(74,189,152,.1);border:1px solid rgba(74,189,152,.18);padding:2px 8px;border-radius:99px;margin-bottom:6px}
+.ex-label{position:relative;z-index:1;font-family:var(--fd);font-size:16px;font-weight:400;color:rgba(255,255,255,.85);letter-spacing:-.01em;text-align:center;max-width:200px}
+.ex-body{padding:18px 20px}
+.ex-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.62}
+.ex-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.ex-tag{font-size:10px;font-weight:500;color:var(--brand-d);background:var(--brand-t);padding:2px 8px;border-radius:99px}
+
+/* COMPARISON */
+.compare-section{padding:72px 0;background:var(--bg)}
+.compare-wrap{margin-top:48px;overflow-x:auto}
+.compare-table{width:100%;border-collapse:collapse;min-width:500px}
+.compare-table th{padding:12px 16px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-align:center;border-bottom:1px solid var(--ink6)}
+.compare-table th:first-child{text-align:left;color:var(--ink4);width:40%}
+.compare-table th:not(:first-child){color:var(--ink2);background:var(--bg2);border-left:1px solid var(--ink6)}
+.compare-table th.feat-col{background:var(--ink);color:rgba(255,255,255,.75)}
+.compare-table td{padding:11px 16px;font-size:12px;font-weight:300;color:var(--ink3);border-bottom:1px solid var(--ink6);text-align:center}
+.compare-table td:first-child{text-align:left;color:var(--ink2);font-weight:400}
+.compare-table td:not(:first-child){border-left:1px solid var(--ink6);background:var(--bg2)}
+.compare-table td.feat-col{background:rgba(15,15,15,.03)}
+.compare-table tr:last-child td{border-bottom:none}
+.ct-group-row td,.ct-group-row th{background:var(--brand-t);color:var(--brand-d);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;border-bottom:1px solid rgba(74,189,152,.15)}
+.ct-check{color:var(--brand-d);font-weight:700;font-size:13px}
+.ct-x{color:var(--ink5);font-size:11px}
+.ct-ai{color:#f59e0b;font-size:11px}
+
+/* TESTIMONIALS */
+.testi-section{padding:72px 0;background:var(--bg)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+@media(max-width:780px){.testi-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.testi-grid{grid-template-columns:1fr}}
+.testi-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:16px;padding:24px;transition:border-color .2s}
+.testi-card:hover{border-color:rgba(74,189,152,.2)}
+.testi-stars{color:var(--brand-d);font-size:11px;letter-spacing:3px;margin-bottom:12px}
+.testi-metric{display:inline-flex;align-items:baseline;gap:4px;background:var(--brand-t);border:1px solid rgba(74,189,152,.2);padding:4px 10px;border-radius:99px;margin-bottom:12px}
+.testi-m-n{font-family:var(--fd);font-size:16px;font-weight:400;color:var(--brand-d)}
+.testi-m-l{font-size:10px;color:var(--brand-d);opacity:.7}
+.testi-q{font-family:var(--fd);font-size:14px;font-style:italic;color:var(--ink);line-height:1.65;margin-bottom:16px}
+.testi-author{display:flex;align-items:center;gap:8px;padding-top:12px;border-top:1px solid var(--ink6)}
+.t-av{width:32px;height:32px;border-radius:50%;background:var(--brand-t);border:1px solid rgba(74,189,152,.18);display:flex;align-items:center;justify-content:center;font-size:14px}
+.t-name{font-family:var(--fd);font-size:12px;font-weight:500;color:var(--ink);display:block}
+.t-role{font-size:10px;color:var(--ink4)}
+
+/* FAQ */
+.faq-section{padding:72px 0;background:var(--bg2)}
+.faq-list{max-width:640px;margin:40px auto 0;display:flex;flex-direction:column;gap:6px}
+.faq-item{background:var(--bg);border:1px solid var(--ink6);border-radius:10px;overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:rgba(74,189,152,.24)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:none;border:none;cursor:pointer;font-family:var(--fd);font-size:14px;font-weight:400;color:var(--ink);text-align:left;gap:12px}
+.faq-ic{color:var(--brand-d);font-size:18px;flex-shrink:0;transition:transform .22s}
+.faq-item.open .faq-ic{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 20px 16px;font-size:13px;font-weight:300;color:var(--ink3);line-height:1.7}
+.faq-item.open .faq-a{display:block}
+
+/* CTA */
+.cta-section{background:var(--ink);padding:92px 40px;text-align:center;position:relative;overflow:hidden}
+@media(max-width:600px){.cta-section{padding:68px 20px}}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(74,189,152,.08) 0%,transparent 70%)}
+#cta-canvas{position:absolute;inset:0;pointer-events:none}
+.cta-section>*{position:relative;z-index:1}
+.cta-h{font-family:var(--fd);font-size:clamp(26px,4vw,46px);font-weight:400;line-height:1.1;letter-spacing:-.025em;color:rgba(255,255,255,.95);max-width:560px;margin:0 auto 14px}
+.cta-h em{font-style:italic;color:var(--brand)}
+.cta-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,.38);max-width:420px;margin:0 auto 36px;line-height:1.7}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+
+/* FOOTER */
+.footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:36px 40px}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none}
+.f-logo em{font-style:italic;color:var(--brand)}
+.f-links{display:flex;gap:20px;flex-wrap:wrap}
+.f-link{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .15s}
+.f-link:hover{color:rgba(255,255,255,.6)}
+.f-copy{font-size:11px;color:rgba(255,255,255,.16)}
+
+/* REVEAL */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hero-service-tag,.hero-h,.hero-lead,.hero-btns,.hero-trust{opacity:1}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.06s}.rd2{transition-delay:.12s}.rd3{transition-delay:.18s}.rd4{transition-delay:.24s}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <a class="nav-back" href="apnosh_services.html"><span class="nav-back-arr">&#8594;</span> All services</a>
+    <div class="nav-right">
+      <a class="nav-plain" href="talk_to_expert.html">Contact</a>
+      <a class="nav-audit" href="apnosh_homepage.html#start">Get free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="bc-inner">
+    <a class="bc-link" href="apnosh_homepage.html">Home</a>
+    <span class="bc-sep">/</span>
+    <a class="bc-link" href="apnosh_services.html">Services</a>
+    <span class="bc-sep">/</span>
+    <a class="bc-link" href="service-social-media.html">Social Media</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">Single Feed Posts</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-service-tag">&#128247; Single Feed Posts</div>
+    <h1 class="hero-h">Professional, brand-aligned feed posts — <em>without the DIY look</em></h1>
+    <p class="hero-lead">Your Instagram and Facebook feed is a first impression. Inconsistent or DIY-looking posts erode trust. We create custom-designed, SEO-optimized feed posts that make your business look established, credible, and worth following.</p>
+    <div class="hero-btns">
+      <a class="btn btn-brand btn-lg" href="#pricing">See pricing <span class="arr">&rarr;</span></a>
+      <a class="btn btn-outline btn-lg" href="talk_to_expert.html">Talk to our team</a>
+    </div>
+    <div class="hero-trust">
+      <div class="ht-item"><span class="ht-check">&#10003;</span> AI-assisted, SEO-optimized captions</div>
+      <div class="ht-item"><span class="ht-check">&#10003;</span> Custom branded graphics</div>
+      <div class="ht-item"><span class="ht-check">&#10003;</span> Volume discounts at 8+ posts</div>
+      <div class="ht-item"><span class="ht-check">&#10003;</span> Instagram, Facebook &amp; TikTok</div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-inner">
+    <div class="stat-cell"><div class="stat-n">75<em>%</em></div><div class="stat-l">Of people judge credibility by what they see on social</div></div>
+    <div class="stat-cell"><div class="stat-n">3<em>x</em></div><div class="stat-l">More engagement with branded vs. generic posts</div></div>
+    <div class="stat-cell"><div class="stat-n">54<em>%</em></div><div class="stat-l">Of consumers discover brands through social feeds</div></div>
+    <div class="stat-cell"><div class="stat-n">$35</div><div class="stat-l">Per post starting price &mdash; volume discounts available</div></div>
+  </div>
+</div>
+
+<!-- PROBLEM / SOLUTION -->
+<section class="problem-section">
+  <div class="w">
+    <div class="problem-grid">
+      <div class="reveal">
+        <span class="kicker">Sound familiar?</span>
+        <h2 class="h2">Why most business feeds <em>don&rsquo;t convert</em></h2>
+        <div class="problem-list">
+          <div class="prob-item">
+            <span class="prob-icon">&#128247;</span>
+            <div><div class="prob-title">DIY graphics that look unpolished</div><div class="prob-desc">Quick Canva templates and phone photos don&rsquo;t build the trust needed to convert a profile visitor into a customer. Your feed is your storefront &mdash; and most businesses have the digital equivalent of a handwritten cardboard sign.</div></div>
+          </div>
+          <div class="prob-item">
+            <span class="prob-icon">&#128172;</span>
+            <div><div class="prob-title">Captions that get zero engagement</div><div class="prob-desc">Generic captions like &ldquo;Happy Monday!&rdquo; don&rsquo;t show up in search and don&rsquo;t encourage interaction. Every caption should be working to grow your reach and drive action.</div></div>
+          </div>
+          <div class="prob-item">
+            <span class="prob-icon">&#127912;</span>
+            <div><div class="prob-title">No visual consistency across posts</div><div class="prob-desc">Different fonts, colors, and styles from post to post make your brand look scattered. A cohesive visual identity across your feed signals professionalism and builds recognition.</div></div>
+          </div>
+          <div class="prob-item">
+            <span class="prob-icon">&#128269;</span>
+            <div><div class="prob-title">Posts invisible to non-followers</div><div class="prob-desc">Without SEO-optimized captions and strategic hashtags, your posts only reach people who already follow you. The whole point is reaching new potential customers.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal rd1">
+        <span class="kicker">How Apnosh fixes it</span>
+        <h2 class="h2">Feed posts built to <em>attract &amp; convert</em></h2>
+        <p class="body" style="margin-bottom:24px">Every single feed post we create is custom-designed in your brand style, paired with an AI-assisted caption optimized for reach and SEO. The result is a feed that looks like a premium brand &mdash; because you are one.</p>
+        <div class="solution-list">
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Custom-designed graphics built to your brand guidelines &mdash; colors, fonts, and style</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>AI-assisted captions optimized for platform-specific SEO and engagement</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Strategic hashtag research tailored to your industry and location</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Formatted for Instagram, Facebook, and TikTok simultaneously</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Content calendar with posts planned and approved before going live</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Volume pricing &mdash; order 8+ posts per month and save $10 per post</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">What you get</span>
+      <h2 class="h2">Every feed post includes <em>all of this</em></h2>
+      <p class="body" style="max-width:500px;margin:12px auto 0">Each post is a complete package &mdash; not just a graphic. You get strategic content designed to build your brand and drive measurable results.</p>
+    </div>
+    <div class="platform-grid">
+      <div class="platform-card reveal rd1">
+        <span class="pc-icon">&#127912;</span>
+        <div class="pc-name">Custom Graphic Design</div>
+        <p class="pc-desc">Brand-aligned visuals designed specifically for your business. No templates, no stock overlays. Your colors, your fonts, your style &mdash; every single time.</p>
+        <div class="pc-tags"><span class="pc-tag">Brand colors</span><span class="pc-tag">Custom fonts</span><span class="pc-tag">Unique layouts</span></div>
+      </div>
+      <div class="platform-card reveal rd2">
+        <span class="pc-icon">&#9889;</span>
+        <div class="pc-name">AI-Optimized Captions</div>
+        <p class="pc-desc">Captions written with AI assistance and human review. Optimized for platform SEO so your posts reach people beyond your current followers.</p>
+        <div class="pc-tags"><span class="pc-tag">SEO keywords</span><span class="pc-tag">Engagement hooks</span><span class="pc-tag">CTA copy</span></div>
+      </div>
+      <div class="platform-card reveal rd3">
+        <span class="pc-icon">&#128200;</span>
+        <div class="pc-name">Strategic Hashtags</div>
+        <p class="pc-desc">Researched hashtag sets tailored to your industry, location, and content type. The right hashtags put your posts in front of the right people.</p>
+        <div class="pc-tags"><span class="pc-tag">Industry tags</span><span class="pc-tag">Location tags</span><span class="pc-tag">Trending tags</span></div>
+      </div>
+    </div>
+    <div class="deliverables-grid" style="margin-top:32px">
+      <div class="del-card reveal rd1">
+        <div class="del-icon-wrap">&#128197;</div>
+        <div><div class="del-title">Content calendar planning</div><div class="del-desc">Posts are planned as part of a monthly calendar. You see everything in advance and approve before anything goes live.</div></div>
+      </div>
+      <div class="del-card reveal rd2">
+        <div class="del-icon-wrap">&#128241;</div>
+        <div><div class="del-title">Multi-platform formatting</div><div class="del-desc">Every post is formatted and optimized for Instagram, Facebook, and TikTok &mdash; not just one platform with the same image copy-pasted.</div></div>
+      </div>
+      <div class="del-card reveal rd1">
+        <div class="del-icon-wrap">&#128260;</div>
+        <div><div class="del-title">Unlimited revisions</div><div class="del-desc">Not happy with a graphic or caption? We revise until it&rsquo;s right. Nothing goes live until you&rsquo;re 100% satisfied.</div></div>
+      </div>
+      <div class="del-card reveal rd2">
+        <div class="del-icon-wrap">&#128202;</div>
+        <div><div class="del-title">Performance insights</div><div class="del-desc">Track which posts drive the most engagement, reach, and profile visits. Data-informed decisions for next month&rsquo;s content.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">How it works</span>
+      <h2 class="h2">From brief to live post <em>in 5 simple steps</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="ps-num">1</div>
+        <div>
+          <div class="ps-title">Brand onboarding</div>
+          <p class="ps-desc">We learn your brand &mdash; colors, fonts, tone, and visual preferences. If you have brand guidelines, we follow them. If you don&rsquo;t, we create a consistent style for you.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Brand audit</span><span class="ps-det-tag">Style preferences</span><span class="ps-det-tag">Competitor review</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd1">
+        <div class="ps-num">2</div>
+        <div>
+          <div class="ps-title">Content calendar &amp; topics</div>
+          <p class="ps-desc">We plan your post topics for the month based on your business goals, upcoming promotions, seasonal relevance, and what performs best in your industry.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Monthly planning</span><span class="ps-det-tag">Topic strategy</span><span class="ps-det-tag">Seasonal content</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd2">
+        <div class="ps-num">3</div>
+        <div>
+          <div class="ps-title">Design &amp; copywriting</div>
+          <p class="ps-desc">Custom graphics are designed and AI-assisted captions are written &mdash; each optimized for reach, engagement, and platform-specific SEO.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Custom graphics</span><span class="ps-det-tag">AI captions</span><span class="ps-det-tag">Hashtag research</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd3">
+        <div class="ps-num">4</div>
+        <div>
+          <div class="ps-title">Your review &amp; approval</div>
+          <p class="ps-desc">Everything is sent to you for review. Request changes, swap topics, adjust captions &mdash; unlimited revisions until you&rsquo;re happy. Nothing goes live without your sign-off.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Your approval</span><span class="ps-det-tag">Unlimited revisions</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd4">
+        <div class="ps-num">5</div>
+        <div>
+          <div class="ps-title">Scheduled &amp; published</div>
+          <p class="ps-desc">Approved posts are scheduled and published at optimal times across all your platforms. You sit back while your feed works for your business.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Optimal timing</span><span class="ps-det-tag">Multi-platform</span><span class="ps-det-tag">Auto-publish</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Pricing</span>
+      <h2 class="h2">Simple per-post pricing. <em>Volume discounts built in.</em></h2>
+      <p class="body" style="max-width:480px;margin:12px auto 0">Order as many or as few posts as you need each month. The more you order, the more you save. No contracts, no minimums.</p>
+    </div>
+    <div class="tier-grid reveal">
+
+      <!-- STARTER -->
+      <div class="tier">
+        <div class="tier-bar"></div>
+        <div class="tier-name">Starter</div>
+        <div class="tier-tagline">For businesses testing professional content or supplementing existing efforts.</div>
+        <div class="tier-price">$35<span>/post</span></div>
+        <div class="tier-billed">1&ndash;7 posts per month</div>
+        <div class="tier-divider"></div>
+        <div class="tier-inc-label">Every post includes</div>
+        <div class="tier-features">
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Custom branded graphic design</div>
+          <div class="tier-feat ai"><span class="tier-feat-icon">&#9889;</span>AI-assisted, SEO-optimized caption</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Strategic hashtag set</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Multi-platform formatting</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Unlimited revisions</div>
+        </div>
+        <a class="tier-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+
+      <!-- VOLUME -->
+      <div class="tier featured">
+        <div class="tier-bar"></div>
+        <div class="tier-pop">&#9889; Best value</div>
+        <div class="tier-name">Volume</div>
+        <div class="tier-tagline">For businesses committing to consistent, professional content every month.</div>
+        <div class="tier-price">$25<span>/post</span></div>
+        <div class="tier-billed">8+ posts per month &mdash; save $10/post</div>
+        <div class="tier-divider"></div>
+        <div class="tier-inc-label">Everything in Starter, plus</div>
+        <div class="tier-features">
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>$10 savings per post (29% off)</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Monthly content calendar included</div>
+          <div class="tier-feat ai"><span class="tier-feat-icon">&#9889;</span>AI trend monitoring for topic ideas</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Priority turnaround</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Dedicated designer consistency</div>
+        </div>
+        <a class="tier-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+
+      <!-- MANAGED -->
+      <div class="tier">
+        <div class="tier-bar"></div>
+        <div class="tier-name">Fully Managed</div>
+        <div class="tier-tagline">Combine feed posts with full social media management for hands-free growth.</div>
+        <div class="tier-price">Custom</div>
+        <div class="tier-billed">Bundled with management plan</div>
+        <div class="tier-divider"></div>
+        <div class="tier-inc-label">Full management includes</div>
+        <div class="tier-features">
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Feed posts + stories + community mgmt</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Full social media strategy</div>
+          <div class="tier-feat ai"><span class="tier-feat-icon">&#9889;</span>AI-powered scheduling &amp; optimization</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Monthly performance reporting</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Dedicated account manager</div>
+        </div>
+        <a class="tier-cta" href="service-social-media.html">View management plans &rarr;</a>
+      </div>
+
+    </div>
+    <p class="sm tc" style="margin-top:16px;color:var(--ink4)">&#9889; = AI-powered feature &nbsp;&nbsp;|&nbsp;&nbsp; No contracts or minimums &nbsp;&nbsp;|&nbsp;&nbsp; Volume discount at 8+ posts/mo</p>
+  </div>
+</section>
+
+<!-- USE CASE EXAMPLES -->
+<section class="examples-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Post types</span>
+      <h2 class="h2">The kind of feed posts we <em>create for clients</em></h2>
+    </div>
+    <div class="examples-grid">
+      <div class="example-card reveal rd1">
+        <div class="ex-visual"><div class="ex-grid"></div><div class="ex-orb"></div><div class="ex-type">Promotional</div><div class="ex-label">Sales, offers &amp; seasonal promotions</div></div>
+        <div class="ex-body">
+          <p class="ex-desc">Eye-catching promotional graphics that drive urgency and action. Designed to stand out in the feed and convert scrollers into customers.</p>
+          <div class="ex-tags"><span class="ex-tag">Flash sales</span><span class="ex-tag">Holiday promos</span><span class="ex-tag">New arrivals</span></div>
+        </div>
+      </div>
+      <div class="example-card reveal rd2">
+        <div class="ex-visual"><div class="ex-grid"></div><div class="ex-orb"></div><div class="ex-type">Educational</div><div class="ex-label">Tips, how-tos &amp; industry insights</div></div>
+        <div class="ex-body">
+          <p class="ex-desc">Value-driven content that positions you as the expert. Educational posts drive saves and shares &mdash; two of the strongest signals for organic reach.</p>
+          <div class="ex-tags"><span class="ex-tag">Tips &amp; tricks</span><span class="ex-tag">How-to guides</span><span class="ex-tag">Industry facts</span></div>
+        </div>
+      </div>
+      <div class="example-card reveal rd3">
+        <div class="ex-visual"><div class="ex-grid"></div><div class="ex-orb"></div><div class="ex-type">Brand Story</div><div class="ex-label">Behind the scenes &amp; team spotlights</div></div>
+        <div class="ex-body">
+          <p class="ex-desc">Humanize your brand with behind-the-scenes content, team introductions, and your business story. People buy from people they connect with.</p>
+          <div class="ex-tags"><span class="ex-tag">Team features</span><span class="ex-tag">Process shots</span><span class="ex-tag">Milestones</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON: DIY vs APNOSH -->
+<section class="compare-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Why us</span>
+      <h2 class="h2">DIY vs. Apnosh feed posts</h2>
+    </div>
+    <div class="compare-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>DIY / Canva</th>
+            <th class="feat-col">Apnosh &#9889;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="ct-group-row"><td>Design</td><td></td><td class="feat-col"></td></tr>
+          <tr><td>Custom brand-aligned graphics</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Consistent visual identity</td><td>Inconsistent</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Professional typography &amp; layout</td><td>Template-based</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+
+          <tr class="ct-group-row"><td>Captions &amp; SEO</td><td></td><td class="feat-col"></td></tr>
+          <tr><td>AI-assisted SEO captions</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-ai">&#9889;</span></td></tr>
+          <tr><td>Strategic hashtag research</td><td>Random / guessing</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Platform-specific optimization</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+
+          <tr class="ct-group-row"><td>Process</td><td></td><td class="feat-col"></td></tr>
+          <tr><td>Time per post</td><td>45&ndash;90 min</td><td class="feat-col">0 min (we handle it)</td></tr>
+          <tr><td>Content calendar planning</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Unlimited revisions</td><td>N/A</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Multi-platform formatting</td><td>Manual resizing</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="w">
+    <div class="tc reveal"><span class="kicker">What clients say</span><h2 class="h2">In their <em>own words</em></h2></div>
+    <div class="testi-grid">
+      <div class="testi-card reveal rd1">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-metric"><span class="testi-m-n">+340%</span><span class="testi-m-l">&nbsp;profile visits</span></div>
+        <p class="testi-q">&ldquo;The difference between my old posts and what Apnosh creates is night and day. My feed finally looks like a real brand. Customers actually comment now and DM me asking about services they saw in a post.&rdquo;</p>
+        <div class="testi-author"><div class="t-av">&#128135;</div><div><span class="t-name">Marcus T.</span><span class="t-role">Barbershop owner &middot; Chicago, IL</span></div></div>
+      </div>
+      <div class="testi-card reveal rd2">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-metric"><span class="testi-m-n">2hrs</span><span class="testi-m-l">&nbsp;saved per week</span></div>
+        <p class="testi-q">&ldquo;I used to spend an hour per post trying to make it look decent in Canva. Now I approve a batch in 10 minutes and they all look better than anything I ever made. The SEO captions are the real game changer though.&rdquo;</p>
+        <div class="testi-author"><div class="t-av">&#128139;</div><div><span class="t-name">Jasmine K.</span><span class="t-role">Wellness studio &middot; Denver, CO</span></div></div>
+      </div>
+      <div class="testi-card reveal rd3">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-metric"><span class="testi-m-n">+89%</span><span class="testi-m-l">&nbsp;engagement</span></div>
+        <p class="testi-q">&ldquo;Started with 8 posts a month at the volume rate. Within 60 days my engagement nearly doubled and I started getting followers from people who found me through hashtags and explore. Absolutely worth it.&rdquo;</p>
+        <div class="testi-author"><div class="t-av">&#127860;</div><div><span class="t-name">Daniel R.</span><span class="t-role">Caf&eacute; owner &middot; Austin, TX</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="wmd tc">
+    <div class="reveal"><span class="kicker">Common questions</span><h2 class="h2">Everything you want to <em>know about feed posts</em></h2></div>
+    <div class="faq-list">
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">What does a single feed post include?<span class="faq-ic">+</span></button><div class="faq-a">Every feed post includes a custom-designed branded graphic, an AI-assisted and SEO-optimized caption, a researched hashtag set, and multi-platform formatting for Instagram, Facebook, and TikTok. You also get unlimited revisions before anything goes live.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">How does the volume discount work?<span class="faq-ic">+</span></button><div class="faq-a">Posts are $35 each for 1&ndash;7 per month. When you order 8 or more posts in a month, the price drops to $25 per post &mdash; a 29% savings. There&rsquo;s no contract; the volume rate applies automatically each month you hit the threshold.</div></div>
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">Can I choose what topics the posts cover?<span class="faq-ic">+</span></button><div class="faq-a">Absolutely. We build a monthly content calendar based on your business goals, promotions, and seasonal relevance. You review and approve every topic and post before it goes live. You can also suggest specific topics at any time.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">What makes your captions different from ChatGPT?<span class="faq-ic">+</span></button><div class="faq-a">Our captions are AI-assisted but human-refined. They&rsquo;re optimized specifically for each platform&rsquo;s search algorithm (Instagram SEO, Facebook discovery, TikTok search), written in your brand voice, and structured with engagement hooks and clear CTAs. Generic AI captions don&rsquo;t account for any of this.</div></div>
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">Do you post them for me or just deliver the files?<span class="faq-ic">+</span></button><div class="faq-a">Both options are available. If you have a social media management plan with us, we schedule and publish everything. If you&rsquo;re ordering posts &agrave; la carte, we deliver the graphics, captions, and hashtags for you to post &mdash; or we can add scheduling for a small additional fee.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">What if I also need stories, carousels, or video?<span class="faq-ic">+</span></button><div class="faq-a">We offer story graphics, carousel posts, infographics, and multiple tiers of video content as separate services. You can mix and match whatever your business needs &mdash; or bundle everything into a full social media management plan for the best value.</div></div>
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">How fast is turnaround?<span class="faq-ic">+</span></button><div class="faq-a">Standard turnaround is 3&ndash;5 business days for a batch of posts. Volume clients (8+/mo) get priority turnaround. Rush delivery is available on request for an additional fee.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <canvas id="cta-canvas"></canvas>
+  <h2 class="cta-h">Ready for a feed that <em>actually works?</em></h2>
+  <p class="cta-sub">Start with a free audit and we&rsquo;ll show you exactly how professional feed posts can transform your social presence and drive real business results.</p>
+  <div class="cta-btns">
+    <a class="btn btn-brand btn-lg" href="apnosh_homepage.html#start">Get my free audit <span class="arr">&rarr;</span></a>
+    <a class="btn btn-ghost-dark btn-lg" href="talk_to_expert.html">Talk to our team first</a>
+  </div>
+  <p style="font-size:11px;color:rgba(255,255,255,.18);margin-top:14px;letter-spacing:.03em">No contracts &middot; No minimums &middot; Volume discounts at 8+ posts/mo</p>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="f-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <div class="f-links">
+      <a class="f-link" href="apnosh_services.html">All services</a>
+      <a class="f-link" href="apnosh_pricing.html">Pricing</a>
+      <a class="f-link" href="apnosh_results.html">Results</a>
+      <a class="f-link" href="talk_to_expert.html">Contact</a>
+    </div>
+    <p class="f-copy">&copy; 2026 Apnosh. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('site-nav').classList.toggle('scrolled',window.scrollY>10),{passive:true});
+function fq(btn){const i=btn.closest('.faq-item'),o=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open');}
+!function(){const c=document.getElementById('cta-canvas');if(!c)return;const ctx=c.getContext('2d');let W,H,dots=[];function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}function mk(){return{x:Math.random()*W,y:H+10,s:Math.random()*.45+.15,r:Math.random()*1.4+.5,o:Math.random()*.13+.04};}function init(){resize();for(let i=0;i<36;i++){const d=mk();d.y=Math.random()*H;dots.push(d);}}function draw(){ctx.clearRect(0,0,W,H);dots.forEach(d=>{d.y-=d.s;if(d.y<-10)Object.assign(d,mk());ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle='rgba(74,189,152,'+d.o+')';ctx.fill();});requestAnimationFrame(draw);}init();draw();window.addEventListener('resize',resize);}();
+const io=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('on');io.unobserve(el.target);}});},{threshold:.05,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

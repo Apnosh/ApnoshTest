@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Static & Graphic Content — Apnosh</title>
+<meta name="description" content="Professional story graphics, carousel posts, and infographics designed to drive engagement, saves, and shares. From $25/graphic with volume discounts.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#4abd98;--brand-d:#2e9a78;--brand-t:#eaf7f3;--brand-g:rgba(74,189,152,.14);
+  --ink:#1d1d1f;--ink2:#424245;--ink3:#6e6e73;--ink4:#aeaeb2;--ink5:#d2d2d7;--ink6:#f0f0f5;
+  --bg:#fff;--bg2:#f5f5f7;
+  --fd:'Playfair Display',Georgia,serif;--fb:'Inter',-apple-system,sans-serif;
+  --s2:0 4px 16px rgba(0,0,0,.07);--s3:0 8px 32px rgba(0,0,0,.09);--s4:0 16px 56px rgba(0,0,0,.11);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:1080px;margin:0 auto;padding:0 40px}
+.wmd{max-width:820px;margin:0 auto;padding:0 40px}
+.wsm{max-width:640px;margin:0 auto;padding:0 40px}
+@media(max-width:600px){.w,.wmd,.wsm{padding:0 20px}}
+.tc{text-align:center}
+.kicker{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);margin-bottom:14px}
+.h1{font-family:var(--fd);font-size:clamp(36px,5.5vw,62px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink)}
+.h1 em{font-style:italic;color:var(--brand-d)}
+.h2{font-family:var(--fd);font-size:clamp(24px,3.5vw,40px);font-weight:400;line-height:1.12;letter-spacing:-.02em;color:var(--ink)}
+.h2 em{font-style:italic;color:var(--brand-d)}
+.h3{font-family:var(--fd);font-size:clamp(18px,2.2vw,24px);font-weight:400;line-height:1.2;letter-spacing:-.015em;color:var(--ink)}
+.lead{font-size:clamp(15px,1.8vw,18px);font-weight:300;color:var(--ink2);line-height:1.72}
+.body{font-size:15px;font-weight:300;color:var(--ink3);line-height:1.7}
+.sm{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65}
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fb);font-weight:500;font-size:14px;text-decoration:none;border:none;cursor:pointer;border-radius:99px;padding:12px 24px;transition:all .2s;white-space:nowrap;line-height:1}
+.btn-primary{background:var(--ink);color:#fff}.btn-primary:hover{background:#2d2d2f;transform:translateY(-1px);box-shadow:var(--s3)}
+.btn-brand{background:var(--brand);color:var(--ink);font-weight:600}.btn-brand:hover{background:var(--brand-d);color:#fff;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink5)}.btn-outline:hover{border-color:var(--ink3);transform:translateY(-1px)}
+.btn-ghost-dark{background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.13)}.btn-ghost-dark:hover{background:rgba(255,255,255,.14)}
+.btn-sm{padding:9px 18px;font-size:13px}.btn-lg{padding:15px 32px;font-size:15px}
+.arr{transition:transform .2s;display:inline-block}
+a:hover .arr{transform:translateX(3px)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:44px;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.07);display:flex;align-items:center;transition:box-shadow .2s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.nav-inner{width:100%;max-width:1080px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.nav-logo em{font-style:italic;color:var(--brand-d)}
+.nav-back{font-size:12px;font-weight:400;color:var(--ink3);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .15s}
+.nav-back:hover{color:var(--ink)}
+.nav-back-arr{display:inline-block;transform:rotate(180deg)}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-audit{font-size:12px;font-weight:600;color:#fff;background:var(--brand-d);padding:7px 16px;border-radius:99px;text-decoration:none;transition:all .15s}
+.nav-audit:hover{background:var(--brand)}
+.nav-plain{font-size:12px;color:rgba(0,0,0,.45);text-decoration:none;padding:0 10px;transition:color .15s}
+.nav-plain:hover{color:var(--ink)}
+
+/* BREADCRUMB */
+.breadcrumb{padding:56px 0 0;background:var(--bg)}
+.bc-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink4)}
+@media(max-width:600px){.bc-inner{padding:0 20px}}
+.bc-link{color:var(--ink4);text-decoration:none;transition:color .15s}.bc-link:hover{color:var(--brand-d)}
+.bc-sep{color:var(--ink5)}
+.bc-current{color:var(--ink2);font-weight:500}
+
+/* HERO */
+.hero{padding:32px 0 64px;background:var(--bg);overflow:hidden;position:relative}
+@media(max-width:600px){.hero{padding:28px 0 48px}}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(74,189,152,.06) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1080px;margin:0 auto;padding:0 40px;position:relative;z-index:1}
+@media(max-width:600px){.hero-inner{padding:0 20px}}
+.hero-service-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);border:1px solid rgba(74,189,152,.22);padding:5px 14px;border-radius:99px;margin-bottom:20px}
+.hero-h{font-family:var(--fd);font-size:clamp(34px,5vw,58px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink);max-width:760px;margin-bottom:20px}
+.hero-h em{font-style:italic;color:var(--brand-d)}
+.hero-lead{font-size:clamp(15px,1.8vw,18px);font-weight:300;color:var(--ink2);line-height:1.72;max-width:580px;margin-bottom:32px}
+.hero-btns{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.hero-trust{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.ht-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink4)}
+.ht-check{color:var(--brand-d);font-weight:700}
+
+/* STAT BAR */
+.stat-bar{background:var(--ink);padding:36px 0}
+.stat-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr)}
+@media(max-width:700px){.stat-inner{grid-template-columns:1fr 1fr;padding:0 24px}}
+.stat-cell{padding:0 24px;text-align:center;border-right:1px solid rgba(255,255,255,.07)}
+.stat-cell:last-child{border-right:none}
+@media(max-width:700px){.stat-cell:nth-child(2){border-right:none}.stat-cell:nth-child(3){border-top:1px solid rgba(255,255,255,.07);padding-top:24px;margin-top:24px}.stat-cell:nth-child(4){border-top:1px solid rgba(255,255,255,.07);padding-top:24px;margin-top:24px;border-right:none}}
+.stat-n{font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--brand);letter-spacing:-.03em;line-height:1;margin-bottom:6px}
+.stat-n em{font-style:normal;font-size:.65em;color:rgba(74,189,152,.6)}
+.stat-l{font-size:11px;font-weight:400;color:rgba(255,255,255,.32);line-height:1.5}
+
+/* PROBLEM / WHO SECTION */
+.problem-section{padding:80px 0;background:var(--bg2)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:0}
+@media(max-width:780px){.problem-grid{grid-template-columns:1fr;gap:40px}}
+.problem-list{display:flex;flex-direction:column;gap:16px;margin-top:28px}
+.prob-item{display:flex;align-items:flex-start;gap:12px;padding:16px 18px;background:var(--bg);border:1px solid var(--ink6);border-radius:12px}
+.prob-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.prob-title{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px;letter-spacing:-.01em}
+.prob-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.6}
+.solution-list{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.sol-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:300;color:var(--ink2);line-height:1.6}
+.sol-check{width:20px;height:20px;border-radius:50%;background:var(--brand-t);border:1px solid rgba(74,189,152,.25);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--brand-d);flex-shrink:0;margin-top:2px}
+
+/* WHAT'S INCLUDED SECTION */
+.included-section{padding:80px 0;background:var(--bg)}
+.platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+@media(max-width:780px){.platform-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.platform-grid{grid-template-columns:1fr}}
+.platform-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:16px;padding:24px;transition:border-color .2s,transform .2s}
+.platform-card:hover{border-color:rgba(74,189,152,.2);transform:translateY(-2px)}
+.pc-icon{font-size:28px;margin-bottom:12px;display:block}
+.pc-name{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em}
+.pc-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.62;margin-bottom:14px}
+.pc-tags{display:flex;flex-wrap:wrap;gap:5px}
+.pc-tag{font-size:10px;font-weight:500;color:var(--brand-d);background:var(--brand-t);padding:2px 8px;border-radius:99px}
+
+.deliverables-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:48px}
+@media(max-width:600px){.deliverables-grid{grid-template-columns:1fr}}
+.del-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:14px;padding:20px 22px;display:flex;align-items:flex-start;gap:12px}
+.del-icon-wrap{width:38px;height:38px;border-radius:10px;background:var(--brand-t);border:1px solid rgba(74,189,152,.15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.del-title{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px;letter-spacing:-.01em}
+.del-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.6}
+
+/* PROCESS SECTION */
+.process-section{padding:80px 0;background:var(--bg2)}
+.process-steps{display:flex;flex-direction:column;gap:0;margin-top:48px;max-width:680px;margin-left:auto;margin-right:auto}
+.process-step{display:flex;align-items:flex-start;gap:20px;padding:0 0 36px;position:relative}
+.process-step:last-child{padding-bottom:0}
+.process-step::before{content:'';position:absolute;left:18px;top:40px;bottom:0;width:1px;background:var(--ink6)}
+.process-step:last-child::before{display:none}
+.ps-num{width:36px;height:36px;border-radius:50%;background:var(--brand-t);border:2px solid var(--brand-d);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:14px;font-weight:500;color:var(--brand-d);flex-shrink:0;position:relative;z-index:1}
+.ps-title{font-family:var(--fd);font-size:17px;font-weight:500;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+.ps-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65}
+.ps-detail{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ps-det-tag{font-size:10px;font-weight:500;color:var(--brand-d);background:var(--brand-t);padding:2px 9px;border-radius:99px}
+
+/* PRICING TIERS */
+.pricing-section{padding:80px 0;background:var(--bg)}
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+@media(max-width:780px){.tier-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.tier-grid{grid-template-columns:1fr}}
+.tier{background:var(--bg2);border:1px solid var(--ink6);border-radius:18px;padding:28px 24px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.tier:hover{transform:translateY(-3px);box-shadow:var(--s4)}
+.tier.featured{background:var(--ink);border-color:var(--ink)}
+.tier.featured:hover{box-shadow:0 16px 56px rgba(0,0,0,.25)}
+.tier-pop{position:absolute;top:14px;right:14px;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--brand);color:var(--ink);padding:3px 9px;border-radius:99px}
+.tier-bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand-d));opacity:0;transition:opacity .2s}
+.tier:not(.featured):hover .tier-bar{opacity:1}
+.tier.featured .tier-bar{opacity:1}
+.tier-name{font-family:var(--fd);font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.tier.featured .tier-name{color:rgba(255,255,255,.88)}
+.tier-tagline{font-size:11px;font-weight:300;color:var(--ink4);margin-bottom:20px;line-height:1.5;min-height:32px}
+.tier.featured .tier-tagline{color:rgba(255,255,255,.32)}
+.tier-price{font-family:var(--fd);font-size:34px;font-weight:400;color:var(--ink);letter-spacing:-.03em;line-height:1;margin-bottom:4px}
+.tier.featured .tier-price{color:#fff}
+.tier-price span{font-size:14px;font-weight:300;font-family:var(--fb);color:var(--ink4)}
+.tier.featured .tier-price span{color:rgba(255,255,255,.32)}
+.tier-billed{font-size:11px;color:var(--brand-d);margin-bottom:20px;min-height:16px}
+.tier.featured .tier-billed{color:rgba(74,189,152,.8)}
+.tier-divider{height:1px;background:var(--ink6);margin:0 0 16px}
+.tier.featured .tier-divider{background:rgba(255,255,255,.07)}
+.tier-inc-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px}
+.tier.featured .tier-inc-label{color:rgba(255,255,255,.24)}
+.tier-features{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;flex:1}
+.tier-feat{display:flex;align-items:flex-start;gap:8px;font-size:12px;font-weight:300;color:var(--ink2);line-height:1.55}
+.tier.featured .tier-feat{color:rgba(255,255,255,.6)}
+.tier-feat.ai{color:var(--ink)}
+.tier.featured .tier-feat.ai{color:rgba(255,255,255,.9)}
+.tier-feat-icon{font-size:11px;flex-shrink:0;margin-top:1px;width:14px;text-align:center}
+.tier-cta{display:block;width:100%;text-align:center;padding:12px 0;border-radius:99px;font-family:var(--fb);font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
+.tier:not(.featured) .tier-cta{background:var(--ink6);color:var(--ink)}
+.tier:not(.featured):hover .tier-cta{background:var(--ink);color:#fff}
+.tier.featured .tier-cta{background:var(--brand);color:var(--ink)}
+.tier.featured:hover .tier-cta{background:var(--brand-d);color:#fff}
+
+/* EXAMPLES */
+.examples-section{padding:80px 0;background:var(--bg2)}
+.examples-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+@media(max-width:780px){.examples-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.examples-grid{grid-template-columns:1fr}}
+.example-card{background:var(--bg);border:1px solid var(--ink6);border-radius:16px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.example-card:hover{transform:translateY(-3px);box-shadow:var(--s3)}
+.ex-visual{background:var(--ink);position:relative;height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+.ex-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(74,189,152,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(74,189,152,.04) 1px,transparent 1px);background-size:36px 36px}
+.ex-orb{position:absolute;border-radius:50%;filter:blur(40px);background:rgba(74,189,152,.1);width:160px;height:160px;top:50%;left:50%;transform:translate(-50%,-50%)}
+.ex-type{position:relative;z-index:1;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(74,189,152,.7);background:rgba(74,189,152,.1);border:1px solid rgba(74,189,152,.18);padding:2px 8px;border-radius:99px;margin-bottom:6px}
+.ex-label{position:relative;z-index:1;font-family:var(--fd);font-size:16px;font-weight:400;color:rgba(255,255,255,.85);letter-spacing:-.01em;text-align:center;max-width:200px}
+.ex-body{padding:18px 20px}
+.ex-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.62}
+.ex-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.ex-tag{font-size:10px;font-weight:500;color:var(--brand-d);background:var(--brand-t);padding:2px 8px;border-radius:99px}
+
+/* COMPARISON */
+.compare-section{padding:72px 0;background:var(--bg)}
+.compare-wrap{margin-top:48px;overflow-x:auto}
+.compare-table{width:100%;border-collapse:collapse;min-width:500px}
+.compare-table th{padding:12px 16px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-align:center;border-bottom:1px solid var(--ink6)}
+.compare-table th:first-child{text-align:left;color:var(--ink4);width:40%}
+.compare-table th:not(:first-child){color:var(--ink2);background:var(--bg2);border-left:1px solid var(--ink6)}
+.compare-table th.feat-col{background:var(--ink);color:rgba(255,255,255,.75)}
+.compare-table td{padding:11px 16px;font-size:12px;font-weight:300;color:var(--ink3);border-bottom:1px solid var(--ink6);text-align:center}
+.compare-table td:first-child{text-align:left;color:var(--ink2);font-weight:400}
+.compare-table td:not(:first-child){border-left:1px solid var(--ink6);background:var(--bg2)}
+.compare-table td.feat-col{background:rgba(15,15,15,.03)}
+.compare-table tr:last-child td{border-bottom:none}
+.ct-group-row td,.ct-group-row th{background:var(--brand-t);color:var(--brand-d);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;border-bottom:1px solid rgba(74,189,152,.15)}
+.ct-check{color:var(--brand-d);font-weight:700;font-size:13px}
+.ct-x{color:var(--ink5);font-size:11px}
+.ct-ai{color:#f59e0b;font-size:11px}
+
+/* TESTIMONIALS */
+.testi-section{padding:72px 0;background:var(--bg)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+@media(max-width:780px){.testi-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.testi-grid{grid-template-columns:1fr}}
+.testi-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:16px;padding:24px;transition:border-color .2s}
+.testi-card:hover{border-color:rgba(74,189,152,.2)}
+.testi-stars{color:var(--brand-d);font-size:11px;letter-spacing:3px;margin-bottom:12px}
+.testi-metric{display:inline-flex;align-items:baseline;gap:4px;background:var(--brand-t);border:1px solid rgba(74,189,152,.2);padding:4px 10px;border-radius:99px;margin-bottom:12px}
+.testi-m-n{font-family:var(--fd);font-size:16px;font-weight:400;color:var(--brand-d)}
+.testi-m-l{font-size:10px;color:var(--brand-d);opacity:.7}
+.testi-q{font-family:var(--fd);font-size:14px;font-style:italic;color:var(--ink);line-height:1.65;margin-bottom:16px}
+.testi-author{display:flex;align-items:center;gap:8px;padding-top:12px;border-top:1px solid var(--ink6)}
+.t-av{width:32px;height:32px;border-radius:50%;background:var(--brand-t);border:1px solid rgba(74,189,152,.18);display:flex;align-items:center;justify-content:center;font-size:14px}
+.t-name{font-family:var(--fd);font-size:12px;font-weight:500;color:var(--ink);display:block}
+.t-role{font-size:10px;color:var(--ink4)}
+
+/* FAQ */
+.faq-section{padding:72px 0;background:var(--bg2)}
+.faq-list{max-width:640px;margin:40px auto 0;display:flex;flex-direction:column;gap:6px}
+.faq-item{background:var(--bg);border:1px solid var(--ink6);border-radius:10px;overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:rgba(74,189,152,.24)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:none;border:none;cursor:pointer;font-family:var(--fd);font-size:14px;font-weight:400;color:var(--ink);text-align:left;gap:12px}
+.faq-ic{color:var(--brand-d);font-size:18px;flex-shrink:0;transition:transform .22s}
+.faq-item.open .faq-ic{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 20px 16px;font-size:13px;font-weight:300;color:var(--ink3);line-height:1.7}
+.faq-item.open .faq-a{display:block}
+
+/* CTA */
+.cta-section{background:var(--ink);padding:92px 40px;text-align:center;position:relative;overflow:hidden}
+@media(max-width:600px){.cta-section{padding:68px 20px}}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(74,189,152,.08) 0%,transparent 70%)}
+#cta-canvas{position:absolute;inset:0;pointer-events:none}
+.cta-section>*{position:relative;z-index:1}
+.cta-h{font-family:var(--fd);font-size:clamp(26px,4vw,46px);font-weight:400;line-height:1.1;letter-spacing:-.025em;color:rgba(255,255,255,.95);max-width:560px;margin:0 auto 14px}
+.cta-h em{font-style:italic;color:var(--brand)}
+.cta-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,.38);max-width:420px;margin:0 auto 36px;line-height:1.7}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+
+/* FOOTER */
+.footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:36px 40px}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none}
+.f-logo em{font-style:italic;color:var(--brand)}
+.f-links{display:flex;gap:20px;flex-wrap:wrap}
+.f-link{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .15s}
+.f-link:hover{color:rgba(255,255,255,.6)}
+.f-copy{font-size:11px;color:rgba(255,255,255,.16)}
+
+/* REVEAL */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hero-service-tag,.hero-h,.hero-lead,.hero-btns,.hero-trust{opacity:1}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.06s}.rd2{transition-delay:.12s}.rd3{transition-delay:.18s}.rd4{transition-delay:.24s}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <a class="nav-back" href="apnosh_services.html"><span class="nav-back-arr">&#8594;</span> All services</a>
+    <div class="nav-right">
+      <a class="nav-plain" href="talk_to_expert.html">Contact</a>
+      <a class="nav-audit" href="apnosh_homepage.html#start">Get free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="bc-inner">
+    <a class="bc-link" href="apnosh_homepage.html">Home</a>
+    <span class="bc-sep">/</span>
+    <a class="bc-link" href="apnosh_services.html">Services</a>
+    <span class="bc-sep">/</span>
+    <a class="bc-link" href="service-social-media.html">Social Media</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">Static &amp; Graphic Content</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-service-tag">&#128248; Static &amp; Graphic Content</div>
+    <h1 class="hero-h">Professional graphics that go <em>beyond the basic feed post</em></h1>
+    <p class="hero-lead">Stories, carousels, and infographics are the highest-performing static formats on social media. We design scroll-stopping graphics that drive engagement, saves, and shares &mdash; so your brand stays visible and builds authority every day.</p>
+    <div class="hero-btns">
+      <a class="btn btn-brand btn-lg" href="#pricing">See pricing <span class="arr">&rarr;</span></a>
+      <a class="btn btn-outline btn-lg" href="talk_to_expert.html">Talk to our team</a>
+    </div>
+    <div class="hero-trust">
+      <div class="ht-item"><span class="ht-check">&#10003;</span> Story graphics from $25 each</div>
+      <div class="ht-item"><span class="ht-check">&#10003;</span> High-engagement carousels</div>
+      <div class="ht-item"><span class="ht-check">&#10003;</span> Volume discounts available</div>
+      <div class="ht-item"><span class="ht-check">&#10003;</span> Data-driven infographics</div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-inner">
+    <div class="stat-cell"><div class="stat-n">3<em>x</em></div><div class="stat-l">More reach for carousels vs. single image posts on Instagram</div></div>
+    <div class="stat-cell"><div class="stat-n">3<em>x</em></div><div class="stat-l">More shares for infographics compared to other content types</div></div>
+    <div class="stat-cell"><div class="stat-n">86<em>%</em></div><div class="stat-l">Of brands use stories daily to stay top of followers&rsquo; feeds</div></div>
+    <div class="stat-cell"><div class="stat-n">$25</div><div class="stat-l">Per story graphic starting price &mdash; volume discounts at 8+</div></div>
+  </div>
+</div>
+
+<!-- PROBLEM / SOLUTION -->
+<section class="problem-section">
+  <div class="w">
+    <div class="problem-grid">
+      <div class="reveal">
+        <span class="kicker">Sound familiar?</span>
+        <h2 class="h2">Why DIY graphics <em>fall flat</em></h2>
+        <div class="problem-list">
+          <div class="prob-item">
+            <span class="prob-icon">&#128247;</span>
+            <div><div class="prob-title">Stories that look like afterthoughts</div><div class="prob-desc">Quick phone screenshots with text slapped on top don&rsquo;t drive swipe-ups or build brand recognition. Your stories compete with polished brands &mdash; and lose when they look unfinished.</div></div>
+          </div>
+          <div class="prob-item">
+            <span class="prob-icon">&#128218;</span>
+            <div><div class="prob-title">Carousels that nobody swipes through</div><div class="prob-desc">Without a compelling visual hook on slide one and a clear narrative arc, people scroll past. A carousel that doesn&rsquo;t earn the swipe is worse than not posting at all &mdash; it tanks your engagement rate.</div></div>
+          </div>
+          <div class="prob-item">
+            <span class="prob-icon">&#128200;</span>
+            <div><div class="prob-title">Data visuals that confuse instead of impress</div><div class="prob-desc">Poorly laid-out infographics with cluttered numbers and inconsistent styling undermine your authority. If people can&rsquo;t understand it at a glance, they won&rsquo;t save or share it.</div></div>
+          </div>
+          <div class="prob-item">
+            <span class="prob-icon">&#127912;</span>
+            <div><div class="prob-title">No visual system across formats</div><div class="prob-desc">When your stories, carousels, and infographics all look like they came from different brands, you lose the cumulative recognition that makes content marketing work.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal rd1">
+        <span class="kicker">How Apnosh fixes it</span>
+        <h2 class="h2">Graphics designed to <em>perform &amp; convert</em></h2>
+        <p class="body" style="margin-bottom:24px">Every graphic we create is custom-designed in your brand style with a clear strategic purpose. Stories drive daily visibility, carousels build deep engagement, and infographics establish your authority &mdash; all working together as one cohesive visual system.</p>
+        <div class="solution-list">
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Custom-designed story graphics with strong CTAs for daily visibility and traffic</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Multi-slide carousels structured for maximum swipes, saves, and shares</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Data-driven infographics that position you as the industry authority</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Consistent brand system across all formats &mdash; colors, fonts, and style</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Unlimited revisions until every graphic is exactly right</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Volume pricing on every format &mdash; order more, save more</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">What you get</span>
+      <h2 class="h2">Three powerful formats, <em>one cohesive brand</em></h2>
+      <p class="body" style="max-width:500px;margin:12px auto 0">Each format serves a different strategic purpose. Together, they create a complete static content system that keeps your brand visible, engaging, and authoritative.</p>
+    </div>
+    <div class="platform-grid">
+      <div class="platform-card reveal rd1">
+        <span class="pc-icon">&#128242;</span>
+        <div class="pc-name">Story Graphics</div>
+        <p class="pc-desc">Vertical 9:16 story graphics with strong CTAs designed for daily visibility. Keep your brand at the top of followers&rsquo; feeds and drive traffic to your site, offers, or DMs.</p>
+        <div class="pc-tags"><span class="pc-tag">9:16 vertical</span><span class="pc-tag">CTA-driven</span><span class="pc-tag">Daily touchpoints</span></div>
+      </div>
+      <div class="platform-card reveal rd2">
+        <span class="pc-icon">&#128218;</span>
+        <div class="pc-name">Carousel Posts</div>
+        <p class="pc-desc">High-engagement educational or storytelling carousels with up to 10 slides. The highest-performing static format on Instagram &mdash; 3x more reach than single image posts.</p>
+        <div class="pc-tags"><span class="pc-tag">Up to 10 slides</span><span class="pc-tag">Swipe hooks</span><span class="pc-tag">3x reach</span></div>
+      </div>
+      <div class="platform-card reveal rd3">
+        <span class="pc-icon">&#128202;</span>
+        <div class="pc-name">Infographics</div>
+        <p class="pc-desc">Data-driven or educational infographic posts that establish authority and drive saves. Infographics are shared 3x more than other content &mdash; powerful for professional services.</p>
+        <div class="pc-tags"><span class="pc-tag">Data visualization</span><span class="pc-tag">High saves</span><span class="pc-tag">Authority builder</span></div>
+      </div>
+    </div>
+    <div class="deliverables-grid" style="margin-top:32px">
+      <div class="del-card reveal rd1">
+        <div class="del-icon-wrap">&#127912;</div>
+        <div><div class="del-title">Custom brand-aligned design</div><div class="del-desc">Every graphic is designed to your brand guidelines &mdash; your colors, your fonts, your style. No templates, no generic stock overlays.</div></div>
+      </div>
+      <div class="del-card reveal rd2">
+        <div class="del-icon-wrap">&#128260;</div>
+        <div><div class="del-title">Unlimited revisions</div><div class="del-desc">Not happy with a layout, color, or CTA? We revise until it&rsquo;s right. Nothing is finalized until you&rsquo;re 100% satisfied.</div></div>
+      </div>
+      <div class="del-card reveal rd1">
+        <div class="del-icon-wrap">&#128241;</div>
+        <div><div class="del-title">Platform-optimized sizing</div><div class="del-desc">Stories at 9:16, carousels at 1:1 or 4:5, infographics sized for feed and Pinterest. Every format optimized for its platform.</div></div>
+      </div>
+      <div class="del-card reveal rd2">
+        <div class="del-icon-wrap">&#128196;</div>
+        <div><div class="del-title">Source files included</div><div class="del-desc">You own everything we create. Receive high-resolution files in all formats you need &mdash; PNG, PDF, and editable source files on request.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">How it works</span>
+      <h2 class="h2">From brief to delivery <em>in 5 simple steps</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="ps-num">1</div>
+        <div>
+          <div class="ps-title">Creative brief &amp; brand review</div>
+          <p class="ps-desc">We learn your brand &mdash; colors, fonts, tone, and visual preferences. Share your brand guidelines or let us build a consistent style system for you from scratch.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Brand audit</span><span class="ps-det-tag">Style guide</span><span class="ps-det-tag">Reference review</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd1">
+        <div class="ps-num">2</div>
+        <div>
+          <div class="ps-title">Content strategy &amp; topics</div>
+          <p class="ps-desc">We plan your graphic content based on your business goals, audience, and what performs best in your industry. Stories for daily reach, carousels for engagement, infographics for authority.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Format strategy</span><span class="ps-det-tag">Topic planning</span><span class="ps-det-tag">Content mix</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd2">
+        <div class="ps-num">3</div>
+        <div>
+          <div class="ps-title">Design &amp; copywriting</div>
+          <p class="ps-desc">Custom graphics are designed for each format with strategic copy, CTA placement, and visual hierarchy. Carousels are storyboarded slide-by-slide for maximum engagement.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Custom design</span><span class="ps-det-tag">CTA copy</span><span class="ps-det-tag">Storyboarding</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd3">
+        <div class="ps-num">4</div>
+        <div>
+          <div class="ps-title">Your review &amp; approval</div>
+          <p class="ps-desc">Everything is sent to you for review. Request changes to layouts, colors, copy, or ordering &mdash; unlimited revisions until you&rsquo;re happy. Nothing is delivered until you sign off.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Your approval</span><span class="ps-det-tag">Unlimited revisions</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd4">
+        <div class="ps-num">5</div>
+        <div>
+          <div class="ps-title">Final delivery &amp; scheduling</div>
+          <p class="ps-desc">Approved graphics are delivered in all required formats and sizes. If you have a management plan, we schedule and publish them at optimal times across your platforms.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Hi-res files</span><span class="ps-det-tag">Multi-format</span><span class="ps-det-tag">Optional scheduling</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Pricing</span>
+      <h2 class="h2">Per-piece pricing. <em>Volume discounts built in.</em></h2>
+      <p class="body" style="max-width:480px;margin:12px auto 0">Order any format individually or mix and match across all three. The more you order, the more you save. No contracts, no minimums.</p>
+    </div>
+    <div class="tier-grid reveal">
+
+      <!-- STORY GRAPHICS -->
+      <div class="tier">
+        <div class="tier-bar"></div>
+        <div class="tier-name">Story Graphics</div>
+        <div class="tier-tagline">Vertical 9:16 story graphics with CTAs for daily visibility and traffic.</div>
+        <div class="tier-price">$25<span>/graphic</span></div>
+        <div class="tier-billed">Bundle at 8+ for $18/graphic &mdash; save 28%</div>
+        <div class="tier-divider"></div>
+        <div class="tier-inc-label">Every story includes</div>
+        <div class="tier-features">
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Custom branded 9:16 vertical design</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Strategic CTA placement for swipe-ups</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Brand-consistent visual style</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>High-resolution PNG delivery</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Unlimited revisions</div>
+        </div>
+        <a class="tier-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+
+      <!-- CAROUSEL POSTS -->
+      <div class="tier featured">
+        <div class="tier-bar"></div>
+        <div class="tier-pop">&#9889; Highest engagement</div>
+        <div class="tier-name">Carousel Posts</div>
+        <div class="tier-tagline">Up to 10-slide educational or storytelling carousels with 3x more reach.</div>
+        <div class="tier-price">$95<span>/carousel</span></div>
+        <div class="tier-billed">Bundle at 4+ for $75/carousel &mdash; save 21%</div>
+        <div class="tier-divider"></div>
+        <div class="tier-inc-label">Every carousel includes</div>
+        <div class="tier-features">
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Up to 10 custom-designed slides</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Scroll-stopping cover slide hook</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Strategic narrative arc &amp; CTA slide</div>
+          <div class="tier-feat ai"><span class="tier-feat-icon">&#9889;</span>AI-optimized caption &amp; hashtags</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Unlimited revisions</div>
+        </div>
+        <a class="tier-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+
+      <!-- INFOGRAPHICS -->
+      <div class="tier">
+        <div class="tier-bar"></div>
+        <div class="tier-name">Infographics</div>
+        <div class="tier-tagline">Data-driven or educational infographic posts that drive saves and establish authority.</div>
+        <div class="tier-price">$120<span>/infographic</span></div>
+        <div class="tier-billed">Bundle at 4+ for $95/infographic &mdash; save 21%</div>
+        <div class="tier-divider"></div>
+        <div class="tier-inc-label">Every infographic includes</div>
+        <div class="tier-features">
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Custom data visualization design</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Clear visual hierarchy &amp; flow</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Feed + Pinterest-optimized sizes</div>
+          <div class="tier-feat ai"><span class="tier-feat-icon">&#9889;</span>AI-assisted caption &amp; hashtags</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Unlimited revisions</div>
+        </div>
+        <a class="tier-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+
+    </div>
+    <p class="sm tc" style="margin-top:16px;color:var(--ink4)">&#9889; = AI-powered feature &nbsp;&nbsp;|&nbsp;&nbsp; No contracts or minimums &nbsp;&nbsp;|&nbsp;&nbsp; Mix &amp; match all formats</p>
+  </div>
+</section>
+
+<!-- USE CASE EXAMPLES -->
+<section class="examples-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Use cases</span>
+      <h2 class="h2">How businesses use <em>static graphic content</em></h2>
+    </div>
+    <div class="examples-grid">
+      <div class="example-card reveal rd1">
+        <div class="ex-visual"><div class="ex-grid"></div><div class="ex-orb"></div><div class="ex-type">Stories</div><div class="ex-label">Daily flash sales &amp; limited-time offers</div></div>
+        <div class="ex-body">
+          <p class="ex-desc">A boutique runs daily story graphics promoting new arrivals and 24-hour flash sales. CTA links drive followers directly to product pages, generating consistent daily traffic without video production costs.</p>
+          <div class="ex-tags"><span class="ex-tag">Retail</span><span class="ex-tag">Daily promos</span><span class="ex-tag">Swipe-up CTAs</span></div>
+        </div>
+      </div>
+      <div class="example-card reveal rd2">
+        <div class="ex-visual"><div class="ex-grid"></div><div class="ex-orb"></div><div class="ex-type">Carousel</div><div class="ex-label">Educational step-by-step guides</div></div>
+        <div class="ex-body">
+          <p class="ex-desc">A financial advisor publishes weekly carousels breaking down complex topics into simple, swipeable steps. Each carousel earns 3x the saves and shares of regular posts, building a reputation as the go-to expert.</p>
+          <div class="ex-tags"><span class="ex-tag">Finance</span><span class="ex-tag">Educational</span><span class="ex-tag">Authority building</span></div>
+        </div>
+      </div>
+      <div class="example-card reveal rd3">
+        <div class="ex-visual"><div class="ex-grid"></div><div class="ex-orb"></div><div class="ex-type">Infographic</div><div class="ex-label">Industry data &amp; trend reports</div></div>
+        <div class="ex-body">
+          <p class="ex-desc">A real estate agency publishes monthly market infographics showing local pricing trends and inventory data. These become the most-saved posts on their profile and get shared by other local businesses.</p>
+          <div class="ex-tags"><span class="ex-tag">Real estate</span><span class="ex-tag">Market data</span><span class="ex-tag">Viral shares</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON: DIY vs APNOSH -->
+<section class="compare-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Why us</span>
+      <h2 class="h2">DIY vs. Apnosh graphic content</h2>
+    </div>
+    <div class="compare-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>DIY / Canva</th>
+            <th class="feat-col">Apnosh &#9889;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="ct-group-row"><td>Design quality</td><td></td><td class="feat-col"></td></tr>
+          <tr><td>Custom brand-aligned graphics</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Consistent style across all formats</td><td>Inconsistent</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Professional data visualization</td><td>Basic charts</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+
+          <tr class="ct-group-row"><td>Strategy &amp; engagement</td><td></td><td class="feat-col"></td></tr>
+          <tr><td>Carousel storyboarding &amp; hooks</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>AI-optimized captions &amp; hashtags</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-ai">&#9889;</span></td></tr>
+          <tr><td>CTA strategy for stories</td><td>Generic links</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+
+          <tr class="ct-group-row"><td>Process &amp; delivery</td><td></td><td class="feat-col"></td></tr>
+          <tr><td>Time per graphic</td><td>30&ndash;90 min</td><td class="feat-col">0 min (we handle it)</td></tr>
+          <tr><td>Platform-optimized sizing</td><td>Manual resizing</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Unlimited revisions</td><td>N/A</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Volume discount pricing</td><td>N/A</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="w">
+    <div class="tc reveal"><span class="kicker">What clients say</span><h2 class="h2">In their <em>own words</em></h2></div>
+    <div class="testi-grid">
+      <div class="testi-card reveal rd1">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-metric"><span class="testi-m-n">+220%</span><span class="testi-m-l">&nbsp;story engagement</span></div>
+        <p class="testi-q">&ldquo;We used to throw up random photos on stories and wonder why nobody swiped. Apnosh designed a set of branded story templates with real CTAs and our swipe-through rate tripled. Now stories are our biggest traffic driver.&rdquo;</p>
+        <div class="testi-author"><div class="t-av">&#128091;</div><div><span class="t-name">Priya M.</span><span class="t-role">Boutique owner &middot; Miami, FL</span></div></div>
+      </div>
+      <div class="testi-card reveal rd2">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-metric"><span class="testi-m-n">+410%</span><span class="testi-m-l">&nbsp;saves per post</span></div>
+        <p class="testi-q">&ldquo;Our carousels went from getting 15 likes to being our most-saved content. The slide-by-slide storyboarding Apnosh does is incredible &mdash; people actually swipe all the way through and share them. Game changer for our authority.&rdquo;</p>
+        <div class="testi-author"><div class="t-av">&#128188;</div><div><span class="t-name">Ryan S.</span><span class="t-role">Financial advisor &middot; Seattle, WA</span></div></div>
+      </div>
+      <div class="testi-card reveal rd3">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-metric"><span class="testi-m-n">12k</span><span class="testi-m-l">&nbsp;shares in 30 days</span></div>
+        <p class="testi-q">&ldquo;Our monthly market infographic became the most-shared post on our entire profile. Other agents started reposting it. Apnosh turned dry data into something people actually wanted to share. The ROI on one infographic paid for three months of content.&rdquo;</p>
+        <div class="testi-author"><div class="t-av">&#127968;</div><div><span class="t-name">Lauren K.</span><span class="t-role">Real estate broker &middot; Portland, OR</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="wmd tc">
+    <div class="reveal"><span class="kicker">Common questions</span><h2 class="h2">Everything you want to <em>know about graphic content</em></h2></div>
+    <div class="faq-list">
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">What&rsquo;s the difference between these formats and single feed posts?<span class="faq-ic">+</span></button><div class="faq-a">Single feed posts are standard square or vertical images for your main grid. Story graphics are vertical 9:16 content designed for Instagram and Facebook stories. Carousels are multi-slide posts (up to 10 slides) that users swipe through. Infographics are data-rich visual posts. Each format serves a different strategic purpose and they work best when combined.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">How do volume discounts work?<span class="faq-ic">+</span></button><div class="faq-a">Story graphics are $25 each, dropping to $18 each when you order 8 or more per month. Carousel posts are $95 each, dropping to $75 at 4+ per month. Infographics are $120 each, dropping to $95 at 4+ per month. Discounts apply automatically &mdash; no contracts or commitments required. You can also mix and match formats.</div></div>
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">How many slides are included in a carousel?<span class="faq-ic">+</span></button><div class="faq-a">Each carousel includes up to 10 custom-designed slides. We storyboard the entire sequence with a compelling hook on slide one, a clear narrative flow, and a strong CTA on the final slide. Most clients find 7&ndash;10 slides is the sweet spot for engagement.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">Can I provide my own data for infographics?<span class="faq-ic">+</span></button><div class="faq-a">Absolutely. You can provide raw data, statistics, research findings, or even a rough outline. We handle all the visual design, data hierarchy, and layout. If you don&rsquo;t have data ready, we can also research and curate industry-relevant statistics for you.</div></div>
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">Do you write captions and hashtags for these formats too?<span class="faq-ic">+</span></button><div class="faq-a">Carousel posts and infographics include AI-optimized captions and researched hashtag sets as part of the package. Story graphics are delivered as visual-only files since stories typically don&rsquo;t use traditional captions, but we include any overlay text and CTA copy in the design itself.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">What&rsquo;s the turnaround time?<span class="faq-ic">+</span></button><div class="faq-a">Story graphics are typically delivered in 2&ndash;3 business days. Carousels take 4&ndash;5 business days due to multi-slide design. Infographics take 5&ndash;7 business days depending on data complexity. Volume clients get priority turnaround. Rush delivery is available on request.</div></div>
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">Can I bundle different formats together?<span class="faq-ic">+</span></button><div class="faq-a">Yes. Many clients order a mix of stories, carousels, and infographics each month. Volume discounts apply per format &mdash; so ordering 8+ stories gets you the story discount, and 4+ carousels gets you the carousel discount. If you want everything managed together, ask about our full social media management plans.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <canvas id="cta-canvas"></canvas>
+  <h2 class="cta-h">Ready for graphics that <em>actually perform?</em></h2>
+  <p class="cta-sub">Start with a free audit and we&rsquo;ll show you exactly how professional stories, carousels, and infographics can elevate your brand and drive real engagement.</p>
+  <div class="cta-btns">
+    <a class="btn btn-brand btn-lg" href="apnosh_homepage.html#start">Get my free audit <span class="arr">&rarr;</span></a>
+    <a class="btn btn-ghost-dark btn-lg" href="talk_to_expert.html">Talk to our team first</a>
+  </div>
+  <p style="font-size:11px;color:rgba(255,255,255,.18);margin-top:14px;letter-spacing:.03em">No contracts &middot; No minimums &middot; Volume discounts on every format</p>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="f-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <div class="f-links">
+      <a class="f-link" href="apnosh_services.html">All services</a>
+      <a class="f-link" href="apnosh_pricing.html">Pricing</a>
+      <a class="f-link" href="apnosh_results.html">Results</a>
+      <a class="f-link" href="talk_to_expert.html">Contact</a>
+    </div>
+    <p class="f-copy">&copy; 2026 Apnosh. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('site-nav').classList.toggle('scrolled',window.scrollY>10),{passive:true});
+function fq(btn){const i=btn.closest('.faq-item'),o=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open');}
+!function(){const c=document.getElementById('cta-canvas');if(!c)return;const ctx=c.getContext('2d');let W,H,dots=[];function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}function mk(){return{x:Math.random()*W,y:H+10,s:Math.random()*.45+.15,r:Math.random()*1.4+.5,o:Math.random()*.13+.04};}function init(){resize();for(let i=0;i<36;i++){const d=mk();d.y=Math.random()*H;dots.push(d);}}function draw(){ctx.clearRect(0,0,W,H);dots.forEach(d=>{d.y-=d.s;if(d.y<-10)Object.assign(d,mk());ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle='rgba(74,189,152,'+d.o+')';ctx.fill();});requestAnimationFrame(draw);}init();draw();window.addEventListener('resize',resize);}();
+const io=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('on');io.unobserve(el.target);}});},{threshold:.05,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

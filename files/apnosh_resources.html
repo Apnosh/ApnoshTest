@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources &mdash; Apnosh</title>
+<meta name="description" content="Free guides, tools, and articles to help local business owners grow. Local SEO playbook, social media toolkit, AI plan builder and more.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#4abd98;--brand-d:#2e9a78;--brand-t:#eaf7f3;
+  --ink:#1d1d1f;--ink2:#424245;--ink3:#6e6e73;--ink4:#aeaeb2;--ink5:#d2d2d7;--ink6:#f0f0f5;
+  --bg:#fff;--bg2:#f5f5f7;
+  --fd:'Playfair Display',Georgia,serif;--fb:'Inter',-apple-system,sans-serif;
+  --s3:0 8px 32px rgba(0,0,0,.09);--s4:0 16px 56px rgba(0,0,0,.11);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:1080px;margin:0 auto;padding:0 40px}
+.wmd{max-width:780px;margin:0 auto;padding:0 40px}
+@media(max-width:600px){.w,.wmd{padding:0 20px}}
+.tc{text-align:center}
+.kicker{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);margin-bottom:14px}
+.h1{font-family:var(--fd);font-size:clamp(36px,5.5vw,62px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink)}
+.h1 em{font-style:italic;color:var(--brand-d)}
+.h2{font-family:var(--fd);font-size:clamp(22px,3vw,36px);font-weight:400;line-height:1.12;letter-spacing:-.02em;color:var(--ink)}
+.h2 em{font-style:italic;color:var(--brand-d)}
+.lead{font-size:clamp(15px,1.8vw,18px);font-weight:300;color:var(--ink2);line-height:1.72}
+.body{font-size:15px;font-weight:300;color:var(--ink3);line-height:1.7}
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fb);font-weight:500;font-size:14px;text-decoration:none;border:none;cursor:pointer;border-radius:99px;padding:12px 24px;transition:all .2s;white-space:nowrap;line-height:1}
+.btn-primary{background:var(--ink);color:#fff}.btn-primary:hover{background:#2d2d2f;transform:translateY(-1px)}
+.btn-brand{background:var(--brand);color:var(--ink);font-weight:600}.btn-brand:hover{background:var(--brand-d);color:#fff;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink5)}.btn-outline:hover{border-color:var(--ink3);transform:translateY(-1px)}
+.btn-ghost-dark{background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.13)}.btn-ghost-dark:hover{background:rgba(255,255,255,.14)}
+.btn-lg{padding:15px 32px;font-size:15px}
+.arr{transition:transform .2s;display:inline-block}
+a:hover .arr{transform:translateX(3px)}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:44px;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.07);display:flex;align-items:center;transition:box-shadow .2s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.nav-inner{width:100%;max-width:1080px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:-.01em;flex-shrink:0;position:relative;z-index:902}
+.nav-logo em{font-style:italic;color:var(--brand-d)}
+.nav-center{display:flex;align-items:center}
+.nav-link{font-size:12px;font-weight:400;color:rgba(0,0,0,.55);text-decoration:none;padding:0 12px;height:44px;display:inline-flex;align-items:center;gap:4px;transition:color .15s;border:none;background:none;cursor:pointer;font-family:var(--fb);white-space:nowrap}
+.nav-link:hover,.nav-link.open,.nav-link.active{color:var(--ink)}
+.nav-link.active{font-weight:500}
+.nav-chevron{width:7px;height:7px;border-right:1.2px solid currentColor;border-bottom:1.2px solid currentColor;transform:rotate(45deg);margin-top:-3px;transition:transform .2s;flex-shrink:0}
+.nav-link.open .nav-chevron{transform:rotate(-135deg);margin-top:1px}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;position:relative;z-index:902}
+.nav-audit{font-size:12px;font-weight:600;color:#fff;background:var(--brand-d);padding:7px 16px;border-radius:99px;text-decoration:none;transition:all .15s}
+.nav-audit:hover{background:var(--brand)}
+.nav-plain{font-size:12px;color:rgba(0,0,0,.45);text-decoration:none;padding:0 10px;transition:color .15s}
+.nav-plain:hover{color:var(--ink)}
+.mega{position:fixed;top:44px;left:0;right:0;z-index:899;background:rgba(255,255,255,.97);backdrop-filter:saturate(180%) blur(24px);border-bottom:1px solid rgba(0,0,0,.07);box-shadow:0 8px 40px rgba(0,0,0,.1);padding:28px 0 32px;opacity:0;pointer-events:none;transform:translateY(-6px);transition:opacity .2s ease,transform .2s ease}
+.mega.open{opacity:1;pointer-events:all;transform:translateY(0)}
+.mega-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px}
+.mega-col{display:flex;flex-direction:column;gap:2px}
+.mega-col-title{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);padding:0 12px;margin-bottom:8px}
+.mega-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:background .15s}
+.mega-item:hover{background:var(--ink6)}
+.mega-icon{width:32px;height:32px;border-radius:8px;background:var(--brand-t);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.mega-item-name{font-size:13px;font-weight:500;color:var(--ink);display:block;margin-bottom:2px;font-family:var(--fd);letter-spacing:-.01em}
+.mega-item-desc{font-size:11px;font-weight:300;color:var(--ink4);line-height:1.4}
+.mega-footer{max-width:1080px;margin:18px auto 0;padding:16px 40px 0;border-top:1px solid var(--ink6);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.mega-footer-links{display:flex;align-items:center;gap:20px}
+.mega-footer-link{font-size:12px;font-weight:500;color:var(--brand-d);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.mega-footer-link:hover{color:var(--brand)}
+.mega-footer-tag{font-size:11px;color:var(--ink4)}
+.mega-footer-cta{font-size:12px;font-weight:600;color:#fff;background:var(--ink);padding:8px 18px;border-radius:99px;text-decoration:none}
+.mega-footer-cta:hover{background:#2d2d2f}
+.nav-hamburger{display:none;flex-direction:column;gap:4.5px;cursor:pointer;padding:8px;margin:-8px;background:none;border:none;position:relative;z-index:902}
+.nav-hamburger span{display:block;width:20px;height:1.5px;background:var(--ink);border-radius:2px;transition:all .25s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobile-drawer{position:fixed;top:44px;left:0;right:0;bottom:0;z-index:898;background:#fff;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:24px 24px 48px;display:flex;flex-direction:column}
+.mobile-drawer.open{transform:translateX(0)}
+.mob-section{border-bottom:1px solid var(--ink6);padding:18px 0}
+.mob-section:last-of-type{border-bottom:none}
+.mob-section-title{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px}
+.mob-link{display:flex;align-items:center;gap:10px;padding:9px 0;text-decoration:none}
+.mob-link-icon{width:34px;height:34px;border-radius:8px;background:var(--brand-t);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.mob-link-name{font-family:var(--fd);font-size:15px;font-weight:400;color:var(--ink);display:block;letter-spacing:-.01em}
+.mob-link-desc{font-size:12px;font-weight:300;color:var(--ink4);line-height:1.3}
+.mob-nav-link{display:block;font-size:17px;font-family:var(--fd);font-weight:400;color:var(--ink);text-decoration:none;padding:13px 0;border-bottom:1px solid var(--ink6)}
+.mob-nav-link:last-child{border-bottom:none}
+.mob-ctas{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.mob-cta-primary{display:block;text-align:center;background:var(--brand);color:var(--ink);padding:14px;border-radius:99px;font-size:15px;font-weight:600;text-decoration:none}
+.mob-cta-secondary{display:block;text-align:center;background:var(--ink);color:#fff;padding:13px;border-radius:99px;font-size:15px;font-weight:500;text-decoration:none}
+.nav-overlay{position:fixed;inset:0;top:44px;z-index:897;background:rgba(0,0,0,.18);opacity:0;pointer-events:none;transition:opacity .25s}
+.nav-overlay.show{opacity:1;pointer-events:all}
+@media(max-width:820px){.nav-center,.nav-plain{display:none}.nav-hamburger{display:flex}}
+/* PAGE HERO */
+.page-hero{padding:88px 40px 72px;background:var(--bg);text-align:center;position:relative;overflow:hidden}
+@media(max-width:600px){.page-hero{padding:72px 20px 56px}}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(74,189,152,.07) 0%,transparent 65%);pointer-events:none}
+.page-hero>*{position:relative;z-index:1}
+/* FILTER NAV */
+.filter-nav{background:var(--bg2);border-bottom:1px solid var(--ink6);position:sticky;top:44px;z-index:800}
+.fn-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:flex;overflow-x:auto;scrollbar-width:none}
+.fn-inner::-webkit-scrollbar{display:none}
+.fn-btn{font-size:12px;font-weight:500;color:var(--ink3);background:transparent;border:none;cursor:pointer;padding:13px 16px;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;font-family:var(--fb)}
+.fn-btn:hover{color:var(--ink)}
+.fn-btn.on{color:var(--brand-d);border-bottom-color:var(--brand);font-weight:600}
+.fn-btn.soon{opacity:.45;cursor:default}
+@media(max-width:600px){.fn-inner{padding:0 16px}}
+/* SECTION */
+.res-section{padding:72px 0 80px}
+.res-section.alt{background:var(--bg2)}
+.rs-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);border:1px solid rgba(74,189,152,.2);padding:4px 14px;border-radius:99px;margin-bottom:14px}
+.rs-header{margin-bottom:36px}
+/* FEATURED DARK CARD */
+.feat-card{background:var(--ink);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:56% 44%;margin-bottom:14px;box-shadow:var(--s4);cursor:pointer;transition:transform .25s,box-shadow .25s}
+.feat-card:hover{transform:translateY(-3px);box-shadow:0 20px 60px rgba(0,0,0,.22)}
+@media(max-width:700px){.feat-card{grid-template-columns:1fr}}
+.fc-left{padding:40px 44px;display:flex;flex-direction:column}
+@media(max-width:600px){.fc-left{padding:30px 26px 22px}}
+.fc-right{padding:36px 40px;border-left:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02);display:flex;flex-direction:column;justify-content:center;gap:14px}
+@media(max-width:700px){.fc-right{border-left:none;border-top:1px solid rgba(255,255,255,.06);padding:22px 26px 30px}}
+.fc-eyebrow{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px}
+.fc-dot{width:5px;height:5px;border-radius:50%;background:var(--brand);flex-shrink:0}
+.fc-h{font-family:var(--fd);font-size:clamp(22px,3vw,32px);font-weight:400;color:#fff;line-height:1.18;margin-bottom:10px}
+.fc-h em{font-style:italic;color:var(--brand)}
+.fc-p{font-size:13.5px;font-weight:300;color:rgba(255,255,255,.42);line-height:1.7;margin-bottom:24px;flex:1}
+.fc-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--ink);padding:12px 22px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;align-self:flex-start}
+.fc-btn:hover{background:var(--brand-t);color:var(--brand-d)}
+.fc-arr{transition:transform .2s}
+.feat-card:hover .fc-arr{transform:translateX(4px)}
+.fc-bullet{display:flex;align-items:flex-start;gap:12px}
+.fc-b-icon{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.fc-b-title{font-size:13px;font-weight:600;color:rgba(255,255,255,.72);display:block;margin-bottom:2px}
+.fc-b-desc{font-size:12px;font-weight:300;color:rgba(255,255,255,.28);line-height:1.5}
+/* TOOL CARDS */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:780px){.grid3{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}}
+@media(max-width:480px){.grid3,.grid2{grid-template-columns:1fr}}
+.tool-card{background:var(--bg);border:1px solid var(--ink6);border-radius:16px;padding:24px 20px;display:flex;flex-direction:column;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;position:relative;overflow:hidden}
+.tool-card:hover{transform:translateY(-3px);box-shadow:var(--s4);border-color:rgba(74,189,152,.2)}
+.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand-d));opacity:0;transition:opacity .2s}
+.tool-card:hover::before{opacity:1}
+.tc-icon{font-size:26px;margin-bottom:12px;display:block}
+.tc-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);padding:2px 9px;border-radius:99px;margin-bottom:9px}
+.tc-name{font-family:var(--fd);font-size:17px;font-weight:500;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em;line-height:1.25}
+.tc-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.62;flex:1;margin-bottom:14px}
+.tc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--ink6)}
+.tc-time{font-size:11px;color:var(--ink4)}
+.tc-cta{font-size:12px;font-weight:600;color:var(--brand-d);display:inline-flex;align-items:center;gap:4px;text-decoration:none}
+.tc-cta:hover{color:var(--brand)}
+/* GUIDE CARDS */
+.guide-card{background:var(--bg);border:1px solid var(--ink6);border-radius:18px;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s}
+.guide-card:hover{transform:translateY(-3px);box-shadow:var(--s4);border-color:rgba(74,189,152,.2)}
+.gc-visual{height:130px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.gc-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(74,189,152,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(74,189,152,.05) 1px,transparent 1px);background-size:44px 44px}
+.gc-orb{position:absolute;border-radius:50%;filter:blur(50px)}
+.gc-icon{position:relative;z-index:1;font-size:38px}
+.gc-body{padding:20px 22px}
+.gc-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:99px;margin-bottom:9px}
+.gc-tag.seo{color:var(--brand-d);background:var(--brand-t)}
+.gc-tag.social{color:#0070c9;background:#e8f4ff}
+.gc-tag.email{color:#7c3aed;background:#f3e8ff}
+.gc-tag.brand{color:#d97706;background:#fef3c7}
+.gc-name{font-family:var(--fd);font-size:19px;font-weight:500;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em;line-height:1.22}
+.gc-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.62;margin-bottom:14px}
+.gc-details{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.gc-detail{font-size:11px;color:var(--ink4)}
+.gc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--ink6)}
+.gc-dl{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--brand-d);text-decoration:none}
+.gc-dl:hover{color:var(--brand)}
+.gc-free{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);padding:3px 9px;border-radius:99px}
+/* BLOG CARDS */
+.blog-card{background:var(--bg);border:1px solid var(--ink6);border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s}
+.blog-card:hover{transform:translateY(-3px);box-shadow:var(--s4);border-color:rgba(74,189,152,.18)}
+.bc-vis{height:110px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.bc-vis-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(74,189,152,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(74,189,152,.04) 1px,transparent 1px);background-size:36px 36px}
+.bc-vis-orb{position:absolute;border-radius:50%;filter:blur(40px)}
+.bc-cat{position:relative;z-index:1;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:99px}
+.bc-cat.seo{color:var(--brand-d);background:rgba(74,189,152,.18);border:1px solid rgba(74,189,152,.28)}
+.bc-cat.social{color:#0070c9;background:rgba(0,112,201,.12);border:1px solid rgba(0,112,201,.18)}
+.bc-cat.email{color:#7c3aed;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.15)}
+.bc-cat.brand{color:#d97706;background:rgba(217,119,6,.1);border:1px solid rgba(217,119,6,.15)}
+.bc-cat.ai{color:rgba(255,255,255,.8);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2)}
+.bc-body{padding:16px 18px 18px}
+.bc-title{font-family:var(--fd);font-size:15px;font-weight:500;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em;line-height:1.3}
+.bc-exc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.6;margin-bottom:11px}
+.bc-meta{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--ink4)}
+.bc-read{color:var(--brand-d);font-weight:600}
+/* COMING SOON section overlay */
+.coming-soon-section{position:relative}
+.coming-soon-section::after{content:'Coming Soon';position:absolute;top:24px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);background:var(--ink6);border:1px solid var(--ink5);padding:5px 16px;border-radius:99px;z-index:10;pointer-events:none}
+.coming-soon-section .inner-dim{opacity:.35;pointer-events:none;user-select:none}
+/* NEWSLETTER */
+.nl-card{max-width:680px;margin:0 auto;background:var(--bg);border:1px solid var(--ink6);border-radius:20px;padding:44px 48px;text-align:center;position:relative;overflow:hidden}
+@media(max-width:600px){.nl-card{padding:32px 22px}}
+.nl-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand-d))}
+.nl-icon{font-size:34px;margin-bottom:14px;display:block}
+.nl-h{font-family:var(--fd);font-size:clamp(20px,3vw,28px);font-weight:400;color:var(--ink);margin-bottom:8px;letter-spacing:-.02em}
+.nl-h em{font-style:italic;color:var(--brand-d)}
+.nl-desc{font-size:14px;font-weight:300;color:var(--ink3);line-height:1.7;max-width:420px;margin:0 auto 24px}
+.nl-form{display:flex;gap:10px;max-width:420px;margin:0 auto 12px;flex-wrap:wrap}
+.nl-input{flex:1;min-width:180px;padding:12px 16px;border:1px solid var(--ink5);border-radius:99px;font-family:var(--fb);font-size:14px;color:var(--ink);background:var(--bg);outline:none;transition:border-color .2s}
+.nl-input:focus{border-color:var(--brand)}
+.nl-input::placeholder{color:var(--ink4)}
+.nl-submit{background:var(--ink);color:#fff;padding:12px 22px;border-radius:99px;font-family:var(--fb);font-size:13px;font-weight:600;border:none;cursor:pointer;white-space:nowrap;transition:all .2s}
+.nl-submit:hover{background:var(--brand-d);transform:translateY(-1px)}
+.nl-proof{font-size:11px;color:var(--ink4)}
+/* AUDIT STRIP */
+.audit-strip{background:var(--ink);padding:60px 40px;text-align:center;position:relative;overflow:hidden}
+@media(max-width:600px){.audit-strip{padding:48px 20px}}
+.audit-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 50% at 50% 50%,rgba(74,189,152,.08) 0%,transparent 70%)}
+.audit-strip>*{position:relative;z-index:1}
+.as-h{font-family:var(--fd);font-size:clamp(20px,3.5vw,34px);font-weight:400;color:rgba(255,255,255,.92);margin-bottom:10px;letter-spacing:-.02em}
+.as-h em{font-style:italic;color:var(--brand)}
+.as-sub{font-size:14px;font-weight:300;color:rgba(255,255,255,.38);max-width:440px;margin:0 auto 24px;line-height:1.7}
+.as-items{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:24px}
+.as-item{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.45);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:6px 14px;border-radius:99px}
+.as-check{color:var(--brand);font-weight:700}
+/* CTA */
+.cta-section{background:var(--bg2);padding:80px 40px;text-align:center}
+@media(max-width:600px){.cta-section{padding:60px 20px}}
+.cta-h{font-family:var(--fd);font-size:clamp(22px,4vw,40px);font-weight:400;line-height:1.1;letter-spacing:-.025em;color:var(--ink);max-width:540px;margin:0 auto 12px}
+.cta-h em{font-style:italic;color:var(--brand-d)}
+.cta-sub{font-size:15px;font-weight:300;color:var(--ink3);max-width:400px;margin:0 auto 28px;line-height:1.7}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+/* FOOTER */
+.footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:36px 40px}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none}
+.f-logo em{font-style:italic;color:var(--brand)}
+.f-links{display:flex;gap:20px;flex-wrap:wrap}
+.f-link{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .15s}
+.f-link:hover{color:rgba(255,255,255,.6)}
+.f-copy{font-size:11px;color:rgba(255,255,255,.16)}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.06s}.rd2{transition-delay:.12s}.rd3{transition-delay:.18s}
+</style>
+</head>
+<body>
+<nav class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <div class="nav-center">
+      <button class="nav-link" onclick="toggleMega(event,'services-mega')">Services <span class="nav-chevron"></span></button>
+      <a class="nav-link" href="apnosh_results.html">Results</a>
+      <a class="nav-link" href="apnosh_pricing.html">Pricing</a>
+      <button class="nav-link active" onclick="toggleMega(event,'resources-mega')">Resources <span class="nav-chevron"></span></button>
+      <button class="nav-link" onclick="toggleMega(event,'about-mega')">About <span class="nav-chevron"></span></button>
+    </div>
+    <div class="nav-right">
+      <a class="nav-plain" href="talk_to_expert.html">Contact</a>
+      <a class="nav-audit" href="apnosh_homepage.html#start">Get free audit</a>
+    </div>
+    <button class="nav-hamburger" id="mob-toggle" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mega" id="services-mega">
+  <div class="mega-inner">
+    <div class="mega-col"><div class="mega-col-title">Marketing</div><a class="mega-item" href="service-social-media.html"><div class="mega-icon">&#128241;</div><div><span class="mega-item-name">Social Media</span><span class="mega-item-desc">Managed presence across all platforms</span></div></a><a class="mega-item" href="service-video-content.html"><div class="mega-icon">&#127916;</div><div><span class="mega-item-name">Video Content</span><span class="mega-item-desc">Short-form video that stops the scroll</span></div></a><a class="mega-item" href="service-static-content.html"><div class="mega-icon">&#128444;&#65039;</div><div><span class="mega-item-name">Graphic Content</span><span class="mega-item-desc">Stories, carousels &amp; infographics</span></div></a><a class="mega-item" href="service-email-sms.html"><div class="mega-icon">&#9993;&#65039;</div><div><span class="mega-item-name">Email &amp; SMS</span><span class="mega-item-desc">$42 ROI per $1 spent</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Websites &amp; SEO</div><a class="mega-item" href="service-websites.html"><div class="mega-icon">&#127760;</div><div><span class="mega-item-name">Websites &amp; Hosting</span><span class="mega-item-desc">Sites that turn visitors into customers</span></div></a><a class="mega-item" href="service-local-seo.html"><div class="mega-icon">&#128205;</div><div><span class="mega-item-name">Local SEO &amp; GBP</span><span class="mega-item-desc">Rank #1 on Google Maps in your area</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Creative</div><a class="mega-item" href="service-branding.html"><div class="mega-icon">&#127912;</div><div><span class="mega-item-name">Branding &amp; Identity</span><span class="mega-item-desc">Look like the best in your industry</span></div></a><a class="mega-item" href="service-creative-production.html"><div class="mega-icon">&#128247;</div><div><span class="mega-item-name">Photography &amp; Video</span><span class="mega-item-desc">Professional visuals for every channel</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Strategy</div><a class="mega-item" href="service-consulting.html"><div class="mega-icon">&#128172;</div><div><span class="mega-item-name">Consulting &amp; Strategy</span><span class="mega-item-desc">Expert guidance from real operators</span></div></a></div>
+  </div>
+  <div class="mega-footer"><div class="mega-footer-links"><span class="mega-footer-tag">Not sure what you need?</span><a class="mega-footer-link" href="master_hub.html">Try the AI Plan Builder &rarr;</a></div><a class="mega-footer-cta" href="apnosh_services.html">View all services &rarr;</a></div>
+</div>
+<div class="mega" id="resources-mega">
+  <div class="mega-inner">
+    <div class="mega-col"><div class="mega-col-title">Free guides &amp; learning</div><a class="mega-item" href="resource-local-seo-playbook.html"><div class="mega-icon">&#128205;</div><div><span class="mega-item-name">Local SEO Playbook 2026</span><span class="mega-item-desc">24-page guide to ranking #1 on Maps</span></div></a><a class="mega-item" href="resource-social-media-toolkit.html"><div class="mega-icon">&#128241;</div><div><span class="mega-item-name">Social Media Toolkit</span><span class="mega-item-desc">30-day calendar + 50 caption frameworks</span></div></a><a class="mega-item" href="resource-email-marketing-kit.html"><div class="mega-icon">&#9993;&#65039;</div><div><span class="mega-item-name">Email Marketing Starter Kit</span><span class="mega-item-desc">Templates, flows &amp; platform comparison</span></div></a><a class="mega-item" href="resource-website-conversion-guide.html"><div class="mega-icon">&#127760;</div><div><span class="mega-item-name">Website Conversion Guide</span><span class="mega-item-desc">Turn your site into a 24/7 salesperson</span></div></a><a class="mega-item" href="resource-brand-identity-checklist.html"><div class="mega-icon">&#127912;</div><div><span class="mega-item-name">Brand Identity Checklist</span><span class="mega-item-desc">47-point audit with scoring system</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Tutorials</div><a class="mega-item" href="apnosh_resources.html"><div class="mega-icon">&#128250;</div><div><span class="mega-item-name">Getting Started</span><span class="mega-item-desc">Set up your marketing foundations</span></div></a><a class="mega-item" href="apnosh_resources.html"><div class="mega-icon">&#128640;</div><div><span class="mega-item-name">Growth Playbooks</span><span class="mega-item-desc">Industry-specific step-by-step strategies</span></div></a><a class="mega-item" href="apnosh_resources.html"><div class="mega-icon">&#128295;</div><div><span class="mega-item-name">DIY How-To&rsquo;s</span><span class="mega-item-desc">Do it yourself with our walkthroughs</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Blog &amp; news</div><a class="mega-item" href="apnosh_resources.html#blog"><div class="mega-icon">&#128221;</div><div><span class="mega-item-name">Latest Articles</span><span class="mega-item-desc">Marketing tips for business owners</span></div></a><a class="mega-item" href="apnosh_resources.html#blog"><div class="mega-icon">&#128240;</div><div><span class="mega-item-name">Weekly Newsletter</span><span class="mega-item-desc">One tip, one trend, one tool — every Tuesday</span></div></a><a class="mega-item" href="apnosh_resources.html#blog"><div class="mega-icon">&#128172;</div><div><span class="mega-item-name">Case Studies</span><span class="mega-item-desc">Real results from real businesses</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Free AI tools</div><a class="mega-item" href="master_hub.html"><div class="mega-icon">&#10022;</div><div><span class="mega-item-name">AI Plan Builder</span><span class="mega-item-desc">Custom marketing plan in 5 minutes</span></div></a><a class="mega-item" href="apnosh_homepage.html#start"><div class="mega-icon">&#128202;</div><div><span class="mega-item-name">Free Marketing Audit</span><span class="mega-item-desc">Website, Google, social &amp; SEO report</span></div></a><a class="mega-item" style="opacity:.5;pointer-events:none" href="#"><div class="mega-icon">&#129302;</div><div><span class="mega-item-name">ROI Calculator <span style="font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--ink6);color:var(--ink4);padding:1px 6px;border-radius:99px;margin-left:4px">Soon</span></span><span class="mega-item-desc">See the return before you invest</span></div></a><a class="mega-item" style="opacity:.5;pointer-events:none" href="#"><div class="mega-icon">&#128270;</div><div><span class="mega-item-name">SEO Rank Checker <span style="font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--ink6);color:var(--ink4);padding:1px 6px;border-radius:99px;margin-left:4px">Soon</span></span><span class="mega-item-desc">See where you rank for key terms</span></div></a></div>
+  </div>
+  <div class="mega-footer"><div class="mega-footer-links"><span class="mega-footer-tag">All resources free &middot; No gated demos &middot; No spam</span></div><a class="mega-footer-cta" href="apnosh_resources.html">View all resources &rarr;</a></div>
+</div>
+<div class="mega" id="about-mega">
+  <div class="mega-inner">
+    <div class="mega-col"><div class="mega-col-title">Our story</div><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#10022;</div><div><span class="mega-item-name">How Apnosh was built</span><span class="mega-item-desc">The frustration that started it all</span></div></a><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#128214;</div><div><span class="mega-item-name">Our philosophy</span><span class="mega-item-desc">Why marketing should be legible</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">How we work</div><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#129302;</div><div><span class="mega-item-name">AI + Human model</span><span class="mega-item-desc">Why we&rsquo;re faster and more affordable</span></div></a><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#128172;</div><div><span class="mega-item-name">Contact us</span><span class="mega-item-desc">Talk to a real person, any time</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Team</div><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#128101;</div><div><span class="mega-item-name">Meet the team</span><span class="mega-item-desc">The people behind every campaign</span></div></a></div>
+    <div class="mega-col" style="background:var(--bg2);border-radius:12px;padding:16px"><div class="mega-col-title">By the numbers</div><div style="display:flex;flex-direction:column;gap:10px;padding:4px 0"><div><div style="font-family:var(--fd);font-size:26px;font-weight:400;color:var(--ink);letter-spacing:-.02em;line-height:1">200+</div><div style="font-size:11px;color:var(--ink4);margin-top:3px">Businesses actively growing</div></div><div style="height:1px;background:var(--ink6)"></div><div><div style="font-family:var(--fd);font-size:26px;font-weight:400;color:var(--ink);letter-spacing:-.02em;line-height:1">94%</div><div style="font-size:11px;color:var(--ink4);margin-top:3px">Client retention rate</div></div></div></div>
+  </div>
+  <div class="mega-footer"><div class="mega-footer-links"><a class="mega-footer-link" href="apnosh_about.html">Read our full story &rarr;</a></div><a class="mega-footer-cta" href="talk_to_expert.html">Talk to our team &rarr;</a></div>
+</div>
+<div class="mobile-drawer" id="mob-drawer">
+  <div class="mob-section"><div class="mob-section-title">Services</div><a class="mob-link" href="service-social-media.html"><div class="mob-link-icon">&#128241;</div><div><span class="mob-link-name">Social Media</span><span class="mob-link-desc">Managed presence across platforms</span></div></a><a class="mob-link" href="service-video-content.html"><div class="mob-link-icon">&#127916;</div><div><span class="mob-link-name">Video Content</span><span class="mob-link-desc">Reels, TikTok &amp; ad creative</span></div></a><a class="mob-link" href="service-email-sms.html"><div class="mob-link-icon">&#9993;&#65039;</div><div><span class="mob-link-name">Email &amp; SMS</span><span class="mob-link-desc">Highest ROI channel in marketing</span></div></a><a class="mob-link" href="service-websites.html"><div class="mob-link-icon">&#127760;</div><div><span class="mob-link-name">Websites &amp; Hosting</span><span class="mob-link-desc">Convert visitors into customers</span></div></a><a class="mob-link" href="service-local-seo.html"><div class="mob-link-icon">&#128205;</div><div><span class="mob-link-name">Local SEO</span><span class="mob-link-desc">Rank #1 on Google Maps</span></div></a><a class="mob-link" href="service-branding.html"><div class="mob-link-icon">&#127912;</div><div><span class="mob-link-name">Branding</span><span class="mob-link-desc">Look like the best in your market</span></div></a><a class="mob-link" href="service-creative-production.html"><div class="mob-link-icon">&#128247;</div><div><span class="mob-link-name">Photography &amp; Video</span><span class="mob-link-desc">Professional visuals for every channel</span></div></a><a class="mob-link" href="service-consulting.html"><div class="mob-link-icon">&#128172;</div><div><span class="mob-link-name">Consulting</span><span class="mob-link-desc">Expert strategy sessions</span></div></a></div>
+  <div class="mob-section"><a class="mob-nav-link" href="apnosh_results.html">Results</a><a class="mob-nav-link" href="apnosh_pricing.html">Pricing</a><a class="mob-nav-link" href="apnosh_about.html">About</a><a class="mob-nav-link" href="talk_to_expert.html">Contact</a></div>
+  <div class="mob-ctas"><a class="mob-cta-primary" href="apnosh_homepage.html#start">Get free audit &rarr;</a><a class="mob-cta-secondary" href="master_hub.html">Build my plan &rarr;</a></div>
+</div>
+<div class="nav-overlay" id="nav-overlay" onclick="closeAll()"></div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <span class="kicker">Free resources</span>
+  <h1 class="h1" style="max-width:700px;margin:0 auto 18px">Everything you need to grow<br>your business &mdash; <em>completely free</em></h1>
+  <p class="lead" style="max-width:520px;margin:0 auto 32px">Guides, tools, templates, and articles built for local business owners who want to grow their marketing without relying entirely on an agency.</p>
+  <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap">
+    <a class="btn btn-brand btn-lg" href="master_hub.html">Build my free plan <span class="arr">&rarr;</span></a>
+    <a class="btn btn-outline btn-lg" href="#guides">Browse resources</a>
+  </div>
+</section>
+
+<!-- FILTER NAV -->
+<div class="filter-nav">
+  <div class="fn-inner">
+    <button class="fn-btn on" onclick="filterRes('all',this)">All Resources</button>
+    <button class="fn-btn" onclick="filterRes('guides',this)">Free Guides</button>
+    <button class="fn-btn" onclick="filterRes('blog',this)">Blog &amp; Articles</button>
+    <button class="fn-btn" onclick="filterRes('newsletter',this)">Newsletter</button>
+    <button class="fn-btn soon" onclick="return false">Free Tools &nbsp;<span style="font-size:9px;font-weight:700;letter-spacing:.06em;background:var(--ink6);color:var(--ink4);padding:2px 7px;border-radius:99px;vertical-align:middle">Soon</span></button>
+  </div>
+</div>
+
+<!-- FREE GUIDES -->
+<section class="res-section" id="guides" data-res="guides">
+  <div class="w">
+    <div class="rs-header reveal">
+      <div class="rs-label">&#128214; Free Guides</div>
+      <h2 class="h2">Playbooks you can act on <em>today</em></h2>
+      <p class="body" style="max-width:500px;margin-top:8px">No fluff. No email required. Every guide is written for business owners &mdash; plain language with specific steps you can take this week.</p>
+    </div>
+    <div class="grid2">
+      <div class="guide-card reveal rd1" onclick="location.href='resource-local-seo-playbook.html'">
+        <div class="gc-visual" style="background:linear-gradient(135deg,#0f0f0f,#1a2e1f)">
+          <div class="gc-grid"></div>
+          <div class="gc-orb" style="width:200px;height:200px;background:rgba(74,189,152,.12);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+          <span class="gc-icon">&#128205;</span>
+        </div>
+        <div class="gc-body">
+          <span class="gc-tag seo">Local SEO</span>
+          <div class="gc-name">Local SEO Playbook 2026</div>
+          <p class="gc-desc">A complete step-by-step guide to ranking in the top 3 on Google Maps &mdash; GBP optimization, citation building, review strategy. The exact process we use for every client.</p>
+          <div class="gc-details"><span class="gc-detail">&#128214; 24 pages</span><span class="gc-detail">&#128336; 45 min read</span><span class="gc-detail">&#9989; Updated March 2026</span></div>
+          <div class="gc-foot"><a class="gc-dl" href="resource-local-seo-playbook.html">Read the guide <span class="arr">&rarr;</span></a><span class="gc-free">Free</span></div>
+        </div>
+      </div>
+      <div class="guide-card reveal rd2" onclick="location.href='resource-social-media-toolkit.html'">
+        <div class="gc-visual" style="background:linear-gradient(135deg,#0d1b2e,#0f1a35)">
+          <div class="gc-grid"></div>
+          <div class="gc-orb" style="width:200px;height:200px;background:rgba(0,112,201,.12);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+          <span class="gc-icon">&#128241;</span>
+        </div>
+        <div class="gc-body">
+          <span class="gc-tag social">Social Media</span>
+          <div class="gc-name">Social Media Content Toolkit</div>
+          <p class="gc-desc">A 30-day content calendar for local businesses, plus 50 caption frameworks that drive engagement. Instagram, Facebook, and TikTok templates included.</p>
+          <div class="gc-details"><span class="gc-detail">&#128214; 18 pages + templates</span><span class="gc-detail">&#128336; 30 min</span><span class="gc-detail">&#9989; 50 caption templates</span></div>
+          <div class="gc-foot"><a class="gc-dl" href="resource-social-media-toolkit.html">Read the guide <span class="arr">&rarr;</span></a><span class="gc-free">Free</span></div>
+        </div>
+      </div>
+      <div class="guide-card reveal rd1" onclick="location.href='resource-email-marketing-kit.html'">
+        <div class="gc-visual" style="background:linear-gradient(135deg,#1a0d2e,#2d1b47)">
+          <div class="gc-grid"></div>
+          <div class="gc-orb" style="width:200px;height:200px;background:rgba(124,58,237,.1);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+          <span class="gc-icon">&#9993;&#65039;</span>
+        </div>
+        <div class="gc-body">
+          <span class="gc-tag email">Email &amp; SMS</span>
+          <div class="gc-name">Email Marketing Starter Kit</div>
+          <p class="gc-desc">Everything you need to launch email marketing &mdash; platform choice guide, list-building strategies, welcome sequence templates, and your first 90 days planned out.</p>
+          <div class="gc-details"><span class="gc-detail">&#128214; 20 pages + templates</span><span class="gc-detail">&#128336; 35 min</span><span class="gc-detail">&#9989; 5 email templates</span></div>
+          <div class="gc-foot"><a class="gc-dl" href="resource-email-marketing-kit.html">Read the guide <span class="arr">&rarr;</span></a><span class="gc-free">Free</span></div>
+        </div>
+      </div>
+      <div class="guide-card reveal rd2" onclick="location.href='resource-brand-identity-checklist.html'">
+        <div class="gc-visual" style="background:linear-gradient(135deg,#1e1200,#2e1d00)">
+          <div class="gc-grid"></div>
+          <div class="gc-orb" style="width:200px;height:200px;background:rgba(217,119,6,.1);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+          <span class="gc-icon">&#127912;</span>
+        </div>
+        <div class="gc-body">
+          <span class="gc-tag brand">Branding</span>
+          <div class="gc-name">Brand Identity Checklist</div>
+          <p class="gc-desc">A complete brand audit checklist &mdash; logo, colors, typography, photography, voice, consistency. Know exactly what to fix first for maximum impact.</p>
+          <div class="gc-details"><span class="gc-detail">&#128214; 12 pages + checklist</span><span class="gc-detail">&#128336; 20 min</span><span class="gc-detail">&#9989; 47-point checklist</span></div>
+          <div class="gc-foot"><a class="gc-dl" href="resource-brand-identity-checklist.html">Read the guide <span class="arr">&rarr;</span></a><span class="gc-free">Free</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIT STRIP -->
+<div class="audit-strip">
+  <div class="as-h">Get a free personalized <em>marketing audit</em></div>
+  <p class="as-sub">Tell us about your business and we&rsquo;ll send back a custom report covering your website, Google presence, social, and local SEO &mdash; with action items ranked by impact.</p>
+  <div class="as-items">
+    <div class="as-item"><span class="as-check">&#10003;</span>Website analysis</div>
+    <div class="as-item"><span class="as-check">&#10003;</span>Google Maps audit</div>
+    <div class="as-item"><span class="as-check">&#10003;</span>Social presence review</div>
+    <div class="as-item"><span class="as-check">&#10003;</span>Competitor comparison</div>
+    <div class="as-item"><span class="as-check">&#10003;</span>Prioritized action plan</div>
+  </div>
+  <a class="btn btn-brand btn-lg" href="apnosh_homepage.html#start">Get my free audit <span class="arr">&rarr;</span></a>
+  <p style="font-size:11px;color:rgba(255,255,255,.22);margin-top:14px">No credit card &middot; No sales pitch &middot; Delivered within 48 hours</p>
+</div>
+
+<!-- BLOG -->
+<section class="res-section alt" id="blog" data-res="blog">
+  <div class="w">
+    <div class="rs-header reveal">
+      <div class="rs-label">&#128221; Blog &amp; Articles</div>
+      <h2 class="h2">Marketing knowledge written for <em>business owners</em></h2>
+      <p class="body" style="max-width:500px;margin-top:8px">No jargon, no fluff. Practical articles on what&rsquo;s working in local business marketing right now.</p>
+    </div>
+    <div class="grid3">
+      <div class="blog-card reveal rd1" onclick="location.href='resource-local-seo-playbook.html'">
+        <div class="bc-vis" style="background:linear-gradient(135deg,#0f0f0f,#1a2e1f)"><div class="bc-vis-grid"></div><div class="bc-vis-orb" style="width:150px;height:150px;background:rgba(74,189,152,.1);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="bc-cat seo" style="position:relative;z-index:1">Local SEO</span></div>
+        <div class="bc-body">
+          <div class="bc-title">Why 73% of local searches end at the top 3 results &mdash; and how to get there</div>
+          <p class="bc-exc">The Maps top 3 isn&rsquo;t just good visibility. It&rsquo;s the only visibility that matters. Here&rsquo;s the exact ranking formula.</p>
+          <div class="bc-meta"><span>6 min read</span><span class="bc-read">Read &rarr;</span></div>
+        </div>
+      </div>
+      <div class="blog-card reveal rd2" onclick="location.href='resource-social-media-toolkit.html'">
+        <div class="bc-vis" style="background:linear-gradient(135deg,#0d1b2e,#0f1a35)"><div class="bc-vis-grid"></div><div class="bc-vis-orb" style="width:150px;height:150px;background:rgba(0,112,201,.1);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="bc-cat social" style="position:relative;z-index:1">Social Media</span></div>
+        <div class="bc-body">
+          <div class="bc-title">The 3 types of content that actually drive customers through the door</div>
+          <p class="bc-exc">Most small business posts get zero traction. These three formats consistently produce real inquiries and foot traffic.</p>
+          <div class="bc-meta"><span>5 min read</span><span class="bc-read">Read &rarr;</span></div>
+        </div>
+      </div>
+      <div class="blog-card reveal rd3" onclick="location.href='resource-email-marketing-kit.html'">
+        <div class="bc-vis" style="background:linear-gradient(135deg,#1a0d2e,#2d1b47)"><div class="bc-vis-grid"></div><div class="bc-vis-orb" style="width:150px;height:150px;background:rgba(124,58,237,.08);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="bc-cat email" style="position:relative;z-index:1">Email &amp; SMS</span></div>
+        <div class="bc-body">
+          <div class="bc-title">How one restaurant owner added $4,200/mo in revenue with a 4-email sequence</div>
+          <p class="bc-exc">A simple post-visit follow-up turned one-time diners into regulars. Here&rsquo;s the exact email flow.</p>
+          <div class="bc-meta"><span>4 min read</span><span class="bc-read">Read &rarr;</span></div>
+        </div>
+      </div>
+      <div class="blog-card reveal rd1" onclick="location.href='apnosh_about.html'">
+        <div class="bc-vis" style="background:#0f0f0f"><div class="bc-vis-grid"></div><div class="bc-vis-orb" style="width:150px;height:150px;background:rgba(74,189,152,.08);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="bc-cat ai" style="position:relative;z-index:1">AI + Marketing</span></div>
+        <div class="bc-body">
+          <div class="bc-title">How AI cuts marketing costs by 60% without cutting quality</div>
+          <p class="bc-exc">What AI handles, what humans own, and why the output quality is better than a fully human team at 3&times; the cost.</p>
+          <div class="bc-meta"><span>7 min read</span><span class="bc-read">Read &rarr;</span></div>
+        </div>
+      </div>
+      <div class="blog-card reveal rd2" onclick="location.href='apnosh_results.html'">
+        <div class="bc-vis" style="background:linear-gradient(135deg,#1a0e00,#2e1900)"><div class="bc-vis-grid"></div><div class="bc-vis-orb" style="width:150px;height:150px;background:rgba(217,119,6,.08);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="bc-cat brand" style="position:relative;z-index:1">Growth</span></div>
+        <div class="bc-body">
+          <div class="bc-title">The 5 marketing levers every local business should pull first</div>
+          <p class="bc-exc">Not all marketing moves the needle equally. Here&rsquo;s the priority order based on ROI data across 200+ businesses.</p>
+          <div class="bc-meta"><span>8 min read</span><span class="bc-read">Read &rarr;</span></div>
+        </div>
+      </div>
+      <div class="blog-card reveal rd3" onclick="location.href='resource-website-conversion-guide.html'">
+        <div class="bc-vis" style="background:linear-gradient(135deg,#0d2e1a,#0a2214)"><div class="bc-vis-grid"></div><div class="bc-vis-orb" style="width:150px;height:150px;background:rgba(74,189,152,.1);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="bc-cat seo" style="position:relative;z-index:1">Websites</span></div>
+        <div class="bc-body">
+          <div class="bc-title">Why most small business websites convert at under 1% &mdash; and how to fix it</div>
+          <p class="bc-exc">The average site loses 99 of every 100 visitors. These five changes move the needle most.</p>
+          <div class="bc-meta"><span>5 min read</span><span class="bc-read">Read &rarr;</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tc reveal" style="margin-top:32px">
+      <a class="btn btn-outline" href="#">View all articles <span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="res-section" id="newsletter" data-res="newsletter">
+  <div class="w">
+    <div class="nl-card reveal">
+      <span class="nl-icon">&#128240;</span>
+      <h2 class="nl-h">One tip. One trend. One tool.<br><em>Every Tuesday.</em></h2>
+      <p class="nl-desc">A 3-minute read for local business owners. One actionable tip you can use this week, one marketing trend worth knowing, one free tool. No filler.</p>
+      <form class="nl-form" onsubmit="submitNL(event)">
+        <input class="nl-input" type="email" placeholder="your@email.com" required>
+        <button class="nl-submit" type="submit">Subscribe free &rarr;</button>
+      </form>
+      <p class="nl-proof" id="nl-msg">&#10003;&nbsp; Joined by 2,400+ business owners &middot; Unsubscribe any time &middot; No spam</p>
+    </div>
+  </div>
+</section>
+
+<!-- FREE TOOLS — COMING SOON -->
+<section class="res-section alt coming-soon-section" id="tools" data-res="tools">
+  <div class="inner-dim">
+    <div class="w">
+      <div class="rs-header">
+        <div class="rs-label">&#10022; Free Tools</div>
+        <h2 class="h2">Tools that do the thinking <em>for you</em></h2>
+        <p class="body" style="max-width:500px;margin-top:8px">Answer a few questions and get a custom plan, estimate, or audit — instantly.</p>
+      </div>
+      <div class="feat-card" style="pointer-events:none">
+        <div class="fc-left">
+          <div class="fc-eyebrow"><div class="fc-dot"></div>Most used &nbsp;&bull;&nbsp; 5 min</div>
+          <h2 class="fc-h">AI Plan Builder &mdash; <em>custom marketing plan</em></h2>
+          <p class="fc-p">Answer 9 questions about your business, goals, and budget. Get 3 tailored plans from our full catalog — ranked by fit and ROI.</p>
+          <a class="fc-btn" href="master_hub.html" style="pointer-events:all">Try it now &nbsp;<span class="fc-arr">&rarr;</span></a>
+        </div>
+        <div class="fc-right">
+          <div class="fc-bullet"><div class="fc-b-icon">&#129302;</div><div><span class="fc-b-title">AI-powered recommendations</span><span class="fc-b-desc">Matched to your industry and budget</span></div></div>
+          <div class="fc-bullet"><div class="fc-b-icon">&#128202;</div><div><span class="fc-b-title">3 plans, ranked by fit</span><span class="fc-b-desc">From lean essentials to full-service growth</span></div></div>
+          <div class="fc-bullet"><div class="fc-b-icon">&#128274;</div><div><span class="fc-b-title">Zero commitment</span><span class="fc-b-desc">See the plan before you spend a dollar</span></div></div>
+        </div>
+      </div>
+      <div class="grid3" style="margin-top:14px">
+        <div class="tool-card"><span class="tc-icon">&#128200;</span><span class="tc-tag">Calculator</span><div class="tc-name">Marketing ROI Calculator</div><p class="tc-desc">See your actual return on investment across every channel you are running.</p><div class="tc-foot"><span class="tc-time">&#128336; 3 min</span><span class="tc-cta">Coming soon</span></div></div>
+        <div class="tool-card"><span class="tc-icon">&#128269;</span><span class="tc-tag">Audit</span><div class="tc-name">Free Website Audit</div><p class="tc-desc">Speed, mobile, SEO, and conversion signals — personalized report.</p><div class="tc-foot"><span class="tc-time">&#128336; 2 min</span><span class="tc-cta">Coming soon</span></div></div>
+        <div class="tool-card"><span class="tc-icon">&#11088;</span><span class="tc-tag">Analyzer</span><div class="tc-name">Reputation Score Analyzer</div><p class="tc-desc">Score your reputation vs. your top 3 local competitors across every platform.</p><div class="tc-foot"><span class="tc-time">&#128336; 2 min</span><span class="tc-cta">Coming soon</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-h reveal">Ready to put this into <em>action?</em></h2>
+  <p class="cta-sub reveal">Use our AI Plan Builder for a custom plan in 5 minutes — or get your free audit and we'll do the thinking for you.</p>
+  <div class="cta-btns reveal">
+    <a class="btn btn-brand btn-lg" href="master_hub.html">Build my plan &mdash; free <span class="arr">&rarr;</span></a>
+    <a class="btn btn-primary btn-lg" href="apnosh_homepage.html#start">Get my free audit <span class="arr">&rarr;</span></a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="f-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <div class="f-links">
+      <a class="f-link" href="apnosh_services.html">Services</a>
+      <a class="f-link" href="apnosh_pricing.html">Pricing</a>
+      <a class="f-link" href="apnosh_results.html">Results</a>
+      <a class="f-link" href="apnosh_about.html">About</a>
+      <a class="f-link" href="talk_to_expert.html">Contact</a>
+    </div>
+    <p class="f-copy">&copy; 2026 Apnosh. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const nav=document.getElementById('site-nav');
+  if(nav)window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>10);},{passive:true});
+  window.toggleMega=function(e,id){e.stopPropagation();var btn=e.currentTarget;var mega=document.getElementById(id);if(!mega)return;var isOpen=mega.classList.contains('open');closeAll();if(!isOpen){mega.classList.add('open');btn.classList.add('open');document.getElementById('nav-overlay').classList.add('show');}};
+  window.toggleDrawer=function(){var d=document.getElementById('mob-drawer'),t=document.getElementById('mob-toggle'),ov=document.getElementById('nav-overlay');var isOpen=d.classList.contains('open');closeAll();if(!isOpen){d.classList.add('open');t.classList.add('open');ov.classList.add('show');document.body.style.overflow='hidden';}};
+  window.closeAll=function(){document.querySelectorAll('.mega.open').forEach(function(m){m.classList.remove('open');});document.querySelectorAll('.nav-link.open').forEach(function(l){l.classList.remove('open');});var d=document.getElementById('mob-drawer'),t=document.getElementById('mob-toggle'),ov=document.getElementById('nav-overlay');if(d)d.classList.remove('open');if(t)t.classList.remove('open');if(ov)ov.classList.remove('show');document.body.style.overflow='';};
+  document.addEventListener('click',function(e){if(!e.target.closest('.mega')&&!e.target.closest('.nav-link')&&!e.target.closest('.nav-hamburger')&&!e.target.closest('.mobile-drawer'))closeAll();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+})();
+
+window.filterRes=function(type,btn){
+  document.querySelectorAll('.fn-btn').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  document.querySelectorAll('[data-res]').forEach(function(s){
+    s.style.display=(type==='all'||s.dataset.res===type)?'':'none';
+  });
+  if(type!=='all'){
+    var t=document.getElementById(type);
+    if(t)setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'start'});},50);
+  }
+};
+
+window.submitNL=function(e){
+  e.preventDefault();
+  var msg=document.getElementById('nl-msg');
+  msg.textContent="Done! Check your inbox for a confirmation.";
+  msg.style.color='var(--brand-d)';
+  msg.style.fontWeight='500';
+  e.target.reset();
+};
+
+var io=new IntersectionObserver(function(entries){entries.forEach(function(el){if(el.isIntersecting){el.target.classList.add('on');io.unobserve(el.target);}});},{threshold:.05,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>

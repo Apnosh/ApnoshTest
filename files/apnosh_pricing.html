@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing &mdash; Apnosh Digital Marketing</title>
+<meta name="description" content="Transparent, published pricing for every Apnosh service. Social media from $199/mo. Local SEO from $149/mo. Websites from $699. Month-to-month always.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#4abd98;--brand-d:#2e9a78;--brand-t:#eaf7f3;--brand-g:rgba(74,189,152,.14);
+  --ink:#1d1d1f;--ink2:#424245;--ink3:#6e6e73;--ink4:#aeaeb2;--ink5:#d2d2d7;--ink6:#f0f0f5;
+  --bg:#fff;--bg2:#f5f5f7;
+  --fd:'Playfair Display',Georgia,serif;--fb:'Inter',-apple-system,sans-serif;
+  --s2:0 4px 16px rgba(0,0,0,.07);--s3:0 8px 32px rgba(0,0,0,.09);--s4:0 16px 56px rgba(0,0,0,.11);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:1080px;margin:0 auto;padding:0 40px}
+.wmd{max-width:820px;margin:0 auto;padding:0 40px}
+@media(max-width:600px){.w,.wmd{padding:0 20px}}
+.tc{text-align:center}
+.kicker{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);margin-bottom:14px}
+.h1{font-family:var(--fd);font-size:clamp(36px,5.5vw,62px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink)}
+.h1 em{font-style:italic;color:var(--brand-d)}
+.h2{font-family:var(--fd);font-size:clamp(22px,3vw,36px);font-weight:400;line-height:1.12;letter-spacing:-.02em;color:var(--ink)}
+.h2 em{font-style:italic;color:var(--brand-d)}
+.h3{font-family:var(--fd);font-size:clamp(17px,2vw,22px);font-weight:400;line-height:1.2;letter-spacing:-.015em;color:var(--ink)}
+.lead{font-size:clamp(15px,1.8vw,18px);font-weight:300;color:var(--ink2);line-height:1.72}
+.body{font-size:15px;font-weight:300;color:var(--ink3);line-height:1.7}
+.sm{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65}
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fb);font-weight:500;font-size:14px;text-decoration:none;border:none;cursor:pointer;border-radius:99px;padding:12px 24px;transition:all .2s;white-space:nowrap;line-height:1}
+.btn-primary{background:var(--ink);color:#fff}.btn-primary:hover{background:#2d2d2f;transform:translateY(-1px);box-shadow:var(--s3)}
+.btn-brand{background:var(--brand);color:var(--ink);font-weight:600}.btn-brand:hover{background:var(--brand-d);color:#fff;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink5)}.btn-outline:hover{border-color:var(--ink3);transform:translateY(-1px)}
+.btn-ghost-dark{background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.13)}.btn-ghost-dark:hover{background:rgba(255,255,255,.14)}
+.btn-sm{padding:9px 18px;font-size:13px}.btn-lg{padding:15px 32px;font-size:15px}
+.arr{transition:transform .2s;display:inline-block}
+a:hover .arr{transform:translateX(3px)}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:44px;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.07);display:flex;align-items:center;transition:box-shadow .2s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.nav-inner{width:100%;max-width:1080px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:-.01em;flex-shrink:0;position:relative;z-index:902}
+.nav-logo em{font-style:italic;color:var(--brand-d)}
+.nav-center{display:flex;align-items:center;gap:0}
+.nav-link{font-size:12px;font-weight:400;color:rgba(0,0,0,.55);text-decoration:none;padding:0 12px;height:44px;display:inline-flex;align-items:center;gap:4px;transition:color .15s;border:none;background:none;cursor:pointer;font-family:var(--fb);white-space:nowrap}
+.nav-link:hover,.nav-link.open,.nav-link.active{color:var(--ink)}
+.nav-link.active{font-weight:500}
+.nav-chevron{width:7px;height:7px;border-right:1.2px solid currentColor;border-bottom:1.2px solid currentColor;transform:rotate(45deg);margin-top:-3px;transition:transform .2s;flex-shrink:0}
+.nav-link.open .nav-chevron{transform:rotate(-135deg);margin-top:1px}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;position:relative;z-index:902}
+.nav-audit{font-size:12px;font-weight:600;color:#fff;background:var(--brand-d);padding:7px 16px;border-radius:99px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.nav-audit:hover{background:var(--brand)}
+.nav-plain{font-size:12px;font-weight:400;color:rgba(0,0,0,.45);text-decoration:none;padding:0 10px;transition:color .15s}
+.nav-plain:hover{color:var(--ink)}
+.mega{position:fixed;top:44px;left:0;right:0;z-index:899;background:rgba(255,255,255,.97);backdrop-filter:saturate(180%) blur(24px);border-bottom:1px solid rgba(0,0,0,.07);box-shadow:0 8px 40px rgba(0,0,0,.1);padding:28px 0 32px;opacity:0;pointer-events:none;transform:translateY(-6px);transition:opacity .2s ease,transform .2s ease}
+.mega.open{opacity:1;pointer-events:all;transform:translateY(0)}
+.mega-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px}
+.mega-col{display:flex;flex-direction:column;gap:2px}
+.mega-col-title{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);padding:0 12px;margin-bottom:8px}
+.mega-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:background .15s}
+.mega-item:hover{background:var(--ink6)}
+.mega-icon{width:32px;height:32px;border-radius:8px;background:var(--brand-t);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.mega-item-name{font-size:13px;font-weight:500;color:var(--ink);display:block;margin-bottom:2px;font-family:var(--fd);letter-spacing:-.01em}
+.mega-item-desc{font-size:11px;font-weight:300;color:var(--ink4);line-height:1.4}
+.mega-footer{max-width:1080px;margin:18px auto 0;padding:16px 40px 0;border-top:1px solid var(--ink6);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.mega-footer-links{display:flex;align-items:center;gap:20px}
+.mega-footer-link{font-size:12px;font-weight:500;color:var(--brand-d);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.mega-footer-link:hover{color:var(--brand)}
+.mega-footer-tag{font-size:11px;color:var(--ink4)}
+.mega-footer-cta{font-size:12px;font-weight:600;color:#fff;background:var(--ink);padding:8px 18px;border-radius:99px;text-decoration:none;transition:all .15s}
+.mega-footer-cta:hover{background:#2d2d2f}
+.nav-hamburger{display:none;flex-direction:column;gap:4.5px;cursor:pointer;padding:8px;margin:-8px;background:none;border:none;position:relative;z-index:902}
+.nav-hamburger span{display:block;width:20px;height:1.5px;background:var(--ink);border-radius:2px;transition:all .25s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobile-drawer{position:fixed;top:44px;left:0;right:0;bottom:0;z-index:898;background:#fff;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:24px 24px 48px;display:flex;flex-direction:column}
+.mobile-drawer.open{transform:translateX(0)}
+.mob-section{border-bottom:1px solid var(--ink6);padding:18px 0}
+.mob-section:last-of-type{border-bottom:none}
+.mob-section-title{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px}
+.mob-link{display:flex;align-items:center;gap:10px;padding:9px 0;text-decoration:none}
+.mob-link-icon{width:34px;height:34px;border-radius:8px;background:var(--brand-t);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.mob-link-name{font-family:var(--fd);font-size:15px;font-weight:400;color:var(--ink);display:block;letter-spacing:-.01em}
+.mob-link-desc{font-size:12px;font-weight:300;color:var(--ink4);line-height:1.3}
+.mob-nav-link{display:block;font-size:17px;font-family:var(--fd);font-weight:400;color:var(--ink);text-decoration:none;padding:13px 0;border-bottom:1px solid var(--ink6)}
+.mob-nav-link:last-child{border-bottom:none}
+.mob-ctas{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.mob-cta-primary{display:block;text-align:center;background:var(--brand);color:var(--ink);padding:14px;border-radius:99px;font-family:var(--fb);font-size:15px;font-weight:600;text-decoration:none}
+.mob-cta-secondary{display:block;text-align:center;background:var(--ink);color:#fff;padding:13px;border-radius:99px;font-family:var(--fb);font-size:15px;font-weight:500;text-decoration:none}
+.nav-overlay{position:fixed;inset:0;top:44px;z-index:897;background:rgba(0,0,0,.18);opacity:0;pointer-events:none;transition:opacity .25s}
+.nav-overlay.show{opacity:1;pointer-events:all}
+@media(max-width:820px){.nav-center,.nav-plain{display:none}.nav-hamburger{display:flex}}
+/* PAGE HERO */
+.page-hero{padding:88px 40px 56px;text-align:center;background:var(--bg);position:relative;overflow:hidden}
+@media(max-width:600px){.page-hero{padding:72px 20px 48px}}
+.page-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(74,189,152,.07) 0%,transparent 65%)}
+.page-hero>*{position:relative;z-index:1}
+.hero-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:0;border-top:1px solid var(--ink6);padding-top:28px;margin-top:32px}
+.ht-item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink4);padding:0 20px;border-right:1px solid var(--ink6)}
+.ht-item:last-child{border-right:none}
+.ht-check{color:var(--brand-d);font-weight:600}
+@media(max-width:500px){.ht-item{border:none;padding:4px 10px;font-size:11px}}
+/* BILLING TOGGLE */
+.billing-bar{background:var(--bg2);border-bottom:1px solid var(--ink6)}
+.billing-inner{max-width:1080px;margin:0 auto;padding:18px 40px 0;display:flex;align-items:center;justify-content:center;gap:12px}
+.bt-label{font-size:13px;font-weight:400;color:var(--ink3)}
+.bt-label.active{color:var(--ink);font-weight:500}
+.bt-switch{position:relative;width:44px;height:24px;cursor:pointer}
+.bt-switch input{opacity:0;width:0;height:0;position:absolute}
+.bt-track{position:absolute;inset:0;background:var(--ink6);border-radius:99px;transition:background .2s}
+.bt-thumb{position:absolute;top:3px;left:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+.bt-switch input:checked~.bt-track{background:var(--brand-d)}
+.bt-switch input:checked~.bt-thumb{transform:translateX(20px)}
+.bt-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--brand-t);color:var(--brand-d);border:1px solid rgba(74,189,152,.25);padding:3px 9px;border-radius:99px}
+/* SECTION NAV */
+.section-nav{background:var(--bg2);border-bottom:1px solid var(--ink6);position:sticky;top:44px;z-index:800}
+.sn-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.sn-inner::-webkit-scrollbar{display:none}
+.sn-link{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:13px 16px;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
+.sn-link:hover{color:var(--ink)}
+.sn-link.active{color:var(--brand-d);border-bottom-color:var(--brand)}
+@media(max-width:600px){.sn-inner{padding:0 16px}}
+/* FEATURED PATH CARD — master hub style */
+.feat-path{background:var(--ink);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:56% 44%;margin-bottom:14px;box-shadow:var(--s4);transition:transform .25s,box-shadow .25s;text-decoration:none;color:inherit}
+.feat-path:hover{transform:translateY(-3px);box-shadow:0 20px 64px rgba(0,0,0,.22)}
+@media(max-width:700px){.feat-path{grid-template-columns:1fr}}
+.fp-left{padding:40px 44px;display:flex;flex-direction:column}
+@media(max-width:600px){.fp-left{padding:32px 28px 24px}}
+.fp-right{padding:40px 40px;border-left:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02);display:flex;flex-direction:column;justify-content:center;gap:16px}
+@media(max-width:700px){.fp-right{border-left:none;border-top:1px solid rgba(255,255,255,.06);padding:24px 28px 32px}}
+.fp-eyebrow{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px}
+.fp-dot{width:5px;height:5px;border-radius:50%;background:var(--brand);flex-shrink:0}
+.fp-h{font-family:var(--fd);font-size:clamp(22px,2.8vw,32px);font-weight:400;color:#fff;line-height:1.18;margin-bottom:12px}
+.fp-h em{font-style:italic;color:var(--brand)}
+.fp-p{font-size:13.5px;font-weight:300;color:rgba(255,255,255,.42);line-height:1.7;margin-bottom:28px;flex:1}
+.fp-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--ink);padding:12px 22px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer;font-family:inherit;text-decoration:none;transition:all .2s;align-self:flex-start}
+.fp-btn:hover{background:var(--brand-t);color:var(--brand-d)}
+.feat-path:hover .fp-arr{transform:translateX(4px)}
+.fp-arr{transition:transform .2s}
+.fp-bullet{display:flex;align-items:flex-start;gap:12px}
+.fp-b-icon{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.fp-b-title{font-size:13px;font-weight:600;color:rgba(255,255,255,.72);display:block;margin-bottom:3px}
+.fp-b-desc{font-size:12px;font-weight:300;color:rgba(255,255,255,.28);line-height:1.5}
+/* 3-UP SECONDARY CARDS */
+.sec-paths{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:56px}
+@media(max-width:780px){.sec-paths{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.sec-paths{grid-template-columns:1fr}}
+.sec-path{background:var(--bg);border:1px solid var(--ink6);border-radius:16px;padding:26px 22px 22px;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s,border-color .2s;position:relative;overflow:hidden}
+.sec-path:hover{transform:translateY(-3px);box-shadow:var(--s4);border-color:rgba(74,189,152,.18)}
+.sec-path::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand-d));opacity:0;transition:opacity .2s}
+.sec-path:hover::after{opacity:1}
+.sp-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:14px}
+.sp-icon{font-size:26px;line-height:1}
+.sp-tag{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink4);background:var(--bg2);padding:3px 9px;border-radius:6px}
+.sp-h{font-family:var(--fd);font-size:19px;font-weight:400;line-height:1.22;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
+.sp-p{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65;flex:1;margin-bottom:14px}
+.sp-best{font-size:12px;color:var(--ink3);line-height:1.55;margin-bottom:16px;padding:9px 12px;background:var(--bg2);border-radius:8px}
+.sp-best strong{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:2px}
+.sp-cta{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:9px;background:var(--bg2);font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;margin-top:auto;transition:all .2s}
+.sec-path:hover .sp-cta{background:var(--ink);color:#fff}
+.sp-arr{transition:transform .2s}
+.sec-path:hover .sp-arr{transform:translateX(4px)}
+/* PRICING SECTION */
+.price-section{padding:72px 0 80px;scroll-margin-top:96px}
+.price-section:nth-child(odd){background:var(--bg)}
+.price-section:nth-child(even){background:var(--bg2)}
+.ps-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);border:1px solid rgba(74,189,152,.2);padding:4px 14px;border-radius:99px;margin-bottom:14px}
+.ps-desc{font-size:15px;font-weight:300;color:var(--ink3);max-width:560px;line-height:1.7;margin-top:8px}
+/* TIER CARDS */
+.tiers{display:grid;gap:12px;margin-top:36px}
+.t3{grid-template-columns:repeat(3,1fr)}
+.t4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.t4{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){.t3{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.t3,.t4{grid-template-columns:1fr}}
+.tier-card{background:var(--bg);border:1px solid var(--ink6);border-radius:18px;padding:26px 22px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.tier-card:hover{transform:translateY(-3px);box-shadow:var(--s4)}
+.tier-card.dark{background:var(--ink);border-color:var(--ink)}
+.tier-card.dark:hover{box-shadow:0 16px 56px rgba(0,0,0,.25)}
+.tier-top{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand-d));opacity:0;transition:opacity .2s}
+.tier-card:not(.dark):hover .tier-top{opacity:1}
+.tier-card.dark .tier-top{opacity:1}
+.tier-pop-badge{position:absolute;top:14px;right:14px;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:var(--brand-t);color:var(--brand-d);padding:3px 9px;border-radius:99px}
+.tier-card.dark .tier-pop-badge{background:var(--brand);color:var(--ink)}
+.t-name{font-family:var(--fd);font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.tier-card.dark .t-name{color:rgba(255,255,255,.88)}
+.t-tagline{font-size:12px;font-weight:300;color:var(--ink4);margin-bottom:18px;line-height:1.5;min-height:36px}
+.tier-card.dark .t-tagline{color:rgba(255,255,255,.3)}
+.t-price{font-family:var(--fd);font-size:32px;font-weight:400;color:var(--ink);letter-spacing:-.03em;line-height:1}
+.tier-card.dark .t-price{color:#fff}
+.t-price sub{font-size:14px;font-weight:300;font-family:var(--fb);color:var(--ink4);vertical-align:baseline;letter-spacing:0}
+.tier-card.dark .t-price sub{color:rgba(255,255,255,.3)}
+.t-annual{font-size:11px;color:var(--brand-d);margin:4px 0 18px;min-height:16px}
+.tier-card.dark .t-annual{color:rgba(74,189,152,.75)}
+.t-divider{height:1px;background:var(--ink6);margin:0 0 14px}
+.tier-card.dark .t-divider{background:rgba(255,255,255,.07)}
+.t-inc-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px}
+.tier-card.dark .t-inc-label{color:rgba(255,255,255,.24)}
+.t-feats{display:flex;flex-direction:column;gap:7px;margin-bottom:22px;flex:1}
+.t-feat{display:flex;align-items:flex-start;gap:7px;font-size:12px;font-weight:300;color:var(--ink2);line-height:1.5}
+.tier-card.dark .t-feat{color:rgba(255,255,255,.55)}
+.t-feat.ai{color:var(--ink);font-weight:400}
+.tier-card.dark .t-feat.ai{color:rgba(255,255,255,.85)}
+.t-fi{font-size:11px;flex-shrink:0;margin-top:1px;width:14px;text-align:center}
+.t-feat.dim{opacity:.4}
+.t-cta{display:block;width:100%;text-align:center;padding:11px 0;border-radius:99px;font-family:var(--fb);font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
+.tier-card:not(.dark) .t-cta{background:var(--ink6);color:var(--ink)}
+.tier-card:not(.dark):hover .t-cta{background:var(--ink);color:#fff}
+.tier-card.dark .t-cta{background:var(--brand);color:var(--ink)}
+.tier-card.dark:hover .t-cta{background:var(--brand-d);color:#fff}
+/* ONE-TIME GRID */
+.ot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}
+@media(max-width:780px){.ot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ot-grid{grid-template-columns:1fr}}
+.ot-card{background:var(--bg);border:1px solid var(--ink6);border-radius:14px;padding:20px 18px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+.ot-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--brand),var(--brand-d));opacity:0;transition:opacity .2s}
+.ot-card:hover{border-color:rgba(74,189,152,.2);transform:translateY(-2px)}
+.ot-card:hover::before{opacity:1}
+.ot-icon{font-size:20px;margin-bottom:10px;display:block}
+.ot-name{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.ot-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.6;margin-bottom:12px}
+.ot-price{font-family:var(--fd);font-size:20px;font-weight:400;color:var(--brand-d);letter-spacing:-.02em}
+.ot-price sub{font-size:11px;font-weight:300;font-family:var(--fb);color:var(--ink4);vertical-align:baseline}
+.ot-note{font-size:11px;color:var(--ink4);margin-top:3px}
+/* A-LA-CARTE TABLE */
+.alc-table{width:100%;border-collapse:collapse;margin-top:32px}
+.alc-table thead th{text-align:left;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);padding:8px 14px;border-bottom:1px solid var(--ink6)}
+.alc-table thead th:last-child{text-align:right}
+.alc-group-row td{background:var(--brand-t);color:var(--brand-d);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-bottom:1px solid rgba(74,189,152,.15)}
+.alc-table tbody tr:not(.alc-group-row) td{padding:11px 14px;font-size:13px;font-weight:300;color:var(--ink2);border-bottom:1px solid var(--ink6);line-height:1.5}
+.alc-table tbody tr:last-child td{border-bottom:none}
+.alc-table tbody tr:not(.alc-group-row):hover td{background:var(--bg2)}
+.alc-price{text-align:right;font-family:var(--fd);font-size:15px;font-weight:400;color:var(--brand-d);white-space:nowrap}
+/* ADDONS ROW */
+.addons-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.addon-pill{display:inline-flex;flex-direction:column;background:var(--bg2);border:1px solid var(--ink6);border-radius:10px;padding:10px 14px;font-size:12px;min-width:140px;transition:border-color .2s}
+.addon-pill:hover{border-color:rgba(74,189,152,.22)}
+.addon-pill-name{font-weight:500;color:var(--ink);margin-bottom:2px}
+.addon-pill-price{font-family:var(--fd);font-size:14px;font-weight:400;color:var(--brand-d)}
+/* VALUE STRIP */
+.value-strip{background:var(--bg);border-top:1px solid var(--ink6);border-bottom:1px solid var(--ink6);padding:44px 0}
+.vs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+@media(max-width:700px){.vs-grid{grid-template-columns:1fr 1fr}}
+.vs-cell{padding:0 24px;text-align:center;border-right:1px solid var(--ink6)}
+.vs-cell:last-child{border-right:none}
+@media(max-width:700px){.vs-cell:nth-child(2){border-right:none}.vs-cell:nth-child(3){border-right:none;padding-top:24px}.vs-cell:nth-child(4){padding-top:24px}}
+.vs-icon{font-size:22px;margin-bottom:8px;display:block}
+.vs-title{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.vs-desc{font-size:12px;font-weight:300;color:var(--ink4);line-height:1.6}
+/* BUNDLES */
+.bundle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+@media(max-width:780px){.bundle-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.bundle-grid{grid-template-columns:1fr}}
+.bundle-card{border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;border:1px solid var(--ink6);background:var(--bg)}
+.bundle-card:hover{transform:translateY(-3px);box-shadow:var(--s4)}
+.bundle-card.feat{background:var(--ink);border-color:var(--ink)}
+.bundle-card.feat:hover{box-shadow:0 16px 56px rgba(0,0,0,.22)}
+.bc-pop{position:absolute;top:14px;right:14px;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:var(--brand);color:var(--ink);padding:3px 9px;border-radius:99px}
+.bc-icon{font-size:24px;margin-bottom:12px;display:block}
+.bc-name{font-family:var(--fd);font-size:18px;font-weight:500;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em}
+.bundle-card.feat .bc-name{color:rgba(255,255,255,.9)}
+.bc-tagline{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.55;margin-bottom:16px}
+.bundle-card.feat .bc-tagline{color:rgba(255,255,255,.32)}
+.bc-includes{display:flex;flex-direction:column;gap:6px;margin-bottom:18px;flex:1}
+.bc-inc{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink3)}
+.bundle-card.feat .bc-inc{color:rgba(255,255,255,.42)}
+.bc-dot{width:5px;height:5px;border-radius:50%;background:var(--brand);flex-shrink:0}
+.bc-price-wrap{margin-bottom:16px}
+.bc-setup{font-size:12px;color:var(--ink4);margin-bottom:3px}
+.bundle-card.feat .bc-setup{color:rgba(255,255,255,.22)}
+.bc-price{font-family:var(--fd);font-size:26px;font-weight:400;color:var(--brand-d);letter-spacing:-.025em;line-height:1}
+.bundle-card.feat .bc-price{color:var(--brand)}
+.bc-price sub{font-size:13px;font-weight:300;font-family:var(--fb);color:var(--ink4);vertical-align:baseline}
+.bundle-card.feat .bc-price sub{color:rgba(255,255,255,.28)}
+.bc-savings{font-size:11px;font-weight:500;color:var(--brand-d);margin-top:4px}
+.bundle-card.feat .bc-savings{color:rgba(74,189,152,.75)}
+.bc-cta{display:block;width:100%;text-align:center;padding:12px 0;border-radius:99px;font-family:var(--fb);font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
+.bundle-card:not(.feat) .bc-cta{background:var(--ink6);color:var(--ink)}
+.bundle-card:not(.feat):hover .bc-cta{background:var(--ink);color:#fff}
+.bundle-card.feat .bc-cta{background:var(--brand);color:var(--ink)}
+.bundle-card.feat:hover .bc-cta{background:var(--brand-d);color:#fff}
+/* COMPARE TABLE */
+.compare-wrap{overflow-x:auto;margin-top:40px}
+.compare-table{width:100%;border-collapse:collapse;min-width:640px}
+.compare-table th{padding:13px 16px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-align:center;border-bottom:1px solid var(--ink6)}
+.compare-table th:first-child{text-align:left;color:var(--ink4);width:36%}
+.compare-table th:not(:first-child){color:var(--ink2);background:var(--bg2);border-left:1px solid var(--ink6)}
+.compare-table th.feat-col{background:var(--ink);color:rgba(255,255,255,.75)}
+.compare-table td{padding:12px 16px;font-size:13px;font-weight:300;color:var(--ink3);border-bottom:1px solid var(--ink6);text-align:center}
+.compare-table td:first-child{text-align:left;color:var(--ink2);font-weight:400}
+.compare-table td:not(:first-child){border-left:1px solid var(--ink6);background:var(--bg2)}
+.compare-table td.feat-col{background:rgba(15,15,15,.03)}
+.compare-table tr:hover td{background:rgba(74,189,152,.03)}
+.compare-table tr:hover td.feat-col{background:rgba(15,15,15,.06)}
+.ct-group-row td{background:var(--brand-t);color:var(--brand-d);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;border-bottom:1px solid rgba(74,189,152,.15)}
+.ct-check{color:var(--brand-d);font-weight:700;font-size:14px}
+.ct-x{color:var(--ink5)}
+/* FAQ */
+.faq-section{padding:72px 0;background:var(--bg2)}
+.faq-list{max-width:640px;margin:40px auto 0;display:flex;flex-direction:column;gap:6px}
+.faq-item{background:var(--bg);border:1px solid var(--ink6);border-radius:10px;overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:rgba(74,189,152,.24)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:none;border:none;cursor:pointer;font-family:var(--fd);font-size:15px;font-weight:400;color:var(--ink);text-align:left;gap:12px}
+.faq-ic{color:var(--brand-d);font-size:18px;flex-shrink:0;transition:transform .22s}
+.faq-item.open .faq-ic{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 20px 16px;font-size:14px;font-weight:300;color:var(--ink3);line-height:1.7}
+.faq-item.open .faq-a{display:block}
+/* CTA */
+.cta-section{background:var(--ink);padding:92px 40px;text-align:center;position:relative;overflow:hidden}
+@media(max-width:600px){.cta-section{padding:68px 20px}}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(74,189,152,.08) 0%,transparent 70%)}
+#cta-canvas{position:absolute;inset:0;pointer-events:none}
+.cta-section>*{position:relative;z-index:1}
+.cta-h{font-family:var(--fd);font-size:clamp(26px,4vw,46px);font-weight:400;line-height:1.1;letter-spacing:-.025em;color:rgba(255,255,255,.95);max-width:560px;margin:0 auto 14px}
+.cta-h em{font-style:italic;color:var(--brand)}
+.cta-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,.38);max-width:420px;margin:0 auto 36px;line-height:1.7}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+/* FOOTER */
+.footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:36px 40px}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none}
+.f-logo em{font-style:italic;color:var(--brand)}
+.f-links{display:flex;gap:20px;flex-wrap:wrap}
+.f-link{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .15s}
+.f-link:hover{color:rgba(255,255,255,.6)}
+.f-copy{font-size:11px;color:rgba(255,255,255,.16)}
+
+/* INLINE BILLING TOGGLE */
+.inline-toggle-wrap{margin-bottom:20px;margin-top:32px;display:flex;justify-content:center}
+.inline-toggle{display:inline-flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--ink6);padding:8px 16px;border-radius:99px}
+.it-label{font-size:12px;font-weight:400;color:var(--ink3)}
+.it-label.active{color:var(--ink);font-weight:500}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.06s}.rd2{transition-delay:.12s}.rd3{transition-delay:.18s}.rd4{transition-delay:.24s}
+
+</style>
+</head>
+<body>
+<nav class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <div class="nav-center">
+      <button class="nav-link" onclick="toggleMega(event,'services-mega')">Services <span class="nav-chevron"></span></button>
+      <a class="nav-link" href="apnosh_results.html">Results</a>
+      <a class="nav-link active" href="apnosh_pricing.html">Pricing</a>
+      <button class="nav-link" onclick="toggleMega(event,'resources-mega')">Resources <span class="nav-chevron"></span></button>
+      <button class="nav-link" onclick="toggleMega(event,'about-mega')">About <span class="nav-chevron"></span></button>
+    </div>
+    <div class="nav-right">
+      <a class="nav-plain" href="talk_to_expert.html">Contact</a>
+      <a class="nav-audit" href="apnosh_homepage.html#start">Get free audit</a>
+    </div>
+    <button class="nav-hamburger" id="mob-toggle" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mega" id="services-mega">
+  <div class="mega-inner">
+    <div class="mega-col"><div class="mega-col-title">Marketing</div><a class="mega-item" href="service-social-media.html"><div class="mega-icon">&#128241;</div><div><span class="mega-item-name">Social Media</span><span class="mega-item-desc">Managed presence across all platforms</span></div></a><a class="mega-item" href="service-video-content.html"><div class="mega-icon">&#127916;</div><div><span class="mega-item-name">Video Content</span><span class="mega-item-desc">Short-form video that stops the scroll</span></div></a><a class="mega-item" href="service-static-content.html"><div class="mega-icon">&#128444;&#65039;</div><div><span class="mega-item-name">Graphic Content</span><span class="mega-item-desc">Stories, carousels &amp; infographics</span></div></a><a class="mega-item" href="service-email-sms.html"><div class="mega-icon">&#9993;&#65039;</div><div><span class="mega-item-name">Email &amp; SMS</span><span class="mega-item-desc">$42 ROI per $1 spent</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Websites &amp; SEO</div><a class="mega-item" href="service-websites.html"><div class="mega-icon">&#127760;</div><div><span class="mega-item-name">Websites &amp; Hosting</span><span class="mega-item-desc">Sites that turn visitors into customers</span></div></a><a class="mega-item" href="service-local-seo.html"><div class="mega-icon">&#128205;</div><div><span class="mega-item-name">Local SEO &amp; GBP</span><span class="mega-item-desc">Rank #1 on Google Maps in your area</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Creative</div><a class="mega-item" href="service-branding.html"><div class="mega-icon">&#127912;</div><div><span class="mega-item-name">Branding &amp; Identity</span><span class="mega-item-desc">Look like the best in your industry</span></div></a><a class="mega-item" href="service-creative-production.html"><div class="mega-icon">&#128247;</div><div><span class="mega-item-name">Photography &amp; Video</span><span class="mega-item-desc">Professional visuals for every channel</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Strategy</div><a class="mega-item" href="service-consulting.html"><div class="mega-icon">&#128172;</div><div><span class="mega-item-name">Consulting &amp; Strategy</span><span class="mega-item-desc">Expert guidance from real operators</span></div></a></div>
+  </div>
+  <div class="mega-footer"><div class="mega-footer-links"><span class="mega-footer-tag">Not sure what you need?</span><a class="mega-footer-link" href="master_hub.html">Try the AI Plan Builder &rarr;</a></div><a class="mega-footer-cta" href="apnosh_services.html">View all services &rarr;</a></div>
+</div>
+<div class="mega" id="resources-mega">
+  <div class="mega-inner">
+    <div class="mega-col"><div class="mega-col-title">Free guides &amp; learning</div><a class="mega-item" href="resource-local-seo-playbook.html"><div class="mega-icon">&#128205;</div><div><span class="mega-item-name">Local SEO Playbook 2026</span><span class="mega-item-desc">24-page guide to ranking #1 on Maps</span></div></a><a class="mega-item" href="resource-social-media-toolkit.html"><div class="mega-icon">&#128241;</div><div><span class="mega-item-name">Social Media Toolkit</span><span class="mega-item-desc">30-day calendar + 50 caption frameworks</span></div></a><a class="mega-item" href="resource-email-marketing-kit.html"><div class="mega-icon">&#9993;&#65039;</div><div><span class="mega-item-name">Email Marketing Starter Kit</span><span class="mega-item-desc">Templates, flows &amp; platform comparison</span></div></a><a class="mega-item" href="resource-website-conversion-guide.html"><div class="mega-icon">&#127760;</div><div><span class="mega-item-name">Website Conversion Guide</span><span class="mega-item-desc">Turn your site into a 24/7 salesperson</span></div></a><a class="mega-item" href="resource-brand-identity-checklist.html"><div class="mega-icon">&#127912;</div><div><span class="mega-item-name">Brand Identity Checklist</span><span class="mega-item-desc">47-point audit with scoring system</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Tutorials</div><a class="mega-item" href="apnosh_resources.html"><div class="mega-icon">&#128250;</div><div><span class="mega-item-name">Getting Started</span><span class="mega-item-desc">Set up your marketing foundations</span></div></a><a class="mega-item" href="apnosh_resources.html"><div class="mega-icon">&#128640;</div><div><span class="mega-item-name">Growth Playbooks</span><span class="mega-item-desc">Industry-specific step-by-step strategies</span></div></a><a class="mega-item" href="apnosh_resources.html"><div class="mega-icon">&#128295;</div><div><span class="mega-item-name">DIY How-To&rsquo;s</span><span class="mega-item-desc">Do it yourself with our walkthroughs</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Blog &amp; news</div><a class="mega-item" href="apnosh_resources.html#blog"><div class="mega-icon">&#128221;</div><div><span class="mega-item-name">Latest Articles</span><span class="mega-item-desc">Marketing tips for business owners</span></div></a><a class="mega-item" href="apnosh_resources.html#blog"><div class="mega-icon">&#128240;</div><div><span class="mega-item-name">Weekly Newsletter</span><span class="mega-item-desc">One tip, one trend, one tool — every Tuesday</span></div></a><a class="mega-item" href="apnosh_resources.html#blog"><div class="mega-icon">&#128172;</div><div><span class="mega-item-name">Case Studies</span><span class="mega-item-desc">Real results from real businesses</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Free AI tools</div><a class="mega-item" href="master_hub.html"><div class="mega-icon">&#10022;</div><div><span class="mega-item-name">AI Plan Builder</span><span class="mega-item-desc">Custom marketing plan in 5 minutes</span></div></a><a class="mega-item" href="apnosh_homepage.html#start"><div class="mega-icon">&#128202;</div><div><span class="mega-item-name">Free Marketing Audit</span><span class="mega-item-desc">Website, Google, social &amp; SEO report</span></div></a><a class="mega-item" style="opacity:.5;pointer-events:none" href="#"><div class="mega-icon">&#129302;</div><div><span class="mega-item-name">ROI Calculator <span style="font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--ink6);color:var(--ink4);padding:1px 6px;border-radius:99px;margin-left:4px">Soon</span></span><span class="mega-item-desc">See the return before you invest</span></div></a><a class="mega-item" style="opacity:.5;pointer-events:none" href="#"><div class="mega-icon">&#128270;</div><div><span class="mega-item-name">SEO Rank Checker <span style="font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--ink6);color:var(--ink4);padding:1px 6px;border-radius:99px;margin-left:4px">Soon</span></span><span class="mega-item-desc">See where you rank for key terms</span></div></a></div>
+  </div>
+  <div class="mega-footer"><div class="mega-footer-links"><span class="mega-footer-tag">All resources free &middot; No gated demos &middot; No spam</span></div><a class="mega-footer-cta" href="apnosh_resources.html">View all resources &rarr;</a></div>
+</div>
+<div class="mega" id="about-mega">
+  <div class="mega-inner">
+    <div class="mega-col"><div class="mega-col-title">Our story</div><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#10022;</div><div><span class="mega-item-name">How Apnosh was built</span><span class="mega-item-desc">The frustration that started it all</span></div></a><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#128214;</div><div><span class="mega-item-name">Our philosophy</span><span class="mega-item-desc">Why marketing should be legible</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">How we work</div><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#129302;</div><div><span class="mega-item-name">AI + Human model</span><span class="mega-item-desc">Why we&rsquo;re faster and more affordable</span></div></a><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#128172;</div><div><span class="mega-item-name">Contact us</span><span class="mega-item-desc">Talk to a real person, any time</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Team</div><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#128101;</div><div><span class="mega-item-name">Meet the team</span><span class="mega-item-desc">The people behind every campaign</span></div></a></div>
+    <div class="mega-col" style="background:var(--bg2);border-radius:12px;padding:16px"><div class="mega-col-title">By the numbers</div><div style="display:flex;flex-direction:column;gap:10px;padding:4px 0"><div><div style="font-family:var(--fd);font-size:26px;font-weight:400;color:var(--ink);letter-spacing:-.02em;line-height:1">200+</div><div style="font-size:11px;color:var(--ink4);margin-top:3px">Businesses actively growing</div></div><div style="height:1px;background:var(--ink6)"></div><div><div style="font-family:var(--fd);font-size:26px;font-weight:400;color:var(--ink);letter-spacing:-.02em;line-height:1">94%</div><div style="font-size:11px;color:var(--ink4);margin-top:3px">Client retention rate</div></div></div></div>
+  </div>
+  <div class="mega-footer"><div class="mega-footer-links"><a class="mega-footer-link" href="apnosh_about.html">Read our full story &rarr;</a></div><a class="mega-footer-cta" href="talk_to_expert.html">Talk to our team &rarr;</a></div>
+</div>
+<div class="mobile-drawer" id="mob-drawer">
+  <div class="mob-section"><div class="mob-section-title">Services</div><a class="mob-link" href="service-social-media.html"><div class="mob-link-icon">&#128241;</div><div><span class="mob-link-name">Social Media</span><span class="mob-link-desc">Managed presence across platforms</span></div></a><a class="mob-link" href="service-video-content.html"><div class="mob-link-icon">&#127916;</div><div><span class="mob-link-name">Video Content</span><span class="mob-link-desc">Reels, TikTok &amp; ad creative</span></div></a><a class="mob-link" href="service-email-sms.html"><div class="mob-link-icon">&#9993;&#65039;</div><div><span class="mob-link-name">Email &amp; SMS</span><span class="mob-link-desc">Highest ROI channel in marketing</span></div></a><a class="mob-link" href="service-websites.html"><div class="mob-link-icon">&#127760;</div><div><span class="mob-link-name">Websites &amp; Hosting</span><span class="mob-link-desc">Convert visitors into customers</span></div></a><a class="mob-link" href="service-local-seo.html"><div class="mob-link-icon">&#128205;</div><div><span class="mob-link-name">Local SEO</span><span class="mob-link-desc">Rank #1 on Google Maps</span></div></a><a class="mob-link" href="service-branding.html"><div class="mob-link-icon">&#127912;</div><div><span class="mob-link-name">Branding</span><span class="mob-link-desc">Look like the best in your market</span></div></a><a class="mob-link" href="service-creative-production.html"><div class="mob-link-icon">&#128247;</div><div><span class="mob-link-name">Photography &amp; Video</span><span class="mob-link-desc">Professional visuals for every channel</span></div></a><a class="mob-link" href="service-consulting.html"><div class="mob-link-icon">&#128172;</div><div><span class="mob-link-name">Consulting</span><span class="mob-link-desc">Expert strategy sessions</span></div></a></div>
+  <div class="mob-section"><a class="mob-nav-link" href="apnosh_results.html">Results</a><a class="mob-nav-link" href="apnosh_pricing.html">Pricing</a><a class="mob-nav-link" href="apnosh_about.html">About</a><a class="mob-nav-link" href="talk_to_expert.html">Contact</a></div>
+  <div class="mob-ctas"><a class="mob-cta-primary" href="apnosh_homepage.html#start">Get free audit &rarr;</a><a class="mob-cta-secondary" href="master_hub.html">Build my plan &rarr;</a></div>
+</div>
+<div class="nav-overlay" id="nav-overlay" onclick="closeAll()"></div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <span class="kicker">100% transparent pricing</span>
+  <h1 class="h1" style="max-width:720px;margin:0 auto 18px">Every price published.<br><em>No surprises. Ever.</em></h1>
+  <p class="lead" style="max-width:520px;margin:0 auto 32px">We publish every price because business owners deserve to make informed decisions — not be pressured into them. Browse every service below or let our AI Plan Builder recommend the right combination for your business and budget.</p>
+  <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap">
+    <a class="btn btn-brand btn-lg" href="master_hub.html">Build my custom plan &mdash; free <span class="arr">&rarr;</span></a>
+    <a class="btn btn-outline btn-lg" href="#social">Browse all pricing</a>
+  </div>
+  <div class="hero-trust">
+    <div class="ht-item"><span class="ht-check">&#10003;</span> Month-to-month always</div>
+    <div class="ht-item"><span class="ht-check">&#10003;</span> No setup fees hidden</div>
+    <div class="ht-item"><span class="ht-check">&#10003;</span> Cancel any time</div>
+    <div class="ht-item"><span class="ht-check">&#10003;</span> 2 months free annually</div>
+  </div>
+</section>
+
+<!-- FEATURED PATH CARD + SECONDARY PATHS (master hub style) -->
+<section style="background:var(--bg2);border-top:1px solid var(--ink6);border-bottom:1px solid var(--ink6);padding:56px 0">
+  <div class="w">
+    <p style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);text-align:center;margin-bottom:18px">Choose how you want to get started</p>
+    <div class="feat-path" onclick="location.href='master_hub.html'" style="cursor:pointer">
+      <div class="fp-left">
+        <div class="fp-eyebrow"><div class="fp-dot"></div>Most recommended &nbsp;&bull;&nbsp; 5 min</div>
+        <h2 class="fp-h">Let AI build your <em>custom plan</em></h2>
+        <p class="fp-p">Answer 9 questions about your business, goals, and budget. Our AI builds 3 tailored plans from the full service catalog — ranked by fit and ROI. See your recommended services and exact pricing before committing to anything.</p>
+        <a class="fp-btn" href="master_hub.html">Build my plan free &nbsp;<span class="fp-arr">&rarr;</span></a>
+      </div>
+      <div class="fp-right">
+        <div class="fp-bullet"><div class="fp-b-icon">&#129302;</div><div><span class="fp-b-title">AI-powered recommendations</span><span class="fp-b-desc">Matched to your industry, location, and budget</span></div></div>
+        <div class="fp-bullet"><div class="fp-b-icon">&#128202;</div><div><span class="fp-b-title">3 plans, ranked by fit</span><span class="fp-b-desc">From lean essentials to full-service growth</span></div></div>
+        <div class="fp-bullet"><div class="fp-b-icon">&#128274;</div><div><span class="fp-b-title">Zero commitment</span><span class="fp-b-desc">See the plan before you spend a dollar</span></div></div>
+      </div>
+    </div>
+    <div class="sec-paths">
+      <div class="sec-path" onclick="location.href='quick_packages.html'" style="cursor:pointer">
+        <div class="sp-top"><span class="sp-icon">&#127760;</span><span class="sp-tag">Pre-built</span></div>
+        <h3 class="sp-h">Pre-built industry packages</h3>
+        <p class="sp-p">Curated service bundles for restaurants, service businesses, real estate, wellness, and retail — pre-configured for what works best in your industry.</p>
+        <div class="sp-best"><strong>Best for</strong>Businesses that want a proven starting point without building from scratch</div>
+        <a class="sp-cta" href="quick_packages.html">Browse packages &nbsp;<span class="sp-arr">&rarr;</span></a>
+      </div>
+      <div class="sec-path" onclick="location.href='#bundles'" style="cursor:pointer">
+        <div class="sp-top"><span class="sp-icon">&#128640;</span><span class="sp-tag">Bundles</span></div>
+        <h3 class="sp-h">Multi-service bundles</h3>
+        <p class="sp-p">Our most popular service combinations at bundle pricing — Launch & Get Found, Grow & Scale, and Dominate Your Market. Save up to $300/mo vs. individual pricing.</p>
+        <div class="sp-best"><strong>Best for</strong>Businesses that need multiple services and want the most value per dollar</div>
+        <a class="sp-cta" href="#bundles">See bundle pricing &nbsp;<span class="sp-arr">&rarr;</span></a>
+      </div>
+      <div class="sec-path" onclick="location.href='talk_to_expert.html'" style="cursor:pointer">
+        <div class="sp-top"><span class="sp-icon">&#128172;</span><span class="sp-tag">Talk to us</span></div>
+        <h3 class="sp-h">Talk to our team</h3>
+        <p class="sp-p">Prefer a conversation? Our team will ask the right questions, walk you through what we&rsquo;d recommend, and give you a custom quote on the spot. No pressure, no scripts.</p>
+        <div class="sp-best"><strong>Best for</strong>Multi-location businesses, complex needs, or anyone who thinks better by talking</div>
+        <a class="sp-cta" href="talk_to_expert.html">Schedule a call &nbsp;<span class="sp-arr">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BILLING TOGGLE + SECTION NAV -->
+<div class="section-nav">
+  <div class="sn-inner">
+    <a class="sn-link" href="#social">Social Media</a>
+    <a class="sn-link" href="#websites">Websites</a>
+    <a class="sn-link" href="#local">Local &amp; SEO</a>
+    <a class="sn-link" href="#email">Email &amp; SMS</a>
+    <a class="sn-link" href="#ai">AI Automations</a>
+    <a class="sn-link" href="#creative">Creative Services</a>
+    <a class="sn-link" href="#bundles">Bundles</a>
+    <a class="sn-link" href="#compare">Compare</a>
+  </div>
+</div>
+
+<!-- VALUE STRIP -->
+<div class="value-strip">
+  <div class="w">
+    <div class="vs-grid">
+      <div class="vs-cell"><span class="vs-icon">&#128274;</span><div class="vs-title">Month-to-month</div><div class="vs-desc">Cancel or adjust any time after your first 30 days. No penalties, no questions asked.</div></div>
+      <div class="vs-cell"><span class="vs-icon">&#129520;</span><div class="vs-title">Only pay for what you need</div><div class="vs-desc">Mix and match any service. Nothing is bundled unless you choose it.</div></div>
+      <div class="vs-cell"><span class="vs-icon">&#128202;</span><div class="vs-title">Real results in 30 days</div><div class="vs-desc">First measurable movement within your first billing cycle — or your first month is free.</div></div>
+      <div class="vs-cell"><span class="vs-icon">&#129302;</span><div class="vs-title">AI + human quality</div><div class="vs-desc">AI handles speed and research. Humans own strategy, quality, and your account.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SOCIAL MEDIA ══ -->
+<section class="price-section" id="social">
+  <div class="w">
+    <div class="reveal">
+      <div class="ps-label">&#128241; Social Media Marketing</div>
+      <h2 class="h2">Social Media <em>Management</em></h2>
+      <p class="ps-desc">Full management across Instagram, Facebook, and TikTok &mdash; strategy, content creation, scheduling, community management. You approve once a month. We handle everything else.</p>
+    </div>
+    <div class="inline-toggle-wrap">
+    <div class="inline-toggle">
+      <span class="it-label" id="monthly-lbl">Monthly</span>
+      <label class="bt-switch"><input type="checkbox" id="billing-toggle" onchange="toggleBilling(this)"><span class="bt-track"></span><span class="bt-thumb"></span></label>
+      <span class="it-label" id="annual-lbl">Annually</span>
+      <span class="bt-badge">Save 2 months free</span>
+    </div>
+  </div>
+    <div class="tiers t4 reveal">
+      <div class="tier-card">
+        <div class="tier-top"></div>
+        <div class="t-name">Essentials</div>
+        <div class="t-tagline">A consistent, on-brand presence to build trust with new customers.</div>
+        <div class="t-price" data-m="199" data-a="166">$199<sub>/mo</sub></div>
+        <div class="t-annual"></div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">What&rsquo;s included</div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Instagram &amp; Facebook management</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Consistent branding &amp; visual style</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>AI-assisted &amp; SEO-optimised captions</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Content calendar &amp; scheduling</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Basic community engagement</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Monthly performance report</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+      <div class="tier-card">
+        <div class="tier-top"></div>
+        <div class="t-name">Starter</div>
+        <div class="t-tagline">Grow your following and actively engage your community across all three platforms.</div>
+        <div class="t-price" data-m="299" data-a="249">$299<sub>/mo</sub></div>
+        <div class="t-annual"></div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">Everything in Essentials, plus</div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>TikTok management added</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Basic social media strategy</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Active community engagement &amp; responses</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Consistent branding across all platforms</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+      <div class="tier-card dark">
+        <div class="tier-top"></div>
+        <div class="tier-pop-badge">&#9889; Most popular</div>
+        <div class="t-name">Growth</div>
+        <div class="t-tagline">For businesses serious about social media as a real growth and revenue channel.</div>
+        <div class="t-price" data-m="449" data-a="374">$449<sub>/mo</sub></div>
+        <div class="t-annual"></div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">Everything in Starter, plus</div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Full social media strategy</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Daily story posts (7 days/week)</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Dedicated account contact</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>AI trend monitoring &amp; topic ideation</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Competitor tracking &amp; benchmarking</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Monthly Visibility Intelligence Report</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+      <div class="tier-card">
+        <div class="tier-top"></div>
+        <div class="t-name">Enterprise</div>
+        <div class="t-tagline">Multi-location brands or businesses needing a fully dedicated social team.</div>
+        <div class="t-price">Custom<sub>/mo</sub></div>
+        <div class="t-annual">&nbsp;</div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">Everything in Growth, plus</div>
+        <div class="t-feats">
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Enterprise-level strategy</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Dedicated strategist &amp; account team</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Custom KPI framework &amp; reporting</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Advanced competitor intelligence</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Quarterly executive strategy sessions</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Priority response SLA</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Contact us &rarr;</a>
+      </div>
+    </div>
+    <div style="margin-top:20px" class="reveal">
+      <p class="sm" style="color:var(--ink4);margin-bottom:12px">&#9889; = AI-powered feature &nbsp;&nbsp;&bull;&nbsp;&nbsp; Add-ons available to any plan:</p>
+      <div class="addons-row">
+        <div class="addon-pill"><div class="addon-pill-name">Short-form video reels</div><div class="addon-pill-price">From $100<span style="font-size:11px;color:var(--ink4)">/video</span></div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Professional photography</div><div class="addon-pill-price">From $95<span style="font-size:11px;color:var(--ink4)">/hr</span></div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Extra graphic design posts</div><div class="addon-pill-price">From $25<span style="font-size:11px;color:var(--ink4)">/graphic</span></div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Platform launch setup</div><div class="addon-pill-price">$199<span style="font-size:11px;color:var(--ink4)">/platform</span></div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Social media audit</div><div class="addon-pill-price">$149<span style="font-size:11px;color:var(--ink4)"> one-time</span></div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Paid social ads</div><div class="addon-pill-price" style="color:var(--ink4)">Coming soon</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WEBSITES ══ -->
+<section class="price-section" id="websites">
+  <div class="w">
+    <div class="reveal">
+      <div class="ps-label">&#127760; Websites</div>
+      <h2 class="h2">Website Design <em>&amp; Development</em></h2>
+      <p class="ps-desc">Custom-designed, mobile-first, SEO-ready websites built to convert visitors into customers. One-time project price. You own everything. Optional monthly care plan available.</p>
+    </div>
+    <div class="inline-toggle-wrap">
+    <div class="inline-toggle">
+      <span class="it-label" class="it-label-m">Monthly</span>
+      <label class="bt-switch"><input type="checkbox" class="billing-toggle-sync" onchange="toggleBilling(this)" onchange="toggleBilling(this)"><span class="bt-track"></span><span class="bt-thumb"></span></label>
+      <span class="it-label" class="it-label-a">Annually</span>
+      <span class="bt-badge">Save 2 months free</span>
+    </div>
+  </div>
+    <div class="tiers t3 reveal">
+      <div class="tier-card">
+        <div class="tier-top"></div>
+        <div class="t-name">Basic &mdash; 5 Pages</div>
+        <div class="t-tagline">Homepage, About, Services, Contact + one additional page. Professional and conversion-ready.</div>
+        <div class="t-price">$699<sub> one-time</sub></div>
+        <div class="t-annual">Delivered in 2&ndash;3 weeks</div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">What&rsquo;s included</div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Custom design &mdash; not a template</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Mobile-responsive &amp; fast</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Contact form + Google Maps</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Basic on-page SEO</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Launch support included</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get a quote &rarr;</a>
+      </div>
+      <div class="tier-card dark">
+        <div class="tier-top"></div>
+        <div class="tier-pop-badge">Most popular</div>
+        <div class="t-name">Standard &mdash; 10 Pages</div>
+        <div class="t-tagline">Full site with blog, service sub-pages, and a conversion-optimised structure. Our most common build.</div>
+        <div class="t-price">$1,299<sub> one-time</sub></div>
+        <div class="t-annual">Delivered in 3&ndash;4 weeks</div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">What&rsquo;s included</div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Everything in Basic</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Blog / CMS included</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Service sub-pages</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Full on-page SEO setup</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Analytics &amp; conversion tracking</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Professional copywriting included</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get a quote &rarr;</a>
+      </div>
+      <div class="tier-card">
+        <div class="tier-top"></div>
+        <div class="t-name">Advanced &mdash; 20 Pages</div>
+        <div class="t-tagline">Full multi-page site with location pages, service catalog, and custom conversion flows.</div>
+        <div class="t-price">$1,999<sub> one-time</sub></div>
+        <div class="t-annual">Delivered in 4&ndash;6 weeks</div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">What&rsquo;s included</div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Everything in Standard</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Up to 20 pages</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Location pages</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Advanced conversion flows</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Custom integrations</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get a quote &rarr;</a>
+      </div>
+    </div>
+    <div style="margin-top:24px" class="reveal">
+      <p class="sm" style="color:var(--ink4);margin-bottom:12px">Website add-ons (bolt on to any build):</p>
+      <div class="addons-row">
+        <div class="addon-pill"><div class="addon-pill-name">Booking / Scheduling</div><div class="addon-pill-price">+$199</div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Blog / CMS Hub</div><div class="addon-pill-price">+$249</div></div>
+        <div class="addon-pill"><div class="addon-pill-name">On-Page SEO Setup</div><div class="addon-pill-price">+$149</div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Analytics &amp; Tracking</div><div class="addon-pill-price">+$99</div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Membership / Login</div><div class="addon-pill-price">+$399</div></div>
+        <div class="addon-pill"><div class="addon-pill-name">E-commerce / Payments</div><div class="addon-pill-price">+$199</div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Copywriting</div><div class="addon-pill-price">$99<span style="font-size:11px;color:var(--ink4)">/page</span></div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Extra pages</div><div class="addon-pill-price">$99<span style="font-size:11px;color:var(--ink4)">/page</span></div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Location pages</div><div class="addon-pill-price">$149<span style="font-size:11px;color:var(--ink4)">/page</span></div></div>
+      </div>
+    </div>
+    <div style="margin-top:20px" class="reveal">
+      <p class="sm" style="color:var(--ink4);margin-bottom:12px">Monthly hosting &amp; care plans (optional, after launch):</p>
+      <div class="addons-row">
+        <div class="addon-pill"><div class="addon-pill-name">Basic Hosting</div><div class="addon-pill-price">$49<span style="font-size:11px;color:var(--ink4)">/mo</span></div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Growth Care</div><div class="addon-pill-price">$125<span style="font-size:11px;color:var(--ink4)">/mo</span></div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Pro Care</div><div class="addon-pill-price">$249<span style="font-size:11px;color:var(--ink4)">/mo</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LOCAL & SEO ══ -->
+<section class="price-section" id="local">
+  <div class="w">
+    <div class="reveal">
+      <div class="ps-label">&#128205; Local Presence &amp; SEO</div>
+      <h2 class="h2">Local SEO &amp; <em>Reputation Management</em></h2>
+      <p class="ps-desc">Get found on Google Maps and local search. Build and protect your reputation with consistent 5-star reviews. The highest-ROI actions for any local business.</p>
+    </div>
+    <div class="inline-toggle-wrap">
+    <div class="inline-toggle">
+      <span class="it-label" class="it-label-m">Monthly</span>
+      <label class="bt-switch"><input type="checkbox" class="billing-toggle-sync" onchange="toggleBilling(this)" onchange="toggleBilling(this)"><span class="bt-track"></span><span class="bt-thumb"></span></label>
+      <span class="it-label" class="it-label-a">Annually</span>
+      <span class="bt-badge">Save 2 months free</span>
+    </div>
+  </div>
+    <div class="tiers t3 reveal" style="margin-bottom:24px">
+      <div class="tier-card">
+        <div class="tier-top"></div>
+        <div class="t-name">Local Starter</div>
+        <div class="t-tagline">For businesses just getting started with local search visibility.</div>
+        <div class="t-price" data-m="149" data-a="124">$149<sub>/mo</sub></div>
+        <div class="t-annual"></div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">What&rsquo;s included</div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>GBP setup &amp; optimisation</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>10 target keywords tracked</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Basic citation audit (20 dirs)</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Monthly rank report</div>
+          <div class="t-feat dim"><span class="t-fi">&#8212;</span>Citation building</div>
+          <div class="t-feat dim"><span class="t-fi">&#8212;</span>Competitor analysis</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+      <div class="tier-card dark">
+        <div class="tier-top"></div>
+        <div class="tier-pop-badge">Most popular</div>
+        <div class="t-name">Local Growth</div>
+        <div class="t-tagline">For businesses ready to compete seriously for top-3 local rankings.</div>
+        <div class="t-price" data-m="299" data-a="249">$299<sub>/mo</sub></div>
+        <div class="t-annual"></div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">Everything in Starter, plus</div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>25 keywords tracked</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Citation building (50 dirs)</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Monthly competitor gap analysis</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>2&times; weekly GBP posts</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Review response management</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>AI-generated GBP content</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+      <div class="tier-card">
+        <div class="tier-top"></div>
+        <div class="t-name">Local Authority</div>
+        <div class="t-tagline">For businesses that want to own their local market — undisputably.</div>
+        <div class="t-price" data-m="499" data-a="416">$499<sub>/mo</sub></div>
+        <div class="t-annual"></div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">Everything in Growth, plus</div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>50 keywords tracked</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Local link building outreach</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Daily GBP monitoring</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Up to 5 location pages built</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Priority support + strategy calls</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>AI-powered local content strategy</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+    </div>
+    <p class="sm reveal" style="color:var(--ink4);margin-bottom:20px">Additional locations from +$75&ndash;$100/mo each</p>
+    <div class="reveal">
+      <p class="sm" style="color:var(--ink4);margin-bottom:12px">One-time local SEO services (no monthly commitment):</p>
+      <div class="ot-grid">
+        <div class="ot-card"><span class="ot-icon">&#128269;</span><div class="ot-name">SEO Audit &amp; Citation Cleanup</div><p class="ot-desc">Full local SEO audit + cleanup of incorrect citations across the web. Essential first step.</p><div class="ot-price">$199<sub> one-time</sub></div></div>
+        <div class="ot-card"><span class="ot-icon">&#128205;</span><div class="ot-name">GBP Setup &amp; Optimisation</div><p class="ot-desc">Complete Google Business Profile setup, category optimisation, photos, Q&amp;A, and first-month posting.</p><div class="ot-price">$249<sub> one-time</sub></div></div>
+        <div class="ot-card"><span class="ot-icon">&#128279;</span><div class="ot-name">Citation Building (50 dirs)</div><p class="ot-desc">Build consistent citations across 50 authoritative local directories. Boosts local map pack rankings.</p><div class="ot-price">$249<sub> one-time</sub></div></div>
+        <div class="ot-card"><span class="ot-icon">&#128202;</span><div class="ot-name">On-Page Local SEO</div><p class="ot-desc">Full on-page local SEO implementation — title tags, schema markup, NAP consistency, and location pages.</p><div class="ot-price">$299<sub> one-time</sub></div></div>
+        <div class="ot-card"><span class="ot-icon">&#11088;</span><div class="ot-name">Review Generation System</div><p class="ot-desc">Full setup of automated review request flows via SMS and email. Runs on autopilot after setup.</p><div class="ot-price">$149<sub> setup + $99/mo</sub></div></div>
+        <div class="ot-card"><span class="ot-icon">&#128481;&#65039;</span><div class="ot-name">Reputation Recovery</div><p class="ot-desc">For businesses with negative reviews damaging their reputation. Full recovery strategy and execution.</p><div class="ot-price">$399<sub> one-time</sub></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EMAIL & SMS ══ -->
+<section class="price-section" id="email">
+  <div class="w">
+    <div class="reveal">
+      <div class="ps-label">&#9993;&#65039; Email &amp; SMS Marketing</div>
+      <h2 class="h2">Email &amp; SMS <em>Marketing</em></h2>
+      <p class="ps-desc">The highest-ROI marketing channel available — $42 return per $1 spent. We write, design, and send every campaign. Platform setup, list segmentation, and automation flows all included.</p>
+    </div>
+    <div class="inline-toggle-wrap">
+    <div class="inline-toggle">
+      <span class="it-label" class="it-label-m">Monthly</span>
+      <label class="bt-switch"><input type="checkbox" class="billing-toggle-sync" onchange="toggleBilling(this)" onchange="toggleBilling(this)"><span class="bt-track"></span><span class="bt-thumb"></span></label>
+      <span class="it-label" class="it-label-a">Annually</span>
+      <span class="bt-badge">Save 2 months free</span>
+    </div>
+  </div>
+    <div class="tiers t3 reveal">
+      <div class="tier-card">
+        <div class="tier-top"></div>
+        <div class="t-name">Email Starter</div>
+        <div class="t-tagline">Get email marketing up and running — campaigns written, designed, and sent for you.</div>
+        <div class="t-price" data-m="199" data-a="166">$199<sub>/mo</sub></div>
+        <div class="t-annual"></div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">What&rsquo;s included</div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Platform setup &amp; migration</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>2 campaigns/mo (copy + design)</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>List segmentation</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Welcome automation flow</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Subject line optimisation</div>
+          <div class="t-feat dim"><span class="t-fi">&#8212;</span>SMS campaigns</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+      <div class="tier-card dark">
+        <div class="tier-top"></div>
+        <div class="tier-pop-badge">Best value</div>
+        <div class="t-name">Email &amp; SMS Growth</div>
+        <div class="t-tagline">Full email plus SMS — the two highest-performing retention channels working together.</div>
+        <div class="t-price" data-m="299" data-a="249">$299<sub>/mo</sub></div>
+        <div class="t-annual"></div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">Everything in Starter, plus</div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>4 campaigns/mo</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>SMS platform setup</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>2 SMS sends/mo</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Re-engagement automation</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Monthly revenue attribution report</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>AI-personalised send-time optimisation</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+      <div class="tier-card">
+        <div class="tier-top"></div>
+        <div class="t-name">Full Retention Suite</div>
+        <div class="t-tagline">The complete retention engine — every automation, flow, and campaign your business needs.</div>
+        <div class="t-price" data-m="599" data-a="499">$599<sub>/mo</sub></div>
+        <div class="t-annual"></div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">Everything in Growth, plus</div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>8 campaigns/mo</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Unlimited SMS sends</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Full automation library</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>List growth strategy</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>A/B testing + optimisation</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Predictive churn detection</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+    </div>
+    <div style="margin-top:20px" class="reveal">
+      <p class="sm" style="color:var(--ink4);margin-bottom:12px">One-time email &amp; SMS setup services:</p>
+      <div class="addons-row">
+        <div class="addon-pill"><div class="addon-pill-name">Platform Setup</div><div class="addon-pill-price">$199<span style="font-size:11px;color:var(--ink4)"> one-time</span></div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Automation Flow Build</div><div class="addon-pill-price">$399<span style="font-size:11px;color:var(--ink4)"> one-time</span></div></div>
+        <div class="addon-pill"><div class="addon-pill-name">SMS Platform Setup</div><div class="addon-pill-price">$149<span style="font-size:11px;color:var(--ink4)"> one-time</span></div></div>
+        <div class="addon-pill"><div class="addon-pill-name">List Building Strategy</div><div class="addon-pill-price">$249<span style="font-size:11px;color:var(--ink4)"> one-time</span></div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Email Template Design</div><div class="addon-pill-price">$199<span style="font-size:11px;color:var(--ink4)"> one-time</span></div></div>
+        <div class="addon-pill"><div class="addon-pill-name">Email &amp; SMS Audit</div><div class="addon-pill-price">$149<span style="font-size:11px;color:var(--ink4)"> one-time</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AI AUTOMATIONS ══ -->
+<section class="price-section" id="ai">
+  <div class="w">
+    <div class="reveal">
+      <div class="ps-label">&#129302; AI Automations</div>
+      <h2 class="h2">AI Automations &amp; <em>Smart Systems</em></h2>
+      <p class="ps-desc">Let AI handle the repetitive, time-sensitive work that doesn&rsquo;t need a human — lead follow-ups, review requests, reporting, and customer journey automation. Built once, runs forever.</p>
+    </div>
+    <div class="inline-toggle-wrap">
+    <div class="inline-toggle">
+      <span class="it-label" class="it-label-m">Monthly</span>
+      <label class="bt-switch"><input type="checkbox" class="billing-toggle-sync" onchange="toggleBilling(this)" onchange="toggleBilling(this)"><span class="bt-track"></span><span class="bt-thumb"></span></label>
+      <span class="it-label" class="it-label-a">Annually</span>
+      <span class="bt-badge">Save 2 months free</span>
+    </div>
+  </div>
+    <div class="tiers t3 reveal">
+      <div class="tier-card">
+        <div class="tier-top"></div>
+        <div class="t-name">Lead Response</div>
+        <div class="t-tagline">Never let a lead go cold. Instant automated follow-up the moment someone reaches out.</div>
+        <div class="t-price">$499<sub> setup</sub></div>
+        <div class="t-annual">then $99/mo to maintain</div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">What&rsquo;s included</div>
+        <div class="t-feats">
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Instant lead response (SMS + email)</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Multi-step nurture sequences</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Automated appointment booking</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>CRM integration &amp; lead tracking</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Lead source attribution</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+      <div class="tier-card dark">
+        <div class="tier-top"></div>
+        <div class="tier-pop-badge">Most popular</div>
+        <div class="t-name">Reporting Automation</div>
+        <div class="t-tagline">Your monthly performance report delivered automatically — plain language, real numbers.</div>
+        <div class="t-price">$99<sub>/mo</sub></div>
+        <div class="t-annual">or $82/mo billed annually</div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">What&rsquo;s included</div>
+        <div class="t-feats">
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Custom reporting dashboard</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Automated monthly report delivery</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Google Analytics 4 + Search Console</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Revenue &amp; lead attribution</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Trend analysis &amp; alerts</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+      <div class="tier-card">
+        <div class="tier-top"></div>
+        <div class="t-name">Full Journey Automation</div>
+        <div class="t-tagline">End-to-end automation — from first contact to loyal customer. Built once, runs 24/7.</div>
+        <div class="t-price">$1,299<sub> setup</sub></div>
+        <div class="t-annual">then $149/mo to maintain</div>
+        <div class="t-divider"></div>
+        <div class="t-inc-label">What&rsquo;s included</div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Full customer journey mapping</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Lead-to-sale automation</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Review &amp; loyalty automation</div>
+          <div class="t-feat ai"><span class="t-fi">&#9889;</span>Re-engagement &amp; win-back flows</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Ongoing monitoring &amp; optimisation</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CREATIVE SERVICES ══ -->
+<section class="price-section" id="creative">
+  <div class="w">
+    <div class="reveal">
+      <div class="ps-label">&#127912; Creative Services &amp; Branding</div>
+      <h2 class="h2">Branding, Design <em>&amp; Creative</em></h2>
+      <p class="ps-desc">One-time branding projects, a la carte design, photography, video production, copywriting, and strategic consulting. Order exactly what you need — nothing more.</p>
+    </div>
+    <div class="inline-toggle-wrap">
+    <div class="inline-toggle">
+      <span class="it-label" class="it-label-m">Monthly</span>
+      <label class="bt-switch"><input type="checkbox" class="billing-toggle-sync" onchange="toggleBilling(this)" onchange="toggleBilling(this)"><span class="bt-track"></span><span class="bt-thumb"></span></label>
+      <span class="it-label" class="it-label-a">Annually</span>
+      <span class="bt-badge">Save 2 months free</span>
+    </div>
+  </div>
+    <div class="tiers t3 reveal" style="margin-bottom:24px">
+      <div class="tier-card">
+        <div class="tier-top"></div>
+        <div class="t-name">Logo &amp; Visual Identity</div>
+        <div class="t-tagline">3 logo concepts with revisions, color palette, typography, and all file formats.</div>
+        <div class="t-price">$499<sub> one-time</sub></div>
+        <div class="t-annual">Delivered in 1&ndash;2 weeks</div>
+        <div class="t-divider"></div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>3 logo concepts</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Color palette &amp; typography</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>All file formats (AI, SVG, PNG, PDF)</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Unlimited revisions</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get a quote &rarr;</a>
+      </div>
+      <div class="tier-card dark">
+        <div class="tier-top"></div>
+        <div class="tier-pop-badge">Full brand</div>
+        <div class="t-name">Brand Strategy &amp; Identity</div>
+        <div class="t-tagline">Brand positioning, messaging, full visual identity, and complete brand guidelines document.</div>
+        <div class="t-price">$1,499<sub> one-time</sub></div>
+        <div class="t-annual">Delivered in 3&ndash;4 weeks</div>
+        <div class="t-divider"></div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Everything in Logo &amp; Identity</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Brand positioning &amp; messaging</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Brand voice &amp; tone guide</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Full brand guidelines PDF</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Brand application examples</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get a quote &rarr;</a>
+      </div>
+      <div class="tier-card">
+        <div class="tier-top"></div>
+        <div class="t-name">Complete Brand &amp; Launch</div>
+        <div class="t-tagline">Full rebrand plus everything you need to launch confidently — website, social, and print.</div>
+        <div class="t-price">$2,999<sub> one-time</sub></div>
+        <div class="t-annual">Delivered in 5&ndash;7 weeks</div>
+        <div class="t-divider"></div>
+        <div class="t-feats">
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Everything in Strategy &amp; Identity</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Social media brand templates</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Email template design</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Business card &amp; print design</div>
+          <div class="t-feat"><span class="t-fi">&#10003;</span>Brand implementation review</div>
+        </div>
+        <a class="t-cta" href="talk_to_expert.html">Get a quote &rarr;</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="sm" style="color:var(--ink4);margin-bottom:14px">&#224; la carte creative services &mdash; order what you need, when you need it:</p>
+      <div class="compare-wrap" style="margin-top:0">
+        <table class="alc-table">
+          <thead><tr><th>Service</th><th>Details</th><th style="text-align:right">Price</th></tr></thead>
+          <tbody>
+            <tr class="alc-group-row"><td colspan="3">Photography</td></tr>
+            <tr><td>Product Photography</td><td>Product &amp; lifestyle shots, edited &amp; formatted</td><td class="alc-price">$115/hr</td></tr>
+            <tr><td>Lifestyle Photography</td><td>People, environment, brand story shots</td><td class="alc-price">$130/hr</td></tr>
+            <tr><td>Event Photography</td><td>Event, opening, launch coverage</td><td class="alc-price">$115/hr</td></tr>
+            <tr><td>Real Estate Photography</td><td>Interior/exterior, formatted for MLS</td><td class="alc-price">$95/hr</td></tr>
+            <tr class="alc-group-row"><td colspan="3">Video Production</td></tr>
+            <tr><td>Basic Product Video</td><td>Simple product or service showcase, edited</td><td class="alc-price">$100/video</td></tr>
+            <tr><td>Trend Video (no people)</td><td>Social-first, trending formats</td><td class="alc-price">$125/video</td></tr>
+            <tr><td>Trend Video (with people)</td><td>Spokesperson or team-led social content</td><td class="alc-price">$199/video</td></tr>
+            <tr><td>Ad Creative Video</td><td>Conversion-optimised for paid social</td><td class="alc-price">$299/video</td></tr>
+            <tr><td>Polished Reel (15&ndash;30s)</td><td>Cinematic brand reel, full production</td><td class="alc-price">$699/video</td></tr>
+            <tr><td>Cinematic Reel (40&ndash;60s)</td><td>High-production brand or commercial video</td><td class="alc-price">$899/video</td></tr>
+            <tr class="alc-group-row"><td colspan="3">Graphic Design</td></tr>
+            <tr><td>Menu Design</td><td>Print-ready, on-brand menu layout</td><td class="alc-price">from $149</td></tr>
+            <tr><td>Flyer / Promotional</td><td>Print or digital promotional materials</td><td class="alc-price">from $75</td></tr>
+            <tr><td>Pitch Deck / Presentation</td><td>Professional slide deck design</td><td class="alc-price">from $210</td></tr>
+            <tr><td>Signage &amp; Display</td><td>Banners, signs, trade show materials</td><td class="alc-price">from $105</td></tr>
+            <tr><td>Merchandise &amp; Apparel</td><td>Logo applied to merch, print files</td><td class="alc-price">from $75</td></tr>
+            <tr><td>Custom Design Work</td><td>Any other design project</td><td class="alc-price">$60/hr</td></tr>
+            <tr class="alc-group-row"><td colspan="3">Copywriting</td></tr>
+            <tr><td>Video Script</td><td>Short-form or long-form video script</td><td class="alc-price">$75/script</td></tr>
+            <tr><td>Blog Article</td><td>SEO-optimised, 800&ndash;1,200 words</td><td class="alc-price">$105/post</td></tr>
+            <tr><td>Ad Copy</td><td>Headline, body, CTA for paid or organic ads</td><td class="alc-price">$70/ad</td></tr>
+            <tr><td>Email Sequence</td><td>3&ndash;5 email nurture or welcome sequence</td><td class="alc-price">$140/sequence</td></tr>
+            <tr class="alc-group-row"><td colspan="3">Consulting &amp; Strategy</td></tr>
+            <tr><td>Marketing Strategy Session</td><td>Full audit, roadmap, and 90-day action plan</td><td class="alc-price">$120/hr</td></tr>
+            <tr><td>Content Planning Session</td><td>Content calendar, platform strategy, brief</td><td class="alc-price">$100/hr</td></tr>
+            <tr><td>Brand &amp; Creative Review</td><td>Brand critique, direction, and recommendations</td><td class="alc-price">$120/hr</td></tr>
+            <tr><td>Executive Strategy Session</td><td>C-suite level marketing strategy consultation</td><td class="alc-price">$299/session</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BUNDLES ══ -->
+<section class="price-section" id="bundles">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Pre-built bundles</span>
+      <h2 class="h2">Popular combinations at <em>bundle pricing</em></h2>
+      <p class="body" style="max-width:480px;margin:10px auto 0">Our most popular service combinations, pre-configured and priced for value. Change or remove anything — these are starting points, not locked-in packages.</p>
+    </div>
+    <div class="bundle-grid">
+      <div class="bundle-card reveal rd1">
+        <span class="bc-icon">&#127807;</span>
+        <div class="bc-name">Launch &amp; Get Found</div>
+        <p class="bc-tagline">For new businesses building their first professional online presence.</p>
+        <div class="bc-includes">
+          <div class="bc-inc"><div class="bc-dot"></div>Basic website (5 pages)</div>
+          <div class="bc-inc"><div class="bc-dot"></div>Local SEO Starter plan</div>
+          <div class="bc-inc"><div class="bc-dot"></div>GBP setup &amp; optimisation</div>
+          <div class="bc-inc"><div class="bc-dot"></div>Review generation system</div>
+          <div class="bc-inc"><div class="bc-dot"></div>Social Essentials plan</div>
+        </div>
+        <div class="bc-price-wrap">
+          <div class="bc-setup">$699 website setup (one-time)</div>
+          <div class="bc-price" data-m="348" data-a="290">$348<sub>/mo</sub></div>
+          <div class="bc-savings">Save ~$100/mo vs. individual pricing</div>
+        </div>
+        <a class="bc-cta" href="talk_to_expert.html">Get this bundle &rarr;</a>
+      </div>
+      <div class="bundle-card feat reveal rd2">
+        <div class="bc-pop">Most popular</div>
+        <span class="bc-icon">&#128640;</span>
+        <div class="bc-name">Grow &amp; Scale</div>
+        <p class="bc-tagline">Visibility, content, and conversion working together for serious growth.</p>
+        <div class="bc-includes">
+          <div class="bc-inc"><div class="bc-dot"></div>Standard website (10 pages)</div>
+          <div class="bc-inc"><div class="bc-dot"></div>Local SEO Growth plan</div>
+          <div class="bc-inc"><div class="bc-dot"></div>Social Media Starter</div>
+          <div class="bc-inc"><div class="bc-dot"></div>Email Starter plan</div>
+          <div class="bc-inc"><div class="bc-dot"></div>Review generation system</div>
+        </div>
+        <div class="bc-price-wrap">
+          <div class="bc-setup">$1,299 website setup (one-time)</div>
+          <div class="bc-price" data-m="797" data-a="664">$797<sub>/mo</sub></div>
+          <div class="bc-savings">Save ~$150/mo vs. individual pricing</div>
+        </div>
+        <a class="bc-cta" href="talk_to_expert.html">Get this bundle &rarr;</a>
+      </div>
+      <div class="bundle-card reveal rd3">
+        <span class="bc-icon">&#127942;</span>
+        <div class="bc-name">Dominate Your Market</div>
+        <p class="bc-tagline">Full-service marketing for established businesses ready to be #1 in their market.</p>
+        <div class="bc-includes">
+          <div class="bc-inc"><div class="bc-dot"></div>Advanced website (20 pages)</div>
+          <div class="bc-inc"><div class="bc-dot"></div>Local SEO Authority plan</div>
+          <div class="bc-inc"><div class="bc-dot"></div>Social Media Growth plan</div>
+          <div class="bc-inc"><div class="bc-dot"></div>Email &amp; SMS Growth plan</div>
+          <div class="bc-inc"><div class="bc-dot"></div>AI reporting automation</div>
+        </div>
+        <div class="bc-price-wrap">
+          <div class="bc-setup">$1,999 website setup (one-time)</div>
+          <div class="bc-price" data-m="1347" data-a="1122">$1,347<sub>/mo</sub></div>
+          <div class="bc-savings">Save ~$300/mo vs. individual pricing</div>
+        </div>
+        <a class="bc-cta" href="talk_to_expert.html">Get this bundle &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPARE VS AGENCY ══ -->
+<section class="price-section" id="compare">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Apnosh vs. traditional agencies</span>
+      <h2 class="h2">Why our pricing is <em>fundamentally different</em></h2>
+      <p class="body" style="max-width:480px;margin:10px auto 0">It&rsquo;s not just lower prices. It&rsquo;s a completely different model — built for business owners, not agency convenience.</p>
+    </div>
+    <div class="compare-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Traditional Agency</th>
+            <th class="feat-col">Apnosh</th>
+            <th>Freelancer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="ct-group-row"><td>Pricing &amp; contracts</td><td></td><td class="feat-col"></td><td></td></tr>
+          <tr><td>Published prices</td><td><span class="ct-x">&#8212; Hidden</span></td><td class="feat-col"><span class="ct-check">&#10003; Always</span></td><td><span class="ct-x">&#8212; Varies</span></td></tr>
+          <tr><td>Monthly starting price (SEO)</td><td>$1,500&ndash;$5,000</td><td class="feat-col"><strong>$149/mo</strong></td><td>$500&ndash;$2,000</td></tr>
+          <tr><td>Contract required</td><td>12 months</td><td class="feat-col"><strong>Month-to-month</strong></td><td>Varies</td></tr>
+          <tr><td>A la carte service selection</td><td><span class="ct-x">&#8212; Bundled only</span></td><td class="feat-col"><span class="ct-check">&#10003; Always</span></td><td>Partial</td></tr>
+          <tr class="ct-group-row"><td>Speed &amp; delivery</td><td></td><td class="feat-col"></td><td></td></tr>
+          <tr><td>Time to launch</td><td>4&ndash;8 weeks</td><td class="feat-col"><strong>7 days</strong></td><td>2&ndash;4 weeks</td></tr>
+          <tr><td>First results</td><td>90&ndash;180 days</td><td class="feat-col"><strong>30 days</strong></td><td>60&ndash;120 days</td></tr>
+          <tr><td>AI-assisted for speed &amp; cost</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span></td><td><span class="ct-x">&#8212;</span></td></tr>
+          <tr class="ct-group-row"><td>Reporting &amp; support</td><td></td><td class="feat-col"></td><td></td></tr>
+          <tr><td>Revenue-linked KPIs</td><td>Rarely</td><td class="feat-col"><span class="ct-check">&#10003; Always</span></td><td>Varies</td></tr>
+          <tr><td>Dedicated account contact</td><td>Rotates</td><td class="feat-col"><span class="ct-check">&#10003; Permanent</span></td><td><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Monthly strategy review</td><td>Extra cost</td><td class="feat-col"><span class="ct-check">&#10003; Included</span></td><td>Rarely</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="wmd tc">
+    <div class="reveal"><span class="kicker">Pricing FAQ</span><h2 class="h2">Every pricing question <em>answered</em></h2></div>
+    <div class="faq-list">
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">Are there any setup fees or hidden costs?<span class="faq-ic">+</span></button><div class="faq-a">No. The prices on this page are exactly what you pay. Monthly service prices are charged at the start of each billing cycle. One-time project prices are all-inclusive. The only additional costs are optional add-ons you specifically request.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">How does annual billing work?<span class="faq-ic">+</span></button><div class="faq-a">Annual plans are billed for 10 months upfront — giving you 2 months free (a ~16.7% discount). You can still cancel with a prorated refund for unused months. Annual plans can be paid by card or ACH bank transfer.</div></div>
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">Can I mix and match services from different categories?<span class="faq-ic">+</span></button><div class="faq-a">Yes, completely. Every service in our catalog can be combined with any other. You can run Local SEO Starter alongside Social Media Growth and Email Starter, or any other combination that makes sense for your business. Nothing is locked together unless you choose a bundle.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">What happens if I want to change or cancel my plan?<span class="faq-ic">+</span></button><div class="faq-a">Changes take effect the following billing cycle. You can add services, remove services, or change tiers at any time. Cancellations take effect at the end of your current billing period — no early termination fees, no questions asked.</div></div>
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">How is Apnosh able to charge so much less than other agencies?<span class="faq-ic">+</span></button><div class="faq-a">Two reasons: First, our AI infrastructure handles research, first drafts, monitoring, and reporting — work that traditional agencies staff with multiple junior employees. Second, we carry none of the overhead of a traditional agency. Every dollar saved by our model is reflected in the price you pay, not our margin.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">Do I own everything you build for me?<span class="faq-ic">+</span></button><div class="faq-a">Yes, completely. Every asset we create — your website, email list, brand files, Google Business Profile — belongs to you. If you ever leave, you take everything with you. We hand over all logins, all files, and full documentation. No hostage-taking, ever.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <canvas id="cta-canvas"></canvas>
+  <h2 class="cta-h">Ready to build your <em>exact plan?</em></h2>
+  <p class="cta-sub">See every service, see every price, and see exactly what you&rsquo;ll get — all before you commit to a single dollar.</p>
+  <div class="cta-btns">
+    <a class="btn btn-brand btn-lg" href="master_hub.html">Build my plan &mdash; free <span class="arr">&rarr;</span></a>
+    <a class="btn btn-ghost-dark btn-lg" href="talk_to_expert.html">Talk to our team</a>
+  </div>
+  <p style="font-size:11px;color:rgba(255,255,255,.18);margin-top:14px;letter-spacing:.03em">No credit card &middot; No commitment &middot; Results in 30 days or your first month is free</p>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="f-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <div class="f-links">
+      <a class="f-link" href="apnosh_homepage.html">Home</a>
+      <a class="f-link" href="apnosh_services.html">Services</a>
+      <a class="f-link" href="apnosh_results.html">Results</a>
+      <a class="f-link" href="apnosh_pricing.html">Pricing</a>
+      <a class="f-link" href="talk_to_expert.html">Contact</a>
+    </div>
+    <p class="f-copy">&copy; 2026 Apnosh. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+
+(function(){
+  const nav=document.getElementById('site-nav');
+  if(nav)window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>10),{passive:true});
+  window.toggleMega=function(e,id){e.stopPropagation();const btn=e.currentTarget;const mega=document.getElementById(id);if(!mega)return;const isOpen=mega.classList.contains('open');closeAll();if(!isOpen){mega.classList.add('open');btn.classList.add('open');document.getElementById('nav-overlay').classList.add('show');}};
+  window.toggleDrawer=function(){const d=document.getElementById('mob-drawer'),t=document.getElementById('mob-toggle'),ov=document.getElementById('nav-overlay');const isOpen=d.classList.contains('open');closeAll();if(!isOpen){d.classList.add('open');t.classList.add('open');ov.classList.add('show');document.body.style.overflow='hidden';}};
+  window.closeAll=function(){document.querySelectorAll('.mega.open').forEach(m=>m.classList.remove('open'));document.querySelectorAll('.nav-link.open').forEach(l=>l.classList.remove('open'));const d=document.getElementById('mob-drawer'),t=document.getElementById('mob-toggle'),ov=document.getElementById('nav-overlay');if(d)d.classList.remove('open');if(t)t.classList.remove('open');if(ov)ov.classList.remove('show');document.body.style.overflow='';};
+  document.addEventListener('click',e=>{if(!e.target.closest('.mega')&&!e.target.closest('.nav-link')&&!e.target.closest('.nav-hamburger')&&!e.target.closest('.mobile-drawer'))closeAll();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll();});
+})();
+
+let isAnnual=false;
+function toggleBilling(cb){
+  isAnnual=cb.checked;
+  document.querySelectorAll('.billing-toggle-sync').forEach(el=>el.checked=isAnnual);
+  document.getElementById('monthly-lbl').classList.toggle('active',!isAnnual);
+  document.getElementById('annual-lbl').classList.toggle('active',isAnnual);
+  document.querySelectorAll('.it-label-m').forEach(el=>el.classList.toggle('active',!isAnnual));
+  document.querySelectorAll('.it-label-a').forEach(el=>el.classList.toggle('active',isAnnual));
+  document.querySelectorAll('.t-price[data-m]').forEach(el=>{
+    const m=parseInt(el.dataset.m),a=parseInt(el.dataset.a);
+    const sub=el.querySelector('sub');
+    const badge=el.nextElementSibling;
+    if(isAnnual){
+      el.childNodes[0].textContent=fmtP(a);
+      if(sub)sub.textContent='/mo billed annually';
+      if(badge&&badge.classList.contains('t-annual'))badge.textContent='Save $'+((m-a)*12)+'/yr';
+    } else {
+      el.childNodes[0].textContent=fmtP(m);
+      if(sub)sub.textContent='/mo';
+      if(badge&&badge.classList.contains('t-annual'))badge.textContent='';
+    }
+  });
+  document.querySelectorAll('.bc-price[data-m]').forEach(el=>{
+    const m=parseInt(el.dataset.m),a=parseInt(el.dataset.a);
+    const sub=el.querySelector('sub');
+    if(isAnnual){el.childNodes[0].textContent=fmtP(a);if(sub)sub.textContent='/mo annually';}
+    else{el.childNodes[0].textContent=fmtP(m);if(sub)sub.textContent='/mo';}
+  });
+}
+function fmtP(n){return n>=1000?'$'+(n/1000).toFixed(n%1000===0?0:1)+'k':'$'+n;}
+
+const snLinks=document.querySelectorAll('.sn-link');
+const snIds=['social','websites','local','email','ai','creative','bundles','compare'];
+const snObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;snLinks.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id));}});
+},{threshold:.15,rootMargin:'-100px 0px -50% 0px'});
+snIds.forEach(id=>{const el=document.getElementById(id);if(el)snObs.observe(el);});
+
+function fq(btn){const i=btn.closest('.faq-item'),o=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open');}
+
+!function(){const c=document.getElementById('cta-canvas');if(!c)return;const ctx=c.getContext('2d');let W,H,dots=[];function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}function mk(){return{x:Math.random()*W,y:H+10,s:Math.random()*.45+.15,r:Math.random()*1.4+.5,o:Math.random()*.13+.04};}function init(){resize();for(let i=0;i<36;i++){const d=mk();d.y=Math.random()*H;dots.push(d);}}function draw(){ctx.clearRect(0,0,W,H);dots.forEach(d=>{d.y-=d.s;if(d.y<-10)Object.assign(d,mk());ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle='rgba(74,189,152,'+d.o+')';ctx.fill();});requestAnimationFrame(draw);}init();draw();window.addEventListener('resize',resize);}();
+
+const io=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('on');io.unobserve(el.target);}});},{threshold:.05,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+</script>
+</body>
+</html>

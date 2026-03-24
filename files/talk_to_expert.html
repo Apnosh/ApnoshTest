@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talk to an Expert</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f5f4f0; color: #1a1a18; min-height: 100vh; padding: 40px 20px 80px; }
+.page { max-width: 680px; margin: 0 auto; }
+
+/* Header */
+.hero { text-align: center; margin-bottom: 40px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #1a1a18; color: #fff; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 99px; margin-bottom: 16px; letter-spacing: 0.04em; }
+.hero h1 { font-size: 28px; font-weight: 500; margin-bottom: 8px; }
+.hero p { font-size: 14px; color: #73726c; line-height: 1.7; max-width: 480px; margin: 0 auto; }
+
+/* Trust bar */
+.trust-bar { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; }
+.trust-item { display: flex; align-items: center; gap: 7px; font-size: 12px; color: #73726c; }
+.trust-icon { font-size: 16px; }
+
+
+
+/* Progress */
+.progress-wrap { margin-bottom: 24px; }
+.progress-top { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 12px; color: #73726c; }
+.progress-bar { height: 3px; background: rgba(0,0,0,0.08); border-radius: 99px; overflow: hidden; }
+.progress-fill { height: 100%; background: #1a1a18; border-radius: 99px; transition: width 0.4s ease; }
+
+/* Card */
+.card { background: #fff; border-radius: 16px; border: 0.5px solid rgba(0,0,0,0.1); padding: 28px; margin-bottom: 12px; }
+.card-title { font-size: 17px; font-weight: 500; margin-bottom: 4px; }
+.card-sub { font-size: 13px; color: #73726c; margin-bottom: 24px; line-height: 1.5; }
+
+/* Field */
+.field { margin-bottom: 18px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 480px) { .field-row { grid-template-columns: 1fr; } }
+.field label { display: block; font-size: 12px; font-weight: 500; color: #73726c; margin-bottom: 6px; }
+.field label .req { color: #e5533d; margin-left: 2px; }
+.field input, .field textarea, .field select {
+  width: 100%; padding: 11px 14px; border: 1.5px solid rgba(0,0,0,0.12); border-radius: 10px;
+  font-size: 14px; font-family: inherit; color: #1a1a18; background: #fff;
+  transition: border-color 0.15s; outline: none;
+}
+.field input:focus, .field textarea:focus, .field select:focus { border-color: #1a1a18; }
+.field textarea { resize: vertical; min-height: 100px; }
+.field select { cursor: pointer; }
+.field-hint { font-size: 11px; color: #b4b2a9; margin-top: 5px; }
+
+/* Option chips */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 7px 14px; border-radius: 99px; border: 1.5px solid rgba(0,0,0,0.12); background: #fff; font-size: 13px; font-weight: 500; color: #73726c; cursor: pointer; transition: all 0.15s; }
+.chip:hover { border-color: rgba(0,0,0,0.3); color: #1a1a18; }
+.chip.selected { border-color: #1a1a18; background: #1a1a18; color: #fff; }
+
+/* Budget slider */
+.budget-display { font-size: 24px; font-weight: 500; margin-bottom: 10px; }
+.budget-sub { font-size: 12px; color: #73726c; margin-bottom: 12px; }
+input[type=range] { width: 100%; height: 4px; border-radius: 99px; appearance: none; background: #e0deda; outline: none; margin-bottom: 8px; }
+input[type=range]::-webkit-slider-thumb { appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #1a1a18; cursor: pointer; }
+.budget-ticks { display: flex; justify-content: space-between; font-size: 11px; color: #b4b2a9; }
+
+/* Nav */
+.nav { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; gap: 10px; }
+.btn-back { padding: 11px 22px; background: transparent; border: 0.5px solid rgba(0,0,0,0.15); border-radius: 9px; font-size: 13px; font-weight: 500; color: #73726c; cursor: pointer; }
+.btn-back:hover { border-color: rgba(0,0,0,0.3); color: #1a1a18; }
+.btn-next { flex: 1; padding: 13px; background: #1a1a18; color: #fff; border: none; border-radius: 9px; font-size: 14px; font-weight: 500; cursor: pointer; transition: opacity 0.15s; }
+.btn-next:hover { opacity: 0.85; }
+.btn-next:disabled { opacity: 0.35; cursor: not-allowed; }
+
+/* Success */
+.success { text-align: center; padding: 48px 24px; }
+.success-icon { font-size: 48px; margin-bottom: 16px; }
+.success h2 { font-size: 22px; font-weight: 500; margin-bottom: 8px; }
+.success p { font-size: 14px; color: #73726c; line-height: 1.7; max-width: 400px; margin: 0 auto 24px; }
+.success-steps { text-align: left; background: #f5f4f0; border-radius: 12px; padding: 20px; margin-bottom: 24px; }
+.success-step { display: flex; gap: 12px; padding: 8px 0; border-bottom: 0.5px solid rgba(0,0,0,0.06); }
+.success-step:last-child { border: none; }
+.success-step-num { width: 24px; height: 24px; border-radius: 50%; background: #1a1a18; color: #fff; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.success-step-text { font-size: 13px; color: #5f5e5a; line-height: 1.5; }
+.success-step-text strong { color: #1a1a18; font-weight: 500; display: block; margin-bottom: 1px; }
+.btn-restart { padding: 11px 28px; background: transparent; border: 0.5px solid rgba(0,0,0,0.15); border-radius: 9px; font-size: 13px; font-weight: 500; color: #73726c; cursor: pointer; }
+
+/* What to expect */
+.expect-card { background: #1a1a18; color: #fff; border-radius: 14px; padding: 22px; margin-bottom: 12px; }
+.expect-title { font-size: 13px; font-weight: 600; opacity: 0.5; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px; }
+.expect-item { display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.expect-item:last-child { border: none; }
+.expect-num { font-size: 11px; font-weight: 700; color: #6ee7b7; flex-shrink: 0; margin-top: 2px; width: 18px; }
+.expect-text { font-size: 13px; opacity: 0.8; line-height: 1.5; }
+.expect-text strong { opacity: 1; color: #fff; font-weight: 500; display: block; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-badge">📋 Request a Custom Proposal</div>
+    <h1>Get a custom proposal built for your business</h1>
+    <p>Tell us about your business, goals, and budget. A real person on our team will build you a tailored plan from our full service catalog and send it back within 24 hours.</p>
+  </div>
+
+  <div class="trust-bar">
+    <div class="trust-item"><span class="trust-icon">⚡</span> Response within 24 hrs</div>
+    <div class="trust-item"><span class="trust-icon">🔒</span> Your info stays private</div>
+    <div class="trust-item"><span class="trust-icon">✦</span> No commitment required</div>
+  </div>
+
+
+
+  <div id="form-area"></div>
+
+  <div class="expect-card">
+    <p class="expect-title">What happens next</p>
+    <div class="expect-item">
+      <span class="expect-num">01</span>
+      <div class="expect-text"><strong>We review your submission</strong>A real human reads every message — usually within a few hours during business hours.</div>
+    </div>
+    <div class="expect-item">
+      <span class="expect-num">02</span>
+      <div class="expect-text"><strong>We put together your plan</strong>Based on your goals and budget, we build a tailored recommendation from our full service catalog.</div>
+    </div>
+    <div class="expect-item">
+      <span class="expect-num">03</span>
+      <div class="expect-text"><strong>We reach out to you</strong>Via your preferred channel — email, phone, or WhatsApp — to walk you through the recommendation and answer any questions.</div>
+    </div>
+    <div class="expect-item">
+      <span class="expect-num">04</span>
+      <div class="expect-text"><strong>You decide with zero pressure</strong>No contracts pushed, no hard closes. We want you to start when it feels right.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var formType = "proposal";
+var propStep = 0;
+var budget = 1000;
+
+// Proposal form state
+var propData = {
+  industry: [], businessName: "", website: "", locations: "",
+  currentServices: [], goals: [], budget: 1000, timeline: "",
+  name: "", email: "", phone: "", notes: ""
+};
+
+function fmt(n) { return "$" + n.toLocaleString(); }
+
+// ── PROPOSAL FORM ─────────────────────────────────
+var propSteps = [
+  {
+    title: "About your business",
+    sub: "The more you share, the more tailored your proposal will be.",
+    render: function() {
+      return field("What type of business do you run?", chips("prop-industry", [
+        "Restaurant / Food & Beverage", "Service Business", "Professional Services",
+        "Health & Wellness", "Real Estate", "Retail / E-commerce", "Startup", "Other"
+      ], propData.industry, true))
+      + '<div class="field-row">'
+      + inputField("prop-bizname", "Business name", "text", propData.businessName, true)
+      + inputField("prop-website", "Website (if you have one)", "url", propData.website, false)
+      + '</div>'
+      + inputField("prop-locations", "How many locations do you have?", "text", propData.locations, false, "e.g. 1, 3, 10+");
+    },
+    valid: function() {
+      var n = document.getElementById("prop-bizname");
+      return propData.industry.length > 0 && n && n.value.trim().length > 1;
+    }
+  },
+  {
+    title: "Your current marketing",
+    sub: "Tell us what you already have so we do not recommend what you do not need.",
+    render: function() {
+      return field("What do you currently have in place?", chips("prop-current", [
+        "Professional logo and branding", "Website (active)",
+        "Active social media profiles", "Running paid ads",
+        "Email marketing set up", "Google Business Profile claimed",
+        "Professional photography", "Nothing yet"
+      ], propData.currentServices, true))
+      + field("What are your primary goals?", chips("prop-goals", [
+        "Get more customers calling or booking", "Dominate local Google search",
+        "Build a strong social media presence", "Establish a premium brand identity",
+        "Launch or relaunch our digital presence", "Automate marketing and follow-ups",
+        "Grow and retain our customer base", "Build credibility and trust online"
+      ], propData.goals, true));
+    },
+    valid: function() { return propData.goals.length > 0; }
+  },
+  {
+    title: "Timeline and budget",
+    sub: "This helps us prioritize what to include and how to phase your plan.",
+    render: function() {
+      return field("When do you want to get started?", chips("prop-timeline", [
+        "ASAP — within the next 2 weeks",
+        "Within the next month",
+        "Within the next 3 months",
+        "Just exploring for now"
+      ], propData.timeline ? [propData.timeline] : [], false))
+      + budgetField("prop-budget", propData.budget);
+    },
+    valid: function() { return true; }
+  },
+  {
+    title: "Your contact details",
+    sub: "We will send your custom proposal to this email within 24 hours.",
+    render: function() {
+      return '<div class="field-row">'
+        + inputField("prop-name", "Your name", "text", propData.name, true)
+        + inputField("prop-email", "Email address", "email", propData.email, true)
+        + '</div>'
+        + inputField("prop-phone", "Phone number (optional)", "tel", propData.phone, false)
+        + textareaField("prop-notes", "Anything specific you want included in the proposal?", propData.notes, "Budget constraints, must-have services, competitor examples you like, or anything else that will help us build the perfect plan.");
+    },
+    valid: function() {
+      var n = document.getElementById("prop-name");
+      var e = document.getElementById("prop-email");
+      return n && n.value.trim().length > 1 && e && e.value.includes("@");
+    }
+  }
+];
+
+// ── FIELD HELPERS ─────────────────────────────────
+function field(label, content) {
+  return '<div class="field"><label>' + label + '</label>' + content + '</div>';
+}
+
+function chips(id, options, selected, multi) {
+  var html = '<div class="chips" id="chips-' + id + '">';
+  options.forEach(function(opt) {
+    var isSel = Array.isArray(selected) ? selected.indexOf(opt) > -1 : selected === opt;
+    html += '<button class="chip' + (isSel ? " selected" : "") + '" onclick="toggleChip(\'' + id + '\',\'' + opt.replace(/'/g, "\\'") + '\',' + multi + ')">' + opt + '</button>';
+  });
+  return html + '</div>';
+}
+
+function inputField(id, label, type, val, required, hint) {
+  return '<div class="field"><label>' + label + (required ? '<span class="req">*</span>' : '') + '</label>'
+    + '<input type="' + type + '" id="' + id + '" value="' + (val || "") + '" placeholder=""'
+    + ' oninput="saveField(\'' + id + '\')">'
+    + (hint ? '<p class="field-hint">' + hint + '</p>' : '')
+    + '</div>';
+}
+
+function textareaField(id, label, val, placeholder) {
+  return '<div class="field"><label>' + label + '</label>'
+    + '<textarea id="' + id + '" placeholder="' + (placeholder || "") + '" oninput="saveField(\'' + id + '\')">' + (val || "") + '</textarea>'
+    + '</div>';
+}
+
+function budgetField(id, val) {
+  return '<div class="field"><label>Monthly marketing budget</label>'
+    + '<div class="budget-display" id="' + id + '-display">' + fmt(val) + '/mo</div>'
+    + '<p class="budget-sub">Slide to set your comfortable monthly budget</p>'
+    + '<input type="range" min="200" max="8000" step="100" value="' + val + '" id="' + id + '" oninput="updateBudget(\'' + id + '\', this.value)">'
+    + '<div class="budget-ticks"><span>$200</span><span>$1,000</span><span>$2,500</span><span>$5,000</span><span>$8,000+</span></div>'
+    + '</div>';
+}
+
+// ── INTERACTION ───────────────────────────────────
+function toggleChip(id, val, multi) {
+  var data = propData;
+  var key = id.replace("msg-", "").replace("prop-", "");
+  var fieldMap = {
+    industry: "industry", challenge: "challenge", goals: "goals",
+    current: "currentServices", timeline: "timeline"
+  };
+  var dataKey = fieldMap[key] || key;
+
+  if (!multi) {
+    data[dataKey] = val;
+  } else {
+    if (!Array.isArray(data[dataKey])) data[dataKey] = [];
+    var idx = data[dataKey].indexOf(val);
+    if (idx > -1) data[dataKey].splice(idx, 1);
+    else data[dataKey].push(val);
+  }
+
+  // Re-render chips
+  var container = document.getElementById("chips-" + id);
+  if (container) {
+    var selected = data[dataKey];
+    container.querySelectorAll(".chip").forEach(function(chip) {
+      var isSelected = Array.isArray(selected) ? selected.indexOf(chip.textContent) > -1 : selected === chip.textContent;
+      chip.classList.toggle("selected", isSelected);
+    });
+  }
+  checkValid();
+}
+
+function updateBudget(id, val) {
+  val = parseInt(val);
+  if (formType === "message") msgData.budget = val;
+  else propData.budget = val;
+  var display = document.getElementById(id + "-display");
+  if (display) display.textContent = (val >= 8000 ? "$8,000+/mo" : fmt(val) + "/mo");
+}
+
+function saveField(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var val = el.value;
+  var data = propData;
+  var key = id.replace("msg-", "").replace("prop-", "");
+  var keyMap = { name: "name", email: "email", phone: "phone", message: "message",
+                 bizname: "businessName", website: "website", locations: "locations", notes: "notes" };
+  var dataKey = keyMap[key] || key;
+  data[dataKey] = val;
+  checkValid();
+}
+
+function checkValid() {
+  var steps = propSteps;
+  var step = propStep;
+  var btn = document.getElementById("btn-next");
+  if (btn && steps[step]) btn.disabled = !steps[step].valid();
+}
+
+// ── RENDER ────────────────────────────────────────
+function render() {
+  var steps = propSteps;
+  var step = propStep;
+
+  if (step >= steps.length) {
+    showSuccess();
+    return;
+  }
+
+  var total = steps.length;
+  var pct = Math.round((step / total) * 100);
+  var current = steps[step];
+
+  var html = '<div class="progress-wrap">'
+    + '<div class="progress-top"><span>Step ' + (step + 1) + ' of ' + total + '</span><span>' + pct + '% complete</span></div>'
+    + '<div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>'
+    + '</div>'
+    + '<div class="card">'
+    + '<p class="card-title">' + current.title + '</p>'
+    + '<p class="card-sub">' + current.sub + '</p>'
+    + current.render()
+    + '<div class="nav">'
+    + (step > 0 ? '<button class="btn-back" onclick="goBack()">Back</button>' : '<span></span>')
+    + '<button class="btn-next" id="btn-next" onclick="goNext()" ' + (current.valid() ? '' : 'disabled') + '>'
+    + (step === total - 1 ? (formType === "message" ? "Send message" : "Request proposal") : "Continue")
+    + '</button>'
+    + '</div>'
+    + '</div>';
+
+  document.getElementById("form-area").innerHTML = html;
+}
+
+function goNext() {
+  // Save any input field values before advancing
+  var inputs = document.querySelectorAll("#form-area input, #form-area textarea");
+  inputs.forEach(function(el) { if (el.id) saveField(el.id); });
+
+  propStep++;
+  render();
+  window.scrollTo(0, 0);
+}
+
+function goBack() {
+  propStep = Math.max(0, propStep - 1);
+  render();
+  window.scrollTo(0, 0);
+}
+
+function showSuccess() {
+  var isProposal = true;
+  document.getElementById("form-area").innerHTML =
+    '<div class="card success">'
+    + '<div class="success-icon">' + (isProposal ? "📋" : "✉️") + '</div>'
+    + '<h2>' + (isProposal ? "Proposal request received!" : "Message sent!") + '</h2>'
+    + '<p>' + (isProposal
+        ? "We will build your custom plan and send it to your email within 24 hours. A real person — not a template — will put this together based on everything you shared."
+        : "We have received your message and will respond within 24 hours. Look out for an email from our team.")
+    + '</p>'
+    + '<div class="success-steps">'
+    + '<div class="success-step"><div class="success-step-num">1</div><div class="success-step-text"><strong>Review (today)</strong>We read your submission and research your business before responding.</div></div>'
+    + '<div class="success-step"><div class="success-step-num">2</div><div class="success-step-text"><strong>Build your plan (within 24 hrs)</strong>' + (isProposal ? "We put together a tailored proposal with specific services, pricing, and rationale." : "We put together a thoughtful response with specific recommendations.") + '</div></div>'
+    + '<div class="success-step"><div class="success-step-num">3</div><div class="success-step-text"><strong>We reach out</strong>Via email — and phone if you provided it — to walk you through everything.</div></div>'
+    + '<div class="success-step"><div class="success-step-num">4</div><div class="success-step-text"><strong>You decide, no pressure</strong>No contracts pushed. We want you to start when it feels right.</div></div>'
+    + '</div>'
+    + '<button class="btn-restart" onclick="restartForm()">Submit another inquiry</button>'
+    + '</div>';
+}
+
+function restartForm() {
+  propStep = 0;
+  propData = { industry: [], businessName: "", website: "", locations: "", currentServices: [], goals: [], budget: 1000, timeline: "", name: "", email: "", phone: "", notes: "" };
+  render();
+}
+
+// Init
+render();
+</script>
+</body>
+</html>

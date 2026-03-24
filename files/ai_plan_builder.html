@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Plan Builder</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f5f4f0; color: #1a1a18; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 40px 20px; }
+.shell { width: 100%; max-width: 640px; }
+
+/* Header */
+.top { text-align: center; margin-bottom: 40px; }
+.top-badge { display: inline-flex; align-items: center; gap: 6px; background: #1a1a18; color: #fff; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 99px; margin-bottom: 16px; letter-spacing: 0.04em; }
+.top h1 { font-size: 28px; font-weight: 500; margin-bottom: 8px; }
+.top p { font-size: 14px; color: #73726c; line-height: 1.6; }
+
+/* Progress */
+.progress-wrap { margin-bottom: 32px; }
+.progress-top { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.progress-label { font-size: 12px; color: #73726c; }
+.progress-count { font-size: 12px; font-weight: 500; }
+.progress-bar { height: 4px; background: rgba(0,0,0,0.08); border-radius: 99px; overflow: hidden; }
+.progress-fill { height: 100%; background: #1a1a18; border-radius: 99px; transition: width 0.4s ease; }
+
+/* Question card */
+.q-card { background: #fff; border-radius: 16px; padding: 32px; border: 0.5px solid rgba(0,0,0,0.1); }
+.q-step { font-size: 11px; font-weight: 600; color: #73726c; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+.q-text { font-size: 20px; font-weight: 500; line-height: 1.4; margin-bottom: 6px; }
+.q-hint { font-size: 13px; color: #73726c; margin-bottom: 24px; line-height: 1.5; }
+
+/* Options */
+.multi-badge { font-size: 11px; color: #73726c; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.multi-tag { background: #e6f1fb; color: #185fa5; padding: 1px 8px; border-radius: 99px; font-weight: 500; font-size: 11px; }
+.options { display: flex; flex-direction: column; gap: 10px; }
+.options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 480px) { .options-grid { grid-template-columns: 1fr; } }
+.opt { background: #fff; border: 1.5px solid rgba(0,0,0,0.12); border-radius: 12px; padding: 14px 16px; cursor: pointer; transition: all 0.15s; display: flex; align-items: flex-start; gap: 12px; text-align: left; width: 100%; }
+.opt:hover { border-color: rgba(0,0,0,0.3); background: #fafaf8; }
+.opt.selected { border-color: #1a1a18; background: #1a1a18; color: #fff; }
+.opt-icon { font-size: 20px; flex-shrink: 0; width: 28px; text-align: center; margin-top: 1px; }
+.opt-label { font-size: 14px; font-weight: 500; display: block; }
+.opt-desc { font-size: 12px; opacity: 0.65; margin-top: 3px; display: block; line-height: 1.4; }
+
+/* Budget */
+.budget-display { text-align: center; margin-bottom: 20px; }
+.budget-amount { font-size: 36px; font-weight: 500; }
+.budget-sub { font-size: 13px; color: #73726c; margin-top: 2px; }
+input[type=range] { width: 100%; height: 4px; border-radius: 99px; appearance: none; background: #e0deda; outline: none; margin-bottom: 10px; }
+input[type=range]::-webkit-slider-thumb { appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #1a1a18; cursor: pointer; }
+.budget-ticks { display: flex; justify-content: space-between; font-size: 11px; color: #b4b2a9; margin-bottom: 20px; }
+.budget-custom-wrap { border-top: 0.5px solid rgba(0,0,0,0.08); padding-top: 16px; }
+.budget-custom-label { font-size: 12px; color: #73726c; margin-bottom: 8px; }
+.budget-custom-row { display: flex; align-items: center; gap: 8px; }
+.budget-custom-prefix { font-size: 16px; font-weight: 500; color: #73726c; }
+.budget-custom-input { flex: 1; border: 1.5px solid rgba(0,0,0,0.15); border-radius: 8px; padding: 10px 12px; font-size: 15px; font-family: inherit; outline: none; }
+.budget-custom-input:focus { border-color: #1a1a18; }
+.budget-custom-suffix { font-size: 12px; color: #73726c; }
+
+/* Nav */
+.nav { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; }
+.btn-back { padding: 10px 20px; background: transparent; border: 0.5px solid rgba(0,0,0,0.15); border-radius: 8px; font-size: 13px; font-weight: 500; color: #73726c; cursor: pointer; }
+.btn-back:hover { border-color: rgba(0,0,0,0.3); color: #1a1a18; }
+.btn-next { padding: 12px 28px; background: #1a1a18; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; opacity: 0.3; pointer-events: none; }
+.btn-next.active { opacity: 1; pointer-events: all; }
+
+/* Loading */
+.loading { text-align: center; padding: 48px 24px; }
+.spinner { width: 40px; height: 40px; border: 3px solid rgba(0,0,0,0.08); border-top-color: #1a1a18; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 20px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-title { font-size: 18px; font-weight: 500; margin-bottom: 8px; }
+.loading-sub { font-size: 13px; color: #73726c; line-height: 1.6; }
+.loading-steps { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.loading-step { font-size: 12px; color: #b4b2a9; display: flex; align-items: center; gap: 8px; }
+.loading-step.done { color: #1D9E75; }
+.loading-step::before { content: "o"; font-size: 10px; }
+.loading-step.done::before { content: "v"; font-size: 10px; }
+
+/* Results */
+.result { animation: fadeUp 0.4s ease; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.result-header { text-align: center; margin-bottom: 24px; }
+.result-header h2 { font-size: 22px; font-weight: 500; margin-bottom: 6px; }
+.result-header p { font-size: 14px; color: #73726c; line-height: 1.6; }
+.plan-card { background: #1a1a18; color: #fff; border-radius: 14px; padding: 22px; margin-bottom: 10px; }
+.plan-card.best { background: #0b3321; border: 2px solid #1D9E75; }
+.plan-card.stretch { background: #0c1f38; border: 2px solid #185fa5; }
+.plan-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
+.plan-badge { font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 99px; background: rgba(255,255,255,0.15); letter-spacing: 0.04em; }
+.best-tag { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 99px; background: rgba(29,158,117,0.4); color: #a8f0d8; letter-spacing: 0.04em; }
+.plan-name { font-size: 20px; font-weight: 500; margin-bottom: 4px; }
+.plan-tagline { font-size: 12px; opacity: 0.65; margin-bottom: 14px; line-height: 1.5; }
+.plan-prices { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.price-box { background: rgba(255,255,255,0.1); border-radius: 8px; padding: 8px 12px; flex: 1; min-width: 90px; }
+.price-box-label { font-size: 10px; opacity: 0.6; margin-bottom: 2px; }
+.price-box-val { font-size: 16px; font-weight: 500; }
+.price-box-val.green { color: #6ee7b7; }
+.price-box-val.blue { color: #93c5fd; }
+.price-box.budget-box { background: rgba(255,255,255,0.07); }
+.plan-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0; }
+.plan-why { font-size: 13px; opacity: 0.85; line-height: 1.7; margin-bottom: 14px; }
+.plan-services { margin-bottom: 16px; }
+.plan-services-title { font-size: 10px; font-weight: 600; opacity: 0.5; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+.plan-service { font-size: 12px; opacity: 0.8; padding: 3px 0; display: flex; gap: 7px; line-height: 1.4; }
+.plan-service::before { content: "v"; color: #6ee7b7; font-size: 10px; flex-shrink: 0; margin-top: 2px; }
+.plan-btns { display: flex; gap: 8px; }
+.plan-btn-primary { flex: 1; padding: 11px; background: rgba(255,255,255,0.15); color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; transition: background 0.15s; }
+.plan-btn-primary:hover { background: rgba(255,255,255,0.22); }
+.plan-btn-outline { padding: 11px 10px; background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; font-size: 12px; font-weight: 500; cursor: pointer; white-space: nowrap; transition: all 0.15s; }
+.plan-btn-outline:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+.urgency-box { background: #fff; border-radius: 12px; padding: 16px 20px; margin-bottom: 16px; }
+.urgency-title { font-size: 11px; font-weight: 600; color: #73726c; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+.urgency-text { font-size: 13px; color: #5f5e5a; line-height: 1.6; }
+.restart-link { text-align: center; margin-top: 14px; font-size: 12px; color: #b4b2a9; cursor: pointer; }
+.restart-link:hover { color: #73726c; }
+
+/* Modals */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 2000; }
+.modal-overlay.open { display: flex; align-items: flex-end; justify-content: center; }
+@media (min-width: 600px) { .modal-overlay.open { align-items: center; } }
+.modal-box { background: #fff; width: 100%; max-width: 620px; border-radius: 20px 20px 0 0; max-height: 90vh; overflow-y: auto; position: relative; }
+@media (min-width: 600px) { .modal-box { border-radius: 16px; } }
+.modal-handle { width: 40px; height: 4px; background: rgba(0,0,0,0.1); border-radius: 99px; margin: 12px auto 0; }
+.modal-head { padding: 18px 20px 14px; border-bottom: 0.5px solid rgba(0,0,0,0.08); position: sticky; top: 0; background: #fff; z-index: 1; }
+.modal-title { font-size: 17px; font-weight: 500; margin-bottom: 2px; padding-right: 32px; }
+.modal-sub { font-size: 12px; color: #73726c; }
+.modal-close { position: absolute; top: 14px; right: 16px; width: 28px; height: 28px; border-radius: 50%; border: none; background: rgba(0,0,0,0.07); cursor: pointer; font-size: 14px; color: #73726c; display: flex; align-items: center; justify-content: center; }
+.modal-body { padding: 16px 20px 28px; }
+.modal-sec-title { font-size: 10px; font-weight: 600; color: #73726c; text-transform: uppercase; letter-spacing: 0.05em; margin: 16px 0 8px; padding-bottom: 6px; border-bottom: 0.5px solid rgba(0,0,0,0.08); }
+.modal-sec-title:first-child { margin-top: 0; }
+
+/* Breakdown rows */
+.bd-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 0.5px solid rgba(0,0,0,0.05); font-size: 13px; }
+.bd-row:last-child { border: none; }
+.bd-label { color: #5f5e5a; flex: 1; }
+.bd-tag { font-size: 10px; padding: 1px 6px; border-radius: 99px; margin-left: 5px; }
+.bd-tag.mo { background: #eaf3de; color: #3b6d11; }
+.bd-tag.ot { background: #e6f1fb; color: #185fa5; }
+.bd-val { font-weight: 500; color: #1a1a18; margin-left: 12px; white-space: nowrap; }
+.bd-subtotal { display: flex; justify-content: space-between; font-size: 14px; font-weight: 500; padding: 10px 0 0; margin-top: 4px; border-top: 1.5px solid rgba(0,0,0,0.1); }
+.modal-cta { display: block; width: 100%; padding: 13px; background: #1a1a18; color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 500; cursor: pointer; text-align: center; margin-top: 16px; }
+.modal-cta-outline { display: block; width: 100%; padding: 11px; background: transparent; color: #1a1a18; border: 0.5px solid rgba(0,0,0,0.2); border-radius: 10px; font-size: 13px; font-weight: 500; cursor: pointer; text-align: center; margin-top: 8px; }
+
+/* Customize */
+.cust-row { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 0.5px solid rgba(0,0,0,0.05); }
+.cust-row:last-child { border: none; }
+.cust-label { flex: 1; font-size: 13px; }
+.cust-select { font-size: 12px; border: 0.5px solid rgba(0,0,0,0.15); border-radius: 6px; padding: 5px 8px; background: #fff; cursor: pointer; max-width: 180px; }
+.cust-toggle { width: 36px; height: 20px; border-radius: 99px; border: none; cursor: pointer; position: relative; flex-shrink: 0; transition: background 0.2s; }
+.cust-toggle.on { background: #1a1a18; }
+.cust-toggle.off { background: #d3d1c7; }
+.cust-thumb { width: 14px; height: 14px; background: #fff; border-radius: 50%; position: absolute; top: 3px; transition: left 0.2s; }
+.cust-toggle.on .cust-thumb { left: 19px; }
+.cust-toggle.off .cust-thumb { left: 3px; }
+.cust-totals { background: #f5f4f0; border-radius: 10px; padding: 14px 16px; margin-top: 18px; }
+.cust-total-row { display: flex; justify-content: space-between; font-size: 13px; padding: 3px 0; }
+.cust-total-val { font-weight: 500; }
+.cust-grand { display: flex; justify-content: space-between; font-size: 16px; font-weight: 500; padding-top: 10px; margin-top: 6px; border-top: 0.5px solid rgba(0,0,0,0.1); }
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="top">
+    <div class="top-badge">&#9889; AI Plan Builder</div>
+    <h1>Let's build your growth plan</h1>
+    <p>Answer 8 quick questions and we'll recommend a custom plan built from our full service catalog — tailored to your goals, budget, and business.</p>
+  </div>
+  <div id="app"></div>
+</div>
+
+<!-- Breakdown Modal -->
+<div class="modal-overlay" id="bd-overlay">
+  <div class="modal-box">
+    <div class="modal-handle"></div>
+    <div class="modal-head">
+      <button class="modal-close" id="bd-close">x</button>
+      <p class="modal-title" id="bd-title">Plan Breakdown</p>
+      <p class="modal-sub" id="bd-sub"></p>
+    </div>
+    <div class="modal-body" id="bd-body"></div>
+  </div>
+</div>
+
+<!-- Customize Modal -->
+<div class="modal-overlay" id="cust-overlay">
+  <div class="modal-box">
+    <div class="modal-handle"></div>
+    <div class="modal-head">
+      <button class="modal-close" id="cust-close">x</button>
+      <p class="modal-title" id="cust-title">Customize Your Plan</p>
+      <p class="modal-sub">Toggle services on/off or switch tiers. Your total updates live.</p>
+    </div>
+    <div class="modal-body" id="cust-body"></div>
+  </div>
+</div>
+
+<script>
+// ── STATE ──────────────────────────────────────────────────────────
+var answers = {};
+var currentQ = 0;
+var budgetValue = 1000;
+var lastPlans = null;
+var custPlan = null;
+var custPlanName = "";
+
+// ── QUESTIONS ─────────────────────────────────────────────────────
+var Q = [
+  {
+    id: "industry", step: "Step 1 of 9",
+    text: "What type of business do you run?",
+    hint: "This helps us recommend services that actually work for your industry.",
+    type: "grid",
+    opts: [
+      { icon: "🍽", label: "Restaurant / Food & Beverage", desc: "Cafe, bar, bakery, catering" },
+      { icon: "🔧", label: "Service Business", desc: "Trades, cleaning, landscaping" },
+      { icon: "💼", label: "Professional Services", desc: "Lawyer, accountant, consultant" },
+      { icon: "💆", label: "Health & Wellness", desc: "Salon, spa, gym, clinic" },
+      { icon: "🏠", label: "Real Estate", desc: "Agent, broker, property manager" },
+      { icon: "🛍", label: "Retail / E-commerce", desc: "Physical or online store" },
+      { icon: "🚀", label: "Startup / New Business", desc: "Just getting off the ground" },
+      { icon: "✦", label: "Other", desc: "Something else entirely" }
+    ]
+  },
+  {
+    id: "locations", step: "Step 2 of 9",
+    text: "How many locations does your business have?",
+    hint: "This affects which local SEO and management services we recommend.",
+    type: "list",
+    opts: [
+      { icon: "📍", label: "Just one location", desc: "Single location or fully online" },
+      { icon: "📍📍", label: "2 to 3 locations", desc: "Small multi-location business" },
+      { icon: "🗺", label: "4 to 9 locations", desc: "Regional presence" },
+      { icon: "🌐", label: "10 or more locations", desc: "Large or franchise operation" }
+    ]
+  },
+  {
+    id: "assets", step: "Step 3 of 9",
+    text: "What digital assets do you currently have?",
+    hint: "Select everything you already have — we will build on what exists.",
+    type: "multi",
+    opts: [
+      { icon: "🎨", label: "Logo and brand identity", desc: "Professional logo, colors, fonts" },
+      { icon: "📐", label: "Brand guidelines", desc: "Style guide, usage rules, brand book" },
+      { icon: "📸", label: "Professional photos", desc: "Product, team, or location photography" },
+      { icon: "🎬", label: "Video content", desc: "Existing brand or marketing videos" },
+      { icon: "🌐", label: "A website", desc: "Live and functional, even if outdated" },
+      { icon: "📱", label: "Active social media profiles", desc: "Instagram, Facebook, TikTok, etc." },
+      { icon: "📧", label: "Email or CRM list", desc: "Existing customer contact database" },
+      { icon: "❌", label: "None of the above", desc: "Starting completely from scratch" }
+    ]
+  },
+  {
+    id: "presence", step: "Step 4 of 9",
+    text: "What does your current online presence look like?",
+    hint: "Be honest — we have seen everything. No judgment here.",
+    type: "list",
+    opts: [
+      { icon: "🚫", label: "Basically invisible online", desc: "No website, no social, no Google listing" },
+      { icon: "📋", label: "We exist but it is outdated", desc: "Old website, inactive social, unclaimed GBP" },
+      { icon: "📱", label: "We have some presence", desc: "Basic website and some social activity" },
+      { icon: "💪", label: "Fairly established online", desc: "Active website, social, and Google presence" },
+      { icon: "🏆", label: "Strong but want to grow faster", desc: "Good foundation, ready to scale" }
+    ]
+  },
+  {
+    id: "challenge", step: "Step 5 of 9",
+    text: "What are your biggest challenges right now?",
+    hint: "Select all that apply — we will address every one.",
+    type: "multi",
+    opts: [
+      { icon: "👻", label: "Nobody can find us online", desc: "We do not show up on Google or Maps" },
+      { icon: "📉", label: "We get traffic but no leads", desc: "People visit but do not call or book" },
+      { icon: "🔄", label: "We are losing to competitors", desc: "Others in our space are outranking us" },
+      { icon: "⏰", label: "We are doing everything manually", desc: "Too much time on repetitive tasks" },
+      { icon: "🎨", label: "Our brand looks unprofessional", desc: "Embarrassed to send people to our site" },
+      { icon: "📣", label: "We have no consistent content", desc: "We post sporadically or not at all" }
+    ]
+  },
+  {
+    id: "goals", step: "Step 6 of 9",
+    text: "What are your goals for the next 6 months?",
+    hint: "Select all that apply — we will build a plan around every goal.",
+    type: "multi",
+    opts: [
+      { icon: "📞", label: "Get more customers calling or booking", desc: "Direct revenue impact, fast" },
+      { icon: "🗺", label: "Dominate local search and Google Maps", desc: "Own my area online" },
+      { icon: "📱", label: "Build a strong social media presence", desc: "Grow followers and engagement" },
+      { icon: "🏷", label: "Establish a premium brand identity", desc: "Look as good as the best in my industry" },
+      { icon: "🌐", label: "Get a professional website", desc: "A site I am proud to send people to" }
+    ]
+  },
+  {
+    id: "funnel", step: "Step 7 of 9",
+    text: "What matters most to your business right now?",
+    hint: "Think of this as your marketing funnel priority.",
+    type: "list",
+    opts: [
+      { icon: "📣", label: "Build awareness", desc: "More people need to know we exist" },
+      { icon: "🎯", label: "Generate more leads and sales", desc: "More customers calling, booking, or buying" },
+      { icon: "🔄", label: "Turn leads into customers", desc: "We get interest but struggle to convert it" },
+      { icon: "💛", label: "Keep customers coming back", desc: "Retention, loyalty, and repeat business" },
+      { icon: "🌟", label: "Build a stronger brand reputation", desc: "Reviews, credibility, and trust online" }
+    ]
+  },
+  {
+    id: "handson", step: "Step 8 of 9",
+    text: "How hands-on do you want to be?",
+    hint: "This helps us recommend the right level of support.",
+    type: "list",
+    opts: [
+      { icon: "🙌", label: "Fully hands-off", desc: "Hand it over and forget about it" },
+      { icon: "👀", label: "I want to review and approve things", desc: "Informed but not doing the work" },
+      { icon: "🤝", label: "Collaborative partner", desc: "I will contribute ideas and content sometimes" },
+      { icon: "🛠", label: "Stay involved day-to-day", desc: "I like being in the loop on everything" }
+    ]
+  },
+  {
+    id: "budget", step: "Step 9 of 9",
+    text: "What is your monthly marketing budget?",
+    hint: "This helps us recommend a plan you can sustain — not just start.",
+    type: "budget"
+  }
+];
+
+// ── SERVICE CATALOG ───────────────────────────────────────────────
+var CAT = {
+  website:    { label: "Website", type: "tier", tiers: [
+    { name: "Basic (5 pages)", setup: 699, monthly: 0 },
+    { name: "Standard (10 pages)", setup: 1299, monthly: 0 },
+    { name: "Advanced (20 pages)", setup: 1999, monthly: 0 }
+  ]},
+  hosting:    { label: "Hosting & Care", type: "tier", tiers: [
+    { name: "Basic Hosting", setup: 0, monthly: 49 },
+    { name: "Growth Care", setup: 0, monthly: 125 },
+    { name: "Pro Care", setup: 0, monthly: 249 }
+  ]},
+  localSeo:   { label: "Local SEO", type: "tier", tiers: [
+    { name: "Starter", setup: 0, monthly: 149 },
+    { name: "Growth", setup: 0, monthly: 299 },
+    { name: "Authority", setup: 0, monthly: 499 }
+  ]},
+  gbp:        { label: "GBP Setup & Optimization", type: "toggle", setup: 249, monthly: 0 },
+  reviewSys:  { label: "Review Generation System", type: "toggle", setup: 149, monthly: 0 },
+  reviewAuto: { label: "Review Request Automation", type: "toggle", setup: 299, monthly: 0 },
+  socialAds:  { label: "Social Ads Management", type: "dynamic", note: "20% of monthly budget recommended for ad spend" },
+  smm:        { label: "Social Media Management", type: "tier", tiers: [
+    { name: "SMM Essentials", setup: 0, monthly: 99 },
+    { name: "SMM Starter", setup: 0, monthly: 299 },
+    { name: "SMM Growth", setup: 0, monthly: 699 },
+    { name: "SMM Pro", setup: 0, monthly: 1099 }
+  ]},
+  feedPosts:  { label: "Feed Posts / mo", type: "tier", tiers: [
+    { name: "4 Feed Posts", setup: 0, monthly: 140 },
+    { name: "8 Feed Posts", setup: 0, monthly: 200 }
+  ]},
+  stories:    { label: "Story Graphics / mo", type: "tier", tiers: [
+    { name: "4 Story Graphics", setup: 0, monthly: 100 },
+    { name: "8 Story Graphics", setup: 0, monthly: 144 }
+  ]},
+  carousels:  { label: "Carousel Posts / mo", type: "tier", tiers: [
+    { name: "4 Carousel Posts", setup: 0, monthly: 300 }
+  ]},
+  video:      { label: "Video Content / mo", type: "tier", tiers: [
+    { name: "4 Trend Videos (no people)", setup: 0, monthly: 449 },
+    { name: "2 Polished Reels (15-30s)", setup: 0, monthly: 1250 },
+    { name: "4 Polished Reels (15-30s)", setup: 0, monthly: 2500 },
+    { name: "2 Cinematic Reels (40-60s)", setup: 0, monthly: 1598 }
+  ]},
+  email:      { label: "Email & SMS Marketing", type: "tier", tiers: [
+    { name: "Email Starter", setup: 0, monthly: 199 },
+    { name: "Email & SMS Growth", setup: 0, monthly: 299 },
+    { name: "Full Retention Suite", setup: 0, monthly: 599 }
+  ]},
+
+
+  branding:   { label: "Branding", type: "tier", tiers: [
+    { name: "Logo & Visual Identity", setup: 499, monthly: 0 },
+    { name: "Brand Guidelines", setup: 999, monthly: 0 },
+    { name: "Brand Strategy & Identity", setup: 1499, monthly: 0 },
+    { name: "Complete Brand & Launch System", setup: 2999, monthly: 0 }
+  ]}
+};
+
+// ── RECOMMENDATION ENGINE ─────────────────────────────────────────
+function buildPlan(budget, funnelIdx, presenceIdx, challenges, goals, handsonIdx, timelineIdx, ind, locIdx, assets) {
+  locIdx = locIdx || 0;
+  assets = assets || [];
+  var iL = (ind || "").toLowerCase();
+
+  // ── INDUSTRY FLAGS ──────────────────────────────────────────────
+  var isRest  = iL.indexOf("restaurant") > -1 || iL.indexOf("food") > -1;
+  var isWell  = iL.indexOf("health") > -1 || iL.indexOf("wellness") > -1;
+  var isSvc   = iL.indexOf("service") > -1 || iL.indexOf("trade") > -1;
+  var isPro   = iL.indexOf("professional") > -1;
+  var isRE    = iL.indexOf("real estate") > -1;
+  var isRetail = iL.indexOf("retail") > -1 || iL.indexOf("ecommerce") > -1 || iL.indexOf("e-commerce") > -1;
+  var isLocal  = isRest || isWell || isSvc;
+
+  // ── ASSET FLAGS ─────────────────────────────────────────────────
+  var hasLogo       = assets.indexOf(0) > -1;
+  var hasGuidelines = assets.indexOf(1) > -1;
+  var hasPhotos     = assets.indexOf(2) > -1;
+  var hasVideo      = assets.indexOf(3) > -1;
+  var hasWebsite    = assets.indexOf(4) > -1;
+  var hasSocial     = assets.indexOf(5) > -1;
+  var hasEmailList  = assets.indexOf(6) > -1;
+  var hasNothing    = assets.indexOf(7) > -1 || assets.length === 0;
+
+  // ── LOCATION FLAGS ──────────────────────────────────────────────
+  var isSingle = locIdx === 0;
+  var isMulti  = locIdx > 0;
+  var isLarge  = locIdx >= 2; // 4+ locations
+
+  // ══════════════════════════════════════════════════════════════
+  // BASE SCORES
+  // Higher = more likely to be included and at a higher tier
+  // ══════════════════════════════════════════════════════════════
+  var sc = {};
+
+  // ── WEBSITE ─────────────────────────────────────────────────────
+  // Always core. Single location = basic/standard. Multi = standard/advanced.
+  // If they have no assets at all, website is the #1 priority.
+  sc.website = hasNothing ? 10 : hasWebsite ? 5 : 9;
+  if (isLarge) sc.website = Math.min(sc.website + 2, 10);
+
+  // ── HOSTING ─────────────────────────────────────────────────────
+  // Always included. Single = basic. Multi/larger = growth/pro.
+  sc.hosting = 10;
+
+  // ── LOCAL SEO ───────────────────────────────────────────────────
+  // Single location: starter/growth is enough. Multi: authority essential.
+  // Direct sales drivers (website, GBP, SEO) are highest priority for single location.
+  sc.localSeo = isSingle ? 9 : isMulti ? 10 : 8;
+  if (funnelIdx === 0 || funnelIdx === 1) sc.localSeo = Math.min(sc.localSeo + 1, 10);
+  if (presenceIdx <= 1) sc.localSeo = Math.min(sc.localSeo + 1, 10);
+
+  // ── GBP ─────────────────────────────────────────────────────────
+  // Critical for single-location direct sales. Lower priority if already established.
+  sc.gbp = presenceIdx <= 1 ? 10 : presenceIdx <= 3 ? 7 : 4;
+  if (isSingle) sc.gbp = Math.min(sc.gbp + 1, 10); // single loc = GBP is THE local signal
+
+  // ── REVIEW SYSTEM ───────────────────────────────────────────────
+  // High priority for local/service businesses. Less for retail/pro.
+  sc.reviewSys   = (isLocal || funnelIdx === 4) ? 8 : 5;
+  sc.reviewAuto  = (isLocal || funnelIdx === 4) ? 7 : 4;
+
+  // ── SOCIAL MEDIA MANAGEMENT ─────────────────────────────────────
+  // Single location: essentials/starter sufficient unless social is a goal.
+  // Multi: growth/pro more relevant for brand consistency.
+  sc.smm = isSingle ? (hasSocial ? 6 : 8) : 9;
+  if (funnelIdx === 0 || goals.indexOf(2) > -1) sc.smm = Math.min(sc.smm + 2, 10);
+
+  // Social Ads: high priority for single/small locations wanting more customers/local sales
+  // Score based on funnel (leads/awareness) + location type + goals
+  sc.socialAds = 0; // default off
+  if (funnelIdx === 1) sc.socialAds = isSingle ? 10 : 8;      // generate leads = top priority
+  else if (funnelIdx === 0) sc.socialAds = isSingle ? 9 : 7;  // awareness = very high
+  else if (goals.indexOf(0) > -1) sc.socialAds = isSingle ? 9 : 6; // more customers goal
+  else if (goals.indexOf(1) > -1) sc.socialAds = isSingle ? 8 : 6; // local/maps goal
+  else if (isSingle) sc.socialAds = 6; // single location always benefits
+  // Multi-large locations less emphasis (brand spend differs)
+  if (isLarge) sc.socialAds = Math.max(sc.socialAds - 3, 0);
+
+  // ── CONTENT — FEED POSTS ────────────────────────────────────────
+  sc.feedPosts = 8;
+  if (!hasSocial) sc.feedPosts = Math.min(sc.feedPosts + 1, 10);
+
+  // ── CONTENT — STORIES ───────────────────────────────────────────
+  sc.stories = presenceIdx >= 2 ? 7 : 5;
+
+  // ── CONTENT — CAROUSELS ─────────────────────────────────────────
+  // Better for established social presence
+  sc.carousels = (presenceIdx >= 2 && budget > 1200) ? 7 : 4;
+
+  // ── CONTENT — VIDEO ─────────────────────────────────────────────
+  // If they have no video, highly recommend. If budget allows.
+  sc.video = !hasVideo ? (budget > 1000 ? 9 : 6) : (budget > 2000 ? 6 : 3);
+  if (goals.indexOf(2) > -1) sc.video = Math.min(sc.video + 1, 10); // social goal
+  if (isRest || isWell) sc.video = Math.min(sc.video + 1, 10); // visual industries
+
+  // ── EMAIL & SMS ─────────────────────────────────────────────────
+  // High value if they have a list already. Retention funnel = very high.
+  sc.email = hasEmailList ? 9 : funnelIdx === 3 ? 9 : funnelIdx === 2 ? 8 : budget > 1500 ? 6 : 4;
+
+  // ── BRANDING ────────────────────────────────────────────────────
+  // If they have nothing: branding is top priority
+  // If they have logo but no guidelines: recommend guidelines tier
+  // If they have both: low priority (already done)
+  // Photos missing: push photography (handled separately in "also")
+  sc.branding = hasNothing ? 10
+    : (!hasLogo) ? 9
+    : (!hasGuidelines) ? 6
+    : (hasLogo && hasGuidelines) ? 1
+    : 4;
+  if (funnelIdx === 4) sc.branding = Math.min(sc.branding + 2, 10); // brand reputation goal
+  if (goals.indexOf(3) > -1) sc.branding = Math.min(sc.branding + 2, 10); // brand identity goal
+
+  // ══════════════════════════════════════════════════════════════
+  // CHALLENGE ADJUSTMENTS
+  // ══════════════════════════════════════════════════════════════
+  challenges.forEach(function(c) {
+    if (c === 0) { sc.localSeo += 2; sc.gbp += 2; }                    // not found online
+    if (c === 1) { sc.website += 1; sc.reviewSys += 1; }               // traffic no leads
+    if (c === 2) { sc.localSeo += 2; sc.branding += 1; sc.video += 1; } // losing competitors
+    if (c === 4) { sc.branding += 3; sc.website += 1; }               // looks unprofessional
+    if (c === 5) { sc.smm += 2; sc.feedPosts += 2; sc.video += 2; }   // no consistent content
+  });
+
+  // ══════════════════════════════════════════════════════════════
+  // GOAL ADJUSTMENTS
+  // ══════════════════════════════════════════════════════════════
+  goals.forEach(function(g) {
+    if (g === 0) { sc.localSeo += 1; sc.gbp += 1; sc.website += 1; }  // more customers — direct sales
+    if (g === 1) { sc.localSeo += 2; sc.gbp += 2; }                   // local/maps
+    if (g === 2) { sc.smm += 2; sc.video += 2; sc.feedPosts += 1; }   // social media
+    if (g === 3) { sc.branding += 3; }                                  // brand identity
+    if (g === 4) { sc.website += 2; }                                   // website
+  });
+
+  // ══════════════════════════════════════════════════════════════
+  // FUNNEL ADJUSTMENTS
+  // ══════════════════════════════════════════════════════════════
+  if (funnelIdx === 0) { sc.smm += 1; sc.feedPosts += 1; sc.video += 1; }         // awareness
+  if (funnelIdx === 1) { sc.website += 1; sc.gbp += 1; sc.localSeo += 1; }        // leads/sales
+  if (funnelIdx === 2) { sc.email += 2; sc.reviewSys += 1; }                       // convert
+  if (funnelIdx === 3) { sc.email += 3; }                                            // retention
+  if (funnelIdx === 4) { sc.reviewSys += 2; sc.reviewAuto += 2; sc.branding += 1; } // reputation
+
+  // ══════════════════════════════════════════════════════════════
+  // LOCATION MULTI-BOOST
+  // ══════════════════════════════════════════════════════════════
+  if (isMulti) {
+    sc.localSeo = Math.min(sc.localSeo + locIdx * 1.5, 10);
+    sc.gbp      = Math.min(sc.gbp + locIdx, 10);
+  }
+
+  // ══════════════════════════════════════════════════════════════
+  // TIER SELECTION LOGIC
+  // Single location = lower tiers preferred
+  // Multi location = higher tiers preferred
+  // Budget bias for tier selection
+  // ══════════════════════════════════════════════════════════════
+  function tierIdx(key, bias) {
+    var svc = CAT[key];
+    if (!svc || svc.type !== "tier") return 0;
+    var len = svc.tiers.length;
+
+    // Single location: cap most services at tier 1 (index 1) unless budget is high
+    var cap = isSingle ? (budget > 3000 ? len - 1 : Math.min(1, len - 1)) : len - 1;
+
+    if (bias < 0.35) return 0;
+    if (bias < 0.6)  return Math.min(1, cap);
+    if (bias < 0.85) return Math.min(Math.round(len * 0.6), cap);
+    return cap;
+  }
+
+  var keys = Object.keys(sc).sort(function(a, b) { return sc[b] - sc[a]; });
+
+  function assemble(maxMo, maxSetup, bias) {
+    var mo = 0, setup = 0, inc = {};
+
+    // Always include website + hosting at appropriate tier
+    var wt = isSingle ? (bias < 0.5 ? 0 : bias < 0.8 ? 1 : 2) : (bias < 0.4 ? 1 : 2);
+    var ht = isSingle ? (bias < 0.5 ? 0 : bias < 0.8 ? 1 : 2) : (bias < 0.6 ? 1 : 2);
+    wt = Math.min(wt, CAT.website.tiers.length - 1);
+    ht = Math.min(ht, CAT.hosting.tiers.length - 1);
+    inc.website = wt;
+    inc.hosting = ht;
+    setup += CAT.website.tiers[wt].setup;
+    mo    += CAT.hosting.tiers[ht].monthly;
+
+    keys.forEach(function(key) {
+      if (key === "website" || key === "hosting") return;
+      var svc = CAT[key];
+      if (!svc) return;
+
+      if (svc.type === "toggle") {
+        if (sc[key] >= 6 && mo + svc.monthly <= maxMo && setup + svc.setup <= maxSetup) {
+          inc[key] = true;
+          mo    += svc.monthly;
+          setup += svc.setup;
+        }
+      } else if (svc.type === "tier") {
+        var t = tierIdx(key, bias);
+        while (t > 0) {
+          var tier = svc.tiers[t];
+          if (mo + tier.monthly <= maxMo && setup + tier.setup <= maxSetup) break;
+          t--;
+        }
+        var tier0 = svc.tiers[t];
+        if (sc[key] >= 5 && mo + tier0.monthly <= maxMo && setup + tier0.setup <= maxSetup) {
+          inc[key] = t;
+          mo    += tier0.monthly;
+          setup += tier0.setup;
+        }
+      }
+    });
+
+    // Social Ads: add if score >= 6, allocate 20% of total budget as ad spend
+    if (sc.socialAds >= 6) {
+      var adsBudget = Math.round(maxMo * 0.20);
+      if (adsBudget >= 100) {
+        inc.socialAds = adsBudget;
+        mo += adsBudget;
+      }
+    }
+
+    return { inc: inc, monthly: mo, setup: setup };
+  }
+
+  return {
+    optimal: assemble(budget,        budget * 5,  0.65),
+    starter: assemble(budget * 0.95, budget * 3,  0.3),
+    stretch: assemble(budget * 1.1,  budget * 8,  0.9)
+  };
+}
+
+
+function planLines(planObj) {
+  var lines = [];
+  Object.keys(planObj.inc).forEach(function(key) {
+    var svc = CAT[key];
+    if (!svc) return;
+    var val = planObj.inc[key];
+    if (svc.type === "toggle" && val === true) {
+      lines.push({ label: svc.label, setup: svc.setup, monthly: svc.monthly });
+    } else if (svc.type === "tier" && val !== undefined) {
+      var t = svc.tiers[val];
+      lines.push({ label: svc.label + " — " + t.name, setup: t.setup, monthly: t.monthly });
+    } else if (svc.type === "dynamic" && typeof val === "number") {
+      lines.push({ label: svc.label + " — " + fmt(val) + "/mo ad spend (recommended)", setup: 0, monthly: val, note: svc.note });
+    }
+  });
+  return lines;
+}
+
+// ── HELPERS ───────────────────────────────────────────────────────
+function fmt(n) { return "$" + n.toLocaleString(); }
+
+function budgetTag(planMo, budget) {
+  var diff = planMo - budget;
+  if (diff <= 0) return fmt(Math.abs(diff)) + " under";
+  return fmt(diff) + " over";
+}
+
+function whyText(slot, planMo, budget, funnelIdx, challenges, goals) {
+  var fLabels = ["building awareness", "generating more leads and sales", "converting leads into customers",
+                 "keeping customers coming back", "building a stronger brand reputation", "automating and scaling efficiently"];
+  var fl = funnelIdx > -1 ? fLabels[funnelIdx] : "";
+  if (slot === 0) return "A smart starting point that gets you real results without overextending. Everything included here delivers measurable ROI from month one.";
+  if (slot === 1) return (fl ? "Built around your priority of " + fl + ". " : "") + "This is the strongest plan we can build within your " + fmt(budget) + "/mo budget — every service directly moves your numbers.";
+  return "This is the plan built specifically for your goals" + (fl ? " — especially " + fl : "") + ". At " + fmt(planMo) + "/mo it is " + fmt(planMo - budget) + " above your stated budget, but delivers significantly stronger results and pays for itself faster.";
+}
+
+function industryName(ind, si) {
+  var iL = (ind || "").toLowerCase();
+  // si 0 = optimal (best fit), si 1 = starter (below budget), si 2 = stretch (above budget)
+  var names = {
+    restaurant:   ["Full House",          "The First Table",    "The Packed House"],
+    wellness:     ["Fully Booked",        "Open for Business",  "The Wellness Brand"],
+    service:      ["More Leads",          "The First Call",     "The Lead Machine"],
+    professional: ["The Authority Builder","The Practice Launch","The Thought Leader"],
+    realestate:   ["The Agent",           "The Listing",        "The Top Producer"]
+  };
+  var tierNames = ["The Growth Starter", "The Digital Launchpad", "The Digital Overhaul"];
+  var t = si;
+
+  if (iL.indexOf("restaurant") > -1 || iL.indexOf("food") > -1) return names.restaurant[Math.min(t, 2)];
+  if (iL.indexOf("health") > -1 || iL.indexOf("wellness") > -1) return names.wellness[Math.min(t, 2)];
+  if (iL.indexOf("service") > -1 || iL.indexOf("trade") > -1)  return names.service[Math.min(t, 2)];
+  if (iL.indexOf("professional") > -1) return names.professional[Math.min(t, 2)];
+  if (iL.indexOf("real estate") > -1)  return names.realestate[Math.min(t, 2)];
+  return tierNames[Math.min(t, 2)];
+}
+
+// ── RENDER QUIZ ───────────────────────────────────────────────────
+function render() {
+  if (currentQ >= Q.length) { showLoading(); return; }
+  var q = Q[currentQ];
+  var pct = Math.round((currentQ / Q.length) * 100);
+  var hasAns = q.type === "multi"
+    ? (Array.isArray(answers[q.id]) && answers[q.id].length > 0)
+    : q.type === "budget" ? true
+    : answers[q.id] !== undefined;
+
+  var body = "";
+
+  if (q.type === "budget") {
+    body = '<div class="budget-display">'
+      + '<p class="budget-amount" id="bamt">' + fmt(budgetValue) + '</p>'
+      + '<p class="budget-sub">per month</p></div>'
+      + '<input type="range" min="200" max="5000" step="100" value="' + budgetValue + '" id="bslider" oninput="onSlider(this.value)">'
+      + '<div class="budget-ticks"><span>$200</span><span>$1,000</span><span>$2,500</span><span>$5,000+</span></div>'
+      + '<div class="budget-custom-wrap">'
+      + '<p class="budget-custom-label">Or enter your exact budget:</p>'
+      + '<div class="budget-custom-row">'
+      + '<span class="budget-custom-prefix">$</span>'
+      + '<input type="number" class="budget-custom-input" placeholder="e.g. 750" min="0" oninput="onCustomBudget(this.value)">'
+      + '<span class="budget-custom-suffix">/mo</span>'
+      + '</div></div>';
+  } else {
+    var isMulti = q.type === "multi";
+    var isGrid  = q.type === "grid";
+    if (isMulti) body += '<div class="multi-badge"><span class="multi-tag">Multi-select</span> Choose all that apply</div>';
+    body += '<div class="' + (isGrid ? "options-grid" : "options") + '">';
+    q.opts.forEach(function(o, i) {
+      var selArr = Array.isArray(answers[q.id]) ? answers[q.id] : [];
+      var isSel = isMulti ? selArr.indexOf(i) > -1 : answers[q.id] === i;
+      body += '<button class="opt' + (isSel ? " selected" : "") + '" onclick="pick(' + i + ')">'
+        + '<span class="opt-icon">' + o.icon + '</span>'
+        + '<span><span class="opt-label">' + o.label + '</span>'
+        + (o.desc ? '<span class="opt-desc">' + o.desc + '</span>' : '')
+        + '</span></button>';
+    });
+    body += '</div>';
+  }
+
+  var html = '<div class="progress-wrap">'
+    + '<div class="progress-top"><span class="progress-label">' + q.step + '</span><span class="progress-count">' + pct + '% complete</span></div>'
+    + '<div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>'
+    + '</div>'
+    + '<div class="q-card">'
+    + '<p class="q-step">' + q.step + '</p>'
+    + '<p class="q-text">' + q.text + '</p>'
+    + '<p class="q-hint">' + q.hint + '</p>'
+    + body
+    + '<div class="nav">'
+    + (currentQ > 0 ? '<button class="btn-back" onclick="goBack()">Back</button>' : '<span></span>')
+    + '<button class="btn-next' + (hasAns ? " active" : "") + '" id="btn-next" onclick="goNext()">'
+    + (currentQ === Q.length - 1 ? "Build my plan" : "Next") + '</button>'
+    + '</div></div>';
+
+  document.getElementById("app").innerHTML = html;
+}
+
+function pick(i) {
+  var q = Q[currentQ];
+  if (q.type === "multi") {
+    if (!Array.isArray(answers[q.id])) answers[q.id] = [];
+    var idx = answers[q.id].indexOf(i);
+    if (idx > -1) answers[q.id].splice(idx, 1);
+    else answers[q.id].push(i);
+    document.querySelectorAll(".opt").forEach(function(el, oi) {
+      el.classList.toggle("selected", answers[q.id].indexOf(oi) > -1);
+    });
+    var nb = document.getElementById("btn-next");
+    if (nb) nb.classList.toggle("active", answers[q.id].length > 0);
+  } else {
+    answers[q.id] = i;
+    document.querySelectorAll(".opt").forEach(function(el, oi) {
+      el.classList.toggle("selected", oi === i);
+    });
+    var nb2 = document.getElementById("btn-next");
+    if (nb2) nb2.classList.add("active");
+  }
+}
+
+function onSlider(val) {
+  budgetValue = parseInt(val);
+  answers.budget = budgetValue;
+  var el = document.getElementById("bamt");
+  if (el) el.textContent = budgetValue >= 5000 ? "$5,000+" : fmt(budgetValue);
+}
+
+function onCustomBudget(val) {
+  var n = parseInt(val);
+  if (!isNaN(n) && n > 0) {
+    budgetValue = n;
+    answers.budget = n;
+    var sl = document.getElementById("bslider");
+    if (sl) sl.value = Math.min(n, 5000);
+    var el = document.getElementById("bamt");
+    if (el) el.textContent = fmt(n);
+  }
+}
+
+function goNext() {
+  if (Q[currentQ].type === "budget") answers.budget = budgetValue;
+  currentQ++;
+  render();
+  window.scrollTo(0, 0);
+}
+
+function goBack() {
+  currentQ--;
+  render();
+  window.scrollTo(0, 0);
+}
+
+// ── LOADING ───────────────────────────────────────────────────────
+var loadMsgs = [
+  "Analyzing your business profile...",
+  "Scoring services against your answers...",
+  "Building 3 custom plans from our catalog...",
+  "Personalizing your recommendation..."
+];
+
+function showLoading() {
+  var stepsHtml = loadMsgs.map(function(m) {
+    return '<div class="loading-step">' + m + '</div>';
+  }).join("");
+  document.getElementById("app").innerHTML =
+    '<div class="q-card loading">'
+    + '<div class="spinner"></div>'
+    + '<p class="loading-title">Building your personalized plans...</p>'
+    + '<p class="loading-sub">Our AI is pulling from our full service catalog to assemble 3 custom options matched to your answers.</p>'
+    + '<div class="loading-steps" id="lsteps">' + stepsHtml + "</div></div>";
+
+  var steps = document.querySelectorAll(".loading-step");
+  var i = 0;
+  var iv = setInterval(function() {
+    if (i < steps.length) { steps[i].classList.add("done"); i++; }
+    else clearInterval(iv);
+  }, 650);
+
+  setTimeout(buildResults, 3000);
+}
+
+// ── BUILD RESULTS ─────────────────────────────────────────────────
+function buildResults() {
+  var ind        = answers.industry !== undefined ? Q[0].opts[answers.industry].label : "General";
+  var locIdx     = answers.locations !== undefined ? answers.locations : 0;
+  var assets     = Array.isArray(answers.assets) ? answers.assets : [];
+  var presence   = answers.presence !== undefined ? answers.presence : 2;
+  var challenges = Array.isArray(answers.challenge) ? answers.challenge : [];
+  var goals      = Array.isArray(answers.goals) ? answers.goals : [];
+  var funnelIdx  = answers.funnel  !== undefined ? answers.funnel  : -1;
+  var handsonIdx = answers.handson !== undefined ? answers.handson : 1;
+  var timelineIdx = 1; // removed from quiz, default to mid-range
+  var budget = answers.budget || budgetValue;
+
+  var plans = buildPlan(budget, funnelIdx, presence, challenges, goals, handsonIdx, timelineIdx, ind, locIdx, assets);
+  lastPlans = plans;
+
+  var urgency = "Once you choose a plan, we will kick off with your highest-impact services first — typically GBP optimization and your website — so you start seeing results within the first 30 days.";
+
+  var slots = ["optimal", "starter", "stretch"];
+  var badges = ["Best Within Budget", "Good Starter", "Ideal for Your Goals"];
+  var cardClasses = [" best", "", " stretch"];
+
+  var html = '<div class="result">'
+    + '<div class="result-header">'
+    + '<h2>Your custom plans are ready</h2>'
+    + '<p>We built 3 options from our full service catalog, matched to your ' + ind.split("/")[0].trim() + ' business and ' + fmt(budget) + '/mo budget.</p>'
+    + '</div>';
+
+  slots.forEach(function(slot, si) {
+    var p = plans[slot];
+    var lines = planLines(p);
+    var servHtml = lines.slice(0, 6).map(function(l) {
+      return '<div class="plan-service">' + l.label + '</div>';
+    }).join("");
+    var name = industryName(ind, si);
+    var isBest = si === 0;
+
+    html += '<div class="plan-card' + cardClasses[si] + '">'
+      + '<div class="plan-card-top">'
+      + '<span class="plan-badge">' + (si === 0 ? "✦ " : si === 1 ? "⚡ " : "🚀 ") + badges[si] + '</span>'
+      + (isBest ? '<span class="best-tag">BEST FIT</span>' : '')
+      + '</div>'
+      + '<p class="plan-name">' + name + '</p>'
+      + '<div class="plan-prices">'
+      + '<div class="price-box"><p class="price-box-label">One-time setup</p><p class="price-box-val blue">' + fmt(p.setup) + '</p></div>'
+      + '<div class="price-box"><p class="price-box-label">Monthly</p><p class="price-box-val green">' + fmt(p.monthly) + '/mo</p></div>'
+      + '<div class="price-box budget-box"><p class="price-box-label">vs. budget</p><p class="price-box-val" style="font-size:13px">' + budgetTag(p.monthly, budget) + '</p></div>'
+      + '</div>'
+      + '<hr class="plan-divider">'
+      + '<p class="plan-why">' + whyText(si, p.monthly, budget, funnelIdx, challenges, goals) + '</p>'
+      + '<div class="plan-services"><p class="plan-services-title">Services included</p>' + servHtml + '</div>'
+      + '<div class="plan-btns">'
+      + '<button class="plan-btn-primary">Get started</button>'
+      + '<button class="plan-btn-outline" onclick="openBd(' + si + ')">View breakdown</button>'
+      + '<button class="plan-btn-outline" onclick="openCust(' + si + ')">Customize</button>'
+      + '</div></div>';
+  });
+
+  if (urgency) {
+    html += '<div class="urgency-box"><p class="urgency-title">Next step</p><p class="urgency-text">' + urgency + '</p></div>';
+  }
+  html += '<p class="restart-link" onclick="restart()">Start over with different answers</p></div>';
+  document.getElementById("app").innerHTML = html;
+  window.scrollTo(0, 0);
+}
+
+// ── BREAKDOWN MODAL ───────────────────────────────────────────────
+var bdSlot = 0;
+var custSlot = 0;
+var slots = ["optimal", "starter", "stretch"];
+
+function openBd(si) {
+  bdSlot = si;
+  var p = lastPlans[slots[si]];
+  var lines = planLines(p);
+  var moLines = lines.filter(function(l) { return l.monthly > 0; });
+  var otLines = lines.filter(function(l) { return l.setup > 0; });
+
+  document.getElementById("bd-title").textContent = industryName(
+    answers.industry !== undefined ? Q[0].opts[answers.industry].label : "General", si
+  ) + " — Full Breakdown";
+  document.getElementById("bd-sub").textContent = fmt(p.monthly) + "/mo + " + fmt(p.setup) + " one-time setup";
+
+  var html = "";
+  if (moLines.length) {
+    html += '<p class="modal-sec-title">Monthly Services</p>';
+    moLines.forEach(function(l) {
+      html += '<div class="bd-row"><span class="bd-label">' + l.label + '<span class="bd-tag mo">mo</span></span><span class="bd-val">' + fmt(l.monthly) + '/mo</span></div>';
+    });
+    html += '<div class="bd-subtotal"><span>Monthly total</span><span style="color:#1D9E75">' + fmt(p.monthly) + '/mo</span></div>';
+  }
+  if (otLines.length) {
+    html += '<p class="modal-sec-title" style="margin-top:18px">One-Time Setup</p>';
+    otLines.forEach(function(l) {
+      html += '<div class="bd-row"><span class="bd-label">' + l.label + '<span class="bd-tag ot">setup</span></span><span class="bd-val">' + fmt(l.setup) + '</span></div>';
+    });
+    html += '<div class="bd-subtotal"><span>Setup total</span><span style="color:#185fa5">' + fmt(p.setup) + '</span></div>';
+  }
+  html += '<button class="modal-cta">Get started with this plan</button>'
+    + '<button class="modal-cta-outline" onclick="document.getElementById(\'bd-overlay\').classList.remove(\'open\'); openCust(' + si + ')">Customize this plan</button>';
+
+  document.getElementById("bd-body").innerHTML = html;
+  document.getElementById("bd-overlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+document.getElementById("bd-close").onclick = function() {
+  document.getElementById("bd-overlay").classList.remove("open");
+  document.body.style.overflow = "";
+};
+document.getElementById("bd-overlay").onclick = function(e) {
+  if (e.target === this) { this.classList.remove("open"); document.body.style.overflow = ""; }
+};
+
+// ── CUSTOMIZE MODAL ───────────────────────────────────────────────
+var custInc = {};
+
+function openCust(si) {
+  custSlot = si;
+  var p = lastPlans[slots[si]];
+  custInc = JSON.parse(JSON.stringify(p.inc));
+  renderCustModal(si);
+  document.getElementById("cust-overlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function renderCustModal(si) {
+  var name = answers.industry !== undefined ? Q[0].opts[answers.industry].label : "General";
+  document.getElementById("cust-title").textContent = "Customize — " + industryName(name, si);
+
+  var sections = [
+    { keys: ["website", "hosting"], label: "Website & Hosting" },
+    { keys: ["localSeo", "gbp", "reviewSys", "reviewAuto"], label: "Local SEO & Reputation" },
+    { keys: ["socialAds", "smm", "feedPosts", "stories", "carousels", "video"], label: "Social Media, Ads & Content" },
+    { keys: ["email"], label: "Email & SMS" },
+
+    { keys: ["branding"], label: "Branding" }
+  ];
+
+  var html = "";
+  sections.forEach(function(sec) {
+    html += '<p class="modal-sec-title">' + sec.label + '</p>';
+    sec.keys.forEach(function(key) {
+      var svc = CAT[key];
+      if (!svc) return;
+      var isOn = custInc[key] !== undefined;
+
+      if (svc.type === "toggle") {
+        html += '<div class="cust-row">'
+          + '<span class="cust-label">' + svc.label + '</span>'
+          + '<span style="font-size:12px;color:#73726c;margin-right:8px">' + (svc.monthly ? fmt(svc.monthly) + "/mo" : "+" + fmt(svc.setup)) + '</span>'
+          + '<button class="cust-toggle ' + (isOn ? "on" : "off") + '" onclick="custToggle(\'' + key + '\')" id="ct-' + key + '">'
+          + '<div class="cust-thumb"></div></button>'
+          + '</div>';
+      } else if (svc.type === "tier" && svc.tiers) {
+        var cur = isOn ? custInc[key] : -1;
+        var opts = '<option value="-1"' + (cur === -1 ? " selected" : "") + '>Not included</option>';
+        svc.tiers.forEach(function(t, i) {
+          opts += '<option value="' + i + '"' + (cur === i ? " selected" : "") + '>'
+            + t.name + " — " + (t.monthly ? fmt(t.monthly) + "/mo" : "+" + fmt(t.setup)) + '</option>';
+        });
+        html += '<div class="cust-row">'
+          + '<span class="cust-label">' + svc.label + '</span>'
+          + '<select class="cust-select" onchange="custTier(\'' + key + '\', this.value)">' + opts + '</select>'
+          + '</div>';
+      }
+    });
+  });
+
+  var totals = calcCustTotals();
+  html += '<div class="cust-totals" id="cust-totals-box">'
+    + '<div class="cust-total-row"><span>Monthly recurring</span><span class="cust-total-val" id="cust-mo" style="color:#1D9E75">' + fmt(totals.monthly) + '/mo</span></div>'
+    + '<div class="cust-total-row"><span>One-time setup</span><span class="cust-total-val" id="cust-setup" style="color:#185fa5">' + fmt(totals.setup) + '</span></div>'
+    + '</div>'
+    + '<button class="modal-cta" style="margin-top:14px">Get started with this custom plan</button>';
+
+  document.getElementById("cust-body").innerHTML = html;
+}
+
+function calcCustTotals() {
+  var mo = 0, setup = 0;
+  Object.keys(custInc).forEach(function(key) {
+    var svc = CAT[key];
+    if (!svc) return;
+    var val = custInc[key];
+    if (svc.type === "toggle" && val === true) { mo += svc.monthly; setup += svc.setup; }
+    else if (svc.type === "tier" && val !== undefined) { mo += svc.tiers[val].monthly; setup += svc.tiers[val].setup; }
+    else if (svc.type === "dynamic" && typeof val === "number") { mo += val; }
+  });
+  return { monthly: mo, setup: setup };
+}
+
+function updateCustTotals() {
+  var t = calcCustTotals();
+  var em = document.getElementById("cust-mo");
+  var es = document.getElementById("cust-setup");
+  if (em) em.textContent = fmt(t.monthly) + "/mo";
+  if (es) es.textContent = fmt(t.setup);
+}
+
+function custToggle(key) {
+  var svc = CAT[key];
+  var btn = document.getElementById("ct-" + key);
+  if (custInc[key] !== undefined) {
+    delete custInc[key];
+    if (btn) { btn.classList.remove("on"); btn.classList.add("off"); }
+  } else {
+    custInc[key] = true;
+    if (btn) { btn.classList.remove("off"); btn.classList.add("on"); }
+  }
+  updateCustTotals();
+}
+
+function custTier(key, val) {
+  val = parseInt(val);
+  if (val === -1) delete custInc[key];
+  else custInc[key] = val;
+  updateCustTotals();
+}
+
+function custAds(val) {
+  var n = parseInt(val) || 0;
+  if (n > 0) custInc.socialAds = n;
+  else delete custInc.socialAds;
+  updateCustTotals();
+}
+
+document.getElementById("cust-close").onclick = function() {
+  document.getElementById("cust-overlay").classList.remove("open");
+  document.body.style.overflow = "";
+};
+document.getElementById("cust-overlay").onclick = function(e) {
+  if (e.target === this) { this.classList.remove("open"); document.body.style.overflow = ""; }
+};
+
+// ── RESTART ───────────────────────────────────────────────────────
+function restart() {
+  answers = {};
+  currentQ = 0;
+  budgetValue = 1000;
+  lastPlans = null;
+  render();
+  window.scrollTo(0, 0);
+}
+
+// ── INIT ──────────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>

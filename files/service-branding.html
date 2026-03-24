@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Branding & Identity — Apnosh</title>
+<meta name="description" content="Professional branding and identity services — logo design, brand guidelines, strategy, and complete brand systems. Build a brand that commands trust and premium pricing. From $499.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#4abd98;--brand-d:#2e9a78;--brand-t:#eaf7f3;--brand-g:rgba(74,189,152,.14);
+  --ink:#1d1d1f;--ink2:#424245;--ink3:#6e6e73;--ink4:#aeaeb2;--ink5:#d2d2d7;--ink6:#f0f0f5;
+  --bg:#fff;--bg2:#f5f5f7;
+  --fd:'Playfair Display',Georgia,serif;--fb:'Inter',-apple-system,sans-serif;
+  --s2:0 4px 16px rgba(0,0,0,.07);--s3:0 8px 32px rgba(0,0,0,.09);--s4:0 16px 56px rgba(0,0,0,.11);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:1080px;margin:0 auto;padding:0 40px}
+.wmd{max-width:820px;margin:0 auto;padding:0 40px}
+.wsm{max-width:640px;margin:0 auto;padding:0 40px}
+@media(max-width:600px){.w,.wmd,.wsm{padding:0 20px}}
+.tc{text-align:center}
+.kicker{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);margin-bottom:14px}
+.h1{font-family:var(--fd);font-size:clamp(36px,5.5vw,62px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink)}
+.h1 em{font-style:italic;color:var(--brand-d)}
+.h2{font-family:var(--fd);font-size:clamp(24px,3.5vw,40px);font-weight:400;line-height:1.12;letter-spacing:-.02em;color:var(--ink)}
+.h2 em{font-style:italic;color:var(--brand-d)}
+.h3{font-family:var(--fd);font-size:clamp(18px,2.2vw,24px);font-weight:400;line-height:1.2;letter-spacing:-.015em;color:var(--ink)}
+.lead{font-size:clamp(15px,1.8vw,18px);font-weight:300;color:var(--ink2);line-height:1.72}
+.body{font-size:15px;font-weight:300;color:var(--ink3);line-height:1.7}
+.sm{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65}
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fb);font-weight:500;font-size:14px;text-decoration:none;border:none;cursor:pointer;border-radius:99px;padding:12px 24px;transition:all .2s;white-space:nowrap;line-height:1}
+.btn-primary{background:var(--ink);color:#fff}.btn-primary:hover{background:#2d2d2f;transform:translateY(-1px);box-shadow:var(--s3)}
+.btn-brand{background:var(--brand);color:var(--ink);font-weight:600}.btn-brand:hover{background:var(--brand-d);color:#fff;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink5)}.btn-outline:hover{border-color:var(--ink3);transform:translateY(-1px)}
+.btn-ghost-dark{background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.13)}.btn-ghost-dark:hover{background:rgba(255,255,255,.14)}
+.btn-sm{padding:9px 18px;font-size:13px}.btn-lg{padding:15px 32px;font-size:15px}
+.arr{transition:transform .2s;display:inline-block}
+a:hover .arr{transform:translateX(3px)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:44px;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.07);display:flex;align-items:center;transition:box-shadow .2s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.nav-inner{width:100%;max-width:1080px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.nav-logo em{font-style:italic;color:var(--brand-d)}
+.nav-back{font-size:12px;font-weight:400;color:var(--ink3);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .15s}
+.nav-back:hover{color:var(--ink)}
+.nav-back-arr{display:inline-block;transform:rotate(180deg)}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-audit{font-size:12px;font-weight:600;color:#fff;background:var(--brand-d);padding:7px 16px;border-radius:99px;text-decoration:none;transition:all .15s}
+.nav-audit:hover{background:var(--brand)}
+.nav-plain{font-size:12px;color:rgba(0,0,0,.45);text-decoration:none;padding:0 10px;transition:color .15s}
+.nav-plain:hover{color:var(--ink)}
+
+/* BREADCRUMB */
+.breadcrumb{padding:56px 0 0;background:var(--bg)}
+.bc-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink4)}
+@media(max-width:600px){.bc-inner{padding:0 20px}}
+.bc-link{color:var(--ink4);text-decoration:none;transition:color .15s}.bc-link:hover{color:var(--brand-d)}
+.bc-sep{color:var(--ink5)}
+.bc-current{color:var(--ink2);font-weight:500}
+
+/* HERO */
+.hero{padding:32px 0 64px;background:var(--bg);overflow:hidden;position:relative}
+@media(max-width:600px){.hero{padding:28px 0 48px}}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(74,189,152,.06) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1080px;margin:0 auto;padding:0 40px;position:relative;z-index:1}
+@media(max-width:600px){.hero-inner{padding:0 20px}}
+.hero-service-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);border:1px solid rgba(74,189,152,.22);padding:5px 14px;border-radius:99px;margin-bottom:20px}
+.hero-h{font-family:var(--fd);font-size:clamp(34px,5vw,58px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink);max-width:760px;margin-bottom:20px}
+.hero-h em{font-style:italic;color:var(--brand-d)}
+.hero-lead{font-size:clamp(15px,1.8vw,18px);font-weight:300;color:var(--ink2);line-height:1.72;max-width:580px;margin-bottom:32px}
+.hero-btns{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.hero-trust{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.ht-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink4)}
+.ht-check{color:var(--brand-d);font-weight:700}
+
+/* STAT BAR */
+.stat-bar{background:var(--ink);padding:36px 0}
+.stat-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr)}
+@media(max-width:700px){.stat-inner{grid-template-columns:1fr 1fr;padding:0 24px}}
+.stat-cell{padding:0 24px;text-align:center;border-right:1px solid rgba(255,255,255,.07)}
+.stat-cell:last-child{border-right:none}
+@media(max-width:700px){.stat-cell:nth-child(2){border-right:none}.stat-cell:nth-child(3){border-top:1px solid rgba(255,255,255,.07);padding-top:24px;margin-top:24px}.stat-cell:nth-child(4){border-top:1px solid rgba(255,255,255,.07);padding-top:24px;margin-top:24px;border-right:none}}
+.stat-n{font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--brand);letter-spacing:-.03em;line-height:1;margin-bottom:6px}
+.stat-n em{font-style:normal;font-size:.65em;color:rgba(74,189,152,.6)}
+.stat-l{font-size:11px;font-weight:400;color:rgba(255,255,255,.32);line-height:1.5}
+
+/* PROBLEM / WHO SECTION */
+.problem-section{padding:80px 0;background:var(--bg2)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:0}
+@media(max-width:780px){.problem-grid{grid-template-columns:1fr;gap:40px}}
+.problem-list{display:flex;flex-direction:column;gap:16px;margin-top:28px}
+.prob-item{display:flex;align-items:flex-start;gap:12px;padding:16px 18px;background:var(--bg);border:1px solid var(--ink6);border-radius:12px}
+.prob-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.prob-title{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px;letter-spacing:-.01em}
+.prob-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.6}
+.solution-list{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.sol-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:300;color:var(--ink2);line-height:1.6}
+.sol-check{width:20px;height:20px;border-radius:50%;background:var(--brand-t);border:1px solid rgba(74,189,152,.25);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--brand-d);flex-shrink:0;margin-top:2px}
+
+/* WHAT'S INCLUDED SECTION */
+.included-section{padding:80px 0;background:var(--bg)}
+.platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+@media(max-width:780px){.platform-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.platform-grid{grid-template-columns:1fr}}
+.platform-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:16px;padding:24px;transition:border-color .2s,transform .2s}
+.platform-card:hover{border-color:rgba(74,189,152,.2);transform:translateY(-2px)}
+.pc-icon{font-size:28px;margin-bottom:12px;display:block}
+.pc-name{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em}
+.pc-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.62;margin-bottom:14px}
+.pc-tags{display:flex;flex-wrap:wrap;gap:5px}
+.pc-tag{font-size:10px;font-weight:500;color:var(--brand-d);background:var(--brand-t);padding:2px 8px;border-radius:99px}
+
+.deliverables-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:48px}
+@media(max-width:600px){.deliverables-grid{grid-template-columns:1fr}}
+.del-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:14px;padding:20px 22px;display:flex;align-items:flex-start;gap:12px}
+.del-icon-wrap{width:38px;height:38px;border-radius:10px;background:var(--brand-t);border:1px solid rgba(74,189,152,.15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.del-title{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px;letter-spacing:-.01em}
+.del-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.6}
+
+/* PROCESS SECTION */
+.process-section{padding:80px 0;background:var(--bg2)}
+.process-steps{display:flex;flex-direction:column;gap:0;margin-top:48px;max-width:680px;margin-left:auto;margin-right:auto}
+.process-step{display:flex;align-items:flex-start;gap:20px;padding:0 0 36px;position:relative}
+.process-step:last-child{padding-bottom:0}
+.process-step::before{content:'';position:absolute;left:18px;top:40px;bottom:0;width:1px;background:var(--ink6)}
+.process-step:last-child::before{display:none}
+.ps-num{width:36px;height:36px;border-radius:50%;background:var(--brand-t);border:2px solid var(--brand-d);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:14px;font-weight:500;color:var(--brand-d);flex-shrink:0;position:relative;z-index:1}
+.ps-title{font-family:var(--fd);font-size:17px;font-weight:500;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+.ps-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65}
+.ps-detail{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ps-det-tag{font-size:10px;font-weight:500;color:var(--brand-d);background:var(--brand-t);padding:2px 9px;border-radius:99px}
+
+/* PRICING TIERS */
+.pricing-section{padding:80px 0;background:var(--bg)}
+.tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+@media(max-width:900px){.tier-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.tier-grid{grid-template-columns:1fr}}
+.tier{background:var(--bg2);border:1px solid var(--ink6);border-radius:18px;padding:28px 24px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.tier:hover{transform:translateY(-3px);box-shadow:var(--s4)}
+.tier.featured{background:var(--ink);border-color:var(--ink)}
+.tier.featured:hover{box-shadow:0 16px 56px rgba(0,0,0,.25)}
+.tier-pop{position:absolute;top:14px;right:14px;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--brand);color:var(--ink);padding:3px 9px;border-radius:99px}
+.tier-bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand-d));opacity:0;transition:opacity .2s}
+.tier:not(.featured):hover .tier-bar{opacity:1}
+.tier.featured .tier-bar{opacity:1}
+.tier-name{font-family:var(--fd);font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.tier.featured .tier-name{color:rgba(255,255,255,.88)}
+.tier-tagline{font-size:11px;font-weight:300;color:var(--ink4);margin-bottom:20px;line-height:1.5;min-height:32px}
+.tier.featured .tier-tagline{color:rgba(255,255,255,.32)}
+.tier-price{font-family:var(--fd);font-size:34px;font-weight:400;color:var(--ink);letter-spacing:-.03em;line-height:1;margin-bottom:4px}
+.tier.featured .tier-price{color:#fff}
+.tier-price span{font-size:14px;font-weight:300;font-family:var(--fb);color:var(--ink4)}
+.tier.featured .tier-price span{color:rgba(255,255,255,.32)}
+.tier-billed{font-size:11px;color:var(--brand-d);margin-bottom:20px;min-height:16px}
+.tier.featured .tier-billed{color:rgba(74,189,152,.8)}
+.tier-divider{height:1px;background:var(--ink6);margin:0 0 16px}
+.tier.featured .tier-divider{background:rgba(255,255,255,.07)}
+.tier-inc-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px}
+.tier.featured .tier-inc-label{color:rgba(255,255,255,.24)}
+.tier-features{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;flex:1}
+.tier-feat{display:flex;align-items:flex-start;gap:8px;font-size:12px;font-weight:300;color:var(--ink2);line-height:1.55}
+.tier.featured .tier-feat{color:rgba(255,255,255,.6)}
+.tier-feat.ai{color:var(--ink)}
+.tier.featured .tier-feat.ai{color:rgba(255,255,255,.9)}
+.tier-feat-icon{font-size:11px;flex-shrink:0;margin-top:1px;width:14px;text-align:center}
+.tier-cta{display:block;width:100%;text-align:center;padding:12px 0;border-radius:99px;font-family:var(--fb);font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
+.tier:not(.featured) .tier-cta{background:var(--ink6);color:var(--ink)}
+.tier:not(.featured):hover .tier-cta{background:var(--ink);color:#fff}
+.tier.featured .tier-cta{background:var(--brand);color:var(--ink)}
+.tier.featured:hover .tier-cta{background:var(--brand-d);color:#fff}
+
+/* ADDONS */
+.addons-section{padding:72px 0;background:var(--bg2)}
+.addons-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+@media(max-width:900px){.addons-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.addons-grid{grid-template-columns:1fr}}
+.addon-card{background:var(--bg);border:1px solid var(--ink6);border-radius:14px;padding:20px;transition:border-color .2s,transform .2s}
+.addon-card:hover{border-color:rgba(74,189,152,.2);transform:translateY(-2px)}
+.addon-icon{font-size:20px;margin-bottom:10px;display:block}
+.addon-name{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.addon-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.6;margin-bottom:10px}
+.addon-price{font-family:var(--fd);font-size:18px;font-weight:400;color:var(--brand-d);letter-spacing:-.01em}
+.addon-price span{font-size:11px;font-weight:300;color:var(--ink4);font-family:var(--fb)}
+
+/* COMPARISON */
+.compare-section{padding:72px 0;background:var(--bg)}
+.compare-wrap{margin-top:48px;overflow-x:auto}
+.compare-table{width:100%;border-collapse:collapse;min-width:500px}
+.compare-table th{padding:12px 16px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-align:center;border-bottom:1px solid var(--ink6)}
+.compare-table th:first-child{text-align:left;color:var(--ink4);width:40%}
+.compare-table th:not(:first-child){color:var(--ink2);background:var(--bg2);border-left:1px solid var(--ink6)}
+.compare-table th.feat-col{background:var(--ink);color:rgba(255,255,255,.75)}
+.compare-table td{padding:11px 16px;font-size:12px;font-weight:300;color:var(--ink3);border-bottom:1px solid var(--ink6);text-align:center}
+.compare-table td:first-child{text-align:left;color:var(--ink2);font-weight:400}
+.compare-table td:not(:first-child){border-left:1px solid var(--ink6);background:var(--bg2)}
+.compare-table td.feat-col{background:rgba(15,15,15,.03)}
+.compare-table tr:last-child td{border-bottom:none}
+.ct-group-row td,.ct-group-row th{background:var(--brand-t);color:var(--brand-d);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;border-bottom:1px solid rgba(74,189,152,.15)}
+.ct-check{color:var(--brand-d);font-weight:700;font-size:13px}
+.ct-x{color:var(--ink5);font-size:11px}
+.ct-ai{color:#f59e0b;font-size:11px}
+
+/* TESTIMONIALS */
+.testi-section{padding:72px 0;background:var(--bg)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+@media(max-width:780px){.testi-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.testi-grid{grid-template-columns:1fr}}
+.testi-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:16px;padding:24px;transition:border-color .2s}
+.testi-card:hover{border-color:rgba(74,189,152,.2)}
+.testi-stars{color:var(--brand-d);font-size:11px;letter-spacing:3px;margin-bottom:12px}
+.testi-metric{display:inline-flex;align-items:baseline;gap:4px;background:var(--brand-t);border:1px solid rgba(74,189,152,.2);padding:4px 10px;border-radius:99px;margin-bottom:12px}
+.testi-m-n{font-family:var(--fd);font-size:16px;font-weight:400;color:var(--brand-d)}
+.testi-m-l{font-size:10px;color:var(--brand-d);opacity:.7}
+.testi-q{font-family:var(--fd);font-size:14px;font-style:italic;color:var(--ink);line-height:1.65;margin-bottom:16px}
+.testi-author{display:flex;align-items:center;gap:8px;padding-top:12px;border-top:1px solid var(--ink6)}
+.t-av{width:32px;height:32px;border-radius:50%;background:var(--brand-t);border:1px solid rgba(74,189,152,.18);display:flex;align-items:center;justify-content:center;font-size:14px}
+.t-name{font-family:var(--fd);font-size:12px;font-weight:500;color:var(--ink);display:block}
+.t-role{font-size:10px;color:var(--ink4)}
+
+/* FAQ */
+.faq-section{padding:72px 0;background:var(--bg2)}
+.faq-list{max-width:640px;margin:40px auto 0;display:flex;flex-direction:column;gap:6px}
+.faq-item{background:var(--bg);border:1px solid var(--ink6);border-radius:10px;overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:rgba(74,189,152,.24)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:none;border:none;cursor:pointer;font-family:var(--fd);font-size:14px;font-weight:400;color:var(--ink);text-align:left;gap:12px}
+.faq-ic{color:var(--brand-d);font-size:18px;flex-shrink:0;transition:transform .22s}
+.faq-item.open .faq-ic{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 20px 16px;font-size:13px;font-weight:300;color:var(--ink3);line-height:1.7}
+.faq-item.open .faq-a{display:block}
+
+/* CTA */
+.cta-section{background:var(--ink);padding:92px 40px;text-align:center;position:relative;overflow:hidden}
+@media(max-width:600px){.cta-section{padding:68px 20px}}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(74,189,152,.08) 0%,transparent 70%)}
+#cta-canvas{position:absolute;inset:0;pointer-events:none}
+.cta-section>*{position:relative;z-index:1}
+.cta-h{font-family:var(--fd);font-size:clamp(26px,4vw,46px);font-weight:400;line-height:1.1;letter-spacing:-.025em;color:rgba(255,255,255,.95);max-width:560px;margin:0 auto 14px}
+.cta-h em{font-style:italic;color:var(--brand)}
+.cta-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,.38);max-width:420px;margin:0 auto 36px;line-height:1.7}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+
+/* FOOTER */
+.footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:36px 40px}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none}
+.f-logo em{font-style:italic;color:var(--brand)}
+.f-links{display:flex;gap:20px;flex-wrap:wrap}
+.f-link{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .15s}
+.f-link:hover{color:rgba(255,255,255,.6)}
+.f-copy{font-size:11px;color:rgba(255,255,255,.16)}
+
+/* REVEAL */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hero-service-tag,.hero-h,.hero-lead,.hero-btns,.hero-trust{opacity:1}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.06s}.rd2{transition-delay:.12s}.rd3{transition-delay:.18s}.rd4{transition-delay:.24s}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <a class="nav-back" href="apnosh_services.html"><span class="nav-back-arr">&#8594;</span> All services</a>
+    <div class="nav-right">
+      <a class="nav-plain" href="talk_to_expert.html">Contact</a>
+      <a class="nav-audit" href="apnosh_homepage.html#start">Get free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="bc-inner">
+    <a class="bc-link" href="apnosh_homepage.html">Home</a>
+    <span class="bc-sep">/</span>
+    <a class="bc-link" href="apnosh_services.html">Services</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">Branding &amp; Identity</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-service-tag">&#127912; Branding &amp; Identity</div>
+    <h1 class="hero-h">Build a brand identity that <em>commands trust</em></h1>
+    <p class="hero-lead">Your brand is more than a logo &mdash; it&rsquo;s the reason customers choose you over the competition. We create cohesive brand identities that build instant credibility, command premium pricing, and make your business unforgettable.</p>
+    <div class="hero-btns">
+      <a class="btn btn-brand btn-lg" href="#pricing">See packages <span class="arr">&rarr;</span></a>
+      <a class="btn btn-outline btn-lg" href="talk_to_expert.html">Talk to our team</a>
+    </div>
+    <div class="hero-trust">
+      <div class="ht-item"><span class="ht-check">&#10003;</span> Strategy-first approach</div>
+      <div class="ht-item"><span class="ht-check">&#10003;</span> Multiple logo concepts</div>
+      <div class="ht-item"><span class="ht-check">&#10003;</span> Full brand guidelines</div>
+      <div class="ht-item"><span class="ht-check">&#10003;</span> Print &amp; digital ready files</div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-inner">
+    <div class="stat-cell"><div class="stat-n">23<em>%</em></div><div class="stat-l">Revenue increase from consistent brand presentation</div></div>
+    <div class="stat-cell"><div class="stat-n">75<em>%</em></div><div class="stat-l">Of consumers judge credibility by visual design alone</div></div>
+    <div class="stat-cell"><div class="stat-n">80<em>%</em></div><div class="stat-l">Increase in brand recognition with consistent colors</div></div>
+    <div class="stat-cell"><div class="stat-n">$499</div><div class="stat-l">Starting price &mdash; market avg $2,000&ndash;$10,000</div></div>
+  </div>
+</div>
+
+<!-- PROBLEM / SOLUTION -->
+<section class="problem-section">
+  <div class="w">
+    <div class="problem-grid">
+      <div class="reveal">
+        <span class="kicker">Sound familiar?</span>
+        <h2 class="h2">Why DIY branding <em>holds you back</em></h2>
+        <div class="problem-list">
+          <div class="prob-item">
+            <span class="prob-icon">&#127912;</span>
+            <div><div class="prob-title">A logo that looks like it cost $50</div><div class="prob-desc">Cheap logos from logo generators and discount sites scream &ldquo;startup on a shoestring.&rdquo; Customers subconsciously associate visual quality with product quality &mdash; and a weak logo sets the ceiling on what you can charge.</div></div>
+          </div>
+          <div class="prob-item">
+            <span class="prob-icon">&#127912;</span>
+            <div><div class="prob-title">No visual consistency across touchpoints</div><div class="prob-desc">Different colors on your website, social media, and business cards make your brand feel scattered and amateur. Without guidelines, every new piece of content drifts further from your intended identity.</div></div>
+          </div>
+          <div class="prob-item">
+            <span class="prob-icon">&#128172;</span>
+            <div><div class="prob-title">No clear brand message or positioning</div><div class="prob-desc">Without a defined voice, value proposition, and brand story, your marketing sounds generic and forgettable. You blend in with competitors instead of standing apart.</div></div>
+          </div>
+          <div class="prob-item">
+            <span class="prob-icon">&#128176;</span>
+            <div><div class="prob-title">Can&rsquo;t charge premium prices</div><div class="prob-desc">Brands that look cheap attract price-sensitive customers. A professional identity gives you permission to price at what you&rsquo;re actually worth &mdash; and customers expect to pay more.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal rd1">
+        <span class="kicker">How Apnosh fixes it</span>
+        <h2 class="h2">Brands built to <em>command premium pricing</em></h2>
+        <p class="body" style="margin-bottom:24px">We don&rsquo;t just design logos &mdash; we build complete brand systems rooted in strategy. Every element is intentional, from your color palette to your messaging, creating a cohesive identity that makes customers trust you before they ever speak to you.</p>
+        <div class="solution-list">
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Strategy-first process with competitor research and market positioning</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Multiple logo concepts with unlimited revisions until you love it</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Complete color palettes, typography systems, and visual guidelines</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Brand voice, messaging framework, and value propositions</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Print-ready and digital-ready files for every use case</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Pricing 60&ndash;90% below traditional agency rates</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">What you get</span>
+      <h2 class="h2">Every brand project includes <em>all of this</em></h2>
+      <p class="body" style="max-width:500px;margin:12px auto 0">Whether you need a logo or a full brand system, every project is built with strategic intent &mdash; not just aesthetics.</p>
+    </div>
+    <div class="platform-grid">
+      <div class="platform-card reveal rd1">
+        <span class="pc-icon">&#9998;</span>
+        <div class="pc-name">Logo Design</div>
+        <p class="pc-desc">Multiple original concepts crafted from scratch. Your logo is refined through feedback rounds until it perfectly represents your brand &mdash; delivered in every format you need.</p>
+        <div class="pc-tags"><span class="pc-tag">3 concepts</span><span class="pc-tag">Unlimited revisions</span><span class="pc-tag">All file formats</span></div>
+      </div>
+      <div class="platform-card reveal rd2">
+        <span class="pc-icon">&#128161;</span>
+        <div class="pc-name">Brand Strategy</div>
+        <p class="pc-desc">Competitor analysis, target audience profiling, and market positioning. We define what makes your brand unique and translate that into visual and verbal identity.</p>
+        <div class="pc-tags"><span class="pc-tag">Competitor research</span><span class="pc-tag">Positioning</span><span class="pc-tag">Audience profiling</span></div>
+      </div>
+      <div class="platform-card reveal rd3">
+        <span class="pc-icon">&#128214;</span>
+        <div class="pc-name">Brand Guidelines</div>
+        <p class="pc-desc">A complete style guide documenting your logo usage, color palette, typography, imagery style, and social media templates. Ensures consistency across every touchpoint.</p>
+        <div class="pc-tags"><span class="pc-tag">Style guide</span><span class="pc-tag">Color system</span><span class="pc-tag">Typography</span><span class="pc-tag">Social kit</span></div>
+      </div>
+    </div>
+    <div class="deliverables-grid" style="margin-top:32px">
+      <div class="del-card reveal rd1">
+        <div class="del-icon-wrap">&#127912;</div>
+        <div><div class="del-title">Color palette &amp; typography</div><div class="del-desc">Primary and secondary colors with exact hex, RGB, and CMYK values. Font pairings selected for readability and brand personality.</div></div>
+      </div>
+      <div class="del-card reveal rd2">
+        <div class="del-icon-wrap">&#128196;</div>
+        <div><div class="del-title">Print-ready files</div><div class="del-desc">High-resolution vectors (SVG, AI, EPS) and rasters (PNG, JPG) in every variation &mdash; full color, white, black, and icon-only versions.</div></div>
+      </div>
+      <div class="del-card reveal rd1">
+        <div class="del-icon-wrap">&#128172;</div>
+        <div><div class="del-title">Brand voice &amp; messaging</div><div class="del-desc">Defined tone of voice, taglines, elevator pitch, and key messaging pillars that keep your communication consistent and compelling.</div></div>
+      </div>
+      <div class="del-card reveal rd2">
+        <div class="del-icon-wrap">&#128241;</div>
+        <div><div class="del-title">Social media brand kit</div><div class="del-desc">Profile images, cover photos, and post templates sized for every major platform. Your brand looks polished everywhere from day one.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">How it works</span>
+      <h2 class="h2">From discovery to brand delivery <em>in 5 steps</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="ps-num">1</div>
+        <div>
+          <div class="ps-title">Discovery &amp; research</div>
+          <p class="ps-desc">We learn everything about your business, audience, competitors, and goals. This strategic foundation ensures every design decision is intentional, not arbitrary.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Brand questionnaire</span><span class="ps-det-tag">Competitor audit</span><span class="ps-det-tag">Audience research</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd1">
+        <div class="ps-num">2</div>
+        <div>
+          <div class="ps-title">Strategy &amp; positioning</div>
+          <p class="ps-desc">We define your brand positioning, messaging pillars, and visual direction. You&rsquo;ll see mood boards and strategic recommendations before any design work begins.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Brand positioning</span><span class="ps-det-tag">Mood boards</span><span class="ps-det-tag">Creative direction</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd2">
+        <div class="ps-num">3</div>
+        <div>
+          <div class="ps-title">Logo &amp; visual design</div>
+          <p class="ps-desc">Multiple original logo concepts are presented. You choose your direction, and we refine through feedback rounds until every detail is perfect.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Multiple concepts</span><span class="ps-det-tag">Unlimited revisions</span><span class="ps-det-tag">Color &amp; type</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd3">
+        <div class="ps-num">4</div>
+        <div>
+          <div class="ps-title">Brand system &amp; guidelines</div>
+          <p class="ps-desc">Your complete brand system is built out &mdash; guidelines document, file package, social kit, and any additional collateral included in your package.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Style guide</span><span class="ps-det-tag">File package</span><span class="ps-det-tag">Social templates</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd4">
+        <div class="ps-num">5</div>
+        <div>
+          <div class="ps-title">Handoff &amp; launch support</div>
+          <p class="ps-desc">All final files are delivered in organized folders. We walk you through how to use everything and provide guidance on implementing your new brand across all channels.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Organized delivery</span><span class="ps-det-tag">Usage walkthrough</span><span class="ps-det-tag">Launch guidance</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Pricing</span>
+      <h2 class="h2">Brand packages for every stage. <em>No hidden fees.</em></h2>
+      <p class="body" style="max-width:480px;margin:12px auto 0">One-time investment, lifetime brand asset. Every package includes unlimited revisions and full file delivery. Market rates for comparable work start at $2,000&ndash;$25,000.</p>
+    </div>
+    <div class="tier-grid reveal">
+
+      <!-- LOGO & VISUAL IDENTITY -->
+      <div class="tier">
+        <div class="tier-bar"></div>
+        <div class="tier-name">Logo &amp; Visual Identity</div>
+        <div class="tier-tagline">A professional logo and core visual foundation for your brand.</div>
+        <div class="tier-price">$499</div>
+        <div class="tier-billed">One-time &middot; Market avg $2K&ndash;$10K</div>
+        <div class="tier-divider"></div>
+        <div class="tier-inc-label">Includes</div>
+        <div class="tier-features">
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>3 original logo concepts</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Final logo in all file formats</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Primary &amp; secondary color palette</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Typography selection</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Unlimited revisions</div>
+        </div>
+        <a class="tier-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+
+      <!-- BRAND GUIDELINES -->
+      <div class="tier">
+        <div class="tier-bar"></div>
+        <div class="tier-name">Brand Guidelines</div>
+        <div class="tier-tagline">Full style guide for total brand consistency across every touchpoint.</div>
+        <div class="tier-price">$999</div>
+        <div class="tier-billed">One-time &middot; Consistency = +23% revenue</div>
+        <div class="tier-divider"></div>
+        <div class="tier-inc-label">Everything in Logo, plus</div>
+        <div class="tier-features">
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Complete brand style guide</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Logo usage rules &amp; spacing</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Extended color system</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Typography hierarchy &amp; pairings</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Social media brand kit</div>
+        </div>
+        <a class="tier-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+
+      <!-- BRAND STRATEGY & IDENTITY -->
+      <div class="tier featured">
+        <div class="tier-bar"></div>
+        <div class="tier-pop">&#9733; Most popular</div>
+        <div class="tier-name">Brand Strategy &amp; Identity</div>
+        <div class="tier-tagline">Strategy-first branding with competitor research and messaging framework.</div>
+        <div class="tier-price">$1,499</div>
+        <div class="tier-billed">One-time &middot; Market avg $5K&ndash;$25K</div>
+        <div class="tier-divider"></div>
+        <div class="tier-inc-label">Everything in Guidelines, plus</div>
+        <div class="tier-features">
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Competitor &amp; market research</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Brand positioning strategy</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Messaging &amp; voice framework</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Taglines &amp; value propositions</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Target audience profiling</div>
+        </div>
+        <a class="tier-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+
+      <!-- COMPLETE BRAND & LAUNCH SYSTEM -->
+      <div class="tier">
+        <div class="tier-bar"></div>
+        <div class="tier-name">Complete Brand &amp; Launch</div>
+        <div class="tier-tagline">Full brand system plus a 90-day launch plan, templates, and digital kit.</div>
+        <div class="tier-price">$2,999</div>
+        <div class="tier-billed">One-time &middot; Launch-ready in 4 weeks</div>
+        <div class="tier-divider"></div>
+        <div class="tier-inc-label">Everything in Strategy, plus</div>
+        <div class="tier-features">
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>90-day brand launch plan</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Marketing templates &amp; collateral</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Complete digital brand kit</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Business card &amp; stationery design</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Launch strategy consultation</div>
+        </div>
+        <a class="tier-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+
+    </div>
+    <p class="sm tc" style="margin-top:16px;color:var(--ink4)">All packages are one-time investments &nbsp;&nbsp;|&nbsp;&nbsp; Unlimited revisions included &nbsp;&nbsp;|&nbsp;&nbsp; Full file ownership</p>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section class="addons-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Additional services</span>
+      <h2 class="h2">Brand add-ons &amp; <em>extras</em></h2>
+      <p class="body" style="max-width:480px;margin:12px auto 0">Standalone services you can add to any package or order individually. One-time pricing with no surprises.</p>
+    </div>
+    <div class="addons-grid">
+      <div class="addon-card reveal rd1">
+        <span class="addon-icon">&#128196;</span>
+        <div class="addon-name">Business Card Design</div>
+        <p class="addon-desc">Print-ready front and back business card design that matches your brand identity perfectly.</p>
+        <div class="addon-price">$99<span> one-time</span></div>
+      </div>
+      <div class="addon-card reveal rd2">
+        <span class="addon-icon">&#128230;</span>
+        <div class="addon-name">Packaging Design</div>
+        <p class="addon-desc">Product packaging, labels, or box design that elevates your product&rsquo;s shelf presence and unboxing experience.</p>
+        <div class="addon-price">$399<span> one-time</span></div>
+      </div>
+      <div class="addon-card reveal rd3">
+        <span class="addon-icon">&#128172;</span>
+        <div class="addon-name">Brand Messaging &amp; Voice</div>
+        <p class="addon-desc">Taglines, value propositions, tone of voice guidelines, and your complete brand story &mdash; ready to use across all channels.</p>
+        <div class="addon-price">$349<span> one-time</span></div>
+      </div>
+      <div class="addon-card reveal rd4">
+        <span class="addon-icon">&#128260;</span>
+        <div class="addon-name">Full Rebrand</div>
+        <p class="addon-desc">Complete overhaul of your existing brand &mdash; new logo, colors, typography, guidelines, and transition strategy.</p>
+        <div class="addon-price">$1,999<span> one-time</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="compare-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Why us</span>
+      <h2 class="h2">DIY vs. Apnosh vs. <em>Traditional Agency</em></h2>
+    </div>
+    <div class="compare-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>DIY / Fiverr</th>
+            <th class="feat-col">Apnosh</th>
+            <th>Traditional Agency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="ct-group-row"><td>Design quality</td><td></td><td class="feat-col"></td><td></td></tr>
+          <tr><td>Original logo concepts</td><td>1 generic</td><td class="feat-col"><span class="ct-check">3+ custom</span></td><td>3&ndash;5 custom</td></tr>
+          <tr><td>Brand strategy included</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span></td><td><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Full brand guidelines</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span></td><td><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Competitor research</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span></td><td><span class="ct-check">&#10003;</span></td></tr>
+
+          <tr class="ct-group-row"><td>Value</td><td></td><td class="feat-col"></td><td></td></tr>
+          <tr><td>Logo &amp; identity price</td><td>$50&ndash;$300</td><td class="feat-col"><span class="ct-check">$499</span></td><td>$2,000&ndash;$10,000</td></tr>
+          <tr><td>Full brand system price</td><td>N/A</td><td class="feat-col"><span class="ct-check">$1,499</span></td><td>$5,000&ndash;$25,000</td></tr>
+          <tr><td>Unlimited revisions</td><td>1&ndash;2 rounds</td><td class="feat-col"><span class="ct-check">&#10003;</span></td><td>2&ndash;3 rounds</td></tr>
+          <tr><td>Turnaround time</td><td>2&ndash;5 days</td><td class="feat-col">2&ndash;4 weeks</td><td>6&ndash;12 weeks</td></tr>
+
+          <tr class="ct-group-row"><td>Process</td><td></td><td class="feat-col"></td><td></td></tr>
+          <tr><td>Dedicated brand strategist</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span></td><td><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Discovery &amp; research phase</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span></td><td><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>All source files included</td><td>Extra cost</td><td class="feat-col"><span class="ct-check">&#10003;</span></td><td><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Social media brand kit</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span></td><td>Extra cost</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="w">
+    <div class="tc reveal"><span class="kicker">What clients say</span><h2 class="h2">In their <em>own words</em></h2></div>
+    <div class="testi-grid">
+      <div class="testi-card reveal rd1">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-metric"><span class="testi-m-n">+40%</span><span class="testi-m-l">&nbsp;avg order value</span></div>
+        <p class="testi-q">&ldquo;After the rebrand, customers started treating us like a premium brand. We raised our prices 40% and nobody blinked. The brand guidelines make everything we put out look consistent and professional.&rdquo;</p>
+        <div class="testi-author"><div class="t-av">&#128131;</div><div><span class="t-name">Sarah M.</span><span class="t-role">E-commerce founder &middot; Portland, OR</span></div></div>
+      </div>
+      <div class="testi-card reveal rd2">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-metric"><span class="testi-m-n">3x</span><span class="testi-m-l">&nbsp;proposal win rate</span></div>
+        <p class="testi-q">&ldquo;Before Apnosh, my proposals looked generic. Now I have a brand system that makes every client touchpoint feel polished and intentional. My close rate tripled in the first quarter after launching the new brand.&rdquo;</p>
+        <div class="testi-author"><div class="t-av">&#128188;</div><div><span class="t-name">James L.</span><span class="t-role">Consulting firm owner &middot; Miami, FL</span></div></div>
+      </div>
+      <div class="testi-card reveal rd3">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-metric"><span class="testi-m-n">$15K</span><span class="testi-m-l">&nbsp;saved vs agency</span></div>
+        <p class="testi-q">&ldquo;I got quotes from three agencies &mdash; $8K to $20K. Apnosh delivered the same quality of work for a fraction of the price. The strategy document alone was worth the investment. Absolutely no corners cut.&rdquo;</p>
+        <div class="testi-author"><div class="t-av">&#127860;</div><div><span class="t-name">Maria R.</span><span class="t-role">Restaurant owner &middot; Nashville, TN</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="wmd tc">
+    <div class="reveal"><span class="kicker">Common questions</span><h2 class="h2">Everything you want to <em>know about branding</em></h2></div>
+    <div class="faq-list">
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">What&rsquo;s included in the Logo &amp; Visual Identity package?<span class="faq-ic">+</span></button><div class="faq-a">You get 3 original logo concepts, unlimited revisions until you&rsquo;re happy, final files in every format (SVG, AI, EPS, PNG, JPG), a primary and secondary color palette with exact color codes, and typography selection. Everything is print-ready and digital-ready.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">How long does the branding process take?<span class="faq-ic">+</span></button><div class="faq-a">The Logo &amp; Visual Identity package takes 2&ndash;3 weeks. Brand Guidelines takes 3&ndash;4 weeks. The Brand Strategy &amp; Identity package takes 3&ndash;4 weeks including research. The Complete Brand &amp; Launch System takes 4&ndash;6 weeks. Timelines depend on feedback speed &mdash; the faster you review, the faster we deliver.</div></div>
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">What file formats will I receive?<span class="faq-ic">+</span></button><div class="faq-a">Every package includes your logo in SVG, AI, EPS (vector formats for print), plus PNG and JPG (raster formats for digital). You&rsquo;ll get full color, white, black, and icon-only versions. All files are organized in clearly labeled folders for easy use.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">What&rsquo;s the difference between Brand Guidelines and Brand Strategy?<span class="faq-ic">+</span></button><div class="faq-a">Brand Guidelines is a visual style guide &mdash; how your brand looks. Brand Strategy &amp; Identity adds the strategic layer &mdash; competitor research, market positioning, messaging framework, target audience profiling, and brand voice. Strategy answers &ldquo;why&rdquo; your brand exists and who it&rsquo;s for; guidelines document &ldquo;how&rdquo; it shows up visually.</div></div>
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">Do I own the final brand assets?<span class="faq-ic">+</span></button><div class="faq-a">Yes, 100%. Once your project is complete and paid, you own full rights to every asset we create &mdash; logos, guidelines, templates, everything. We retain no usage rights. Your brand is yours.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">Can you rebrand my existing business?<span class="faq-ic">+</span></button><div class="faq-a">Absolutely. Our Full Rebrand service ($1,999) is a complete overhaul of your existing brand &mdash; new logo, colors, typography, and guidelines. We also help with transition strategy so the change feels intentional to your existing customers, not jarring.</div></div>
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">How do revisions work?<span class="faq-ic">+</span></button><div class="faq-a">Every package includes unlimited revisions. After we present initial concepts, you tell us what you like, what you don&rsquo;t, and what to change. We refine until you&rsquo;re 100% satisfied. Most clients finalize within 2&ndash;3 rounds, but there&rsquo;s no cap. Nothing is finalized until you love it.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <canvas id="cta-canvas"></canvas>
+  <h2 class="cta-h">Ready for a brand that <em>commands respect?</em></h2>
+  <p class="cta-sub">Start with a free brand audit and we&rsquo;ll show you exactly where your current identity is leaving money on the table &mdash; and how to fix it.</p>
+  <div class="cta-btns">
+    <a class="btn btn-brand btn-lg" href="apnosh_homepage.html#start">Get my free brand audit <span class="arr">&rarr;</span></a>
+    <a class="btn btn-ghost-dark btn-lg" href="talk_to_expert.html">Talk to our team first</a>
+  </div>
+  <p style="font-size:11px;color:rgba(255,255,255,.18);margin-top:14px;letter-spacing:.03em">One-time investment &middot; Unlimited revisions &middot; Full file ownership</p>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="f-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <div class="f-links">
+      <a class="f-link" href="apnosh_services.html">All services</a>
+      <a class="f-link" href="apnosh_pricing.html">Pricing</a>
+      <a class="f-link" href="apnosh_results.html">Results</a>
+      <a class="f-link" href="talk_to_expert.html">Contact</a>
+    </div>
+    <p class="f-copy">&copy; 2026 Apnosh. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('site-nav').classList.toggle('scrolled',window.scrollY>10),{passive:true});
+function fq(btn){const i=btn.closest('.faq-item'),o=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open');}
+!function(){const c=document.getElementById('cta-canvas');if(!c)return;const ctx=c.getContext('2d');let W,H,dots=[];function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}function mk(){return{x:Math.random()*W,y:H+10,s:Math.random()*.45+.15,r:Math.random()*1.4+.5,o:Math.random()*.13+.04};}function init(){resize();for(let i=0;i<36;i++){const d=mk();d.y=Math.random()*H;dots.push(d);}}function draw(){ctx.clearRect(0,0,W,H);dots.forEach(d=>{d.y-=d.s;if(d.y<-10)Object.assign(d,mk());ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle='rgba(74,189,152,'+d.o+')';ctx.fill();});requestAnimationFrame(draw);}init();draw();window.addEventListener('resize',resize);}();
+const io=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('on');io.unobserve(el.target);}});},{threshold:.05,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

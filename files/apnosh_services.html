@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services &mdash; Apnosh Digital Marketing Agency</title>
+<meta name="description" content="Every marketing service your business needs to grow. Local SEO, social media, websites, email, branding, video. Only pay for what you need.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#4abd98;--brand-d:#2e9a78;--brand-t:#eaf7f3;--brand-g:rgba(74,189,152,.14);
+  --ink:#1d1d1f;--ink2:#424245;--ink3:#6e6e73;--ink4:#aeaeb2;--ink5:#d2d2d7;--ink6:#f0f0f5;
+  --bg:#fff;--bg2:#f5f5f7;
+  --fd:'Playfair Display',Georgia,serif;--fb:'Inter',-apple-system,sans-serif;
+  --s2:0 4px 16px rgba(0,0,0,.07);--s3:0 8px 32px rgba(0,0,0,.09);--s4:0 16px 56px rgba(0,0,0,.11);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:1080px;margin:0 auto;padding:0 40px}
+.wmd{max-width:780px;margin:0 auto;padding:0 40px}
+@media(max-width:600px){.w,.wmd{padding:0 20px}}
+.tc{text-align:center}
+.kicker{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);margin-bottom:14px}
+.h1{font-family:var(--fd);font-size:clamp(36px,5.5vw,62px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink)}
+.h1 em{font-style:italic;color:var(--brand-d)}
+.h2{font-family:var(--fd);font-size:clamp(24px,3.5vw,40px);font-weight:400;line-height:1.12;letter-spacing:-.02em;color:var(--ink)}
+.h2 em{font-style:italic;color:var(--brand-d)}
+.lead{font-size:clamp(15px,1.8vw,18px);font-weight:300;color:var(--ink2);line-height:1.72}
+.body{font-size:15px;font-weight:300;color:var(--ink3);line-height:1.7}
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fb);font-weight:500;font-size:14px;text-decoration:none;border:none;cursor:pointer;border-radius:99px;padding:12px 24px;transition:all .2s;white-space:nowrap;line-height:1}
+.btn-primary{background:var(--ink);color:#fff}.btn-primary:hover{background:#2d2d2f;transform:translateY(-1px);box-shadow:var(--s3)}
+.btn-brand{background:var(--brand);color:var(--ink);font-weight:600}.btn-brand:hover{background:var(--brand-d);color:#fff;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink5)}.btn-outline:hover{border-color:var(--ink3);transform:translateY(-1px)}
+.btn-ghost-dark{background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.13)}.btn-ghost-dark:hover{background:rgba(255,255,255,.14)}
+.btn-sm{padding:9px 18px;font-size:13px}.btn-lg{padding:15px 32px;font-size:15px}
+.arr{transition:transform .2s;display:inline-block}
+a:hover .arr{transform:translateX(3px)}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:44px;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.07);display:flex;align-items:center;transition:box-shadow .2s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.nav-inner{width:100%;max-width:1080px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:-.01em;flex-shrink:0;position:relative;z-index:902}
+.nav-logo em{font-style:italic;color:var(--brand-d)}
+.nav-center{display:flex;align-items:center;gap:0}
+.nav-link{font-size:12px;font-weight:400;color:rgba(0,0,0,.55);text-decoration:none;padding:0 12px;height:44px;display:inline-flex;align-items:center;gap:4px;transition:color .15s;border:none;background:none;cursor:pointer;font-family:var(--fb);white-space:nowrap}
+.nav-link:hover,.nav-link.open,.nav-link.active{color:var(--ink)}
+.nav-link.active{font-weight:500}
+.nav-chevron{width:7px;height:7px;border-right:1.2px solid currentColor;border-bottom:1.2px solid currentColor;transform:rotate(45deg);margin-top:-3px;transition:transform .2s;flex-shrink:0}
+.nav-link.open .nav-chevron{transform:rotate(-135deg);margin-top:1px}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;position:relative;z-index:902}
+.nav-audit{font-size:12px;font-weight:600;color:#fff;background:var(--brand-d);padding:7px 16px;border-radius:99px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.nav-audit:hover{background:var(--brand)}
+.nav-plain{font-size:12px;font-weight:400;color:rgba(0,0,0,.45);text-decoration:none;padding:0 10px;transition:color .15s}
+.nav-plain:hover{color:var(--ink)}
+.mega{position:fixed;top:44px;left:0;right:0;z-index:899;background:rgba(255,255,255,.97);backdrop-filter:saturate(180%) blur(24px);border-bottom:1px solid rgba(0,0,0,.07);box-shadow:0 8px 40px rgba(0,0,0,.1);padding:28px 0 32px;opacity:0;pointer-events:none;transform:translateY(-6px);transition:opacity .2s ease,transform .2s ease}
+.mega.open{opacity:1;pointer-events:all;transform:translateY(0)}
+.mega-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px}
+.mega-col{display:flex;flex-direction:column;gap:2px}
+.mega-col-title{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);padding:0 12px;margin-bottom:8px}
+.mega-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:background .15s}
+.mega-item:hover{background:var(--ink6)}
+.mega-icon{width:32px;height:32px;border-radius:8px;background:var(--brand-t);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.mega-item-name{font-size:13px;font-weight:500;color:var(--ink);display:block;margin-bottom:2px;font-family:var(--fd);letter-spacing:-.01em}
+.mega-item-desc{font-size:11px;font-weight:300;color:var(--ink4);line-height:1.4}
+.mega-footer{max-width:1080px;margin:18px auto 0;padding:16px 40px 0;border-top:1px solid var(--ink6);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.mega-footer-links{display:flex;align-items:center;gap:20px}
+.mega-footer-link{font-size:12px;font-weight:500;color:var(--brand-d);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.mega-footer-link:hover{color:var(--brand)}
+.mega-footer-tag{font-size:11px;color:var(--ink4)}
+.mega-footer-cta{font-size:12px;font-weight:600;color:#fff;background:var(--ink);padding:8px 18px;border-radius:99px;text-decoration:none;transition:all .15s}
+.mega-footer-cta:hover{background:#2d2d2f}
+.nav-hamburger{display:none;flex-direction:column;gap:4.5px;cursor:pointer;padding:8px;margin:-8px;background:none;border:none;position:relative;z-index:902}
+.nav-hamburger span{display:block;width:20px;height:1.5px;background:var(--ink);border-radius:2px;transition:all .25s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobile-drawer{position:fixed;top:44px;left:0;right:0;bottom:0;z-index:898;background:#fff;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:24px 24px 48px;display:flex;flex-direction:column}
+.mobile-drawer.open{transform:translateX(0)}
+.mob-section{border-bottom:1px solid var(--ink6);padding:18px 0}
+.mob-section:last-of-type{border-bottom:none}
+.mob-section-title{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px}
+.mob-link{display:flex;align-items:center;gap:10px;padding:9px 0;text-decoration:none}
+.mob-link-icon{width:34px;height:34px;border-radius:8px;background:var(--brand-t);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.mob-link-name{font-family:var(--fd);font-size:15px;font-weight:400;color:var(--ink);display:block;letter-spacing:-.01em}
+.mob-link-desc{font-size:12px;font-weight:300;color:var(--ink4);line-height:1.3}
+.mob-nav-link{display:block;font-size:17px;font-family:var(--fd);font-weight:400;color:var(--ink);text-decoration:none;padding:13px 0;border-bottom:1px solid var(--ink6)}
+.mob-nav-link:last-child{border-bottom:none}
+.mob-ctas{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.mob-cta-primary{display:block;text-align:center;background:var(--brand);color:var(--ink);padding:14px;border-radius:99px;font-family:var(--fb);font-size:15px;font-weight:600;text-decoration:none}
+.mob-cta-secondary{display:block;text-align:center;background:var(--ink);color:#fff;padding:13px;border-radius:99px;font-family:var(--fb);font-size:15px;font-weight:500;text-decoration:none}
+.nav-overlay{position:fixed;inset:0;top:44px;z-index:897;background:rgba(0,0,0,.18);opacity:0;pointer-events:none;transition:opacity .25s}
+.nav-overlay.show{opacity:1;pointer-events:all}
+@media(max-width:820px){.nav-center,.nav-plain{display:none}.nav-hamburger{display:flex}}
+/* PAGE HERO */
+.page-hero{padding:88px 40px 64px;text-align:center;background:var(--bg);position:relative;overflow:hidden}
+@media(max-width:600px){.page-hero{padding:72px 20px 52px}}
+.page-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(74,189,152,.07) 0%,transparent 65%)}
+.page-hero>*{position:relative;z-index:1}
+/* WHY STRIP */
+.why-strip{padding:44px 0;background:var(--bg2);border-top:1px solid var(--ink6);border-bottom:1px solid var(--ink6)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+@media(max-width:700px){.why-grid{grid-template-columns:1fr 1fr}}
+.why-cell{padding:0 24px;text-align:center;border-right:1px solid var(--ink6)}
+.why-cell:last-child{border-right:none}
+@media(max-width:700px){.why-cell:nth-child(2){border-right:none}.why-cell:nth-child(3){border-right:none;padding-top:24px}.why-cell:nth-child(4){padding-top:24px}}
+.why-icon{font-size:20px;margin-bottom:8px;display:block}
+.why-title{font-family:var(--fd);font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.why-desc{font-size:11px;font-weight:300;color:var(--ink4);line-height:1.6}
+/* FILTER BAR */
+.filter-bar{background:var(--bg);border-bottom:1px solid var(--ink6);position:sticky;top:44px;z-index:800}
+.fb-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:flex;align-items:center;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.fb-inner::-webkit-scrollbar{display:none}
+.fb-btn{font-size:12px;font-weight:500;color:var(--ink3);background:transparent;border:none;cursor:pointer;padding:13px 16px;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;font-family:var(--fb)}
+.fb-btn:hover{color:var(--ink)}
+.fb-btn.on{color:var(--brand-d);border-bottom-color:var(--brand);font-weight:600}
+@media(max-width:600px){.fb-inner{padding:0 16px}}
+/* OUTCOME HEADER */
+.outcome-header{padding:56px 0 32px;scroll-margin-top:96px}
+.oh-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);border:1px solid rgba(74,189,152,.22);padding:5px 14px;border-radius:99px;margin-bottom:14px}
+.oh-desc{font-size:15px;font-weight:300;color:var(--ink3);max-width:600px;line-height:1.7;margin-top:10px}
+/* SERVICE CARDS */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:780px){.services-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.services-grid{grid-template-columns:1fr}}
+.svc-card{background:var(--bg);border:1px solid var(--ink6);border-radius:16px;overflow:hidden;transition:transform .22s,box-shadow .22s,border-color .22s;display:flex;flex-direction:column;text-decoration:none;color:inherit;position:relative}
+.svc-card:hover{transform:translateY(-3px);box-shadow:var(--s3);border-color:rgba(74,189,152,.2)}
+.svc-card-top{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand-d));opacity:0;transition:opacity .22s}
+.svc-card:hover .svc-card-top{opacity:1}
+.svc-inner{padding:20px 20px 0;flex:1;display:flex;flex-direction:column}
+.svc-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.svc-icon-wrap{width:36px;height:36px;border-radius:10px;background:var(--brand-t);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;border:1px solid rgba(74,189,152,.15)}
+.svc-tag{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);padding:2px 8px;border-radius:99px}
+.svc-title{font-family:var(--fd);font-size:16px;font-weight:500;letter-spacing:-.01em;color:var(--ink);line-height:1.2;margin-bottom:6px}
+.svc-stat{display:inline-flex;align-items:baseline;gap:4px;margin-bottom:8px}
+.svc-stat-n{font-family:var(--fd);font-size:18px;font-weight:400;color:var(--brand-d);letter-spacing:-.02em;line-height:1}
+.svc-stat-l{font-size:11px;font-weight:300;color:var(--ink4);line-height:1.3}
+.svc-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.6;margin-bottom:12px;flex:1}
+.svc-pills{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:0}
+.svc-pill{font-size:9px;font-weight:500;color:var(--brand-d);background:var(--brand-t);padding:2px 7px;border-radius:99px}
+.svc-foot{padding:12px 20px;border-top:1px solid var(--ink6);display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:14px}
+.svc-price{font-family:var(--fd);font-size:15px;font-weight:400;color:var(--ink);letter-spacing:-.01em}
+.svc-price span{font-family:var(--fb);font-size:11px;font-weight:300;color:var(--ink4)}
+.svc-cta{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--brand-d);text-decoration:none;white-space:nowrap;transition:color .15s}
+.svc-cta:hover{color:var(--brand)}
+.svc-coming{display:inline-block;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--ink6);color:var(--ink4);padding:2px 7px;border-radius:99px;margin-left:6px}
+/* ACCESSIBILITY */
+a:focus-visible,.fb-btn:focus-visible{outline:2px solid var(--brand-d);outline-offset:2px;border-radius:4px}
+.svc-card:focus-visible{outline:2px solid var(--brand-d);outline-offset:2px;border-radius:16px}
+/* BRIDGE */
+.bridge{background:var(--ink);padding:60px 40px;text-align:center;position:relative;overflow:hidden}
+@media(max-width:600px){.bridge{padding:48px 20px}}
+.bridge::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 55% at 50% 50%,rgba(74,189,152,.08) 0%,transparent 70%)}
+.bridge>*{position:relative;z-index:1}
+.bridge .kicker{color:rgba(74,189,152,.6)}
+.bridge-h{font-family:var(--fd);font-size:clamp(22px,3.5vw,36px);font-weight:400;color:rgba(255,255,255,.92);line-height:1.16;letter-spacing:-.02em;margin-bottom:10px}
+.bridge-h em{font-style:italic;color:var(--brand)}
+.bridge-sub{font-size:14px;font-weight:300;color:rgba(255,255,255,.38);max-width:480px;margin:0 auto 28px;line-height:1.7}
+.bridge-btns{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.btn-bridge{display:inline-flex;align-items:center;gap:7px;background:var(--brand);color:var(--ink);padding:12px 26px;border-radius:99px;font-family:var(--fb);font-size:14px;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-bridge:hover{background:var(--brand-d);color:#fff;transform:translateY(-2px)}
+.btn-bridge-g{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);padding:11px 22px;border-radius:99px;font-family:var(--fb);font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,.11);transition:all .2s}
+.btn-bridge-g:hover{background:rgba(255,255,255,.12);transform:translateY(-1px)}
+/* INDUSTRY */
+.industry-section{padding:68px 0;background:var(--bg2)}
+.industry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:36px}
+@media(max-width:800px){.industry-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.industry-grid{grid-template-columns:1fr}}
+.ind-card{background:var(--bg);border:1px solid var(--ink6);border-radius:14px;padding:20px;transition:border-color .2s,transform .2s;text-decoration:none;color:inherit;display:block}
+.ind-card:hover{border-color:rgba(74,189,152,.22);transform:translateY(-2px)}
+.ind-icon{font-size:20px;margin-bottom:8px;display:block}
+.ind-name{font-family:var(--fd);font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.ind-most{font-size:11px;font-weight:400;color:var(--ink4);line-height:1.5}
+.ind-tag{display:inline-block;font-size:10px;font-weight:500;color:var(--brand-d);background:var(--brand-t);padding:2px 8px;border-radius:99px;margin-top:8px}
+/* CTA */
+.cta-section{background:var(--ink);padding:92px 40px;text-align:center;position:relative;overflow:hidden}
+@media(max-width:600px){.cta-section{padding:68px 20px}}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(74,189,152,.08) 0%,transparent 70%)}
+#cta-canvas{position:absolute;inset:0;pointer-events:none}
+.cta-section>*{position:relative;z-index:1}
+.cta-h{font-family:var(--fd);font-size:clamp(26px,4vw,46px);font-weight:400;line-height:1.1;letter-spacing:-.025em;color:rgba(255,255,255,.95);max-width:560px;margin:0 auto 16px}
+.cta-h em{font-style:italic;color:var(--brand)}
+.cta-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,.38);max-width:420px;margin:0 auto 36px;line-height:1.72}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+/* FOOTER */
+.footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:36px 40px}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none}
+.f-logo em{font-style:italic;color:var(--brand)}
+.f-links{display:flex;gap:20px;flex-wrap:wrap}
+.f-link{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .15s}
+.f-link:hover{color:rgba(255,255,255,.6)}
+.f-copy{font-size:11px;color:rgba(255,255,255,.16)}
+/* REVEAL */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.page-hero .kicker{animation:fadeUp .5s .05s ease both}
+.page-hero .h1{animation:fadeUp .6s .12s ease both}
+.page-hero .lead{animation:fadeUp .6s .2s ease both}
+.page-hero .hero-btns{animation:fadeUp .6s .27s ease both}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.06s}.rd2{transition-delay:.12s}.rd3{transition-delay:.18s}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <div class="nav-center">
+      <button class="nav-link active" onclick="toggleMega(event,'services-mega')">Services <span class="nav-chevron"></span></button>
+      <a class="nav-link" href="apnosh_results.html">Results</a>
+      <a class="nav-link" href="apnosh_pricing.html">Pricing</a>
+      <button class="nav-link" onclick="toggleMega(event,'resources-mega')">Resources <span class="nav-chevron"></span></button>
+      <button class="nav-link" onclick="toggleMega(event,'about-mega')">About <span class="nav-chevron"></span></button>
+    </div>
+    <div class="nav-right">
+      <a class="nav-plain" href="talk_to_expert.html">Contact</a>
+      <a class="nav-audit" href="apnosh_homepage.html#start">Get free audit</a>
+    </div>
+    <button class="nav-hamburger" id="mob-toggle" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mega" id="services-mega">
+  <div class="mega-inner">
+    <div class="mega-col"><div class="mega-col-title">Marketing</div><a class="mega-item" href="service-social-media.html"><div class="mega-icon">&#128241;</div><div><span class="mega-item-name">Social Media</span><span class="mega-item-desc">Managed presence across all platforms</span></div></a><a class="mega-item" href="service-video-content.html"><div class="mega-icon">&#127916;</div><div><span class="mega-item-name">Video Content</span><span class="mega-item-desc">Short-form video that stops the scroll</span></div></a><a class="mega-item" href="service-static-content.html"><div class="mega-icon">&#128444;&#65039;</div><div><span class="mega-item-name">Graphic Content</span><span class="mega-item-desc">Stories, carousels &amp; infographics</span></div></a><a class="mega-item" href="service-email-sms.html"><div class="mega-icon">&#9993;&#65039;</div><div><span class="mega-item-name">Email &amp; SMS</span><span class="mega-item-desc">$42 ROI per $1 spent</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Websites &amp; SEO</div><a class="mega-item" href="service-websites.html"><div class="mega-icon">&#127760;</div><div><span class="mega-item-name">Websites &amp; Hosting</span><span class="mega-item-desc">Sites that turn visitors into customers</span></div></a><a class="mega-item" href="service-local-seo.html"><div class="mega-icon">&#128205;</div><div><span class="mega-item-name">Local SEO &amp; GBP</span><span class="mega-item-desc">Rank #1 on Google Maps in your area</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Creative</div><a class="mega-item" href="service-branding.html"><div class="mega-icon">&#127912;</div><div><span class="mega-item-name">Branding &amp; Identity</span><span class="mega-item-desc">Look like the best in your industry</span></div></a><a class="mega-item" href="service-creative-production.html"><div class="mega-icon">&#128247;</div><div><span class="mega-item-name">Photography &amp; Video</span><span class="mega-item-desc">Professional visuals for every channel</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Strategy</div><a class="mega-item" href="service-consulting.html"><div class="mega-icon">&#128172;</div><div><span class="mega-item-name">Consulting &amp; Strategy</span><span class="mega-item-desc">Expert guidance from real operators</span></div></a></div>
+  </div>
+  <div class="mega-footer"><div class="mega-footer-links"><span class="mega-footer-tag">Not sure what you need?</span><a class="mega-footer-link" href="master_hub.html">Try the AI Plan Builder &rarr;</a></div><a class="mega-footer-cta" href="apnosh_services.html">View all services &rarr;</a></div>
+</div>
+<div class="mega" id="resources-mega">
+  <div class="mega-inner">
+    <div class="mega-col"><div class="mega-col-title">Free guides &amp; learning</div><a class="mega-item" href="resource-local-seo-playbook.html"><div class="mega-icon">&#128205;</div><div><span class="mega-item-name">Local SEO Playbook 2026</span><span class="mega-item-desc">24-page guide to ranking #1 on Maps</span></div></a><a class="mega-item" href="resource-social-media-toolkit.html"><div class="mega-icon">&#128241;</div><div><span class="mega-item-name">Social Media Toolkit</span><span class="mega-item-desc">30-day calendar + 50 caption frameworks</span></div></a><a class="mega-item" href="resource-email-marketing-kit.html"><div class="mega-icon">&#9993;&#65039;</div><div><span class="mega-item-name">Email Marketing Starter Kit</span><span class="mega-item-desc">Templates, flows &amp; platform comparison</span></div></a><a class="mega-item" href="resource-website-conversion-guide.html"><div class="mega-icon">&#127760;</div><div><span class="mega-item-name">Website Conversion Guide</span><span class="mega-item-desc">Turn your site into a 24/7 salesperson</span></div></a><a class="mega-item" href="resource-brand-identity-checklist.html"><div class="mega-icon">&#127912;</div><div><span class="mega-item-name">Brand Identity Checklist</span><span class="mega-item-desc">47-point audit with scoring system</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Tutorials</div><a class="mega-item" href="apnosh_resources.html"><div class="mega-icon">&#128250;</div><div><span class="mega-item-name">Getting Started</span><span class="mega-item-desc">Set up your marketing foundations</span></div></a><a class="mega-item" href="apnosh_resources.html"><div class="mega-icon">&#128640;</div><div><span class="mega-item-name">Growth Playbooks</span><span class="mega-item-desc">Industry-specific step-by-step strategies</span></div></a><a class="mega-item" href="apnosh_resources.html"><div class="mega-icon">&#128295;</div><div><span class="mega-item-name">DIY How-To&rsquo;s</span><span class="mega-item-desc">Do it yourself with our walkthroughs</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Blog &amp; news</div><a class="mega-item" href="apnosh_resources.html#blog"><div class="mega-icon">&#128221;</div><div><span class="mega-item-name">Latest Articles</span><span class="mega-item-desc">Marketing tips for business owners</span></div></a><a class="mega-item" href="apnosh_resources.html#blog"><div class="mega-icon">&#128240;</div><div><span class="mega-item-name">Weekly Newsletter</span><span class="mega-item-desc">One tip, one trend, one tool — every Tuesday</span></div></a><a class="mega-item" href="apnosh_resources.html#blog"><div class="mega-icon">&#128172;</div><div><span class="mega-item-name">Case Studies</span><span class="mega-item-desc">Real results from real businesses</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Free AI tools</div><a class="mega-item" href="master_hub.html"><div class="mega-icon">&#10022;</div><div><span class="mega-item-name">AI Plan Builder</span><span class="mega-item-desc">Custom marketing plan in 5 minutes</span></div></a><a class="mega-item" href="apnosh_homepage.html#start"><div class="mega-icon">&#128202;</div><div><span class="mega-item-name">Free Marketing Audit</span><span class="mega-item-desc">Website, Google, social &amp; SEO report</span></div></a><a class="mega-item" style="opacity:.5;pointer-events:none" href="#"><div class="mega-icon">&#129302;</div><div><span class="mega-item-name">ROI Calculator <span style="font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--ink6);color:var(--ink4);padding:1px 6px;border-radius:99px;margin-left:4px">Soon</span></span><span class="mega-item-desc">See the return before you invest</span></div></a><a class="mega-item" style="opacity:.5;pointer-events:none" href="#"><div class="mega-icon">&#128270;</div><div><span class="mega-item-name">SEO Rank Checker <span style="font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--ink6);color:var(--ink4);padding:1px 6px;border-radius:99px;margin-left:4px">Soon</span></span><span class="mega-item-desc">See where you rank for key terms</span></div></a></div>
+  </div>
+  <div class="mega-footer"><div class="mega-footer-links"><span class="mega-footer-tag">All resources free &middot; No gated demos &middot; No spam</span></div><a class="mega-footer-cta" href="apnosh_resources.html">View all resources &rarr;</a></div>
+</div>
+<div class="mega" id="about-mega">
+  <div class="mega-inner">
+    <div class="mega-col"><div class="mega-col-title">Our story</div><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#10022;</div><div><span class="mega-item-name">How Apnosh was built</span><span class="mega-item-desc">The frustration that started it all</span></div></a><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#128214;</div><div><span class="mega-item-name">Our philosophy</span><span class="mega-item-desc">Why marketing should be legible</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">How we work</div><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#129302;</div><div><span class="mega-item-name">AI + Human model</span><span class="mega-item-desc">Why we&rsquo;re faster and more affordable</span></div></a><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#128202;</div><div><span class="mega-item-name">Our values</span><span class="mega-item-desc">Honesty, simplicity, speed, ownership</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Team &amp; careers</div><a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#128101;</div><div><span class="mega-item-name">Meet the team</span><span class="mega-item-desc">The people behind every campaign</span></div></a><a class="mega-item" href="talk_to_expert.html"><div class="mega-icon">&#128172;</div><div><span class="mega-item-name">Contact us</span><span class="mega-item-desc">Talk to a real person, any time</span></div></a></div>
+    <div class="mega-col" style="background:var(--bg2);border-radius:12px;padding:16px"><div class="mega-col-title">By the numbers</div><div style="display:flex;flex-direction:column;gap:10px;padding:4px 0"><div><div style="font-family:var(--fd);font-size:26px;font-weight:400;color:var(--ink);letter-spacing:-.02em;line-height:1">200+</div><div style="font-size:11px;color:var(--ink4);margin-top:3px">Businesses actively growing</div></div><div style="height:1px;background:var(--ink6)"></div><div><div style="font-family:var(--fd);font-size:26px;font-weight:400;color:var(--ink);letter-spacing:-.02em;line-height:1">94%</div><div style="font-size:11px;color:var(--ink4);margin-top:3px">Client retention rate</div></div></div></div>
+  </div>
+  <div class="mega-footer"><div class="mega-footer-links"><a class="mega-footer-link" href="apnosh_about.html">Read our full story &rarr;</a></div><a class="mega-footer-cta" href="talk_to_expert.html">Talk to our team &rarr;</a></div>
+</div>
+<div class="mobile-drawer" id="mob-drawer">
+  <div class="mob-section"><div class="mob-section-title">Services</div><a class="mob-link" href="service-social-media.html"><div class="mob-link-icon">&#128241;</div><div><span class="mob-link-name">Social Media</span><span class="mob-link-desc">Managed presence across platforms</span></div></a><a class="mob-link" href="service-video-content.html"><div class="mob-link-icon">&#127916;</div><div><span class="mob-link-name">Video Content</span><span class="mob-link-desc">Reels, TikTok &amp; ad creative</span></div></a><a class="mob-link" href="service-email-sms.html"><div class="mob-link-icon">&#9993;&#65039;</div><div><span class="mob-link-name">Email &amp; SMS</span><span class="mob-link-desc">Highest ROI channel in marketing</span></div></a><a class="mob-link" href="service-websites.html"><div class="mob-link-icon">&#127760;</div><div><span class="mob-link-name">Websites &amp; Hosting</span><span class="mob-link-desc">Convert visitors into customers</span></div></a><a class="mob-link" href="service-local-seo.html"><div class="mob-link-icon">&#128205;</div><div><span class="mob-link-name">Local SEO</span><span class="mob-link-desc">Rank #1 on Google Maps</span></div></a><a class="mob-link" href="service-branding.html"><div class="mob-link-icon">&#127912;</div><div><span class="mob-link-name">Branding</span><span class="mob-link-desc">Look like the best in your market</span></div></a><a class="mob-link" href="service-creative-production.html"><div class="mob-link-icon">&#128247;</div><div><span class="mob-link-name">Photography &amp; Video</span><span class="mob-link-desc">Professional visuals for every channel</span></div></a><a class="mob-link" href="service-consulting.html"><div class="mob-link-icon">&#128172;</div><div><span class="mob-link-name">Consulting</span><span class="mob-link-desc">Expert strategy sessions</span></div></a></div>
+  <div class="mob-section"><a class="mob-nav-link" href="apnosh_results.html">Results</a><a class="mob-nav-link" href="apnosh_pricing.html">Pricing</a><a class="mob-nav-link" href="apnosh_about.html">About</a><a class="mob-nav-link" href="talk_to_expert.html">Contact</a></div>
+  <div class="mob-ctas"><a class="mob-cta-primary" href="apnosh_homepage.html#start">Get free audit &rarr;</a><a class="mob-cta-secondary" href="master_hub.html">Build my plan &rarr;</a></div>
+</div>
+<div class="nav-overlay" id="nav-overlay" onclick="closeAll()"></div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <span class="kicker">Everything your business needs</span>
+  <h1 class="h1" style="max-width:740px;margin:0 auto 18px">Marketing services built around<br><em>your revenue, not our packages</em></h1>
+  <p class="lead" style="max-width:540px;margin:0 auto 32px">Every service below is designed around one thing: more customers for your business. Click any service to see exactly what we do, what results to expect, and what it costs.</p>
+  <div class="hero-btns" style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap">
+    <a class="btn btn-brand btn-lg" href="master_hub.html">Build my plan &mdash; it&rsquo;s free <span class="arr">&rarr;</span></a>
+    <a class="btn btn-outline btn-lg" href="#services">Browse all services</a>
+  </div>
+</section>
+
+<!-- WHY STRIP -->
+<div class="why-strip" data-bridge="true">
+  <div class="w">
+    <div class="why-grid">
+      <div class="why-cell"><span class="why-icon">&#128274;</span><div class="why-title">No lock-in contracts</div><div class="why-desc">Every service is month-to-month. Cancel or adjust any time.</div></div>
+      <div class="why-cell"><span class="why-icon">&#128202;</span><div class="why-title">Results in 30 days</div><div class="why-desc">First measurable movement within your first billing cycle.</div></div>
+      <div class="why-cell"><span class="why-icon">&#129520;</span><div class="why-title">Only pay for what you need</div><div class="why-desc">Mix and match from our full catalog. Nothing is bundled.</div></div>
+      <div class="why-cell"><span class="why-icon">&#129504;</span><div class="why-title">Human expert oversight</div><div class="why-desc">AI does the heavy lifting. Humans own strategy and quality.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="fb-inner">
+    <button class="fb-btn on" aria-pressed="true" onclick="filterCat('all',this)">All Services</button>
+    <button class="fb-btn" aria-pressed="false" onclick="filterCat('marketing',this)">Marketing</button>
+    <button class="fb-btn" aria-pressed="false" onclick="filterCat('websites-seo',this)">Websites &amp; SEO</button>
+    <button class="fb-btn" aria-pressed="false" onclick="filterCat('creative',this)">Creative</button>
+    <button class="fb-btn" aria-pressed="false" onclick="filterCat('strategy',this)">Strategy</button>
+  </div>
+</div>
+
+<!-- SERVICES GRID -->
+<section id="services" style="background:var(--bg);scroll-margin-top:96px;padding:40px 0 64px">
+  <div class="w">
+    <div class="services-grid">
+
+      <a class="svc-card reveal rd1" href="service-social-media.html" data-cat="marketing" aria-label="Social Media Management — from $99 per month">
+        <div class="svc-card-top"></div>
+        <div class="svc-inner">
+          <div class="svc-header"><div class="svc-icon-wrap">&#128241;</div><span class="svc-tag">Marketing</span></div>
+          <h3 class="svc-title">Social Media Management</h3>
+          <div class="svc-stat"><span class="svc-stat-n">+280%</span><span class="svc-stat-l">follower growth in 90 days</span></div>
+          <p class="svc-desc">Strategy, content, scheduling, and community management across Instagram, Facebook, and TikTok — fully managed.</p>
+          <div class="svc-pills"><span class="svc-pill">Instagram</span><span class="svc-pill">Facebook</span><span class="svc-pill">TikTok</span><span class="svc-pill">Community mgmt</span></div>
+        </div>
+        <div class="svc-foot"><div class="svc-price">From $99<span>/mo</span></div><span class="svc-cta">Details <span class="arr">&rarr;</span></span></div>
+      </a>
+
+      <a class="svc-card reveal rd2" href="service-video-content.html" data-cat="marketing" aria-label="Video Content — from $100 per video">
+        <div class="svc-card-top"></div>
+        <div class="svc-inner">
+          <div class="svc-header"><div class="svc-icon-wrap">&#127916;</div><span class="svc-tag">Marketing</span></div>
+          <h3 class="svc-title">Video Content</h3>
+          <div class="svc-stat"><span class="svc-stat-n">12&times;</span><span class="svc-stat-l">more shares than static content</span></div>
+          <p class="svc-desc">Short-form video from product clips to cinematic reels. Edited, captioned, and optimised for every platform.</p>
+          <div class="svc-pills"><span class="svc-pill">Reels</span><span class="svc-pill">TikTok</span><span class="svc-pill">Ad creative</span><span class="svc-pill">6 tiers</span></div>
+        </div>
+        <div class="svc-foot"><div class="svc-price">From $100<span>/video</span></div><span class="svc-cta">Details <span class="arr">&rarr;</span></span></div>
+      </a>
+
+      <a class="svc-card reveal rd3" href="service-static-content.html" data-cat="marketing" aria-label="Static and Graphic Content — from $25 per graphic">
+        <div class="svc-card-top"></div>
+        <div class="svc-inner">
+          <div class="svc-header"><div class="svc-icon-wrap">&#128444;&#65039;</div><span class="svc-tag">Marketing</span></div>
+          <h3 class="svc-title">Static &amp; Graphic Content</h3>
+          <div class="svc-stat"><span class="svc-stat-n">3&times;</span><span class="svc-stat-l">reach with carousels vs single posts</span></div>
+          <p class="svc-desc">Stories, carousels, and infographics designed in your brand — built to educate, engage, or convert.</p>
+          <div class="svc-pills"><span class="svc-pill">Stories</span><span class="svc-pill">Carousels</span><span class="svc-pill">Infographics</span></div>
+        </div>
+        <div class="svc-foot"><div class="svc-price">From $25<span>/graphic</span></div><span class="svc-cta">Details <span class="arr">&rarr;</span></span></div>
+      </a>
+
+      <a class="svc-card reveal rd1" href="service-email-sms.html" data-cat="marketing" aria-label="Email and SMS Marketing — from $199 per month">
+        <div class="svc-card-top"></div>
+        <div class="svc-inner">
+          <div class="svc-header"><div class="svc-icon-wrap">&#9993;&#65039;</div><span class="svc-tag">Marketing</span></div>
+          <h3 class="svc-title">Email &amp; SMS Marketing</h3>
+          <div class="svc-stat"><span class="svc-stat-n">$42</span><span class="svc-stat-l">ROI per $1 spent</span></div>
+          <p class="svc-desc">Campaigns, automations, and retention flows — written, designed, and sent for you with full reporting.</p>
+          <div class="svc-pills"><span class="svc-pill">Campaigns</span><span class="svc-pill">SMS</span><span class="svc-pill">Automations</span><span class="svc-pill">Retention</span></div>
+        </div>
+        <div class="svc-foot"><div class="svc-price">From $199<span>/mo</span></div><span class="svc-cta">Details <span class="arr">&rarr;</span></span></div>
+      </a>
+
+      <a class="svc-card reveal rd2" href="service-websites.html" data-cat="websites-seo" aria-label="Websites and Hosting — from $699">
+        <div class="svc-card-top"></div>
+        <div class="svc-inner">
+          <div class="svc-header"><div class="svc-icon-wrap">&#127760;</div><span class="svc-tag">Websites &amp; SEO</span></div>
+          <h3 class="svc-title">Websites &amp; Hosting</h3>
+          <div class="svc-stat"><span class="svc-stat-n">3.2&times;</span><span class="svc-stat-l">conversion lift after build</span></div>
+          <p class="svc-desc">Custom-designed, mobile-first websites built to convert — plus hosting, booking, blog, and care plans.</p>
+          <div class="svc-pills"><span class="svc-pill">Custom design</span><span class="svc-pill">SEO</span><span class="svc-pill">Hosting</span><span class="svc-pill">Landing pages</span></div>
+        </div>
+        <div class="svc-foot"><div class="svc-price">From $699<span> one-time</span></div><span class="svc-cta">Details <span class="arr">&rarr;</span></span></div>
+      </a>
+
+      <a class="svc-card reveal rd3" href="service-local-seo.html" data-cat="websites-seo" aria-label="Local SEO and Google Business Profile — from $149 per month">
+        <div class="svc-card-top"></div>
+        <div class="svc-inner">
+          <div class="svc-header"><div class="svc-icon-wrap">&#128205;</div><span class="svc-tag">Websites &amp; SEO</span></div>
+          <h3 class="svc-title">Local SEO &amp; Google Business</h3>
+          <div class="svc-stat"><span class="svc-stat-n">+142%</span><span class="svc-stat-l">lead increase in 90 days</span></div>
+          <p class="svc-desc">GBP optimisation, citations, review generation, and weekly rank tracking for local businesses.</p>
+          <div class="svc-pills"><span class="svc-pill">GBP</span><span class="svc-pill">Citations</span><span class="svc-pill">Reviews</span><span class="svc-pill">Rank tracking</span></div>
+        </div>
+        <div class="svc-foot"><div class="svc-price">From $149<span>/mo</span></div><span class="svc-cta">Details <span class="arr">&rarr;</span></span></div>
+      </a>
+
+      <a class="svc-card reveal rd1" href="service-branding.html" data-cat="creative" aria-label="Branding and Identity — from $499">
+        <div class="svc-card-top"></div>
+        <div class="svc-inner">
+          <div class="svc-header"><div class="svc-icon-wrap">&#127912;</div><span class="svc-tag">Creative</span></div>
+          <h3 class="svc-title">Branding &amp; Identity</h3>
+          <div class="svc-stat"><span class="svc-stat-n">23%</span><span class="svc-stat-l">revenue increase from branding</span></div>
+          <p class="svc-desc">Logo, color palette, typography, and brand guidelines — from single logos to complete brand launches.</p>
+          <div class="svc-pills"><span class="svc-pill">Logo</span><span class="svc-pill">Guidelines</span><span class="svc-pill">Strategy</span><span class="svc-pill">Print files</span></div>
+        </div>
+        <div class="svc-foot"><div class="svc-price">From $499<span> one-time</span></div><span class="svc-cta">Details <span class="arr">&rarr;</span></span></div>
+      </a>
+
+      <a class="svc-card reveal rd2" href="service-creative-production.html" data-cat="creative" aria-label="Creative Production — from $95 per hour">
+        <div class="svc-card-top"></div>
+        <div class="svc-inner">
+          <div class="svc-header"><div class="svc-icon-wrap">&#128247;</div><span class="svc-tag">Creative</span></div>
+          <h3 class="svc-title">Photography &amp; Videography</h3>
+          <div class="svc-stat"><span class="svc-stat-n">93%</span><span class="svc-stat-l">say visuals drive purchases</span></div>
+          <p class="svc-desc">Product, lifestyle, brand, and event photography plus commercial videography with full post-production.</p>
+          <div class="svc-pills"><span class="svc-pill">Product</span><span class="svc-pill">Brand video</span><span class="svc-pill">Events</span><span class="svc-pill">Editing</span></div>
+        </div>
+        <div class="svc-foot"><div class="svc-price">From $95<span>/hr</span></div><span class="svc-cta">Details <span class="arr">&rarr;</span></span></div>
+      </a>
+
+      <a class="svc-card reveal rd3" href="service-consulting.html" data-cat="strategy" aria-label="Consulting and Strategy — from $100 per hour">
+        <div class="svc-card-top"></div>
+        <div class="svc-inner">
+          <div class="svc-header"><div class="svc-icon-wrap">&#128172;</div><span class="svc-tag">Strategy</span></div>
+          <h3 class="svc-title">Consulting &amp; Strategy</h3>
+          <div class="svc-stat"><span class="svc-stat-n">3.2&times;</span><span class="svc-stat-l">avg ROI from sessions</span></div>
+          <p class="svc-desc">Expert marketing and brand consulting with operators who&rsquo;ve scaled $25M+ in revenue.</p>
+          <div class="svc-pills"><span class="svc-pill">Marketing</span><span class="svc-pill">Content</span><span class="svc-pill">Brand</span><span class="svc-pill">Executive</span></div>
+        </div>
+        <div class="svc-foot"><div class="svc-price">From $100<span>/hr</span></div><span class="svc-cta">Details <span class="arr">&rarr;</span></span></div>
+      </a>
+
+      <!-- AI Automations card hidden until ready
+      <a class="svc-card reveal rd1" href="talk_to_expert.html" data-cat="strategy" aria-label="AI Automations — contact us to learn more">
+        <div class="svc-card-top"></div>
+        <div class="svc-inner">
+          <div class="svc-header"><div class="svc-icon-wrap">&#129302;</div><span class="svc-tag">Strategy</span><span class="svc-coming">Coming soon</span></div>
+          <h3 class="svc-title">AI Automations</h3>
+          <div class="svc-stat"><span class="svc-stat-n">78%</span><span class="svc-stat-l">buy from first responder</span></div>
+          <p class="svc-desc">Automated lead follow-up, reporting dashboards, and full customer journey automation running 24/7.</p>
+          <div class="svc-pills"><span class="svc-pill">Lead follow-up</span><span class="svc-pill">Reporting</span><span class="svc-pill">CRM</span><span class="svc-pill">Journeys</span></div>
+        </div>
+        <div class="svc-foot"><div class="svc-price">From $99<span>/mo</span></div><span class="svc-cta">Talk to us <span class="arr">&rarr;</span></span></div>
+      </a>
+      -->
+
+    </div>
+  </div>
+</section>
+
+<!-- BRIDGE CTA -->
+<div class="bridge">
+  <span class="kicker">Not sure what you need?</span>
+  <h2 class="bridge-h">Answer 9 questions. Get a plan <em>built around your business.</em></h2>
+  <p class="bridge-sub">Our AI Plan Builder recommends the right services for your industry, budget, and goals in 5 minutes. No sales call. No commitment.</p>
+  <div class="bridge-btns">
+    <a class="btn-bridge" href="master_hub.html">Build my plan free <span class="arr">&rarr;</span></a>
+    <a class="btn-bridge-g" href="talk_to_expert.html">Talk to a human instead</a>
+  </div>
+</div>
+
+<!-- INDUSTRY CALLOUT -->
+<section class="industry-section reveal" data-bridge="true">
+  <div class="w">
+    <div class="tc"><span class="kicker">Built for your industry</span><h2 class="h2">We know your market because <em>we work in it</em></h2><p class="body" style="max-width:480px;margin:10px auto 0">Every industry has different levers. See the services that move the needle most for businesses like yours.</p></div>
+    <div class="industry-grid">
+      <a class="ind-card" href="apnosh_results.html#case-studies"><span class="ind-icon">&#127869;</span><div class="ind-name">Restaurant &amp; F&amp;B</div><div class="ind-most">Top: Reviews, Social Media, Local SEO</div><span class="ind-tag">See results &rarr;</span></a>
+      <a class="ind-card" href="apnosh_results.html#case-studies"><span class="ind-icon">&#128295;</span><div class="ind-name">Service Businesses</div><div class="ind-most">Top: Local SEO, GBP, Review Management</div><span class="ind-tag">See results &rarr;</span></a>
+      <a class="ind-card" href="apnosh_results.html#case-studies"><span class="ind-icon">&#127968;</span><div class="ind-name">Real Estate</div><div class="ind-most">Top: Local SEO, Website, Content</div><span class="ind-tag">See results &rarr;</span></a>
+      <a class="ind-card" href="apnosh_results.html#case-studies"><span class="ind-icon">&#128134;</span><div class="ind-name">Health &amp; Wellness</div><div class="ind-most">Top: Website, Email Marketing, Social</div><span class="ind-tag">See results &rarr;</span></a>
+      <a class="ind-card" href="apnosh_results.html#case-studies"><span class="ind-icon">&#128717;</span><div class="ind-name">Retail</div><div class="ind-most">Top: Social Media, Local SEO, Photography</div><span class="ind-tag">See results &rarr;</span></a>
+      <a class="ind-card" href="apnosh_results.html#case-studies"><span class="ind-icon">&#9878;&#65039;</span><div class="ind-name">Professional Services</div><div class="ind-most">Top: Website, Local SEO, Branding</div><span class="ind-tag">See results &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <canvas id="cta-canvas"></canvas>
+  <h2 class="cta-h">Ready to pick your <em>perfect services?</em></h2>
+  <p class="cta-sub">Use the AI Plan Builder for a custom recommendation, or browse our full pricing catalog to build it yourself.</p>
+  <div class="cta-btns">
+    <a class="btn btn-brand btn-lg" href="master_hub.html">Build my plan &mdash; free <span class="arr">&rarr;</span></a>
+    <a class="btn btn-ghost-dark btn-lg" href="apnosh_pricing.html">View full pricing</a>
+  </div>
+  <p style="font-size:11px;color:rgba(255,255,255,.18);margin-top:14px;letter-spacing:.03em">No credit card. No commitment. Results in 30 days or your first month is free.</p>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="f-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <div class="f-links">
+      <a class="f-link" href="apnosh_homepage.html">Home</a>
+      <a class="f-link" href="apnosh_services.html">Services</a>
+      <a class="f-link" href="apnosh_results.html">Results</a>
+      <a class="f-link" href="apnosh_pricing.html">Pricing</a>
+      <a class="f-link" href="talk_to_expert.html">Contact</a>
+    </div>
+    <p class="f-copy">&copy; 2026 Apnosh. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const nav=document.getElementById('site-nav');
+  if(nav)window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>10),{passive:true});
+  window.toggleMega=function(e,id){e.stopPropagation();const btn=e.currentTarget;const mega=document.getElementById(id);if(!mega)return;const isOpen=mega.classList.contains('open');closeAll();if(!isOpen){mega.classList.add('open');btn.classList.add('open');document.getElementById('nav-overlay').classList.add('show');}};
+  window.toggleDrawer=function(){const d=document.getElementById('mob-drawer'),t=document.getElementById('mob-toggle'),ov=document.getElementById('nav-overlay');const isOpen=d.classList.contains('open');closeAll();if(!isOpen){d.classList.add('open');t.classList.add('open');ov.classList.add('show');document.body.style.overflow='hidden';}};
+  window.closeAll=function(){document.querySelectorAll('.mega.open').forEach(m=>m.classList.remove('open'));document.querySelectorAll('.nav-link.open').forEach(l=>l.classList.remove('open'));const d=document.getElementById('mob-drawer'),t=document.getElementById('mob-toggle'),ov=document.getElementById('nav-overlay');if(d)d.classList.remove('open');if(t)t.classList.remove('open');if(ov)ov.classList.remove('show');document.body.style.overflow='';};
+  document.addEventListener('click',e=>{if(!e.target.closest('.mega')&&!e.target.closest('.nav-link')&&!e.target.closest('.nav-hamburger')&&!e.target.closest('.mobile-drawer'))closeAll();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll();});
+})();
+window.filterCat=function(cat,btn){
+  document.querySelectorAll('.fb-btn').forEach(b=>{b.classList.remove('on');b.setAttribute('aria-pressed','false');});
+  btn.classList.add('on');btn.setAttribute('aria-pressed','true');
+  document.querySelectorAll('.svc-card[data-cat]').forEach(c=>{
+    const show=cat==='all'||c.dataset.cat===cat;
+    c.style.display=show?'':'none';
+  });
+};
+!function(){const c=document.getElementById('cta-canvas');if(!c)return;const ctx=c.getContext('2d');let W,H,dots=[];function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}function mk(){return{x:Math.random()*W,y:H+10,s:Math.random()*.45+.15,r:Math.random()*1.4+.5,o:Math.random()*.13+.04};}function init(){resize();for(let i=0;i<36;i++){const d=mk();d.y=Math.random()*H;dots.push(d);}}function draw(){ctx.clearRect(0,0,W,H);dots.forEach(d=>{d.y-=d.s;if(d.y<-10)Object.assign(d,mk());ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle='rgba(74,189,152,'+d.o+')';ctx.fill();});requestAnimationFrame(draw);}init();draw();window.addEventListener('resize',resize);}();
+const io=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('on');io.unobserve(el.target);}});},{threshold:.05,rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

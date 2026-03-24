@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grow Your Business — Choose How to Get Started</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Satoshi:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:        #0e0d0a;
+  --ink-2:      #3d3b35;
+  --ink-3:      #7a786f;
+  --ink-4:      #b8b5ac;
+  --ink-5:      #e4e1d9;
+  --cream:      #f9f7f2;
+  --white:      #ffffff;
+  --sage:       #3d6b52;
+  --sage-mid:   #5a9470;
+  --sage-light: #eaf3ee;
+  --amber:      #c17f2a;
+  --amber-light:#fdf4e4;
+  --r:          16px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Satoshi', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── TOPBAR ─────────────────────────────────── */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px; height: 56px;
+  background: rgba(249,247,242,0.88);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.topbar-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 500; color: var(--ink); text-decoration: none;
+}
+.topbar-right { display: flex; align-items: center; gap: 8px; }
+.topbar-link { font-size: 13px; font-weight: 500; color: var(--ink-3); text-decoration: none; padding: 7px 14px; border-radius: 8px; transition: color 0.15s; }
+.topbar-link:hover { color: var(--ink); }
+.topbar-cta { font-size: 13px; font-weight: 600; color: var(--white); background: var(--ink); padding: 8px 16px; border-radius: 8px; text-decoration: none; transition: opacity 0.15s; }
+.topbar-cta:hover { opacity: 0.82; }
+@media (max-width: 600px) { .topbar-link { display: none; } .topbar { padding: 0 16px; } }
+
+/* ── HERO ───────────────────────────────────── */
+.hero {
+  padding: 120px 24px 72px;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: 60px; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 420px;
+  background: radial-gradient(ellipse at 30% 50%, rgba(90,148,112,0.09) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 30%, rgba(193,127,42,0.06) 0%, transparent 60%);
+  pointer-events: none; z-index: 0; border-radius: 50%; filter: blur(50px);
+}
+.hero > * { position: relative; z-index: 1; }
+
+.hero-kicker {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--sage); margin-bottom: 24px;
+}
+.hero-kicker-line { width: 24px; height: 1.5px; background: var(--sage); border-radius: 2px; }
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 300; line-height: 1.1; letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.hero h1 strong { font-weight: 500; }
+.hero h1 em { font-style: italic; color: var(--sage); }
+
+.hero-body {
+  font-size: clamp(15px, 2vw, 18px); font-weight: 300;
+  color: var(--ink-2); line-height: 1.75;
+  max-width: 560px; margin: 0 auto 40px;
+}
+
+.proof-bar {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  align-items: center; gap: 6px 20px; margin-bottom: 64px;
+}
+.proof-item { display: flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 500; color: var(--ink-3); }
+.proof-check { color: var(--sage); font-size: 13px; }
+.proof-sep { color: var(--ink-5); }
+@media (max-width: 480px) { .proof-sep { display: none; } }
+
+/* ── SECTION LABEL ──────────────────────────── */
+.section-label {
+  text-align: center; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-4); margin-bottom: 20px;
+}
+
+/* ── PATHS ──────────────────────────────────── */
+.paths-wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px 24px; }
+
+/* ── FEATURED CARD ──────────────────────────── */
+.path-featured {
+  background: var(--ink);
+  border-radius: 20px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  min-height: 260px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 4px 24px rgba(14,13,10,0.12);
+  cursor: pointer;
+}
+.path-featured:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(14,13,10,0.2); }
+
+.path-featured-left {
+  flex: 1;
+  padding: 40px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.path-featured-right {
+  flex: 1;
+  background: linear-gradient(135deg, rgba(61,107,82,0.3) 0%, rgba(255,255,255,0.03) 100%);
+  border-left: 1px solid rgba(255,255,255,0.06);
+  padding: 40px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .path-featured { flex-direction: column; }
+  .path-featured-left { padding: 28px 24px; }
+  .path-featured-right { border-left: none; border-top: 1px solid rgba(255,255,255,0.06); padding: 28px 24px; }
+}
+
+.path-featured-tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); margin-bottom: 16px;
+}
+.tag-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--sage-mid); }
+.time-pill-dark { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.45); font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 99px; }
+
+.path-featured h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3.5vw, 36px); font-weight: 400; line-height: 1.2;
+  color: var(--white); margin-bottom: 12px;
+}
+.path-featured h2 em { font-style: italic; color: #8fcca8; }
+
+.path-featured-desc { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.48); line-height: 1.7; margin-bottom: 28px; flex: 1; }
+
+.btn-featured {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--white); color: var(--ink);
+  padding: 13px 22px; border-radius: 10px;
+  font-size: 14px; font-weight: 700; width: fit-content;
+  transition: all 0.2s; cursor: pointer;
+}
+.btn-featured:hover { background: var(--sage-light); color: var(--sage); }
+.btn-arrow { transition: transform 0.2s; }
+.path-featured:hover .btn-arrow { transform: translateX(4px); }
+
+.feature-bullet { display: flex; align-items: flex-start; gap: 12px; }
+.feature-bullet-icon {
+  width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
+  background: rgba(255,255,255,0.07); display: flex;
+  align-items: center; justify-content: center; font-size: 14px;
+}
+.feature-bullet-text strong { display: block; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.78); margin-bottom: 2px; }
+.feature-bullet-text span { font-size: 12px; color: rgba(255,255,255,0.32); font-weight: 300; line-height: 1.5; }
+
+/* ── 3 CARDS ────────────────────────────────── */
+.paths-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+@media (max-width: 860px) {
+  .paths-3col { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .paths-3col { grid-template-columns: 1fr; }
+}
+
+.path-card {
+  background: var(--white);
+  border: 1px solid var(--ink-5);
+  border-radius: var(--r);
+  padding: 28px 26px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.path-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.14); }
+
+.path-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; opacity: 0; transition: opacity 0.2s; }
+.path-card:hover::before { opacity: 1; }
+.path-card.c1::before { background: linear-gradient(90deg, var(--sage), var(--sage-mid)); }
+.path-card.c2::before { background: linear-gradient(90deg, var(--amber), #e8a040); }
+.path-card.c3::before { background: linear-gradient(90deg, #5a7ab8, #7a9ad8); }
+
+.path-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 18px; }
+.path-icon { font-size: 28px; line-height: 1; }
+.path-tag-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+.path-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-4); padding: 4px 9px; background: var(--cream); border-radius: 6px; }
+.time-pill-sm { font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 99px; }
+.tp-green { background: var(--sage-light); color: var(--sage); }
+.tp-amber { background: var(--amber-light); color: var(--amber); }
+.tp-blue  { background: #eef2fb; color: #5a7ab8; }
+
+.path-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; line-height: 1.25; margin-bottom: 10px; }
+.path-card-desc { font-size: 13px; font-weight: 300; color: var(--ink-2); line-height: 1.7; flex: 1; margin-bottom: 16px; }
+.path-card-best { font-size: 11.5px; color: var(--ink-4); line-height: 1.5; margin-bottom: 20px; padding: 10px 12px; background: var(--cream); border-radius: 8px; }
+.path-card-best strong { color: var(--ink-3); font-weight: 600; display: block; margin-bottom: 2px; }
+
+.path-card-cta {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 11px 14px; border-radius: 9px;
+  background: var(--cream);
+  font-size: 13px; font-weight: 700; color: var(--ink);
+  cursor: pointer; width: 100%;
+  transition: all 0.2s;
+  margin-top: auto;
+}
+.path-card:hover .path-card-cta { background: var(--ink); color: var(--white); }
+.cta-arrow { transition: transform 0.2s; font-size: 15px; }
+.path-card:hover .cta-arrow { transform: translateX(4px); }
+
+/* ── NOT SURE ───────────────────────────────── */
+.not-sure { max-width: 1080px; margin: 14px auto 0; padding: 0 20px 80px; }
+.not-sure-inner {
+  background: var(--amber-light); border: 1px solid rgba(193,127,42,0.15);
+  border-radius: var(--r); padding: 24px 28px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.not-sure-text strong { display: block; font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+.not-sure-text p { font-size: 13px; color: var(--ink-3); font-weight: 300; line-height: 1.5; }
+.not-sure-btn {
+  padding: 11px 22px; background: var(--ink); color: var(--white);
+  border: none; border-radius: 9px; font-size: 13px; font-weight: 600;
+  cursor: pointer; white-space: nowrap;
+  text-decoration: none; display: inline-block; transition: opacity 0.15s;
+}
+.not-sure-btn:hover { opacity: 0.82; }
+@media (max-width: 600px) {
+  .not-sure-inner { flex-direction: column; align-items: flex-start; }
+  .not-sure-btn { width: 100%; text-align: center; }
+}
+
+/* ── STATS ──────────────────────────────────── */
+.social-proof { background: var(--white); border-top: 1px solid var(--ink-5); padding: 52px 24px; }
+.proof-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
+@media (max-width: 640px) { .proof-grid { grid-template-columns: 1fr; gap: 24px; } }
+.proof-stat { text-align: center; }
+.proof-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 400; color: var(--ink); line-height: 1; margin-bottom: 8px; }
+.proof-stat-label { font-size: 13px; color: var(--ink-3); font-weight: 300; line-height: 1.6; }
+
+/* ── ANIMATIONS ─────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero          { animation: fadeUp 0.55s ease both; }
+.path-featured { animation: fadeUp 0.5s 0.10s ease both; }
+.path-card.c1  { animation: fadeUp 0.5s 0.16s ease both; }
+.path-card.c2  { animation: fadeUp 0.5s 0.23s ease both; }
+.path-card.c3  { animation: fadeUp 0.5s 0.30s ease both; }
+.not-sure      { animation: fadeUp 0.5s 0.36s ease both; }
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<nav class="topbar">
+  <a class="topbar-logo" href="#">YourAgency</a>
+  <div class="topbar-right">
+    <a class="topbar-link" href="talk_to_expert.html">Talk to us</a>
+    <a class="topbar-cta" href="ai_plan_builder.html">Get started →</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-kicker">
+    <span class="hero-kicker-line"></span>
+    AI-powered. Human-crafted.
+    <span class="hero-kicker-line"></span>
+  </div>
+  <h1>
+    Marketing that<br>
+    <em>actually works</em><br>
+    <strong>for your business.</strong>
+  </h1>
+  <p class="hero-body">We combine AI efficiency with expert strategy to deliver agency-quality marketing at a fraction of the cost. Choose the path that fits how you think.</p>
+  <div class="proof-bar">
+    <div class="proof-item"><span class="proof-check">✓</span> 3–5× cheaper than traditional agencies</div>
+    <span class="proof-sep">·</span>
+    <div class="proof-item"><span class="proof-check">✓</span> Results in your first 30 days</div>
+    <span class="proof-sep">·</span>
+    <div class="proof-item"><span class="proof-check">✓</span> No lock-in, no surprises</div>
+  </div>
+</div>
+
+<!-- Paths -->
+<div class="paths-wrap">
+  <p class="section-label">How would you like to get started?</p>
+
+  <!-- Featured: AI Plan Builder -->
+  <a class="path-featured" href="ai_plan_builder.html">
+    <div class="path-featured-left">
+      <div>
+        <div class="path-featured-tag">
+          <div class="tag-dot"></div>
+          Most recommended &nbsp;·&nbsp;
+          <span class="time-pill-dark">✦ 5 min</span>
+        </div>
+        <h2>Let AI build your<br><em>custom plan</em></h2>
+        <p class="path-featured-desc">Answer 9 questions about your business, goals, and budget. Our engine builds 3 tailored plans from our full service catalog — ranked by fit, not guesswork.</p>
+      </div>
+      <div class="btn-featured">Build my plan <span class="btn-arrow">→</span></div>
+    </div>
+    <div class="path-featured-right">
+      <div class="feature-bullet">
+        <div class="feature-bullet-icon">🎯</div>
+        <div class="feature-bullet-text">
+          <strong>Tailored to your business</strong>
+          <span>Industry, locations, assets, and goals all shape the result.</span>
+        </div>
+      </div>
+      <div class="feature-bullet">
+        <div class="feature-bullet-icon">📊</div>
+        <div class="feature-bullet-text">
+          <strong>3 plans to compare</strong>
+          <span>A starter, a best-fit, and an ideal-scenario build — all within budget.</span>
+        </div>
+      </div>
+      <div class="feature-bullet">
+        <div class="feature-bullet-icon">✏️</div>
+        <div class="feature-bullet-text">
+          <strong>Fully customizable</strong>
+          <span>Toggle services on or off and swap tiers until it's exactly right.</span>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <!-- 3 secondary cards -->
+  <div class="paths-3col">
+    <div class="path-card c1" onclick="location.href='quick_packages.html'">
+      <div class="path-card-top">
+        <span class="path-icon">📦</span>
+        <div class="path-tag-wrap">
+          <span class="path-tag">Most popular</span>
+          <span class="time-pill-sm tp-green">⚡ 2 min</span>
+        </div>
+      </div>
+      <h3>Quick Packages</h3>
+      <p class="path-card-desc">Pre-built plans by industry and growth stage. Proven service combinations at a fixed monthly price — ready to go today.</p>
+      <div class="path-card-best"><strong>Best for</strong>Businesses that want a proven starting point without having to think too hard about it.</div>
+      <div class="path-card-cta">Browse packages <span class="cta-arrow">→</span></div>
+    </div>
+
+    <div class="path-card c2" onclick="location.href='build_your_own.html'">
+      <div class="path-card-top">
+        <span class="path-icon">🔧</span>
+        <div class="path-tag-wrap">
+          <span class="path-tag">Full control</span>
+          <span class="time-pill-sm tp-amber">🛠 10 min</span>
+        </div>
+      </div>
+      <h3>Build Your Own</h3>
+      <p class="path-card-desc">Browse our full service catalog section by section. Pick exactly what you want, see your running total live, and build a fully custom plan.</p>
+      <div class="path-card-best"><strong>Best for</strong>Businesses that know what they want and want to spec it out themselves.</div>
+      <div class="path-card-cta">Start building <span class="cta-arrow">→</span></div>
+    </div>
+
+    <div class="path-card c3" onclick="location.href='talk_to_expert.html'">
+      <div class="path-card-top">
+        <span class="path-icon">💬</span>
+        <div class="path-tag-wrap">
+          <span class="path-tag">Done for you</span>
+          <span class="time-pill-sm tp-blue">📋 7 min</span>
+        </div>
+      </div>
+      <h3>Custom Proposal</h3>
+      <p class="path-card-desc">Tell us about your business and a real person builds you a tailored proposal within 24 hours — no templates, no automation involved.</p>
+      <div class="path-card-best"><strong>Best for</strong>Complex setups, multiple locations, or those who prefer working with a human first.</div>
+      <div class="path-card-cta">Request a proposal <span class="cta-arrow">→</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Not sure nudge -->
+<div class="not-sure">
+  <div class="not-sure-inner">
+    <div class="not-sure-text">
+      <strong>Not sure where to start?</strong>
+      <p>The AI Plan Builder takes 5 minutes, asks the right questions, and gives you 3 real options to compare — no commitment required.</p>
+    </div>
+    <a class="not-sure-btn" href="ai_plan_builder.html">Try the AI Plan Builder →</a>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="social-proof">
+  <div class="proof-grid">
+    <div class="proof-stat">
+      <div class="proof-stat-num">3–5×</div>
+      <div class="proof-stat-label">Less than traditional agency pricing<br>for the same quality output</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-stat-num">30</div>
+      <div class="proof-stat-label">Days to your first measurable results<br>from the day we kick off</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-stat-num">100%</div>
+      <div class="proof-stat-label">Month-to-month flexibility<br>No lock-ins, no hidden fees</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

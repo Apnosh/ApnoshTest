@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Websites &amp; Hosting &mdash; Apnosh</title>
+<meta name="description" content="Professional websites built to convert visitors into customers. From 5-page starter sites to advanced 20-page builds, plus managed hosting and care plans. Starting at $699.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#4abd98;--brand-d:#2e9a78;--brand-t:#eaf7f3;--brand-g:rgba(74,189,152,.14);
+  --ink:#1d1d1f;--ink2:#424245;--ink3:#6e6e73;--ink4:#aeaeb2;--ink5:#d2d2d7;--ink6:#f0f0f5;
+  --bg:#fff;--bg2:#f5f5f7;
+  --fd:'Playfair Display',Georgia,serif;--fb:'Inter',-apple-system,sans-serif;
+  --s2:0 4px 16px rgba(0,0,0,.07);--s3:0 8px 32px rgba(0,0,0,.09);--s4:0 16px 56px rgba(0,0,0,.11);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:1080px;margin:0 auto;padding:0 40px}
+.wmd{max-width:820px;margin:0 auto;padding:0 40px}
+.wsm{max-width:640px;margin:0 auto;padding:0 40px}
+@media(max-width:600px){.w,.wmd,.wsm{padding:0 20px}}
+.tc{text-align:center}
+.kicker{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);margin-bottom:14px}
+.h1{font-family:var(--fd);font-size:clamp(36px,5.5vw,62px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink)}
+.h1 em{font-style:italic;color:var(--brand-d)}
+.h2{font-family:var(--fd);font-size:clamp(24px,3.5vw,40px);font-weight:400;line-height:1.12;letter-spacing:-.02em;color:var(--ink)}
+.h2 em{font-style:italic;color:var(--brand-d)}
+.h3{font-family:var(--fd);font-size:clamp(18px,2.2vw,24px);font-weight:400;line-height:1.2;letter-spacing:-.015em;color:var(--ink)}
+.lead{font-size:clamp(15px,1.8vw,18px);font-weight:300;color:var(--ink2);line-height:1.72}
+.body{font-size:15px;font-weight:300;color:var(--ink3);line-height:1.7}
+.sm{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65}
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fb);font-weight:500;font-size:14px;text-decoration:none;border:none;cursor:pointer;border-radius:99px;padding:12px 24px;transition:all .2s;white-space:nowrap;line-height:1}
+.btn-primary{background:var(--ink);color:#fff}.btn-primary:hover{background:#2d2d2f;transform:translateY(-1px);box-shadow:var(--s3)}
+.btn-brand{background:var(--brand);color:var(--ink);font-weight:600}.btn-brand:hover{background:var(--brand-d);color:#fff;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink5)}.btn-outline:hover{border-color:var(--ink3);transform:translateY(-1px)}
+.btn-ghost-dark{background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.13)}.btn-ghost-dark:hover{background:rgba(255,255,255,.14)}
+.btn-sm{padding:9px 18px;font-size:13px}.btn-lg{padding:15px 32px;font-size:15px}
+.arr{transition:transform .2s;display:inline-block}
+a:hover .arr{transform:translateX(3px)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:44px;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.07);display:flex;align-items:center;transition:box-shadow .2s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.nav-inner{width:100%;max-width:1080px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.nav-logo em{font-style:italic;color:var(--brand-d)}
+.nav-back{font-size:12px;font-weight:400;color:var(--ink3);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .15s}
+.nav-back:hover{color:var(--ink)}
+.nav-back-arr{display:inline-block;transform:rotate(180deg)}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-audit{font-size:12px;font-weight:600;color:#fff;background:var(--brand-d);padding:7px 16px;border-radius:99px;text-decoration:none;transition:all .15s}
+.nav-audit:hover{background:var(--brand)}
+.nav-plain{font-size:12px;color:rgba(0,0,0,.45);text-decoration:none;padding:0 10px;transition:color .15s}
+.nav-plain:hover{color:var(--ink)}
+
+/* BREADCRUMB */
+.breadcrumb{padding:56px 0 0;background:var(--bg)}
+.bc-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink4)}
+@media(max-width:600px){.bc-inner{padding:0 20px}}
+.bc-link{color:var(--ink4);text-decoration:none;transition:color .15s}.bc-link:hover{color:var(--brand-d)}
+.bc-sep{color:var(--ink5)}
+.bc-current{color:var(--ink2);font-weight:500}
+
+/* HERO */
+.hero{padding:32px 0 64px;background:var(--bg);overflow:hidden;position:relative}
+@media(max-width:600px){.hero{padding:28px 0 48px}}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(74,189,152,.06) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1080px;margin:0 auto;padding:0 40px;position:relative;z-index:1}
+@media(max-width:600px){.hero-inner{padding:0 20px}}
+.hero-service-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);border:1px solid rgba(74,189,152,.22);padding:5px 14px;border-radius:99px;margin-bottom:20px}
+.hero-h{font-family:var(--fd);font-size:clamp(34px,5vw,58px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink);max-width:760px;margin-bottom:20px}
+.hero-h em{font-style:italic;color:var(--brand-d)}
+.hero-lead{font-size:clamp(15px,1.8vw,18px);font-weight:300;color:var(--ink2);line-height:1.72;max-width:580px;margin-bottom:32px}
+.hero-btns{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.hero-trust{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.ht-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink4)}
+.ht-check{color:var(--brand-d);font-weight:700}
+
+/* STAT BAR */
+.stat-bar{background:var(--ink);padding:36px 0}
+.stat-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr)}
+@media(max-width:700px){.stat-inner{grid-template-columns:1fr 1fr;padding:0 24px}}
+.stat-cell{padding:0 24px;text-align:center;border-right:1px solid rgba(255,255,255,.07)}
+.stat-cell:last-child{border-right:none}
+@media(max-width:700px){.stat-cell:nth-child(2){border-right:none}.stat-cell:nth-child(3){border-top:1px solid rgba(255,255,255,.07);padding-top:24px;margin-top:24px}.stat-cell:nth-child(4){border-top:1px solid rgba(255,255,255,.07);padding-top:24px;margin-top:24px;border-right:none}}
+.stat-n{font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--brand);letter-spacing:-.03em;line-height:1;margin-bottom:6px}
+.stat-n em{font-style:normal;font-size:.65em;color:rgba(74,189,152,.6)}
+.stat-l{font-size:11px;font-weight:400;color:rgba(255,255,255,.32);line-height:1.5}
+
+/* PROBLEM / WHO SECTION */
+.problem-section{padding:80px 0;background:var(--bg2)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:0}
+@media(max-width:780px){.problem-grid{grid-template-columns:1fr;gap:40px}}
+.problem-list{display:flex;flex-direction:column;gap:16px;margin-top:28px}
+.prob-item{display:flex;align-items:flex-start;gap:12px;padding:16px 18px;background:var(--bg);border:1px solid var(--ink6);border-radius:12px}
+.prob-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.prob-title{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px;letter-spacing:-.01em}
+.prob-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.6}
+.solution-list{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.sol-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:300;color:var(--ink2);line-height:1.6}
+.sol-check{width:20px;height:20px;border-radius:50%;background:var(--brand-t);border:1px solid rgba(74,189,152,.25);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--brand-d);flex-shrink:0;margin-top:2px}
+
+/* WHAT'S INCLUDED SECTION */
+.included-section{padding:80px 0;background:var(--bg)}
+.platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+@media(max-width:780px){.platform-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.platform-grid{grid-template-columns:1fr}}
+.platform-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:16px;padding:24px;transition:border-color .2s,transform .2s}
+.platform-card:hover{border-color:rgba(74,189,152,.2);transform:translateY(-2px)}
+.pc-icon{font-size:28px;margin-bottom:12px;display:block}
+.pc-name{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em}
+.pc-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.62;margin-bottom:14px}
+.pc-tags{display:flex;flex-wrap:wrap;gap:5px}
+.pc-tag{font-size:10px;font-weight:500;color:var(--brand-d);background:var(--brand-t);padding:2px 8px;border-radius:99px}
+
+.deliverables-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:48px}
+@media(max-width:600px){.deliverables-grid{grid-template-columns:1fr}}
+.del-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:14px;padding:20px 22px;display:flex;align-items:flex-start;gap:12px}
+.del-icon-wrap{width:38px;height:38px;border-radius:10px;background:var(--brand-t);border:1px solid rgba(74,189,152,.15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.del-title{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px;letter-spacing:-.01em}
+.del-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.6}
+
+/* PROCESS SECTION */
+.process-section{padding:80px 0;background:var(--bg2)}
+.process-steps{display:flex;flex-direction:column;gap:0;margin-top:48px;max-width:680px;margin-left:auto;margin-right:auto}
+.process-step{display:flex;align-items:flex-start;gap:20px;padding:0 0 36px;position:relative}
+.process-step:last-child{padding-bottom:0}
+.process-step::before{content:'';position:absolute;left:18px;top:40px;bottom:0;width:1px;background:var(--ink6)}
+.process-step:last-child::before{display:none}
+.ps-num{width:36px;height:36px;border-radius:50%;background:var(--brand-t);border:2px solid var(--brand-d);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:14px;font-weight:500;color:var(--brand-d);flex-shrink:0;position:relative;z-index:1}
+.ps-title{font-family:var(--fd);font-size:17px;font-weight:500;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+.ps-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65}
+.ps-detail{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ps-det-tag{font-size:10px;font-weight:500;color:var(--brand-d);background:var(--brand-t);padding:2px 9px;border-radius:99px}
+
+/* PRICING TIERS */
+.pricing-section{padding:80px 0;background:var(--bg)}
+.tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+@media(max-width:900px){.tier-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.tier-grid{grid-template-columns:1fr}}
+.tier{background:var(--bg2);border:1px solid var(--ink6);border-radius:18px;padding:28px 24px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.tier:hover{transform:translateY(-3px);box-shadow:var(--s4)}
+.tier.featured{background:var(--ink);border-color:var(--ink)}
+.tier.featured:hover{box-shadow:0 16px 56px rgba(0,0,0,.25)}
+.tier-pop{position:absolute;top:14px;right:14px;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--brand);color:var(--ink);padding:3px 9px;border-radius:99px}
+.tier-bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand-d));opacity:0;transition:opacity .2s}
+.tier:not(.featured):hover .tier-bar{opacity:1}
+.tier.featured .tier-bar{opacity:1}
+.tier-name{font-family:var(--fd);font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.tier.featured .tier-name{color:rgba(255,255,255,.88)}
+.tier-tagline{font-size:11px;font-weight:300;color:var(--ink4);margin-bottom:20px;line-height:1.5;min-height:32px}
+.tier.featured .tier-tagline{color:rgba(255,255,255,.32)}
+.tier-price{font-family:var(--fd);font-size:34px;font-weight:400;color:var(--ink);letter-spacing:-.03em;line-height:1;margin-bottom:4px}
+.tier.featured .tier-price{color:#fff}
+.tier-price span{font-size:14px;font-weight:300;font-family:var(--fb);color:var(--ink4)}
+.tier.featured .tier-price span{color:rgba(255,255,255,.32)}
+.tier-billed{font-size:11px;color:var(--brand-d);margin-bottom:20px;min-height:16px}
+.tier.featured .tier-billed{color:rgba(74,189,152,.8)}
+.tier-divider{height:1px;background:var(--ink6);margin:0 0 16px}
+.tier.featured .tier-divider{background:rgba(255,255,255,.07)}
+.tier-inc-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px}
+.tier.featured .tier-inc-label{color:rgba(255,255,255,.24)}
+.tier-features{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;flex:1}
+.tier-feat{display:flex;align-items:flex-start;gap:8px;font-size:12px;font-weight:300;color:var(--ink2);line-height:1.55}
+.tier.featured .tier-feat{color:rgba(255,255,255,.6)}
+.tier-feat.ai{color:var(--ink)}
+.tier.featured .tier-feat.ai{color:rgba(255,255,255,.9)}
+.tier-feat-icon{font-size:11px;flex-shrink:0;margin-top:1px;width:14px;text-align:center}
+.tier-cta{display:block;width:100%;text-align:center;padding:12px 0;border-radius:99px;font-family:var(--fb);font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
+.tier:not(.featured) .tier-cta{background:var(--ink6);color:var(--ink)}
+.tier:not(.featured):hover .tier-cta{background:var(--ink);color:#fff}
+.tier.featured .tier-cta{background:var(--brand);color:var(--ink)}
+.tier.featured:hover .tier-cta{background:var(--brand-d);color:#fff}
+
+/* HOSTING SUB-SECTION */
+.hosting-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+@media(max-width:780px){.hosting-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.hosting-grid{grid-template-columns:1fr}}
+.hosting-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:16px;padding:24px;transition:border-color .2s,transform .2s}
+.hosting-card:hover{border-color:rgba(74,189,152,.2);transform:translateY(-2px)}
+.hosting-card.host-featured{border-color:var(--brand);background:var(--brand-t)}
+.hosting-name{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.hosting-price{font-family:var(--fd);font-size:24px;font-weight:400;color:var(--brand-d);letter-spacing:-.02em;margin-bottom:4px}
+.hosting-price span{font-size:13px;font-weight:300;font-family:var(--fb);color:var(--ink4)}
+.hosting-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.6;margin-bottom:12px}
+.hosting-feats{display:flex;flex-direction:column;gap:6px}
+.hosting-feat{display:flex;align-items:flex-start;gap:7px;font-size:12px;font-weight:300;color:var(--ink2);line-height:1.5}
+.hosting-feat-icon{color:var(--brand-d);font-size:11px;flex-shrink:0;margin-top:1px}
+
+/* ADDONS */
+.addons-section{padding:72px 0;background:var(--bg2)}
+.addons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
+@media(max-width:780px){.addons-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.addons-grid{grid-template-columns:1fr}}
+.addon-card{background:var(--bg);border:1px solid var(--ink6);border-radius:14px;padding:20px;transition:border-color .2s,transform .2s}
+.addon-card:hover{border-color:rgba(74,189,152,.2);transform:translateY(-2px)}
+.addon-icon{font-size:20px;margin-bottom:10px;display:block}
+.addon-name{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.addon-desc{font-size:12px;font-weight:300;color:var(--ink3);line-height:1.6;margin-bottom:10px}
+.addon-price{font-family:var(--fd);font-size:18px;font-weight:400;color:var(--brand-d);letter-spacing:-.01em}
+
+/* COMPARISON */
+.compare-section{padding:72px 0;background:var(--bg)}
+.compare-wrap{margin-top:48px;overflow-x:auto}
+.compare-table{width:100%;border-collapse:collapse;min-width:500px}
+.compare-table th{padding:12px 16px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-align:center;border-bottom:1px solid var(--ink6)}
+.compare-table th:first-child{text-align:left;color:var(--ink4);width:40%}
+.compare-table th:not(:first-child){color:var(--ink2);background:var(--bg2);border-left:1px solid var(--ink6)}
+.compare-table th.feat-col{background:var(--ink);color:rgba(255,255,255,.75)}
+.compare-table td{padding:11px 16px;font-size:12px;font-weight:300;color:var(--ink3);border-bottom:1px solid var(--ink6);text-align:center}
+.compare-table td:first-child{text-align:left;color:var(--ink2);font-weight:400}
+.compare-table td:not(:first-child){border-left:1px solid var(--ink6);background:var(--bg2)}
+.compare-table td.feat-col{background:rgba(15,15,15,.03)}
+.compare-table tr:last-child td{border-bottom:none}
+.ct-group-row td,.ct-group-row th{background:var(--brand-t);color:var(--brand-d);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;border-bottom:1px solid rgba(74,189,152,.15)}
+.ct-check{color:var(--brand-d);font-weight:700;font-size:13px}
+.ct-x{color:var(--ink5);font-size:11px}
+.ct-ai{color:#f59e0b;font-size:11px}
+
+/* TESTIMONIALS */
+.testi-section{padding:72px 0;background:var(--bg)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+@media(max-width:780px){.testi-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.testi-grid{grid-template-columns:1fr}}
+.testi-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:16px;padding:24px;transition:border-color .2s}
+.testi-card:hover{border-color:rgba(74,189,152,.2)}
+.testi-stars{color:var(--brand-d);font-size:11px;letter-spacing:3px;margin-bottom:12px}
+.testi-metric{display:inline-flex;align-items:baseline;gap:4px;background:var(--brand-t);border:1px solid rgba(74,189,152,.2);padding:4px 10px;border-radius:99px;margin-bottom:12px}
+.testi-m-n{font-family:var(--fd);font-size:16px;font-weight:400;color:var(--brand-d)}
+.testi-m-l{font-size:10px;color:var(--brand-d);opacity:.7}
+.testi-q{font-family:var(--fd);font-size:14px;font-style:italic;color:var(--ink);line-height:1.65;margin-bottom:16px}
+.testi-author{display:flex;align-items:center;gap:8px;padding-top:12px;border-top:1px solid var(--ink6)}
+.t-av{width:32px;height:32px;border-radius:50%;background:var(--brand-t);border:1px solid rgba(74,189,152,.18);display:flex;align-items:center;justify-content:center;font-size:14px}
+.t-name{font-family:var(--fd);font-size:12px;font-weight:500;color:var(--ink);display:block}
+.t-role{font-size:10px;color:var(--ink4)}
+
+/* FAQ */
+.faq-section{padding:72px 0;background:var(--bg2)}
+.faq-list{max-width:640px;margin:40px auto 0;display:flex;flex-direction:column;gap:6px}
+.faq-item{background:var(--bg);border:1px solid var(--ink6);border-radius:10px;overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:rgba(74,189,152,.24)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:none;border:none;cursor:pointer;font-family:var(--fd);font-size:14px;font-weight:400;color:var(--ink);text-align:left;gap:12px}
+.faq-ic{color:var(--brand-d);font-size:18px;flex-shrink:0;transition:transform .22s}
+.faq-item.open .faq-ic{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 20px 16px;font-size:13px;font-weight:300;color:var(--ink3);line-height:1.7}
+.faq-item.open .faq-a{display:block}
+
+/* CTA */
+.cta-section{background:var(--ink);padding:92px 40px;text-align:center;position:relative;overflow:hidden}
+@media(max-width:600px){.cta-section{padding:68px 20px}}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(74,189,152,.08) 0%,transparent 70%)}
+#cta-canvas{position:absolute;inset:0;pointer-events:none}
+.cta-section>*{position:relative;z-index:1}
+.cta-h{font-family:var(--fd);font-size:clamp(26px,4vw,46px);font-weight:400;line-height:1.1;letter-spacing:-.025em;color:rgba(255,255,255,.95);max-width:560px;margin:0 auto 14px}
+.cta-h em{font-style:italic;color:var(--brand)}
+.cta-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,.38);max-width:420px;margin:0 auto 36px;line-height:1.7}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+
+/* FOOTER */
+.footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:36px 40px}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none}
+.f-logo em{font-style:italic;color:var(--brand)}
+.f-links{display:flex;gap:20px;flex-wrap:wrap}
+.f-link{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .15s}
+.f-link:hover{color:rgba(255,255,255,.6)}
+.f-copy{font-size:11px;color:rgba(255,255,255,.16)}
+
+/* REVEAL */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hero-service-tag,.hero-h,.hero-lead,.hero-btns,.hero-trust{opacity:1}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.06s}.rd2{transition-delay:.12s}.rd3{transition-delay:.18s}.rd4{transition-delay:.24s}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <a class="nav-back" href="apnosh_services.html"><span class="nav-back-arr">&#8594;</span> All services</a>
+    <div class="nav-right">
+      <a class="nav-plain" href="talk_to_expert.html">Contact</a>
+      <a class="nav-audit" href="apnosh_homepage.html#start">Get free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="bc-inner">
+    <a class="bc-link" href="apnosh_homepage.html">Home</a>
+    <span class="bc-sep">/</span>
+    <a class="bc-link" href="apnosh_services.html">Services</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">Websites &amp; Hosting</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-service-tag">&#127760; Websites &amp; Hosting</div>
+    <h1 class="hero-h">Websites that convert visitors <em>into customers</em></h1>
+    <p class="hero-lead">Your website is your hardest-working salesperson &mdash; if it&rsquo;s built right. We design fast, mobile-first websites with built-in SEO, conversion strategy, and reliable hosting so your business grows around the clock.</p>
+    <div class="hero-btns">
+      <a class="btn btn-brand btn-lg" href="#pricing">See pricing <span class="arr">&rarr;</span></a>
+      <a class="btn btn-outline btn-lg" href="talk_to_expert.html">Talk to our team</a>
+    </div>
+    <div class="hero-trust">
+      <div class="ht-item"><span class="ht-check">&#10003;</span> Mobile-first, responsive design</div>
+      <div class="ht-item"><span class="ht-check">&#10003;</span> On-page SEO included</div>
+      <div class="ht-item"><span class="ht-check">&#10003;</span> Managed hosting &amp; care plans</div>
+      <div class="ht-item"><span class="ht-check">&#10003;</span> Launch in as little as 2 weeks</div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-inner">
+    <div class="stat-cell"><div class="stat-n">75<em>%</em></div><div class="stat-l">Of people judge business credibility by website design</div></div>
+    <div class="stat-cell"><div class="stat-n">3&ndash;5<em>x</em></div><div class="stat-l">More conversions with live booking vs. contact forms alone</div></div>
+    <div class="stat-cell"><div class="stat-n">67<em>%</em></div><div class="stat-l">More leads generated by businesses that blog regularly</div></div>
+    <div class="stat-cell"><div class="stat-n">88<em>%</em></div><div class="stat-l">Of visitors won&rsquo;t return after a poor website experience</div></div>
+  </div>
+</div>
+
+<!-- PROBLEM / SOLUTION -->
+<section class="problem-section">
+  <div class="w">
+    <div class="problem-grid">
+      <div class="reveal">
+        <span class="kicker">Sound familiar?</span>
+        <h2 class="h2">Why most small business websites <em>don&rsquo;t convert</em></h2>
+        <div class="problem-list">
+          <div class="prob-item">
+            <span class="prob-icon">&#128679;</span>
+            <div><div class="prob-title">Template sites that all look the same</div><div class="prob-desc">Drag-and-drop builders produce generic sites that don&rsquo;t reflect your brand or differentiate you from competitors. Visitors can tell &mdash; and they leave.</div></div>
+          </div>
+          <div class="prob-item">
+            <span class="prob-icon">&#128034;</span>
+            <div><div class="prob-title">Slow load times that kill conversions</div><div class="prob-desc">Every extra second of load time costs you 7% in conversions. Bloated themes and cheap hosting make your site a revenue leak.</div></div>
+          </div>
+          <div class="prob-item">
+            <span class="prob-icon">&#128241;</span>
+            <div><div class="prob-title">Not optimized for mobile</div><div class="prob-desc">Over 60% of traffic is mobile, yet most small business sites look broken on phones. If your site doesn&rsquo;t work on mobile, you&rsquo;re losing the majority of visitors.</div></div>
+          </div>
+          <div class="prob-item">
+            <span class="prob-icon">&#128269;</span>
+            <div><div class="prob-title">Invisible to search engines</div><div class="prob-desc">Without proper SEO structure &mdash; meta tags, schema markup, fast load times, internal linking &mdash; Google can&rsquo;t find you. No traffic means no customers.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal rd1">
+        <span class="kicker">How Apnosh builds it better</span>
+        <h2 class="h2">Websites engineered to <em>attract &amp; convert</em></h2>
+        <p class="body" style="margin-bottom:24px">Every website we build is designed with one goal: turn visitors into paying customers. From SEO foundations to conversion-focused layouts, nothing is left to chance.</p>
+        <div class="solution-list">
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Custom design tailored to your brand &mdash; not a template with your logo swapped in</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Mobile-first, responsive layouts that look great on every screen size</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>On-page SEO setup: meta titles, schema markup, page speed optimization, internal linking</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Conversion-focused structure with clear CTAs and user-friendly navigation</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Fast, reliable managed hosting with SSL, backups, and uptime monitoring</div>
+          <div class="sol-item"><div class="sol-check">&#10003;</div>Optional booking integration, blog CMS, and analytics tracking</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Website tiers</span>
+      <h2 class="h2">Choose the right size for <em>your business</em></h2>
+      <p class="body" style="max-width:500px;margin:12px auto 0">Every website package includes custom design, mobile optimization, on-page SEO, and a content management system. Pick the tier that matches your needs.</p>
+    </div>
+    <div class="platform-grid">
+      <div class="platform-card reveal rd1">
+        <span class="pc-icon">&#128187;</span>
+        <div class="pc-name">Basic &mdash; 5 Pages</div>
+        <p class="pc-desc">Perfect for new businesses or those who need a clean, professional online presence. Includes homepage, about, services, contact, and one additional page of your choice.</p>
+        <div class="pc-tags"><span class="pc-tag">5 custom pages</span><span class="pc-tag">Mobile-first</span><span class="pc-tag">On-page SEO</span><span class="pc-tag">Contact form</span></div>
+      </div>
+      <div class="platform-card reveal rd2">
+        <span class="pc-icon">&#127968;</span>
+        <div class="pc-name">Standard &mdash; 10 Pages</div>
+        <p class="pc-desc">For growing businesses that need more depth &mdash; service sub-pages, testimonials, FAQ, gallery, and more. The most popular choice for established local businesses.</p>
+        <div class="pc-tags"><span class="pc-tag">10 custom pages</span><span class="pc-tag">Blog-ready</span><span class="pc-tag">Gallery</span><span class="pc-tag">Testimonials</span></div>
+      </div>
+      <div class="platform-card reveal rd3">
+        <span class="pc-icon">&#127961;</span>
+        <div class="pc-name">Advanced &mdash; 20 Pages</div>
+        <p class="pc-desc">For businesses with complex needs &mdash; multiple service lines, location pages, resource libraries, or e-commerce integration. Built for scale and long-term growth.</p>
+        <div class="pc-tags"><span class="pc-tag">20 custom pages</span><span class="pc-tag">E-commerce ready</span><span class="pc-tag">Multi-location</span><span class="pc-tag">Resource hub</span></div>
+      </div>
+    </div>
+    <div class="deliverables-grid" style="margin-top:32px">
+      <div class="del-card reveal rd1">
+        <div class="del-icon-wrap">&#128197;</div>
+        <div><div class="del-title">Booking / scheduling integration</div><div class="del-desc">Let customers book appointments directly from your website. Live booking converts 3&ndash;5x better than a simple contact form.</div></div>
+      </div>
+      <div class="del-card reveal rd2">
+        <div class="del-icon-wrap">&#128221;</div>
+        <div><div class="del-title">Blog / CMS hub</div><div class="del-desc">Publish SEO-optimized blog content to drive organic traffic. Businesses that blog generate 67% more leads than those that don&rsquo;t.</div></div>
+      </div>
+      <div class="del-card reveal rd1">
+        <div class="del-icon-wrap">&#128269;</div>
+        <div><div class="del-title">On-page SEO setup</div><div class="del-desc">Meta titles, descriptions, schema markup, page speed optimization, and internal linking structure &mdash; so Google can find and rank your pages.</div></div>
+      </div>
+      <div class="del-card reveal rd2">
+        <div class="del-icon-wrap">&#128202;</div>
+        <div><div class="del-title">Analytics &amp; conversion tracking</div><div class="del-desc">GA4 setup with goal tracking so you know exactly where visitors come from, what they do, and where they convert.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">How it works</span>
+      <h2 class="h2">From discovery to launch <em>in 5 steps</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="ps-num">1</div>
+        <div>
+          <div class="ps-title">Discovery &amp; strategy</div>
+          <p class="ps-desc">We learn your business, goals, competitors, and audience. We define the site structure, page count, and features you need &mdash; so nothing is left to guesswork.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Business goals</span><span class="ps-det-tag">Competitor audit</span><span class="ps-det-tag">Site map</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd1">
+        <div class="ps-num">2</div>
+        <div>
+          <div class="ps-title">Design &amp; wireframes</div>
+          <p class="ps-desc">We create wireframes and visual mockups for your review. You see exactly how the site will look and feel on desktop and mobile before a single line of code is written.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Wireframes</span><span class="ps-det-tag">Brand alignment</span><span class="ps-det-tag">Mobile mockups</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd2">
+        <div class="ps-num">3</div>
+        <div>
+          <div class="ps-title">Development &amp; content</div>
+          <p class="ps-desc">Your site is built with clean, fast code. We integrate your content, images, and any add-ons like booking, blog CMS, or analytics. SEO foundations are baked in from day one.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Responsive build</span><span class="ps-det-tag">SEO setup</span><span class="ps-det-tag">Integrations</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd3">
+        <div class="ps-num">4</div>
+        <div>
+          <div class="ps-title">Review &amp; revisions</div>
+          <p class="ps-desc">You review the full site and request changes. We refine until every page is exactly right. Nothing goes live without your sign-off.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Your approval</span><span class="ps-det-tag">Unlimited revisions</span></div>
+        </div>
+      </div>
+      <div class="process-step reveal rd4">
+        <div class="ps-num">5</div>
+        <div>
+          <div class="ps-title">Launch &amp; hosting setup</div>
+          <p class="ps-desc">We launch your site, set up hosting, configure SSL, enable backups, and connect analytics. Your website is live and working for your business from day one.</p>
+          <div class="ps-detail"><span class="ps-det-tag">Go live</span><span class="ps-det-tag">SSL &amp; security</span><span class="ps-det-tag">Backups</span><span class="ps-det-tag">Analytics</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Website pricing</span>
+      <h2 class="h2">One-time build. <em>No hidden fees.</em></h2>
+      <p class="body" style="max-width:480px;margin:12px auto 0">Every package includes custom design, mobile optimization, on-page SEO, and a CMS. Pick the size that fits your business &mdash; or go custom.</p>
+    </div>
+    <div class="tier-grid reveal">
+
+      <!-- BASIC -->
+      <div class="tier">
+        <div class="tier-bar"></div>
+        <div class="tier-name">Basic</div>
+        <div class="tier-tagline">5-page site for new businesses that need a professional presence.</div>
+        <div class="tier-price">$699</div>
+        <div class="tier-billed">One-time build</div>
+        <div class="tier-divider"></div>
+        <div class="tier-inc-label">Includes</div>
+        <div class="tier-features">
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>5 custom-designed pages</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Mobile-responsive design</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>On-page SEO foundations</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Contact form integration</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>SSL certificate setup</div>
+        </div>
+        <a class="tier-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+
+      <!-- STANDARD (FEATURED) -->
+      <div class="tier featured">
+        <div class="tier-bar"></div>
+        <div class="tier-pop">&#9889; Most popular</div>
+        <div class="tier-name">Standard</div>
+        <div class="tier-tagline">10-page site for growing businesses ready to scale online.</div>
+        <div class="tier-price">$1,299</div>
+        <div class="tier-billed">One-time build</div>
+        <div class="tier-divider"></div>
+        <div class="tier-inc-label">Everything in Basic, plus</div>
+        <div class="tier-features">
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>10 custom-designed pages</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Blog / CMS integration</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Testimonials &amp; gallery pages</div>
+          <div class="tier-feat ai"><span class="tier-feat-icon">&#9889;</span>GA4 analytics &amp; goal tracking</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Schema markup &amp; advanced SEO</div>
+        </div>
+        <a class="tier-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+
+      <!-- ADVANCED -->
+      <div class="tier">
+        <div class="tier-bar"></div>
+        <div class="tier-name">Advanced</div>
+        <div class="tier-tagline">20-page site for complex businesses with multiple services or locations.</div>
+        <div class="tier-price">$1,999</div>
+        <div class="tier-billed">One-time build</div>
+        <div class="tier-divider"></div>
+        <div class="tier-inc-label">Everything in Standard, plus</div>
+        <div class="tier-features">
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>20 custom-designed pages</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>E-commerce or booking ready</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Multi-location / service pages</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Resource library or knowledge base</div>
+          <div class="tier-feat ai"><span class="tier-feat-icon">&#9889;</span>Conversion funnel optimization</div>
+        </div>
+        <a class="tier-cta" href="talk_to_expert.html">Get started &rarr;</a>
+      </div>
+
+      <!-- CUSTOM -->
+      <div class="tier">
+        <div class="tier-bar"></div>
+        <div class="tier-name">Custom</div>
+        <div class="tier-tagline">Fully tailored build for unique requirements beyond standard packages.</div>
+        <div class="tier-price">Let&rsquo;s talk</div>
+        <div class="tier-billed">Scoped to your needs</div>
+        <div class="tier-divider"></div>
+        <div class="tier-inc-label">Custom scope includes</div>
+        <div class="tier-features">
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Unlimited pages</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Custom integrations &amp; APIs</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Advanced e-commerce features</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Membership / login portals</div>
+          <div class="tier-feat"><span class="tier-feat-icon">&#10003;</span>Dedicated project manager</div>
+        </div>
+        <a class="tier-cta" href="talk_to_expert.html">Contact us &rarr;</a>
+      </div>
+
+    </div>
+
+    <!-- HOSTING PLANS -->
+    <div class="tc reveal" style="margin-top:64px">
+      <span class="kicker">Monthly hosting &amp; care</span>
+      <h2 class="h2" style="font-size:clamp(20px,3vw,32px)">Keep your site fast, secure, and <em>growing</em></h2>
+    </div>
+    <div class="hosting-grid reveal">
+      <div class="hosting-card">
+        <div class="hosting-name">Basic Hosting</div>
+        <div class="hosting-price">$49<span>/mo</span></div>
+        <p class="hosting-desc">Reliable hosting with SSL, daily backups, uptime monitoring, and security updates. Everything you need to keep your site online and secure.</p>
+        <div class="hosting-feats">
+          <div class="hosting-feat"><span class="hosting-feat-icon">&#10003;</span>SSL certificate &amp; security</div>
+          <div class="hosting-feat"><span class="hosting-feat-icon">&#10003;</span>Daily automated backups</div>
+          <div class="hosting-feat"><span class="hosting-feat-icon">&#10003;</span>99.9% uptime monitoring</div>
+          <div class="hosting-feat"><span class="hosting-feat-icon">&#10003;</span>Software &amp; plugin updates</div>
+        </div>
+      </div>
+      <div class="hosting-card host-featured">
+        <div class="hosting-name">Growth Care</div>
+        <div class="hosting-price">$125<span>/mo</span></div>
+        <p class="hosting-desc">Hosting plus ongoing growth. Includes 1 SEO blog post per month, performance monitoring, and minor site updates to keep your content fresh and ranking.</p>
+        <div class="hosting-feats">
+          <div class="hosting-feat"><span class="hosting-feat-icon">&#10003;</span>Everything in Basic Hosting</div>
+          <div class="hosting-feat"><span class="hosting-feat-icon">&#10003;</span>1 SEO blog post per month</div>
+          <div class="hosting-feat"><span class="hosting-feat-icon">&#10003;</span>Monthly performance report</div>
+          <div class="hosting-feat"><span class="hosting-feat-icon">&#10003;</span>Minor content &amp; design updates</div>
+        </div>
+      </div>
+      <div class="hosting-card">
+        <div class="hosting-name">Pro Care</div>
+        <div class="hosting-price">$249<span>/mo</span></div>
+        <p class="hosting-desc">Full-service care for businesses serious about growth. Includes 2 SEO blogs per month, quarterly strategy reviews, and priority support.</p>
+        <div class="hosting-feats">
+          <div class="hosting-feat"><span class="hosting-feat-icon">&#10003;</span>Everything in Growth Care</div>
+          <div class="hosting-feat"><span class="hosting-feat-icon">&#10003;</span>2 SEO blog posts per month</div>
+          <div class="hosting-feat"><span class="hosting-feat-icon">&#10003;</span>Quarterly strategy review</div>
+          <div class="hosting-feat"><span class="hosting-feat-icon">&#10003;</span>Priority support &amp; faster turnaround</div>
+        </div>
+      </div>
+    </div>
+    <p class="sm tc" style="margin-top:16px;color:var(--ink4)">&#9889; = AI-powered feature &nbsp;&nbsp;|&nbsp;&nbsp; No long-term contracts &nbsp;&nbsp;|&nbsp;&nbsp; All plans include SSL &amp; backups</p>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section class="addons-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Enhance your site</span>
+      <h2 class="h2">Add-ons to <em>supercharge</em> your website</h2>
+    </div>
+    <div class="addons-grid">
+      <div class="addon-card reveal rd1">
+        <span class="addon-icon">&#128197;</span>
+        <div class="addon-name">Booking / Scheduling Integration</div>
+        <p class="addon-desc">Let customers book appointments or reserve services directly from your site. Live booking converts 3&ndash;5x better than contact forms alone.</p>
+        <div class="addon-price">+$199<span> setup</span></div>
+      </div>
+      <div class="addon-card reveal rd2">
+        <span class="addon-icon">&#128221;</span>
+        <div class="addon-name">Blog / CMS Hub</div>
+        <p class="addon-desc">A fully managed blog with CMS so you or our team can publish SEO-optimized content. Businesses that blog generate 67% more leads.</p>
+        <div class="addon-price">+$249<span> setup</span></div>
+      </div>
+      <div class="addon-card reveal rd3">
+        <span class="addon-icon">&#128269;</span>
+        <div class="addon-name">On-Page SEO Setup</div>
+        <p class="addon-desc">Comprehensive SEO foundations: meta titles, descriptions, schema markup, page speed optimization, and internal linking structure.</p>
+        <div class="addon-price">+$149<span> setup</span></div>
+      </div>
+      <div class="addon-card reveal rd1">
+        <span class="addon-icon">&#128202;</span>
+        <div class="addon-name">Analytics &amp; Conversion Tracking</div>
+        <p class="addon-desc">GA4 setup with custom goal tracking so you know exactly where visitors come from, what they do, and where they convert or drop off.</p>
+        <div class="addon-price">+$99<span> setup</span></div>
+      </div>
+      <div class="addon-card reveal rd2">
+        <span class="addon-icon">&#9997;&#65039;</span>
+        <div class="addon-name">Professional Copywriting</div>
+        <p class="addon-desc">Conversion-focused copy written by professionals. Clear messaging that speaks to your audience and drives action. Professional copy doubles conversion rates.</p>
+        <div class="addon-price">$99<span>/page</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="compare-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">Why us</span>
+      <h2 class="h2">DIY builder vs. Apnosh websites</h2>
+    </div>
+    <div class="compare-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>DIY / Wix / Squarespace</th>
+            <th class="feat-col">Apnosh &#9889;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="ct-group-row"><td>Design &amp; branding</td><td></td><td class="feat-col"></td></tr>
+          <tr><td>Custom brand-aligned design</td><td>Template-based</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Mobile-first responsive layout</td><td>Auto-generated</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Conversion-focused page structure</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+
+          <tr class="ct-group-row"><td>SEO &amp; performance</td><td></td><td class="feat-col"></td></tr>
+          <tr><td>On-page SEO (meta, schema, linking)</td><td>Basic / manual</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Page speed optimization</td><td>Limited control</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Analytics &amp; goal tracking</td><td>DIY setup</td><td class="feat-col"><span class="ct-ai">&#9889;</span></td></tr>
+
+          <tr class="ct-group-row"><td>Hosting &amp; maintenance</td><td></td><td class="feat-col"></td></tr>
+          <tr><td>Managed hosting with SSL</td><td>Shared / basic</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Daily backups &amp; uptime monitoring</td><td>Varies</td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Ongoing content &amp; blog updates</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span></td></tr>
+          <tr><td>Quarterly strategy reviews</td><td><span class="ct-x">&#8212;</span></td><td class="feat-col"><span class="ct-check">&#10003;</span> (Pro Care)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="w">
+    <div class="tc reveal"><span class="kicker">What clients say</span><h2 class="h2">In their <em>own words</em></h2></div>
+    <div class="testi-grid">
+      <div class="testi-card reveal rd1">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-metric"><span class="testi-m-n">+210%</span><span class="testi-m-l">&nbsp;online bookings</span></div>
+        <p class="testi-q">&ldquo;Our old site was a Wix template that looked like every other salon in town. Apnosh built us a custom site with online booking and within 60 days our appointment requests more than tripled. Best investment we&rsquo;ve made.&rdquo;</p>
+        <div class="testi-author"><div class="t-av">&#128135;</div><div><span class="t-name">Priya S.</span><span class="t-role">Salon owner &middot; Dallas, TX</span></div></div>
+      </div>
+      <div class="testi-card reveal rd2">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-metric"><span class="testi-m-n">Page 1</span><span class="testi-m-l">&nbsp;Google ranking</span></div>
+        <p class="testi-q">&ldquo;We went from invisible on Google to ranking on page one for our main service keywords within three months. The SEO setup they did during the build made all the difference. Now leads come to us instead of the other way around.&rdquo;</p>
+        <div class="testi-author"><div class="t-av">&#128188;</div><div><span class="t-name">James W.</span><span class="t-role">Law firm partner &middot; Atlanta, GA</span></div></div>
+      </div>
+      <div class="testi-card reveal rd3">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-metric"><span class="testi-m-n">4.2s&rarr;1.1s</span><span class="testi-m-l">&nbsp;load time</span></div>
+        <p class="testi-q">&ldquo;Our previous WordPress site took over 4 seconds to load and we were losing visitors left and right. Apnosh rebuilt it and got load time under 1.2 seconds. Bounce rate dropped by half and conversions jumped immediately.&rdquo;</p>
+        <div class="testi-author"><div class="t-av">&#127860;</div><div><span class="t-name">Rachel M.</span><span class="t-role">Restaurant owner &middot; Portland, OR</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="wmd tc">
+    <div class="reveal"><span class="kicker">Common questions</span><h2 class="h2">Everything you want to <em>know about website builds</em></h2></div>
+    <div class="faq-list">
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">How long does it take to build my website?<span class="faq-ic">+</span></button><div class="faq-a">A Basic 5-page site typically launches in 2&ndash;3 weeks. Standard 10-page sites take 3&ndash;4 weeks. Advanced and custom builds are 4&ndash;6 weeks depending on complexity. These timelines include your review and revision rounds.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">What platform do you build on?<span class="faq-ic">+</span></button><div class="faq-a">We build on the platform that best fits your needs &mdash; typically WordPress for its flexibility and SEO strength, but we also work with other modern frameworks. We&rsquo;ll recommend the right platform during discovery based on your goals, budget, and long-term plans.</div></div>
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">Do I need to provide the content and images?<span class="faq-ic">+</span></button><div class="faq-a">You can, but you don&rsquo;t have to. We offer professional copywriting at $99 per page and can source high-quality stock imagery. Many clients provide their own photos and key messaging, and we handle the rest.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">What&rsquo;s included in the monthly hosting plans?<span class="faq-ic">+</span></button><div class="faq-a">Basic Hosting ($49/mo) covers SSL, daily backups, uptime monitoring, and software updates. Growth Care ($125/mo) adds 1 SEO blog post per month and minor site updates. Pro Care ($249/mo) includes 2 SEO blogs, quarterly strategy reviews, and priority support.</div></div>
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">Can I add booking or e-commerce later?<span class="faq-ic">+</span></button><div class="faq-a">Absolutely. Add-ons like booking integration, blog CMS, analytics tracking, and e-commerce functionality can be added at any time after launch. It&rsquo;s often more cost-effective to include them in the initial build, but we make it easy to add features as your business grows.</div></div>
+      <div class="faq-item reveal rd2"><button class="faq-q" onclick="fq(this)">Do I own my website?<span class="faq-ic">+</span></button><div class="faq-a">Yes, 100%. You own all design files, code, and content. If you ever decide to move your site to a different host or agency, everything is yours. No lock-in, no proprietary systems, no hostage situations.</div></div>
+      <div class="faq-item reveal rd1"><button class="faq-q" onclick="fq(this)">What if I need changes after launch?<span class="faq-ic">+</span></button><div class="faq-a">Our Growth Care and Pro Care hosting plans include ongoing minor updates and content changes. For larger updates or new page builds, we offer project-based pricing. We&rsquo;re here for the long haul, not just the launch.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <canvas id="cta-canvas"></canvas>
+  <h2 class="cta-h">Ready for a website that <em>actually converts?</em></h2>
+  <p class="cta-sub">Start with a free audit and we&rsquo;ll show you exactly what your website needs to turn visitors into paying customers.</p>
+  <div class="cta-btns">
+    <a class="btn btn-brand btn-lg" href="apnosh_homepage.html#start">Get my free audit <span class="arr">&rarr;</span></a>
+    <a class="btn btn-ghost-dark btn-lg" href="talk_to_expert.html">Talk to our team first</a>
+  </div>
+  <p style="font-size:11px;color:rgba(255,255,255,.18);margin-top:14px;letter-spacing:.03em">No contracts &middot; You own everything &middot; Launch in as little as 2 weeks</p>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="f-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <div class="f-links">
+      <a class="f-link" href="apnosh_services.html">All services</a>
+      <a class="f-link" href="apnosh_pricing.html">Pricing</a>
+      <a class="f-link" href="apnosh_results.html">Results</a>
+      <a class="f-link" href="talk_to_expert.html">Contact</a>
+    </div>
+    <p class="f-copy">&copy; 2026 Apnosh. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('site-nav').classList.toggle('scrolled',window.scrollY>10),{passive:true});
+function fq(btn){const i=btn.closest('.faq-item'),o=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open');}
+!function(){const c=document.getElementById('cta-canvas');if(!c)return;const ctx=c.getContext('2d');let W,H,dots=[];function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}function mk(){return{x:Math.random()*W,y:H+10,s:Math.random()*.45+.15,r:Math.random()*1.4+.5,o:Math.random()*.13+.04};}function init(){resize();for(let i=0;i<36;i++){const d=mk();d.y=Math.random()*H;dots.push(d);}}function draw(){ctx.clearRect(0,0,W,H);dots.forEach(d=>{d.y-=d.s;if(d.y<-10)Object.assign(d,mk());ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle='rgba(74,189,152,'+d.o+')';ctx.fill();});requestAnimationFrame(draw);}init();draw();window.addEventListener('resize',resize);}();
+const io=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('on');io.unobserve(el.target);}});},{threshold:.05,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Local SEO Playbook 2026 — Apnosh</title>
+<meta name="description" content="The complete step-by-step guide to ranking in the top 3 on Google Maps. 24 pages of actionable local SEO strategies for small businesses. Free download.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#4abd98;--brand-d:#2e9a78;--brand-t:#eaf7f3;--brand-g:rgba(74,189,152,.14);
+  --ink:#1d1d1f;--ink2:#424245;--ink3:#6e6e73;--ink4:#aeaeb2;--ink5:#d2d2d7;--ink6:#f0f0f5;
+  --bg:#fff;--bg2:#f5f5f7;
+  --fd:'Playfair Display',Georgia,serif;--fb:'Inter',-apple-system,sans-serif;
+  --s2:0 4px 16px rgba(0,0,0,.07);--s3:0 8px 32px rgba(0,0,0,.09);--s4:0 16px 56px rgba(0,0,0,.11);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:1080px;margin:0 auto;padding:0 40px}
+.wmd{max-width:820px;margin:0 auto;padding:0 40px}
+.wsm{max-width:640px;margin:0 auto;padding:0 40px}
+@media(max-width:600px){.w,.wmd,.wsm{padding:0 20px}}
+.tc{text-align:center}
+.kicker{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);margin-bottom:14px}
+.h1{font-family:var(--fd);font-size:clamp(36px,5.5vw,62px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink)}
+.h1 em{font-style:italic;color:var(--brand-d)}
+.h2{font-family:var(--fd);font-size:clamp(24px,3.5vw,40px);font-weight:400;line-height:1.12;letter-spacing:-.02em;color:var(--ink)}
+.h2 em{font-style:italic;color:var(--brand-d)}
+.h3{font-family:var(--fd);font-size:clamp(18px,2.2vw,24px);font-weight:400;line-height:1.2;letter-spacing:-.015em;color:var(--ink)}
+.lead{font-size:clamp(15px,1.8vw,18px);font-weight:300;color:var(--ink2);line-height:1.72}
+.body{font-size:15px;font-weight:300;color:var(--ink3);line-height:1.7}
+.sm{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65}
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fb);font-weight:500;font-size:14px;text-decoration:none;border:none;cursor:pointer;border-radius:99px;padding:12px 24px;transition:all .2s;white-space:nowrap;line-height:1}
+.btn-primary{background:var(--ink);color:#fff}.btn-primary:hover{background:#2d2d2f;transform:translateY(-1px);box-shadow:var(--s3)}
+.btn-brand{background:var(--brand);color:var(--ink);font-weight:600}.btn-brand:hover{background:var(--brand-d);color:#fff;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink5)}.btn-outline:hover{border-color:var(--ink3);transform:translateY(-1px)}
+.btn-ghost-dark{background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.13)}.btn-ghost-dark:hover{background:rgba(255,255,255,.14)}
+.btn-sm{padding:9px 18px;font-size:13px}.btn-lg{padding:15px 32px;font-size:15px}
+.arr{transition:transform .2s;display:inline-block}
+a:hover .arr{transform:translateX(3px)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:44px;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.07);display:flex;align-items:center;transition:box-shadow .2s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.nav-inner{width:100%;max-width:1080px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.nav-logo em{font-style:italic;color:var(--brand-d)}
+.nav-back{font-size:12px;font-weight:400;color:var(--ink3);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .15s}
+.nav-back:hover{color:var(--ink)}
+.nav-back-arr{display:inline-block;transform:rotate(180deg)}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-audit{font-size:12px;font-weight:600;color:#fff;background:var(--brand-d);padding:7px 16px;border-radius:99px;text-decoration:none;transition:all .15s}
+.nav-audit:hover{background:var(--brand)}
+.nav-plain{font-size:12px;color:rgba(0,0,0,.45);text-decoration:none;padding:0 10px;transition:color .15s}
+.nav-plain:hover{color:var(--ink)}
+
+/* BREADCRUMB */
+.breadcrumb{padding:56px 0 0;background:var(--bg)}
+.bc-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink4)}
+@media(max-width:600px){.bc-inner{padding:0 20px}}
+.bc-link{color:var(--ink4);text-decoration:none;transition:color .15s}.bc-link:hover{color:var(--brand-d)}
+.bc-sep{color:var(--ink5)}
+.bc-current{color:var(--ink2);font-weight:500}
+
+/* READING PROGRESS */
+.progress-bar{position:fixed;top:44px;left:0;right:0;height:3px;z-index:899;background:transparent}
+.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--brand),var(--brand-d));transition:width .1s linear}
+
+/* HERO */
+.guide-hero{padding:32px 0 56px;background:var(--bg);overflow:hidden;position:relative}
+@media(max-width:600px){.guide-hero{padding:28px 0 40px}}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(74,189,152,.06) 0%,transparent 65%);pointer-events:none}
+.guide-hero-inner{max-width:1080px;margin:0 auto;padding:0 40px;position:relative;z-index:1}
+@media(max-width:600px){.guide-hero-inner{padding:0 20px}}
+.guide-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);border:1px solid rgba(74,189,152,.22);padding:5px 14px;border-radius:99px;margin-bottom:20px}
+.guide-hero-h{font-family:var(--fd);font-size:clamp(34px,5vw,58px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink);max-width:760px;margin-bottom:18px}
+.guide-hero-h em{font-style:italic;color:var(--brand-d)}
+.guide-hero-sub{font-size:clamp(15px,1.8vw,18px);font-weight:300;color:var(--ink2);line-height:1.72;max-width:620px;margin-bottom:28px}
+.guide-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:32px}
+.gm-item{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:400;color:var(--ink3)}
+.gm-icon{font-size:15px}
+.gm-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);border:1px solid rgba(74,189,152,.2);padding:3px 10px;border-radius:99px}
+.guide-hero-btns{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
+/* TWO-COLUMN LAYOUT */
+.guide-layout{max-width:1080px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start}
+@media(max-width:900px){.guide-layout{grid-template-columns:1fr;gap:0;padding:0 20px}}
+
+/* STICKY TOC */
+.toc{position:sticky;top:64px;padding:28px 0 28px 0;max-height:calc(100vh - 80px);overflow-y:auto}
+@media(max-width:900px){.toc{position:relative;top:0;padding:20px 0;max-height:none;border-bottom:1px solid var(--ink6);margin-bottom:32px}}
+.toc-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:14px}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+@media(max-width:900px){.toc-list{flex-direction:row;overflow-x:auto;gap:0;padding-bottom:8px;-webkit-overflow-scrolling:touch}}
+.toc-item{display:block}
+.toc-link{display:block;font-size:13px;font-weight:400;color:var(--ink4);text-decoration:none;padding:6px 12px;border-left:2px solid transparent;border-radius:0 6px 6px 0;transition:all .15s;line-height:1.4}
+@media(max-width:900px){.toc-link{border-left:none;border-bottom:2px solid transparent;border-radius:6px 6px 0 0;white-space:nowrap;padding:6px 14px;font-size:12px}}
+.toc-link:hover{color:var(--ink2);background:var(--bg2)}
+.toc-link.active{color:var(--brand-d);border-left-color:var(--brand-d);background:var(--brand-t);font-weight:500}
+@media(max-width:900px){.toc-link.active{border-bottom-color:var(--brand-d);border-left-color:transparent}}
+.toc-num{font-family:var(--fd);font-size:11px;color:var(--ink5);margin-right:4px}
+.toc-toggle{display:none;width:100%;padding:12px 16px;background:var(--bg2);border:1px solid var(--ink6);border-radius:10px;font-family:var(--fb);font-size:13px;font-weight:500;color:var(--ink2);cursor:pointer;margin-bottom:12px;text-align:left}
+@media(max-width:900px){.toc-toggle{display:flex;align-items:center;justify-content:space-between}}
+.toc-toggle-icon{font-size:16px;color:var(--brand-d);transition:transform .2s}
+.toc.collapsed .toc-list{display:none}
+@media(min-width:901px){.toc .toc-list{display:flex !important}}
+.toc.collapsed .toc-toggle-icon{transform:rotate(0deg)}
+.toc:not(.collapsed) .toc-toggle-icon{transform:rotate(45deg)}
+
+/* GUIDE CONTENT */
+.guide-content{padding:40px 0 80px}
+@media(max-width:900px){.guide-content{padding:0 0 60px}}
+
+.chapter{margin-bottom:64px;scroll-margin-top:64px}
+.chapter:last-child{margin-bottom:0}
+.chapter-num{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);margin-bottom:10px}
+.chapter-title{font-family:var(--fd);font-size:clamp(22px,3vw,32px);font-weight:400;line-height:1.15;letter-spacing:-.02em;color:var(--ink);margin-bottom:24px}
+.chapter-title em{font-style:italic;color:var(--brand-d)}
+.chapter p{font-size:15px;font-weight:300;color:var(--ink2);line-height:1.78;margin-bottom:18px}
+.chapter p strong{font-weight:500;color:var(--ink)}
+
+/* CALLOUT BOXES */
+.callout{background:var(--brand-t);border:1px solid rgba(74,189,152,.2);border-left:4px solid var(--brand-d);border-radius:0 12px 12px 0;padding:20px 24px;margin:28px 0}
+.callout-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.callout-text{font-size:14px;font-weight:400;color:var(--ink);line-height:1.65}
+
+/* STAT HIGHLIGHT */
+.stat-highlight{background:var(--ink);border-radius:14px;padding:28px 32px;margin:32px 0;text-align:center}
+.stat-highlight-n{font-family:var(--fd);font-size:clamp(32px,4vw,48px);font-weight:400;color:var(--brand);letter-spacing:-.03em;line-height:1;margin-bottom:8px}
+.stat-highlight-l{font-size:13px;font-weight:300;color:rgba(255,255,255,.45);line-height:1.6}
+
+/* CHECKLIST */
+.checklist{list-style:none;display:flex;flex-direction:column;gap:10px;margin:24px 0 28px;padding:0}
+.checklist li{display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:300;color:var(--ink2);line-height:1.65}
+.checklist li::before{content:'\2713';display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;background:var(--brand-t);border:1px solid rgba(74,189,152,.22);color:var(--brand-d);font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* TIP LIST */
+.tip-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin:20px 0 28px;padding:0;counter-reset:tip}
+.tip-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:300;color:var(--ink2);line-height:1.65;counter-increment:tip}
+.tip-list li::before{content:counter(tip);display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:11px;font-weight:600;flex-shrink:0;margin-top:1px}
+
+/* MID-GUIDE CTA */
+.mid-cta{background:var(--ink);border-radius:16px;padding:40px 36px;text-align:center;margin:48px 0;position:relative;overflow:hidden}
+.mid-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(74,189,152,.08) 0%,transparent 70%)}
+.mid-cta>*{position:relative;z-index:1}
+.mid-cta-h{font-family:var(--fd);font-size:clamp(20px,3vw,28px);font-weight:400;line-height:1.15;letter-spacing:-.02em;color:rgba(255,255,255,.95);margin-bottom:10px}
+.mid-cta-h em{font-style:italic;color:var(--brand)}
+.mid-cta-p{font-size:14px;font-weight:300;color:rgba(255,255,255,.4);margin-bottom:24px;line-height:1.65;max-width:440px;margin-left:auto;margin-right:auto}
+.mid-cta-btns{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+
+/* NEWSLETTER */
+.newsletter-section{padding:72px 0;background:var(--bg2);text-align:center}
+.nl-form{display:flex;align-items:center;gap:8px;max-width:440px;margin:24px auto 0}
+@media(max-width:500px){.nl-form{flex-direction:column}}
+.nl-input{flex:1;padding:12px 18px;border:1px solid var(--ink5);border-radius:99px;font-family:var(--fb);font-size:14px;font-weight:300;color:var(--ink);outline:none;transition:border-color .2s;width:100%}
+.nl-input:focus{border-color:var(--brand-d)}
+.nl-input::placeholder{color:var(--ink4)}
+
+/* RELATED RESOURCES */
+.related-section{padding:72px 0;background:var(--bg)}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
+@media(max-width:600px){.related-grid{grid-template-columns:1fr}}
+.related-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:16px;padding:28px 24px;transition:transform .2s,border-color .2s;text-decoration:none;display:block}
+.related-card:hover{transform:translateY(-3px);border-color:rgba(74,189,152,.25)}
+.related-tag{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-d);margin-bottom:10px;display:block}
+.related-title{font-family:var(--fd);font-size:18px;font-weight:400;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
+.related-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.62}
+
+/* CTA SECTION */
+.cta-section{background:var(--ink);padding:92px 40px;text-align:center;position:relative;overflow:hidden}
+@media(max-width:600px){.cta-section{padding:68px 20px}}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(74,189,152,.08) 0%,transparent 70%)}
+#cta-canvas{position:absolute;inset:0;pointer-events:none}
+.cta-section>*{position:relative;z-index:1}
+.cta-h{font-family:var(--fd);font-size:clamp(26px,4vw,46px);font-weight:400;line-height:1.1;letter-spacing:-.025em;color:rgba(255,255,255,.95);max-width:560px;margin:0 auto 14px}
+.cta-h em{font-style:italic;color:var(--brand)}
+.cta-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,.38);max-width:420px;margin:0 auto 36px;line-height:1.7}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+
+/* FOOTER */
+.footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:36px 40px}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none}
+.f-logo em{font-style:italic;color:var(--brand)}
+.f-links{display:flex;gap:20px;flex-wrap:wrap}
+.f-link{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .15s}
+.f-link:hover{color:rgba(255,255,255,.6)}
+.f-copy{font-size:11px;color:rgba(255,255,255,.16)}
+
+/* REVEAL */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.06s}.rd2{transition-delay:.12s}.rd3{transition-delay:.18s}.rd4{transition-delay:.24s}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <a class="nav-back" href="apnosh_services.html"><span class="nav-back-arr">&#8594;</span> All services</a>
+    <div class="nav-right">
+      <a class="nav-plain" href="talk_to_expert.html">Contact</a>
+      <a class="nav-audit" href="apnosh_homepage.html#start">Get free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- READING PROGRESS -->
+<div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="bc-inner">
+    <a class="bc-link" href="apnosh_homepage.html">Home</a>
+    <span class="bc-sep">/</span>
+    <a class="bc-link" href="apnosh_services.html">Resources</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">Local SEO Playbook 2026</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="guide-hero">
+  <div class="guide-hero-inner">
+    <div class="guide-tag">&#128214; Free Resource Guide</div>
+    <h1 class="guide-hero-h">The Local SEO <em>Playbook 2026</em></h1>
+    <p class="guide-hero-sub">The complete step-by-step guide to ranking in the top 3 on Google Maps. Everything a local business owner needs to know &mdash; from Google Business Profile optimization to a 90-day action plan.</p>
+    <div class="guide-meta">
+      <div class="gm-item"><span class="gm-icon">&#128196;</span> 24 pages</div>
+      <div class="gm-item"><span class="gm-icon">&#9201;</span> ~45 min read</div>
+      <div class="gm-badge">&#10003; Free</div>
+    </div>
+    <div class="guide-hero-btns">
+      <a class="btn btn-brand btn-lg" href="#chapter-1">Read online below <span class="arr">&darr;</span></a>
+      <a class="btn btn-outline btn-lg" href="talk_to_expert.html">Download the full guide</a>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div style="background:var(--ink);padding:36px 0">
+  <div style="max-width:1080px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(3,1fr)">
+    <div style="padding:0 24px;text-align:center;border-right:1px solid rgba(255,255,255,.07)">
+      <div style="font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--brand);letter-spacing:-.03em;line-height:1;margin-bottom:6px">46<span style="font-size:.65em;color:rgba(74,189,152,.6)">%</span></div>
+      <div style="font-size:11px;font-weight:400;color:rgba(255,255,255,.32);line-height:1.5">Of all Google searches have local intent</div>
+    </div>
+    <div style="padding:0 24px;text-align:center;border-right:1px solid rgba(255,255,255,.07)">
+      <div style="font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--brand);letter-spacing:-.03em;line-height:1;margin-bottom:6px">70<span style="font-size:.65em;color:rgba(74,189,152,.6)">%+</span></div>
+      <div style="font-size:11px;font-weight:400;color:rgba(255,255,255,.32);line-height:1.5">Of clicks go to businesses in the top 3 of Maps</div>
+    </div>
+    <div style="padding:0 24px;text-align:center">
+      <div style="font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--brand);letter-spacing:-.03em;line-height:1;margin-bottom:6px">#2</div>
+      <div style="font-size:11px;font-weight:400;color:rgba(255,255,255,.32);line-height:1.5">Reviews are the second most important ranking factor</div>
+    </div>
+  </div>
+</div>
+
+<!-- GUIDE BODY: TOC + CONTENT -->
+<div class="guide-layout">
+
+  <!-- TABLE OF CONTENTS -->
+  <aside class="toc" id="toc">
+    <button class="toc-toggle" onclick="document.getElementById('toc').classList.toggle('collapsed')">
+      Table of Contents <span class="toc-toggle-icon">+</span>
+    </button>
+    <div class="toc-label">Chapters</div>
+    <ul class="toc-list" id="toc-list">
+      <li class="toc-item"><a class="toc-link" href="#chapter-1" data-ch="chapter-1"><span class="toc-num">01</span> Why Local SEO Matters</a></li>
+      <li class="toc-item"><a class="toc-link" href="#chapter-2" data-ch="chapter-2"><span class="toc-num">02</span> Google Business Profile</a></li>
+      <li class="toc-item"><a class="toc-link" href="#chapter-3" data-ch="chapter-3"><span class="toc-num">03</span> NAP &amp; Citations</a></li>
+      <li class="toc-item"><a class="toc-link" href="#chapter-4" data-ch="chapter-4"><span class="toc-num">04</span> Review Strategy</a></li>
+      <li class="toc-item"><a class="toc-link" href="#chapter-5" data-ch="chapter-5"><span class="toc-num">05</span> On-Page SEO</a></li>
+      <li class="toc-item"><a class="toc-link" href="#chapter-6" data-ch="chapter-6"><span class="toc-num">06</span> Content Strategy</a></li>
+      <li class="toc-item"><a class="toc-link" href="#chapter-7" data-ch="chapter-7"><span class="toc-num">07</span> Tracking Results</a></li>
+      <li class="toc-item"><a class="toc-link" href="#chapter-8" data-ch="chapter-8"><span class="toc-num">08</span> 90-Day Action Plan</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="guide-content">
+
+    <!-- CHAPTER 1 -->
+    <section class="chapter reveal" id="chapter-1">
+      <div class="chapter-num">Chapter 1</div>
+      <h2 class="chapter-title">Why Local SEO Matters <em>in 2026</em></h2>
+
+      <p>If you run a business that serves customers in a specific geographic area &mdash; a restaurant, law firm, dental practice, plumber, or retail shop &mdash; local SEO is the single highest-ROI marketing channel available to you. It is not a nice-to-have. It is the difference between showing up when someone nearby searches for exactly what you sell, and being invisible while your competitor gets that call instead.</p>
+
+      <p>Google&rsquo;s local pack (the map with three business listings that appears at the top of search results) now dominates the screen for service-related queries. When someone searches &ldquo;dentist near me&rdquo; or &ldquo;best Italian restaurant downtown,&rdquo; the local pack is the first thing they see. <strong>Businesses that appear in the top three positions capture the vast majority of clicks, calls, and direction requests.</strong> Everyone below that fold might as well not exist for that searcher.</p>
+
+      <p>What makes local SEO especially valuable for small businesses is that it levels the playing field. You do not need a massive advertising budget to rank in the local pack. Google evaluates local results based on relevance, distance, and prominence &mdash; factors that a well-optimized small business can compete on. A single-location dentist can outrank a corporate chain in their own neighborhood with the right strategy. This guide shows you exactly how.</p>
+
+      <div class="stat-highlight">
+        <div class="stat-highlight-n">46%</div>
+        <div class="stat-highlight-l">of all Google searches have local intent &mdash; nearly half of the billions of searches performed every day are someone looking for something nearby.</div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">&#128161; Key Takeaway</div>
+        <div class="callout-text">Local SEO is not about gaming an algorithm. It is about making sure Google accurately understands who you are, where you are, and what you offer &mdash; so it can confidently recommend you to the right people at the right time. Every optimization in this guide serves that goal.</div>
+      </div>
+
+      <ul class="checklist">
+        <li>Understand that local SEO directly drives calls, foot traffic, and revenue &mdash; not just website visits</li>
+        <li>Recognize that the local 3-pack gets more clicks than the organic results below it for local queries</li>
+        <li>Accept that your competitors are already investing in this &mdash; doing nothing means falling behind</li>
+        <li>Commit to treating local SEO as an ongoing process, not a one-time project</li>
+      </ul>
+    </section>
+
+    <!-- CHAPTER 2 -->
+    <section class="chapter reveal" id="chapter-2">
+      <div class="chapter-num">Chapter 2</div>
+      <h2 class="chapter-title">Google Business Profile &mdash; <em>The Foundation</em></h2>
+
+      <p>Your Google Business Profile (GBP) is the single most important asset in local SEO. It is the listing that appears in Google Maps, the local pack, and the knowledge panel when someone searches your business name. If you only do one thing after reading this guide, make it a complete, accurate, and optimized GBP. Everything else builds on this foundation.</p>
+
+      <p>Start by claiming and verifying your profile at business.google.com if you have not already. Then fill out every single field Google provides &mdash; and that means every field. Your primary business category should be the most specific option that describes your core offering. A family law attorney should select &ldquo;Family law attorney,&rdquo; not just &ldquo;Lawyer.&rdquo; A Thai restaurant should select &ldquo;Thai restaurant,&rdquo; not &ldquo;Restaurant.&rdquo; <strong>Your primary category is one of the strongest ranking signals Google uses for local results.</strong></p>
+
+      <p>Write your business description using all 750 characters. Naturally include the services you offer and the areas you serve without keyword stuffing. Upload at least 10 high-quality photos, including your storefront, interior, team, and products or services in action. Businesses with photos receive 42% more requests for directions and 35% more click-throughs to their website. Add your service areas, business hours (including special holiday hours), and attributes like &ldquo;wheelchair accessible&rdquo; or &ldquo;free Wi-Fi.&rdquo; The more complete your profile, the more confident Google is in showing it to searchers.</p>
+
+      <div class="callout">
+        <div class="callout-label">&#128161; Key Takeaway</div>
+        <div class="callout-text">A fully completed Google Business Profile with accurate categories, quality photos, and regular updates is the foundation of every successful local SEO strategy. An incomplete profile is a signal to Google that your business may not be active or trustworthy.</div>
+      </div>
+
+      <ul class="checklist">
+        <li>Claim and verify your Google Business Profile if you have not already</li>
+        <li>Select the most specific primary category available for your business</li>
+        <li>Add 3&ndash;5 secondary categories that describe your additional services</li>
+        <li>Write a complete 750-character business description with natural keyword inclusion</li>
+        <li>Upload at least 10 high-quality, original photos (storefront, interior, team, products)</li>
+        <li>Set accurate business hours, including special hours for holidays</li>
+        <li>Add all relevant attributes (parking, accessibility, payment methods)</li>
+        <li>Post weekly updates using Google Business Profile posts to signal activity</li>
+      </ul>
+    </section>
+
+    <!-- CHAPTER 3 -->
+    <section class="chapter reveal" id="chapter-3">
+      <div class="chapter-num">Chapter 3</div>
+      <h2 class="chapter-title">NAP Consistency <em>&amp; Citations</em></h2>
+
+      <p>NAP stands for Name, Address, and Phone number. It sounds simple, but inconsistent NAP information across the web is one of the most common reasons local businesses fail to rank. When Google finds conflicting information about your business &mdash; a different phone number on Yelp than on your website, or a slightly different address format on the BBB listing &mdash; it loses confidence in the accuracy of your data. And a less confident Google is a Google that ranks you lower.</p>
+
+      <p>Citations are mentions of your business name and address on other websites, whether or not they include a link. They function as trust signals. The more consistent, high-quality citations Google finds across the web, the more confident it becomes that your business is real, active, and located where you say you are. <strong>Focus on quality over quantity.</strong> A consistent listing on Yelp, Apple Maps, Bing Places, Facebook, and your industry-specific directories is worth far more than hundreds of listings on obscure, low-quality sites.</p>
+
+      <p>Start with what is called the &ldquo;core four&rdquo; data aggregators: Data Axle (formerly Infogroup), Neustar Localeze, Foursquare, and Factual. These aggregators feed your business data to hundreds of smaller directories, apps, and mapping services. Getting your NAP right at the aggregator level cascades accuracy across the web. Then manually verify and correct your listings on the top consumer-facing platforms: Google, Apple Maps, Bing, Yelp, Facebook, and any directories specific to your industry (Healthgrades for doctors, Avvo for lawyers, TripAdvisor for restaurants).</p>
+
+      <div class="callout">
+        <div class="callout-label">&#128161; Key Takeaway</div>
+        <div class="callout-text">NAP consistency is a trust signal. Every time Google finds your exact business name, address, and phone number on a reputable site, it becomes a little more confident in your legitimacy. Inconsistencies erode that trust. Audit your citations at least twice per year.</div>
+      </div>
+
+      <ul class="checklist">
+        <li>Create a master NAP document with your exact business name, address, and phone number</li>
+        <li>Submit accurate information to the four major data aggregators</li>
+        <li>Manually claim and verify listings on Google, Apple Maps, Bing, Yelp, and Facebook</li>
+        <li>Fix any inconsistencies &mdash; even small differences like &ldquo;St.&rdquo; vs. &ldquo;Street&rdquo; matter</li>
+        <li>Claim listings on industry-specific directories relevant to your business</li>
+        <li>Set a calendar reminder to audit your citations every six months</li>
+        <li>Remove or correct any duplicate listings that could confuse Google</li>
+      </ul>
+    </section>
+
+    <!-- CHAPTER 4 -->
+    <section class="chapter reveal" id="chapter-4">
+      <div class="chapter-num">Chapter 4</div>
+      <h2 class="chapter-title">Review Strategy <em>That Actually Works</em></h2>
+
+      <p>Online reviews are the second most influential ranking factor for local SEO, right behind your Google Business Profile signals. But reviews do double duty: they influence your ranking in the local pack and they influence whether a searcher clicks on your listing or scrolls past it. A business with 147 reviews and a 4.7-star rating will almost always get the click over a competitor with 12 reviews and a 4.9 rating. Volume and recency both matter.</p>
+
+      <p><strong>The most effective review strategy is embarrassingly simple: ask every customer.</strong> The reason most businesses have few reviews is not that their customers are unhappy &mdash; it is that they never ask. Create a direct link to your Google review page (you can generate one from your GBP dashboard) and make it absurdly easy for customers to leave feedback. Send the link via text or email within 24 hours of a completed service. Include it on receipts. Print a QR code and display it at your counter. The businesses that win at reviews are the ones that build asking into their standard workflow.</p>
+
+      <p>Responding to every review &mdash; positive and negative &mdash; is just as important as generating them. Thank positive reviewers by name and mention something specific about their experience. For negative reviews, respond professionally, acknowledge the issue, and offer to resolve it offline. Google has confirmed that responding to reviews improves your local ranking. It signals that you are an engaged, active business that cares about customer experience. Never argue with a reviewer publicly. Your response is not for the person who left the review &mdash; it is for the hundreds of potential customers who will read it.</p>
+
+      <div class="stat-highlight">
+        <div class="stat-highlight-n">#2</div>
+        <div class="stat-highlight-l">Reviews are the second most important ranking factor for the local pack, and the number-one factor influencing click-through rates on local listings.</div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">&#128161; Key Takeaway</div>
+        <div class="callout-text">A steady stream of recent, positive reviews on Google is one of the most powerful local SEO assets you can build. Do not wait for reviews to happen organically. Build a system that makes asking for reviews a standard part of your customer workflow.</div>
+      </div>
+
+      <ul class="checklist">
+        <li>Generate a direct Google review link from your GBP dashboard</li>
+        <li>Send a review request via text or email within 24 hours of service completion</li>
+        <li>Display a QR code linking to your review page at your physical location</li>
+        <li>Respond to every review &mdash; positive and negative &mdash; within 48 hours</li>
+        <li>Never offer incentives for reviews (this violates Google&rsquo;s terms of service)</li>
+        <li>Aim for a minimum of 2&ndash;4 new reviews per month to maintain recency</li>
+        <li>Address negative reviews professionally and take the conversation offline</li>
+      </ul>
+    </section>
+
+    <!-- MID-GUIDE CTA -->
+    <div class="mid-cta reveal">
+      <h3 class="mid-cta-h">Want us to <em>handle this for you?</em></h3>
+      <p class="mid-cta-p">Our Local SEO service covers everything in this guide and more. We optimize your profiles, build citations, manage reviews, and track your rankings &mdash; so you can focus on running your business.</p>
+      <div class="mid-cta-btns">
+        <a class="btn btn-brand" href="service-local-seo.html">View Local SEO plans <span class="arr">&rarr;</span></a>
+        <a class="btn btn-ghost-dark" href="talk_to_expert.html">Talk to an expert</a>
+      </div>
+    </div>
+
+    <!-- CHAPTER 5 -->
+    <section class="chapter reveal" id="chapter-5">
+      <div class="chapter-num">Chapter 5</div>
+      <h2 class="chapter-title">On-Page SEO <em>for Local Businesses</em></h2>
+
+      <p>Your website is the foundation that supports everything you do in local SEO. While your Google Business Profile is what shows up in the local pack, your website is what Google crawls to understand your business in depth. On-page SEO for local businesses has a specific focus: helping Google connect your website to the geographic area and services you want to rank for.</p>
+
+      <p><strong>Every service page on your site should target a specific service in a specific location.</strong> If you are a plumber in Phoenix who also serves Scottsdale and Tempe, you need dedicated pages for &ldquo;Plumber in Scottsdale&rdquo; and &ldquo;Emergency plumbing in Tempe&rdquo; &mdash; not just a single &ldquo;Services&rdquo; page. Each page should include the service and location in the title tag, H1, meta description, and naturally throughout the body copy. Include your full NAP in the footer of every page and mark it up with LocalBusiness schema so search engines can parse it as structured data.</p>
+
+      <p>Schema markup (structured data) is one of the most underused local SEO tactics. Adding LocalBusiness schema to your website tells Google exactly what type of business you are, your address, hours, phone number, and more in a machine-readable format. This does not guarantee rich results, but it removes ambiguity and helps Google categorize your business correctly. Use Google&rsquo;s Structured Data Testing Tool to validate your markup. Also ensure your site loads fast (under 3 seconds), is fully mobile-responsive, and uses HTTPS. These are table stakes in 2026 &mdash; sites that fail on any of these are at a significant disadvantage.</p>
+
+      <div class="callout">
+        <div class="callout-label">&#128161; Key Takeaway</div>
+        <div class="callout-text">Your website needs to clearly communicate what you do and where you do it on every relevant page. Location-specific service pages, proper title tags, LocalBusiness schema, and fast mobile performance are the four pillars of local on-page SEO.</div>
+      </div>
+
+      <ul class="checklist">
+        <li>Create dedicated pages for each service + location combination you want to rank for</li>
+        <li>Include city and service in title tags, H1s, and meta descriptions</li>
+        <li>Add your full NAP to the footer of every page on your site</li>
+        <li>Implement LocalBusiness schema markup and validate it with Google&rsquo;s testing tool</li>
+        <li>Ensure your site loads in under 3 seconds on mobile (test with PageSpeed Insights)</li>
+        <li>Make sure every page is fully mobile-responsive</li>
+        <li>Use HTTPS across your entire site &mdash; no mixed content warnings</li>
+        <li>Embed a Google Map on your contact page showing your business location</li>
+      </ul>
+    </section>
+
+    <!-- CHAPTER 6 -->
+    <section class="chapter reveal" id="chapter-6">
+      <div class="chapter-num">Chapter 6</div>
+      <h2 class="chapter-title">Content Strategy <em>for Local Authority</em></h2>
+
+      <p>Content marketing for local businesses is not about publishing blog posts for the sake of having a blog. It is about creating pages that answer the questions your potential customers are actually asking &mdash; and tying those answers to your geographic area. When a homeowner in Dallas searches &ldquo;how much does a new roof cost in Dallas,&rdquo; the roofing company with a detailed, helpful page answering that exact question is the one that earns the click, the trust, and eventually the job.</p>
+
+      <p><strong>Local content has a specific advantage: lower competition.</strong> Ranking nationally for &ldquo;roof replacement cost&rdquo; is extremely difficult. But ranking for &ldquo;roof replacement cost in [your city]&rdquo; is achievable for almost any business willing to create quality content. Focus on topics at the intersection of your expertise and your location. Neighborhood guides, local event roundups, FAQ pages about your services in your area, case studies featuring local clients (with permission), and comparison content like &ldquo;[Service A] vs. [Service B]: Which is right for [City] homeowners?&rdquo; all build local topical authority.</p>
+
+      <p>Consistency matters more than volume. Publishing one well-researched, genuinely helpful article per month is far more effective than publishing four thin posts that offer no real value. Each piece of content should be at least 800 words, answer a real question your customers ask, include your target location naturally, and link internally to your relevant service pages. Over time, this content library becomes a ranking asset that compounds &mdash; each new article strengthens your site&rsquo;s overall authority and gives Google more reasons to rank you for local queries.</p>
+
+      <div class="callout">
+        <div class="callout-label">&#128161; Key Takeaway</div>
+        <div class="callout-text">Local content strategy is about becoming the most helpful resource in your area for the questions your customers are already asking. One genuinely useful article per month, tied to your location and services, will outperform dozens of thin, generic posts.</div>
+      </div>
+
+      <ul class="tip-list">
+        <li>Write a FAQ page answering the top 10 questions your customers ask, with city names included</li>
+        <li>Create a &ldquo;cost of [service] in [city]&rdquo; page &mdash; these are high-intent, low-competition keywords</li>
+        <li>Publish neighborhood or area guides that showcase your local knowledge</li>
+        <li>Document case studies from local projects (with client permission and photos)</li>
+        <li>Write comparison content that helps customers make informed decisions</li>
+        <li>Link every content piece back to relevant service pages on your site</li>
+      </ul>
+    </section>
+
+    <!-- CHAPTER 7 -->
+    <section class="chapter reveal" id="chapter-7">
+      <div class="chapter-num">Chapter 7</div>
+      <h2 class="chapter-title">Tracking &amp; Measuring <em>Results</em></h2>
+
+      <p>Local SEO without measurement is guesswork. You need to know what is working, what is not, and where to focus your limited time and budget. The good news is that you do not need expensive tools to track meaningful progress. Google provides most of what you need for free &mdash; you just have to know where to look and what to measure.</p>
+
+      <p><strong>Your Google Business Profile Insights dashboard is the most important data source for local SEO.</strong> It shows you how many people found your listing, what searches they used, how many clicked to your website, requested directions, or called you directly. Track these metrics monthly and look for trends. A steady increase in &ldquo;discovery searches&rdquo; (people who found you searching for a category rather than your business name) is the strongest signal that your local SEO efforts are working. Also monitor which photos get the most views and which GBP posts drive the most engagement.</p>
+
+      <p>Beyond GBP Insights, set up Google Analytics 4 and Google Search Console on your website. Search Console shows you exactly which queries your site appears for and your average position. Filter by queries containing your city name to isolate local performance. Google Analytics shows what visitors do after they arrive &mdash; which pages they visit, how long they stay, and whether they convert (call, fill out a form, book an appointment). For rank tracking, a tool like BrightLocal, Whitespark, or even a simple weekly manual check of your target keywords gives you the clearest picture of your local pack position over time.</p>
+
+      <div class="callout">
+        <div class="callout-label">&#128161; Key Takeaway</div>
+        <div class="callout-text">Track three things monthly: your GBP discovery searches (are more people finding you?), your local pack position for your top 5 keywords, and your conversion actions (calls, direction requests, form submissions). These three metrics tell you whether your local SEO investment is paying off.</div>
+      </div>
+
+      <ul class="checklist">
+        <li>Review your Google Business Profile Insights dashboard monthly</li>
+        <li>Track &ldquo;discovery search&rdquo; trends &mdash; this shows growth in visibility to new customers</li>
+        <li>Set up Google Search Console and filter for local/city-based queries</li>
+        <li>Install Google Analytics 4 and track conversion events (calls, form fills, bookings)</li>
+        <li>Monitor your local pack position for 5&ndash;10 target keywords weekly</li>
+        <li>Create a simple monthly spreadsheet tracking reviews, rankings, and conversions</li>
+        <li>Compare month-over-month to identify what is driving improvement</li>
+      </ul>
+    </section>
+
+    <!-- CHAPTER 8 -->
+    <section class="chapter reveal" id="chapter-8">
+      <div class="chapter-num">Chapter 8</div>
+      <h2 class="chapter-title">Your 90-Day <em>Action Plan</em></h2>
+
+      <p>Reading about local SEO is one thing. Implementing it is another. This chapter gives you a structured, week-by-week plan to go from wherever you are now to a fully optimized local presence within 90 days. The plan is designed for a business owner or marketing manager who can dedicate 3&ndash;5 hours per week to local SEO. If you have more time, you can accelerate. If you have less, stretch the timeline &mdash; but follow the sequence.</p>
+
+      <p><strong>Days 1&ndash;30 are about building the foundation.</strong> Claim and fully optimize your Google Business Profile. Create your master NAP document. Claim and correct your listings on the core four data aggregators and the top consumer-facing directories. Set up Google Analytics 4 and Search Console. Implement LocalBusiness schema on your website. Update your website footer with your correct NAP. Upload at least 10 quality photos to your GBP. This first month is about getting the fundamentals right &mdash; nothing glamorous, but everything that follows depends on it.</p>
+
+      <p><strong>Days 31&ndash;60 focus on reviews and on-page optimization.</strong> Create your review request system &mdash; generate your direct review link, draft your follow-up message, and build asking into your workflow. Start requesting reviews from every customer. On the website side, create or optimize your location-specific service pages. Make sure each page has a clear title tag, H1, meta description, and body copy that includes your service and city. Publish your first piece of local content &mdash; a FAQ page or a &ldquo;cost of [service] in [city]&rdquo; article. <strong>Days 61&ndash;90 are about momentum.</strong> Continue generating reviews. Publish two more pieces of local content. Start posting weekly on your Google Business Profile. Set up your monthly tracking dashboard. Audit your citations for any remaining inconsistencies. By day 90, you will have a fully optimized local presence that positions you to compete for the local pack.</p>
+
+      <div class="callout">
+        <div class="callout-label">&#128161; Key Takeaway</div>
+        <div class="callout-text">Local SEO is a compounding investment. The work you do in the first 90 days builds the foundation. The results accelerate over months 3 through 12 as Google gains confidence in your business and your review count, content library, and citation profile grow. Start now &mdash; your competitors already have.</div>
+      </div>
+
+      <ul class="tip-list">
+        <li><strong>Week 1&ndash;2:</strong> Claim and fully optimize your Google Business Profile (every field, 10+ photos, weekly posts)</li>
+        <li><strong>Week 3&ndash;4:</strong> Create your master NAP document and submit to the four major data aggregators</li>
+        <li><strong>Week 4&ndash;5:</strong> Claim and correct listings on Yelp, Apple Maps, Bing, Facebook, and industry directories</li>
+        <li><strong>Week 5&ndash;6:</strong> Set up Google Analytics, Search Console, and LocalBusiness schema on your website</li>
+        <li><strong>Week 6&ndash;8:</strong> Build your review system and start requesting reviews from every customer</li>
+        <li><strong>Week 7&ndash;9:</strong> Create or optimize location-specific service pages on your website</li>
+        <li><strong>Week 9&ndash;10:</strong> Publish your first piece of local content (FAQ or cost guide)</li>
+        <li><strong>Week 10&ndash;12:</strong> Publish two more content pieces, set up monthly tracking, and audit all citations</li>
+      </ul>
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="mid-cta reveal">
+      <h3 class="mid-cta-h">Ready to rank in the <em>top 3?</em></h3>
+      <p class="mid-cta-p">Whether you want to implement this playbook yourself or hand it off to a team that does this every day, we are here to help. Start with a free local SEO audit and see exactly where you stand.</p>
+      <div class="mid-cta-btns">
+        <a class="btn btn-brand" href="service-local-seo.html">View Local SEO plans <span class="arr">&rarr;</span></a>
+        <a class="btn btn-ghost-dark" href="apnosh_homepage.html#start">Get free audit <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="wsm reveal">
+    <span class="kicker">Stay sharp</span>
+    <h2 class="h2" style="margin-bottom:8px">Get local SEO tips <em>in your inbox</em></h2>
+    <p class="body">One actionable local SEO insight per week. No spam, no fluff &mdash; just strategies that move the needle for local businesses.</p>
+    <div class="nl-form">
+      <input class="nl-input" type="email" placeholder="you@yourbusiness.com" aria-label="Email address">
+      <button class="btn btn-brand" type="button">Subscribe <span class="arr">&rarr;</span></button>
+    </div>
+    <p class="sm" style="margin-top:12px;color:var(--ink4)">Join 2,400+ local business owners. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- RELATED RESOURCES -->
+<section class="related-section">
+  <div class="wmd">
+    <div class="tc reveal">
+      <span class="kicker">Keep learning</span>
+      <h2 class="h2">More free <em>resources</em></h2>
+    </div>
+    <div class="related-grid">
+      <a class="related-card reveal rd1" href="#">
+        <span class="related-tag">Toolkit</span>
+        <div class="related-title">The Social Media Toolkit for Local Businesses</div>
+        <p class="related-desc">Templates, posting schedules, caption frameworks, and platform-by-platform strategies to grow your social presence without hiring an agency.</p>
+      </a>
+      <a class="related-card reveal rd2" href="#">
+        <span class="related-tag">Guide</span>
+        <div class="related-title">The Email Marketing Kit for Small Businesses</div>
+        <p class="related-desc">Subject line formulas, automation sequences, list-building tactics, and email templates that turn subscribers into repeat customers.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <canvas id="cta-canvas"></canvas>
+  <h2 class="cta-h">Ready to get found by <em>local customers?</em></h2>
+  <p class="cta-sub">Start with a free local SEO audit. We&rsquo;ll analyze your Google Business Profile, citations, reviews, and website &mdash; and show you exactly what to fix first.</p>
+  <div class="cta-btns">
+    <a class="btn btn-brand btn-lg" href="apnosh_homepage.html#start">Get my free audit <span class="arr">&rarr;</span></a>
+    <a class="btn btn-ghost-dark btn-lg" href="talk_to_expert.html">Talk to our team first</a>
+  </div>
+  <p style="font-size:11px;color:rgba(255,255,255,.18);margin-top:14px;letter-spacing:.03em">No contracts &middot; No commitment &middot; Free for all local businesses</p>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="f-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <div class="f-links">
+      <a class="f-link" href="apnosh_services.html">All services</a>
+      <a class="f-link" href="apnosh_pricing.html">Pricing</a>
+      <a class="f-link" href="apnosh_results.html">Results</a>
+      <a class="f-link" href="talk_to_expert.html">Contact</a>
+    </div>
+    <p class="f-copy">&copy; 2026 Apnosh. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+window.addEventListener('scroll',()=>document.getElementById('site-nav').classList.toggle('scrolled',window.scrollY>10),{passive:true});
+
+// Reading progress bar
+window.addEventListener('scroll',function(){
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  const p=h>0?(window.scrollY/h)*100:0;
+  document.getElementById('progress-fill').style.width=Math.min(p,100)+'%';
+},{passive:true});
+
+// TOC active state
+!function(){
+  const links=document.querySelectorAll('.toc-link');
+  const chapters=[];
+  links.forEach(l=>{
+    const id=l.getAttribute('data-ch');
+    const el=document.getElementById(id);
+    if(el)chapters.push({el:el,link:l});
+  });
+  function update(){
+    let active=null;
+    chapters.forEach(c=>{
+      const r=c.el.getBoundingClientRect();
+      if(r.top<=120)active=c;
+    });
+    links.forEach(l=>l.classList.remove('active'));
+    if(active)active.link.classList.add('active');
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+}();
+
+// TOC mobile toggle — start collapsed on mobile
+!function(){
+  if(window.innerWidth<=900){
+    document.getElementById('toc').classList.add('collapsed');
+  }
+}();
+
+// CTA canvas particles
+!function(){const c=document.getElementById('cta-canvas');if(!c)return;const ctx=c.getContext('2d');let W,H,dots=[];function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}function mk(){return{x:Math.random()*W,y:H+10,s:Math.random()*.45+.15,r:Math.random()*1.4+.5,o:Math.random()*.13+.04};}function init(){resize();for(let i=0;i<36;i++){const d=mk();d.y=Math.random()*H;dots.push(d);}}function draw(){ctx.clearRect(0,0,W,H);dots.forEach(d=>{d.y-=d.s;if(d.y<-10)Object.assign(d,mk());ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle='rgba(74,189,152,'+d.o+')';ctx.fill();});requestAnimationFrame(draw);}init();draw();window.addEventListener('resize',resize);}();
+
+// Reveal on scroll
+const io=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('on');io.unobserve(el.target);}});},{threshold:.05,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

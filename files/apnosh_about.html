@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Apnosh Digital Marketing Agency</title>
+<meta name="description" content="Apnosh was built by marketers who were tired of watching agencies overcharge and underdeliver. Meet the team and the mission behind AI-powered marketing for real businesses.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#4abd98;--brand-d:#2e9a78;--brand-t:#eaf7f3;--brand-g:rgba(74,189,152,.14);
+  --ink:#1d1d1f;--ink2:#424245;--ink3:#6e6e73;--ink4:#aeaeb2;--ink5:#d2d2d7;--ink6:#f0f0f5;
+  --bg:#fff;--bg2:#f5f5f7;
+  --fd:'Playfair Display',Georgia,serif;--fb:'Inter',-apple-system,sans-serif;
+  --s2:0 4px 16px rgba(0,0,0,.07);--s3:0 8px 32px rgba(0,0,0,.09);--s4:0 16px 56px rgba(0,0,0,.11);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:1080px;margin:0 auto;padding:0 40px}
+.wmd{max-width:800px;margin:0 auto;padding:0 40px}
+.wsm{max-width:620px;margin:0 auto;padding:0 40px}
+@media(max-width:600px){.w,.wmd,.wsm{padding:0 20px}}
+.tc{text-align:center}
+.kicker{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);margin-bottom:14px}
+.h1{font-family:var(--fd);font-size:clamp(38px,6vw,70px);font-weight:400;line-height:1.07;letter-spacing:-.025em;color:var(--ink)}
+.h1 em{font-style:italic;color:var(--brand-d)}
+.h2{font-family:var(--fd);font-size:clamp(26px,3.5vw,42px);font-weight:400;line-height:1.12;letter-spacing:-.02em;color:var(--ink)}
+.h2 em{font-style:italic;color:var(--brand-d)}
+.h3{font-family:var(--fd);font-size:clamp(20px,2.2vw,26px);font-weight:400;line-height:1.22;letter-spacing:-.015em;color:var(--ink)}
+.lead{font-size:clamp(16px,1.8vw,19px);font-weight:300;color:var(--ink2);line-height:1.72}
+.body{font-size:15px;font-weight:300;color:var(--ink3);line-height:1.72}
+.sm{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65}
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fb);font-weight:500;font-size:14px;text-decoration:none;border:none;cursor:pointer;border-radius:99px;padding:12px 24px;transition:all .2s;white-space:nowrap;line-height:1}
+.btn-primary{background:var(--ink);color:#fff}.btn-primary:hover{background:#2d2d2f;transform:translateY(-1px);box-shadow:var(--s3)}
+.btn-brand{background:var(--brand);color:var(--ink);font-weight:600}.btn-brand:hover{background:var(--brand-d);color:#fff;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink5)}.btn-outline:hover{border-color:var(--ink3);transform:translateY(-1px)}
+.btn-ghost-dark{background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.13)}.btn-ghost-dark:hover{background:rgba(255,255,255,.14);transform:translateY(-1px)}
+.btn-sm{padding:9px 18px;font-size:13px}.btn-lg{padding:15px 32px;font-size:15px}
+.arr{transition:transform .2s;display:inline-block}
+a:hover .arr{transform:translateX(3px)}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:44px;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.07);display:flex;align-items:center;transition:box-shadow .2s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.nav-inner{width:100%;max-width:1080px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:-.01em;flex-shrink:0;position:relative;z-index:902}
+.nav-logo em{font-style:italic;color:var(--brand-d)}
+.nav-center{display:flex;align-items:center;gap:0}
+.nav-link{font-size:12px;font-weight:400;color:rgba(0,0,0,.55);text-decoration:none;padding:0 12px;height:44px;display:inline-flex;align-items:center;gap:4px;transition:color .15s;border:none;background:none;cursor:pointer;font-family:var(--fb);white-space:nowrap}
+.nav-link:hover,.nav-link.open,.nav-link.active{color:var(--ink)}
+.nav-link.active{font-weight:500}
+.nav-chevron{width:7px;height:7px;border-right:1.2px solid currentColor;border-bottom:1.2px solid currentColor;transform:rotate(45deg);margin-top:-3px;transition:transform .2s;flex-shrink:0}
+.nav-link.open .nav-chevron{transform:rotate(-135deg);margin-top:1px}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;position:relative;z-index:902}
+.nav-audit{font-size:12px;font-weight:600;color:#fff;background:var(--brand-d);padding:7px 16px;border-radius:99px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.nav-audit:hover{background:var(--brand)}
+.nav-plain{font-size:12px;font-weight:400;color:rgba(0,0,0,.45);text-decoration:none;padding:0 10px;transition:color .15s}
+.nav-plain:hover{color:var(--ink)}
+.mega{position:fixed;top:44px;left:0;right:0;z-index:899;background:rgba(255,255,255,.97);backdrop-filter:saturate(180%) blur(24px);border-bottom:1px solid rgba(0,0,0,.07);box-shadow:0 8px 40px rgba(0,0,0,.1);padding:28px 0 32px;opacity:0;pointer-events:none;transform:translateY(-6px);transition:opacity .2s ease,transform .2s ease}
+.mega.open{opacity:1;pointer-events:all;transform:translateY(0)}
+.mega-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px}
+.mega-col{display:flex;flex-direction:column;gap:2px}
+.mega-col-title{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);padding:0 12px;margin-bottom:8px}
+.mega-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:background .15s}
+.mega-item:hover{background:var(--ink6)}
+.mega-icon{width:32px;height:32px;border-radius:8px;background:var(--brand-t);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.mega-item-name{font-size:13px;font-weight:500;color:var(--ink);display:block;margin-bottom:2px;font-family:var(--fd);letter-spacing:-.01em}
+.mega-item-desc{font-size:11px;font-weight:300;color:var(--ink4);line-height:1.4}
+.mega-footer{max-width:1080px;margin:18px auto 0;padding:16px 40px 0;border-top:1px solid var(--ink6);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.mega-footer-links{display:flex;align-items:center;gap:20px}
+.mega-footer-link{font-size:12px;font-weight:500;color:var(--brand-d);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.mega-footer-link:hover{color:var(--brand)}
+.mega-footer-tag{font-size:11px;color:var(--ink4)}
+.mega-footer-cta{font-size:12px;font-weight:600;color:#fff;background:var(--ink);padding:8px 18px;border-radius:99px;text-decoration:none;transition:all .15s}
+.mega-footer-cta:hover{background:#2d2d2f}
+.nav-hamburger{display:none;flex-direction:column;gap:4.5px;cursor:pointer;padding:8px;margin:-8px;background:none;border:none;position:relative;z-index:902}
+.nav-hamburger span{display:block;width:20px;height:1.5px;background:var(--ink);border-radius:2px;transition:all .25s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobile-drawer{position:fixed;top:44px;left:0;right:0;bottom:0;z-index:898;background:#fff;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:24px 24px 48px;display:flex;flex-direction:column}
+.mobile-drawer.open{transform:translateX(0)}
+.mob-section{border-bottom:1px solid var(--ink6);padding:18px 0}
+.mob-section:last-of-type{border-bottom:none}
+.mob-section-title{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px}
+.mob-link{display:flex;align-items:center;gap:10px;padding:9px 0;text-decoration:none}
+.mob-link-icon{width:34px;height:34px;border-radius:8px;background:var(--brand-t);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.mob-link-name{font-family:var(--fd);font-size:15px;font-weight:400;color:var(--ink);display:block;letter-spacing:-.01em}
+.mob-link-desc{font-size:12px;font-weight:300;color:var(--ink4);line-height:1.3}
+.mob-nav-link{display:block;font-size:17px;font-family:var(--fd);font-weight:400;color:var(--ink);text-decoration:none;padding:13px 0;border-bottom:1px solid var(--ink6)}
+.mob-nav-link:last-child{border-bottom:none}
+.mob-ctas{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.mob-cta-primary{display:block;text-align:center;background:var(--brand);color:var(--ink);padding:14px;border-radius:99px;font-family:var(--fb);font-size:15px;font-weight:600;text-decoration:none}
+.mob-cta-secondary{display:block;text-align:center;background:var(--ink);color:#fff;padding:13px;border-radius:99px;font-family:var(--fb);font-size:15px;font-weight:500;text-decoration:none}
+.nav-overlay{position:fixed;inset:0;top:44px;z-index:897;background:rgba(0,0,0,.18);opacity:0;pointer-events:none;transition:opacity .25s}
+.nav-overlay.show{opacity:1;pointer-events:all}
+@media(max-width:820px){.nav-center,.nav-plain{display:none}.nav-hamburger{display:flex}}
+/* HERO */
+.hero{position:relative;overflow:hidden;background:#0f0f0f;padding:110px 40px 88px;text-align:center;min-height:580px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+@media(max-width:600px){.hero{padding:86px 20px 64px}}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(74,189,152,.042) 1px,transparent 1px),linear-gradient(90deg,rgba(74,189,152,.042) 1px,transparent 1px);background-size:56px 56px;animation:gridScroll 16s linear infinite}
+@keyframes gridScroll{from{background-position:0 0}to{background-position:56px 56px}}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.hero-orb-1{width:520px;height:520px;background:rgba(74,189,152,.09);top:-110px;left:-90px;animation:orbP 9s ease-in-out infinite}
+.hero-orb-2{width:380px;height:380px;background:rgba(74,189,152,.06);bottom:-70px;right:50px;animation:orbP 11s ease-in-out infinite;animation-delay:-4.5s}
+@keyframes orbP{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.07)}}
+.hero>*{position:relative;z-index:1}
+.hero .kicker,.hero-h1,.hero-lead,.hero-mission{opacity:1!important;transform:none!important;animation:none!important}.hero .kicker{color:rgba(74,189,152,.65);margin-bottom:20px}
+.hero-h1{font-family:var(--fd);font-size:clamp(40px,6.5vw,76px);font-weight:400;line-height:1.07;letter-spacing:-.025em;color:rgba(255,255,255,.95)!important;max-width:820px;margin:0 auto 26px}
+.hero-h1 em{font-style:italic;color:var(--brand)}
+.hero-lead{font-size:clamp(16px,2vw,19px);font-weight:300;color:rgba(255,255,255,.4);max-width:560px;margin:0 auto 40px;line-height:1.72}
+.hero-mission{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:400;color:rgba(74,189,152,.72);background:rgba(74,189,152,.08);border:1px solid rgba(74,189,152,.16);padding:9px 20px;border-radius:99px}
+.hero-mission span{color:rgba(255,255,255,.45);margin-right:2px}
+/* ORIGIN */
+.origin{padding:96px 0;background:var(--bg)}
+.origin-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+@media(max-width:800px){.origin-grid{grid-template-columns:1fr;gap:52px}}
+.origin-text .h2{margin-bottom:20px}
+.origin-text .body{margin-bottom:18px}
+.origin-pull{font-family:var(--fd);font-size:21px;font-style:italic;font-weight:400;color:var(--brand-d);line-height:1.52;border-left:3px solid var(--brand);padding:16px 20px;margin:28px 0;border-radius:0 10px 10px 0;background:var(--brand-t)}
+.origin-timeline{display:flex;flex-direction:column;gap:0;position:relative}
+.origin-timeline::before{content:'';position:absolute;left:18px;top:18px;bottom:18px;width:1px;background:var(--ink6)}
+.tl-row{display:flex;gap:20px;align-items:flex-start;padding-bottom:32px}
+.tl-row:last-child{padding-bottom:0}
+.tl-dot{width:36px;height:36px;border-radius:50%;background:var(--brand-t);border:2px solid var(--brand-d);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--brand-d);flex-shrink:0;position:relative;z-index:1}
+.tl-year{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-d);margin-bottom:5px}
+.tl-title{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.tl-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.62}
+/* MISSION */
+.mission{background:var(--bg2);padding:80px 0}
+.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
+@media(max-width:760px){.mission-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.mission-grid{grid-template-columns:1fr}}
+.mission-card{background:var(--bg);border:1px solid var(--ink6);border-radius:18px;padding:30px 26px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s}
+.mission-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand-d));opacity:0;transition:opacity .2s}
+.mission-card:hover{transform:translateY(-3px);box-shadow:var(--s3);border-color:rgba(74,189,152,.18)}
+.mission-card:hover::before{opacity:1}
+.mc-icon{font-size:26px;margin-bottom:14px;display:block}
+.mc-title{font-family:var(--fd);font-size:18px;font-weight:500;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
+.mc-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.68}
+/* MODEL */
+.model-section{padding:96px 0;background:var(--bg)}
+.model-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:52px}
+@media(max-width:800px){.model-grid{grid-template-columns:1fr;gap:48px}}
+.model-diagram{background:var(--ink);border-radius:20px;padding:32px;box-shadow:var(--s4);position:relative;overflow:hidden}
+.md-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(74,189,152,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(74,189,152,.04) 1px,transparent 1px);background-size:40px 40px;border-radius:20px;animation:gridScroll 18s linear infinite}
+.md-content{position:relative;z-index:1}
+.md-row{display:flex;align-items:stretch;gap:12px;margin-bottom:12px}
+.md-row:last-child{margin-bottom:0}
+.md-box{border-radius:12px;padding:16px;flex:1;text-align:center}
+.md-box.ai{background:rgba(74,189,152,.1);border:1px solid rgba(74,189,152,.18)}
+.md-box.human{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.md-box.result{background:linear-gradient(135deg,rgba(74,189,152,.12),rgba(74,189,152,.05));border:1.5px solid rgba(74,189,152,.25)}
+.md-box-icon{font-size:18px;margin-bottom:6px;display:block}
+.md-box-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;display:block}
+.md-box.ai .md-box-label{color:rgba(74,189,152,.75)}
+.md-box.human .md-box-label{color:rgba(255,255,255,.3)}
+.md-box.result .md-box-label{color:rgba(74,189,152,.9)}
+.md-box-items{display:flex;flex-direction:column;gap:4px}
+.md-item{font-size:11px;font-weight:300;text-align:left;padding:2px 0}
+.md-box.ai .md-item{color:rgba(255,255,255,.55)}
+.md-box.human .md-item{color:rgba(255,255,255,.4)}
+.md-box.result .md-item{color:rgba(255,255,255,.72);font-weight:400}
+.md-plus{display:flex;align-items:center;justify-content:center;color:rgba(74,189,152,.5);font-size:22px;font-weight:300;flex-shrink:0;width:24px}
+.model-body .h2{margin-bottom:16px}
+.model-body .body{margin-bottom:24px}
+.model-points{display:flex;flex-direction:column;gap:12px}
+.model-point{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border-radius:12px;background:var(--bg2);border:1px solid var(--ink6);transition:border-color .2s,transform .2s}
+.model-point:hover{border-color:rgba(74,189,152,.22);transform:translateX(4px)}
+.mp-icon{width:36px;height:36px;border-radius:9px;background:var(--brand-t);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.mp-title{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px;letter-spacing:-.01em}
+.mp-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.55}
+/* VALUES */
+.values-section{padding:80px 0;background:var(--bg2)}
+.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:52px}
+@media(max-width:700px){.values-grid{grid-template-columns:1fr}}
+.value-card{background:var(--bg);border:1px solid var(--ink6);border-radius:16px;padding:28px;transition:transform .2s,box-shadow .2s}
+.value-card:hover{transform:translateY(-2px);box-shadow:var(--s3)}
+.vc-num{font-family:var(--fd);font-size:44px;font-weight:400;color:var(--ink6);line-height:1;letter-spacing:-.03em;margin-bottom:12px}
+.vc-title{font-family:var(--fd);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
+.vc-desc{font-size:14px;font-weight:300;color:var(--ink3);line-height:1.7}
+.vc-example{margin-top:14px;padding:12px 14px;background:var(--brand-t);border-left:3px solid var(--brand);border-radius:0 8px 8px 0;font-size:12px;font-weight:400;color:var(--brand-d);line-height:1.55;font-style:italic}
+/* TEAM */
+.team-section{padding:80px 0;background:var(--bg)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:0}
+@media(max-width:760px){.team-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.team-grid{grid-template-columns:1fr}}
+.team-card{text-align:center;padding:0 8px}
+.team-avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:36px}
+.ta-c1{background:linear-gradient(135deg,rgba(74,189,152,.15),rgba(74,189,152,.05));border:2px solid rgba(74,189,152,.2)}
+.ta-c2{background:linear-gradient(135deg,rgba(0,122,255,.1),rgba(0,122,255,.03));border:2px solid rgba(0,122,255,.12)}
+.ta-c3{background:linear-gradient(135deg,rgba(255,149,0,.1),rgba(255,149,0,.03));border:2px solid rgba(255,149,0,.12)}
+.ta-c4{background:linear-gradient(135deg,rgba(175,82,222,.1),rgba(175,82,222,.03));border:2px solid rgba(175,82,222,.12)}
+.ta-c5{background:linear-gradient(135deg,rgba(255,59,48,.08),rgba(255,59,48,.02));border:2px solid rgba(255,59,48,.1)}
+.ta-c6{background:linear-gradient(135deg,rgba(52,199,89,.1),rgba(52,199,89,.03));border:2px solid rgba(52,199,89,.15)}
+.team-name{font-family:var(--fd);font-size:17px;font-weight:500;color:var(--ink);margin-bottom:3px;letter-spacing:-.01em}
+.team-role{font-size:12px;font-weight:500;color:var(--brand-d);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.team-bio{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65}
+.team-tag{display:inline-block;font-size:10px;font-weight:500;color:var(--ink4);background:var(--ink6);padding:2px 8px;border-radius:99px;margin-top:8px}
+.team-note{max-width:560px;margin:40px auto 0;text-align:center;padding:20px 24px;background:var(--bg2);border-radius:12px;border:1px solid var(--ink6);font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65}
+/* NUMBERS */
+.numbers-section{background:var(--ink);padding:64px 0}
+.numbers-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr)}
+@media(max-width:700px){.numbers-inner{grid-template-columns:1fr 1fr;padding:0 24px}}
+.num-cell{padding:32px 24px;text-align:center;border-right:1px solid rgba(255,255,255,.07)}
+.num-cell:last-child{border-right:none}
+@media(max-width:700px){.num-cell:nth-child(2){border-right:none}.num-cell:nth-child(3){border-top:1px solid rgba(255,255,255,.07)}.num-cell:nth-child(4){border-top:1px solid rgba(255,255,255,.07);border-right:none}}
+.num-n{font-family:var(--fd);font-size:48px;font-weight:400;color:var(--brand);line-height:1;letter-spacing:-.03em;margin-bottom:8px}
+.num-n em{font-style:normal;font-size:.65em;color:rgba(74,189,152,.6)}
+.num-l{font-size:12px;font-weight:400;color:rgba(255,255,255,.3);line-height:1.5}
+/* ESSAY */
+.essay-section{padding:96px 0;background:var(--bg)}
+.essay-inner{max-width:700px;margin:0 auto;padding:0 40px}
+@media(max-width:600px){.essay-inner{padding:0 20px}}
+.essay-inner .h2{margin-bottom:28px}
+.essay-inner .body{margin-bottom:18px}
+.essay-pull{font-family:var(--fd);font-size:20px;font-style:italic;font-weight:400;color:var(--ink);line-height:1.55;border-left:3px solid var(--brand);padding:16px 22px;margin:32px 0;border-radius:0 10px 10px 0;background:var(--brand-t)}
+/* TRUST */
+.trust-section{background:var(--bg2);border-top:1px solid var(--ink6);border-bottom:1px solid var(--ink6);padding:44px 0}
+.trust-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.trust-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink5)}
+.trust-logos{display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:center}
+.trust-logo{font-family:var(--fd);font-size:15px;font-weight:500;color:var(--ink5);letter-spacing:-.01em}
+/* JOIN */
+.join-section{padding:72px 40px;background:var(--bg);text-align:center}
+@media(max-width:600px){.join-section{padding:56px 20px}}
+.join-card{max-width:720px;margin:0 auto;background:var(--bg2);border:1px solid var(--ink6);border-radius:20px;padding:48px;position:relative;overflow:hidden}
+@media(max-width:600px){.join-card{padding:32px 24px}}
+.join-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand-d))}
+.join-icon{font-size:36px;margin-bottom:16px;display:block}
+.join-roles{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:28px}
+.join-role{font-size:12px;font-weight:500;color:var(--ink3);background:var(--bg);padding:6px 14px;border-radius:99px;border:1px solid var(--ink6)}
+/* CTA */
+.cta-section{background:var(--ink);padding:100px 40px;text-align:center;position:relative;overflow:hidden}
+@media(max-width:600px){.cta-section{padding:72px 20px}}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(74,189,152,.08) 0%,transparent 70%)}
+#cta-canvas{position:absolute;inset:0;pointer-events:none}
+.cta-section>*{position:relative;z-index:1}
+.cta-h{font-family:var(--fd);font-size:clamp(28px,4.5vw,50px);font-weight:400;line-height:1.1;letter-spacing:-.025em;color:rgba(255,255,255,.95);max-width:620px;margin:0 auto 16px}
+.cta-h em{font-style:italic;color:var(--brand)}
+.cta-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.38);max-width:460px;margin:0 auto 40px;line-height:1.72}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+/* FOOTER */
+.footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:36px 40px}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none}
+.f-logo em{font-style:italic;color:var(--brand)}
+.f-links{display:flex;gap:20px;flex-wrap:wrap}
+.f-link{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .15s}
+.f-link:hover{color:rgba(255,255,255,.6)}
+.f-copy{font-size:11px;color:rgba(255,255,255,.16)}
+/* REVEAL */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.hero .kicker,.hero-h1,.hero-lead,.hero-mission{opacity:1!important;transform:none!important;animation:none!important}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}.rd4{transition-delay:.32s}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <div class="nav-center">
+      <button class="nav-link" onclick="toggleMega(event,'services-mega')">Services <span class="nav-chevron"></span></button>
+      <a class="nav-link" href="apnosh_results.html">Results</a>
+      <a class="nav-link" href="apnosh_pricing.html">Pricing</a>
+      <button class="nav-link" onclick="toggleMega(event,'resources-mega')">Resources <span class="nav-chevron"></span></button>
+      <button class="nav-link active" onclick="toggleMega(event,'about-mega')">About <span class="nav-chevron"></span></button>
+    </div>
+    <div class="nav-right">
+      <a class="nav-plain" href="talk_to_expert.html">Contact</a>
+      <a class="nav-audit" href="apnosh_homepage.html#start">Get free audit</a>
+    </div>
+    <button class="nav-hamburger" id="mob-toggle" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mega" id="services-mega">
+  <div class="mega-inner">
+    <div class="mega-col"><div class="mega-col-title">Marketing</div><a class="mega-item" href="service-social-media.html"><div class="mega-icon">&#128241;</div><div><span class="mega-item-name">Social Media</span><span class="mega-item-desc">Managed presence across all platforms</span></div></a><a class="mega-item" href="service-video-content.html"><div class="mega-icon">&#127916;</div><div><span class="mega-item-name">Video Content</span><span class="mega-item-desc">Short-form video that stops the scroll</span></div></a><a class="mega-item" href="service-static-content.html"><div class="mega-icon">&#128444;&#65039;</div><div><span class="mega-item-name">Graphic Content</span><span class="mega-item-desc">Stories, carousels &amp; infographics</span></div></a><a class="mega-item" href="service-email-sms.html"><div class="mega-icon">&#9993;&#65039;</div><div><span class="mega-item-name">Email &amp; SMS</span><span class="mega-item-desc">$42 ROI per $1 spent</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Websites &amp; SEO</div><a class="mega-item" href="service-websites.html"><div class="mega-icon">&#127760;</div><div><span class="mega-item-name">Websites &amp; Hosting</span><span class="mega-item-desc">Sites that turn visitors into customers</span></div></a><a class="mega-item" href="service-local-seo.html"><div class="mega-icon">&#128205;</div><div><span class="mega-item-name">Local SEO &amp; GBP</span><span class="mega-item-desc">Rank #1 on Google Maps in your area</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Creative</div><a class="mega-item" href="service-branding.html"><div class="mega-icon">&#127912;</div><div><span class="mega-item-name">Branding &amp; Identity</span><span class="mega-item-desc">Look like the best in your industry</span></div></a><a class="mega-item" href="service-creative-production.html"><div class="mega-icon">&#128247;</div><div><span class="mega-item-name">Photography &amp; Video</span><span class="mega-item-desc">Professional visuals for every channel</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Strategy</div><a class="mega-item" href="service-consulting.html"><div class="mega-icon">&#128172;</div><div><span class="mega-item-name">Consulting &amp; Strategy</span><span class="mega-item-desc">Expert guidance from real operators</span></div></a></div>
+  </div>
+  <div class="mega-footer"><div class="mega-footer-links"><span class="mega-footer-tag">Not sure what you need?</span><a class="mega-footer-link" href="master_hub.html">Try the AI Plan Builder &rarr;</a></div><a class="mega-footer-cta" href="apnosh_services.html">View all services &rarr;</a></div>
+</div>
+
+
+<div class="mega" id="about-mega">
+  <div class="mega-inner">
+    <div class="mega-col">
+      <div class="mega-col-title">Our story</div>
+      <a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#10022;</div><div><span class="mega-item-name">How Apnosh was built</span><span class="mega-item-desc">The frustration that started it all</span></div></a>
+      <a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#128214;</div><div><span class="mega-item-name">Our philosophy</span><span class="mega-item-desc">Why marketing should be legible</span></div></a>
+      <a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#127942;</div><div><span class="mega-item-name">Our commitments</span><span class="mega-item-desc">Three promises we make every client</span></div></a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-col-title">How we work</div>
+      <a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#129302;</div><div><span class="mega-item-name">AI + Human model</span><span class="mega-item-desc">Why we&rsquo;re faster and more affordable</span></div></a>
+      <a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#128202;</div><div><span class="mega-item-name">Our values</span><span class="mega-item-desc">Honesty, simplicity, speed, ownership</span></div></a>
+      <a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#128200;</div><div><span class="mega-item-name">Results we deliver</span><span class="mega-item-desc">What the model produces in practice</span></div></a>
+    </div>
+    <div class="mega-col">
+      <div class="mega-col-title">Team &amp; careers</div>
+      <a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#128101;</div><div><span class="mega-item-name">Meet the team</span><span class="mega-item-desc">The people behind every campaign</span></div></a>
+      <a class="mega-item" href="apnosh_about.html"><div class="mega-icon">&#129309;</div><div><span class="mega-item-name">Careers</span><span class="mega-item-desc">Join our remote-first team</span></div></a>
+      <a class="mega-item" href="talk_to_expert.html"><div class="mega-icon">&#128172;</div><div><span class="mega-item-name">Contact us</span><span class="mega-item-desc">Talk to a real person, any time</span></div></a>
+    </div>
+    <div class="mega-col" style="background:var(--bg2);border-radius:12px;padding:16px">
+      <div class="mega-col-title">By the numbers</div>
+      <div style="display:flex;flex-direction:column;gap:12px;padding:4px 0">
+        <div><div style="font-family:var(--fd);font-size:26px;font-weight:400;color:var(--ink);letter-spacing:-.02em;line-height:1">200+</div><div style="font-size:11px;color:var(--ink4);margin-top:3px">Businesses actively growing</div></div>
+        <div style="height:1px;background:var(--ink6)"></div>
+        <div><div style="font-family:var(--fd);font-size:26px;font-weight:400;color:var(--ink);letter-spacing:-.02em;line-height:1">45+</div><div style="font-size:11px;color:var(--ink4);margin-top:3px">Years combined experience</div></div>
+        <div style="height:1px;background:var(--ink6)"></div>
+        <div><div style="font-family:var(--fd);font-size:26px;font-weight:400;color:var(--ink);letter-spacing:-.02em;line-height:1">6</div><div style="font-size:11px;color:var(--ink4);margin-top:3px">Industries served</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="mega-footer">
+    <div class="mega-footer-links"><span class="mega-footer-tag">Remote-first &middot; AI-powered &middot; Human-led</span><a class="mega-footer-link" href="apnosh_about.html">Read our full story &rarr;</a></div>
+    <a class="mega-footer-cta" href="talk_to_expert.html">Talk to our team &rarr;</a>
+  </div>
+</div>
+<div class="mega" id="resources-mega">
+  <div class="mega-inner">
+    <div class="mega-col"><div class="mega-col-title">Free guides &amp; learning</div><a class="mega-item" href="resource-local-seo-playbook.html"><div class="mega-icon">&#128205;</div><div><span class="mega-item-name">Local SEO Playbook 2026</span><span class="mega-item-desc">24-page guide to ranking #1 on Maps</span></div></a><a class="mega-item" href="resource-social-media-toolkit.html"><div class="mega-icon">&#128241;</div><div><span class="mega-item-name">Social Media Toolkit</span><span class="mega-item-desc">30-day calendar + 50 caption frameworks</span></div></a><a class="mega-item" href="resource-email-marketing-kit.html"><div class="mega-icon">&#9993;&#65039;</div><div><span class="mega-item-name">Email Marketing Starter Kit</span><span class="mega-item-desc">Templates, flows &amp; platform comparison</span></div></a><a class="mega-item" href="resource-website-conversion-guide.html"><div class="mega-icon">&#127760;</div><div><span class="mega-item-name">Website Conversion Guide</span><span class="mega-item-desc">Turn your site into a 24/7 salesperson</span></div></a><a class="mega-item" href="resource-brand-identity-checklist.html"><div class="mega-icon">&#127912;</div><div><span class="mega-item-name">Brand Identity Checklist</span><span class="mega-item-desc">47-point audit with scoring system</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Tutorials</div><a class="mega-item" href="apnosh_resources.html"><div class="mega-icon">&#128250;</div><div><span class="mega-item-name">Getting Started</span><span class="mega-item-desc">Set up your marketing foundations</span></div></a><a class="mega-item" href="apnosh_resources.html"><div class="mega-icon">&#128640;</div><div><span class="mega-item-name">Growth Playbooks</span><span class="mega-item-desc">Industry-specific step-by-step strategies</span></div></a><a class="mega-item" href="apnosh_resources.html"><div class="mega-icon">&#128295;</div><div><span class="mega-item-name">DIY How-To&rsquo;s</span><span class="mega-item-desc">Do it yourself with our walkthroughs</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Blog &amp; news</div><a class="mega-item" href="apnosh_resources.html#blog"><div class="mega-icon">&#128221;</div><div><span class="mega-item-name">Latest Articles</span><span class="mega-item-desc">Marketing tips for business owners</span></div></a><a class="mega-item" href="apnosh_resources.html#blog"><div class="mega-icon">&#128240;</div><div><span class="mega-item-name">Weekly Newsletter</span><span class="mega-item-desc">One tip, one trend, one tool — every Tuesday</span></div></a><a class="mega-item" href="apnosh_resources.html#blog"><div class="mega-icon">&#128172;</div><div><span class="mega-item-name">Case Studies</span><span class="mega-item-desc">Real results from real businesses</span></div></a></div>
+    <div class="mega-col"><div class="mega-col-title">Free AI tools</div><a class="mega-item" href="master_hub.html"><div class="mega-icon">&#10022;</div><div><span class="mega-item-name">AI Plan Builder</span><span class="mega-item-desc">Custom marketing plan in 5 minutes</span></div></a><a class="mega-item" href="apnosh_homepage.html#start"><div class="mega-icon">&#128202;</div><div><span class="mega-item-name">Free Marketing Audit</span><span class="mega-item-desc">Website, Google, social &amp; SEO report</span></div></a><a class="mega-item" style="opacity:.5;pointer-events:none" href="#"><div class="mega-icon">&#129302;</div><div><span class="mega-item-name">ROI Calculator <span style="font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--ink6);color:var(--ink4);padding:1px 6px;border-radius:99px;margin-left:4px">Soon</span></span><span class="mega-item-desc">See the return before you invest</span></div></a><a class="mega-item" style="opacity:.5;pointer-events:none" href="#"><div class="mega-icon">&#128270;</div><div><span class="mega-item-name">SEO Rank Checker <span style="font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--ink6);color:var(--ink4);padding:1px 6px;border-radius:99px;margin-left:4px">Soon</span></span><span class="mega-item-desc">See where you rank for key terms</span></div></a></div>
+  </div>
+  <div class="mega-footer"><div class="mega-footer-links"><span class="mega-footer-tag">All resources free &middot; No gated demos &middot; No spam</span></div><a class="mega-footer-cta" href="apnosh_resources.html">View all resources &rarr;</a></div>
+</div>
+
+<div class="mobile-drawer" id="mob-drawer">
+  <div class="mob-section"><div class="mob-section-title">Services</div><a class="mob-link" href="service-social-media.html"><div class="mob-link-icon">&#128241;</div><div><span class="mob-link-name">Social Media</span><span class="mob-link-desc">Managed presence across platforms</span></div></a><a class="mob-link" href="service-video-content.html"><div class="mob-link-icon">&#127916;</div><div><span class="mob-link-name">Video Content</span><span class="mob-link-desc">Reels, TikTok &amp; ad creative</span></div></a><a class="mob-link" href="service-email-sms.html"><div class="mob-link-icon">&#9993;&#65039;</div><div><span class="mob-link-name">Email &amp; SMS</span><span class="mob-link-desc">Highest ROI channel in marketing</span></div></a><a class="mob-link" href="service-websites.html"><div class="mob-link-icon">&#127760;</div><div><span class="mob-link-name">Websites &amp; Hosting</span><span class="mob-link-desc">Convert visitors into customers</span></div></a><a class="mob-link" href="service-local-seo.html"><div class="mob-link-icon">&#128205;</div><div><span class="mob-link-name">Local SEO</span><span class="mob-link-desc">Rank #1 on Google Maps</span></div></a><a class="mob-link" href="service-branding.html"><div class="mob-link-icon">&#127912;</div><div><span class="mob-link-name">Branding</span><span class="mob-link-desc">Look like the best in your market</span></div></a><a class="mob-link" href="service-creative-production.html"><div class="mob-link-icon">&#128247;</div><div><span class="mob-link-name">Photography &amp; Video</span><span class="mob-link-desc">Professional visuals for every channel</span></div></a><a class="mob-link" href="service-consulting.html"><div class="mob-link-icon">&#128172;</div><div><span class="mob-link-name">Consulting</span><span class="mob-link-desc">Expert strategy sessions</span></div></a></div>
+    <div class="mob-section">
+    <div class="mob-section-title">Resources</div>
+    <a class="mob-link" href="apnosh_resources.html"><div class="mob-link-icon">&#128214;</div><div><span class="mob-link-name">Free Guides</span><span class="mob-link-desc">SEO playbook, social toolkit &amp; more</span></div></a>
+    <a class="mob-link" href="master_hub.html"><div class="mob-link-icon">&#10022;</div><div><span class="mob-link-name">AI Plan Builder</span><span class="mob-link-desc">Custom plan in 5 minutes, free</span></div></a>
+    <a class="mob-link" href="apnosh_resources.html#blog"><div class="mob-link-icon">&#128221;</div><div><span class="mob-link-name">Blog &amp; Newsletter</span><span class="mob-link-desc">Weekly marketing tips for owners</span></div></a>
+    <a class="mob-link" href="apnosh_homepage.html#start"><div class="mob-link-icon">&#128269;</div><div><span class="mob-link-name">Free Tools</span><span class="mob-link-desc">Calculators, audits &amp; planning tools</span></div></a>
+  </div>
+<div class="mob-section"><a class="mob-nav-link" href="apnosh_results.html">Results</a><a class="mob-nav-link" href="apnosh_pricing.html">Pricing</a><a class="mob-nav-link" href="apnosh_about.html">About</a><a class="mob-nav-link" href="talk_to_expert.html">Contact</a></div>
+  <div class="mob-ctas"><a class="mob-cta-primary" href="apnosh_homepage.html#start">Get free audit &rarr;</a><a class="mob-cta-secondary" href="master_hub.html">Build my plan &rarr;</a></div>
+</div>
+<div class="nav-overlay" id="nav-overlay" onclick="closeAll()"></div>
+
+<section style="position:relative;overflow:hidden;background:#0f0f0f;padding:110px 40px 88px;text-align:center;min-height:580px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-top:44px">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <span style="position:relative;z-index:2;display:inline-block;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(74,189,152,.7);margin-bottom:20px;font-family:'Inter',sans-serif">Our story</span>
+  <h1 style="position:relative;z-index:2;font-family:'Playfair Display',Georgia,serif;font-size:clamp(38px,6vw,70px);font-weight:400;line-height:1.07;letter-spacing:-.025em;color:rgba(255,255,255,.95);max-width:820px;margin:0 auto 26px">We built the agency<br>we <em style="font-style:italic;color:#4abd98">always wished existed.</em></h1>
+  <p style="position:relative;z-index:2;font-size:clamp(15px,1.8vw,18px);font-weight:300;color:rgba(255,255,255,.45);max-width:540px;margin:0 auto 40px;line-height:1.72;font-family:'Inter',sans-serif">Apnosh was started by marketers who spent years watching small businesses get overcharged, under-served, and locked into contracts that benefited everyone except them. We decided to build something better.</p>
+  <div style="position:relative;z-index:2;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:400;color:rgba(74,189,152,.75);background:rgba(74,189,152,.09);border:1px solid rgba(74,189,152,.18);padding:10px 22px;border-radius:99px;font-family:'Inter',sans-serif"><span style="color:rgba(255,255,255,.4);margin-right:2px">Mission:</span> Make agency-quality marketing accessible to every business owner &mdash; not just the ones who can afford a $5,000/mo retainer.</div>
+</section>
+
+<section class="origin">
+  <div class="w">
+    <div class="origin-grid">
+      <div class="reveal">
+        <span class="kicker">How we got here</span>
+        <h2 class="h2">The problem we couldn&rsquo;t<br><em>stop thinking about</em></h2>
+        <p class="body">Between our team, we&rsquo;d worked inside agencies, in-house at growing companies, and as independent consultants. The same pattern kept showing up: the businesses that needed great marketing the most &mdash; independent restaurants, service contractors, local retailers, wellness studios &mdash; were the ones most consistently failed by the agencies they hired.</p>
+        <p class="body">Not because agencies were malicious. But because the traditional agency model is structurally misaligned with small business needs. High overhead requires high retainers. High retainers require bundled packages. Bundled packages mean you pay for services you don&rsquo;t need. And lock-in contracts mean you&rsquo;re stuck regardless of results.</p>
+        <div class="origin-pull">&ldquo;We kept asking: what if we started from first principles? What does a marketing agency actually need to look like to serve a business owner fairly?&rdquo;</div>
+        <p class="body">The answer was Apnosh. Built on a modular, transparent, AI-augmented model that lets us deliver the same quality work at dramatically lower cost &mdash; and pass every cent of that savings directly to the people we serve.</p>
+      </div>
+      <div class="reveal rd1">
+        <div class="origin-timeline">
+          <div class="tl-row"><div class="tl-dot">&#10022;</div><div><div class="tl-year">The frustration</div><div class="tl-title">Years inside the agency world</div><div class="tl-desc">Our founders worked at traditional agencies and watched the same story repeat: overpromise, underdeliver, lock in, move on. Business owners got left holding the bill.</div></div></div>
+          <div class="tl-row"><div class="tl-dot">&#128161;</div><div><div class="tl-year">The idea</div><div class="tl-title">A different model emerges</div><div class="tl-desc">What if AI handled the research, drafts, and monitoring &mdash; cutting costs by 60% &mdash; while humans focused entirely on strategy and quality? The math worked. The model was born.</div></div></div>
+          <div class="tl-row"><div class="tl-dot">&#128640;</div><div><div class="tl-year">The launch</div><div class="tl-title">First clients. Real results.</div><div class="tl-desc">Our first ten clients came from referrals alone. Marcus doubled his real estate leads. Priya got fully booked. James hit #1 on Google Maps. The model worked in the real world.</div></div></div>
+          <div class="tl-row"><div class="tl-dot">&#128200;</div><div><div class="tl-year">Today</div><div class="tl-title">Apnosh serves 200+ businesses</div><div class="tl-desc">Restaurants, real estate, service businesses, wellness studios, retail, and professional services across the US. The same mission. The same model. Still building.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mission">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">What we stand for</span>
+      <h2 class="h2">Three commitments we make<br><em>to every client</em></h2>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card reveal rd1"><span class="mc-icon">&#128214;</span><div class="mc-title">Radical transparency</div><p class="mc-desc">Every price is published. Every deliverable is documented. Every result is reported in plain language. You will never receive an invoice that surprises you, and you will never wonder what we&rsquo;re doing or why.</p></div>
+      <div class="mission-card reveal rd2"><span class="mc-icon">&#127919;</span><div class="mc-title">Results over activity</div><p class="mc-desc">We don&rsquo;t report impressions and reach. We report leads generated, rankings moved, revenue attributed, and calls received. If the number doesn&rsquo;t connect to revenue, we don&rsquo;t put it in the report.</p></div>
+      <div class="mission-card reveal rd3"><span class="mc-icon">&#129309;</span><div class="mc-title">Earned retention</div><p class="mc-desc">Month-to-month is not just a feature &mdash; it&rsquo;s a philosophy. We believe agencies should earn your business every single month by delivering results, not by trapping you in a contract. If we&rsquo;re not delivering, you should leave.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="model-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">How we deliver quality at lower cost</span>
+      <h2 class="h2">The AI + Human model <em>explained</em></h2>
+    </div>
+    <div class="model-grid">
+      <div class="reveal rd1">
+        <div class="model-diagram">
+          <div class="md-grid"></div>
+          <div class="md-content">
+            <div class="md-row">
+              <div class="md-box ai"><span class="md-box-icon">&#129302;</span><span class="md-box-label">AI does</span><div class="md-box-items"><div class="md-item">&rarr; Research &amp; analysis</div><div class="md-item">&rarr; First drafts</div><div class="md-item">&rarr; 24/7 monitoring</div><div class="md-item">&rarr; Data reporting</div><div class="md-item">&rarr; Scheduling</div></div></div>
+              <div class="md-plus">+</div>
+              <div class="md-box human"><span class="md-box-icon">&#129504;</span><span class="md-box-label">Humans add</span><div class="md-box-items"><div class="md-item">&rarr; Strategy</div><div class="md-item">&rarr; Brand voice</div><div class="md-item">&rarr; Creative direction</div><div class="md-item">&rarr; Client relationship</div><div class="md-item">&rarr; Quality assurance</div></div></div>
+            </div>
+            <div style="text-align:center;color:rgba(74,189,152,.5);font-size:22px;margin:10px 0">&darr;</div>
+            <div class="md-box result" style="width:100%"><span class="md-box-label">You get</span><div class="md-box-items" style="flex-direction:row;flex-wrap:wrap;gap:10px;justify-content:center"><div class="md-item">&#10003; Agency quality</div><div class="md-item">&#10003; Startup speed</div><div class="md-item">&#10003; 60% lower cost</div><div class="md-item">&#10003; Real results</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal rd2">
+        <h2 class="h2" style="margin-bottom:16px">Why we charge <em>less</em> and deliver <em>more</em></h2>
+        <p class="body" style="margin-bottom:24px">Traditional agencies staff five people to do what our AI + human team does in half the time, at a third of the cost. We pass that efficiency directly to you.</p>
+        <div class="model-points">
+          <div class="model-point"><div class="mp-icon">&#9889;</div><div><div class="mp-title">AI does the heavy lifting</div><div class="mp-desc">Research, first drafts, monitoring, scheduling, and reporting handled by AI &mdash; faster and more consistently than any human team.</div></div></div>
+          <div class="model-point"><div class="mp-icon">&#129489;</div><div><div class="mp-title">Humans do what humans do best</div><div class="mp-desc">Strategy, creative judgment, client communication, and quality assurance. The things no AI should do without oversight.</div></div></div>
+          <div class="model-point"><div class="mp-icon">&#128200;</div><div><div class="mp-title">Quality doesn&rsquo;t drop &mdash; it improves</div><div class="mp-desc">AI-monitored campaigns catch problems faster, optimize continuously, and never miss a deadline. Our humans review everything before it goes out.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values-section">
+  <div class="w">
+    <div class="tc reveal">
+      <span class="kicker">How we operate</span>
+      <h2 class="h2">The principles that guide<br><em>every decision we make</em></h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal rd1"><div class="vc-num">01</div><div class="vc-title">Honesty before comfort</div><p class="vc-desc">If a service isn&rsquo;t the right fit for your business right now, we&rsquo;ll tell you &mdash; even if it means a smaller invoice. Short-term honesty builds long-term relationships. We&rsquo;d rather lose a sale than lose your trust.</p><div class="vc-example">In practice: If a client asks about a service that won&rsquo;t move the needle for their stage, we recommend what will &mdash; and explain why.</div></div>
+      <div class="value-card reveal rd2"><div class="vc-num">02</div><div class="vc-title">Simplicity as a feature</div><p class="vc-desc">Marketing doesn&rsquo;t need to be complicated &mdash; it needs to be consistent. We remove jargon from every report, every proposal, and every conversation. If a business owner can&rsquo;t immediately understand what we&rsquo;re doing and why, we&rsquo;re doing it wrong.</p><div class="vc-example">In practice: Every report we send is written for a business owner, not a marketer. Plain language, real numbers, clear next steps.</div></div>
+      <div class="value-card reveal rd1"><div class="vc-num">03</div><div class="vc-title">Speed as respect</div><p class="vc-desc">Business owners don&rsquo;t have time for 8-week onboarding processes. Being fast is how we show we respect the urgency of running a business. From plan to live in 7 days is a commitment, not a goal.</p><div class="vc-example">In practice: Day 1 plan, day 2 onboarding call, days 3&ndash;4 setup, day 7 first deliverables. Every time, for every client.</div></div>
+      <div class="value-card reveal rd2"><div class="vc-num">04</div><div class="vc-title">Ownership stays with you</div><p class="vc-desc">Every asset we create &mdash; your website, your email list, your brand files, your Google Business Profile &mdash; belongs to you. If you ever leave, you take everything with you. No hostage-taking, no lock-in, no proprietary platforms that trap your data.</p><div class="vc-example">In practice: We hand over all logins, all files, and full documentation on day one &mdash; not after you cancel.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="team-section">
+  <div class="w">
+    <div class="tc reveal" style="margin-bottom:52px">
+      <span class="kicker">The people behind Apnosh</span>
+      <h2 class="h2" style="margin-bottom:14px">Small team. <em>Big reach.</em></h2>
+      <p class="body" style="max-width:520px;margin:0 auto">We&rsquo;re a lean team of marketers, designers, writers, and developers &mdash; all with agency backgrounds and a shared frustration with how the industry treats small business owners.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal rd1"><div class="team-avatar ta-c1">&#128100;</div><div class="team-name">Your Name Here</div><div class="team-role">Founder &amp; CEO</div><p class="team-bio">10+ years in digital marketing across agencies and in-house roles. Built Apnosh after seeing the same small business problems repeat one too many times.</p><span class="team-tag">Strategy &middot; Business Development</span></div>
+      <div class="team-card reveal rd2"><div class="team-avatar ta-c2">&#128100;</div><div class="team-name">Co-founder Name</div><div class="team-role">Head of Marketing</div><p class="team-bio">Former agency creative director with a decade building brand systems for companies from startups to Fortune 500. Now making that expertise accessible to everyone.</p><span class="team-tag">Brand &middot; Creative &middot; Content</span></div>
+      <div class="team-card reveal rd3"><div class="team-avatar ta-c3">&#128100;</div><div class="team-name">Team Member</div><div class="team-role">Head of SEO</div><p class="team-bio">Built local SEO programs for 300+ businesses across 12 industries. Obsessed with the kind of rankings that actually make phones ring.</p><span class="team-tag">Local SEO &middot; GBP &middot; Analytics</span></div>
+      <div class="team-card reveal rd1"><div class="team-avatar ta-c4">&#128100;</div><div class="team-name">Team Member</div><div class="team-role">Lead Designer</div><p class="team-bio">Design background spanning brand identity, web design, and motion. Believes every small business deserves to look as good as the best in their industry.</p><span class="team-tag">Web &middot; Brand &middot; UI/UX</span></div>
+      <div class="team-card reveal rd2"><div class="team-avatar ta-c5">&#128100;</div><div class="team-name">Team Member</div><div class="team-role">Social Media Lead</div><p class="team-bio">Managed social presence for 50+ brands across food &amp; beverage, retail, and professional services. Knows what actually grows an audience vs. what just looks good on paper.</p><span class="team-tag">Social &middot; Video &middot; Content</span></div>
+      <div class="team-card reveal rd3"><div class="team-avatar ta-c6">&#128100;</div><div class="team-name">Team Member</div><div class="team-role">Client Success</div><p class="team-bio">Your direct line to the Apnosh team. Responsible for making sure every client understands exactly what&rsquo;s happening, why, and what&rsquo;s coming next.</p><span class="team-tag">Account Management &middot; Reporting</span></div>
+    </div>
+    <div class="team-note reveal">&#128204; <strong>Replace with your real team.</strong> Add photos, update bios, and change roles to match your actual team structure. Real faces and real names are the highest-trust signal on any About page.</div>
+  </div>
+</section>
+
+<div class="numbers-section">
+  <div class="numbers-inner">
+    <div class="num-cell"><div class="num-n"><span id="n1">0</span><em>+</em></div><div class="num-l">Businesses actively growing with Apnosh</div></div>
+    <div class="num-cell"><div class="num-n"><span id="n2">0</span><em>%</em></div><div class="num-l">Client retention rate month over month</div></div>
+    <div class="num-cell"><div class="num-n"><span id="n3">0</span><em>+</em></div><div class="num-l">Years combined agency experience on our team</div></div>
+    <div class="num-cell"><div class="num-n"><span id="n4">0</span><em>%</em></div><div class="num-l">Of our pricing hidden behind a sales call</div></div>
+  </div>
+</div>
+
+<section class="essay-section">
+  <div class="essay-inner">
+    <div class="reveal">
+      <span class="kicker">Our philosophy</span>
+      <h2 class="h2">Marketing shouldn&rsquo;t be a black box <em>you just pay into.</em></h2>
+      <p class="body">Too many business owners have had the same experience: hire an agency, pay a retainer, receive a monthly report full of graphs they don&rsquo;t understand, and eventually cancel because nothing tangible changed. The agency walks away with the money. The business owner walks away more skeptical of marketing than when they started.</p>
+      <p class="body">We think this happens for one reason: misaligned incentives. The traditional agency model rewards agencies for retaining clients &mdash; not for delivering results. Big retainers, complex reports, and confusing jargon all serve the same purpose: making it hard for the client to evaluate whether they&rsquo;re actually getting value.</p>
+      <div class="essay-pull">&ldquo;If a business owner can&rsquo;t look at our work and immediately understand whether it&rsquo;s working, we haven&rsquo;t done our job.&rdquo;</div>
+      <p class="body">Apnosh was built on a different belief: marketing should be legible. You should be able to look at your Google ranking, your review count, your website conversion rate, and your email revenue &mdash; and know, without a call with your account manager, whether the investment is working.</p>
+      <p class="body">That&rsquo;s why we publish every price, report every real metric, and keep everything month-to-month. Not because it&rsquo;s better for business &mdash; in some ways, lock-in contracts and opaque reporting would be easier for us. But because it&rsquo;s the right way to treat someone who is trusting us with their marketing budget and their business growth.</p>
+    </div>
+  </div>
+</section>
+
+<div class="trust-section reveal">
+  <div class="trust-inner">
+    <span class="trust-label">Serving businesses across</span>
+    <div class="trust-logos">
+      <span class="trust-logo">Restaurants</span>
+      <span class="trust-logo">Real Estate</span>
+      <span class="trust-logo">Service Trades</span>
+      <span class="trust-logo">Wellness &amp; Health</span>
+      <span class="trust-logo">Retail</span>
+      <span class="trust-logo">Professional Services</span>
+    </div>
+  </div>
+</div>
+
+<section class="join-section reveal">
+  <div class="join-card">
+    <span class="join-icon">&#129309;</span>
+    <h3 class="h3" style="text-align:center;margin-bottom:12px">Interested in joining the team?</h3>
+    <p class="body tc" style="max-width:480px;margin:0 auto 24px">We&rsquo;re a remote-first team that hires people who care about doing great work for small business owners. No bloated bureaucracy, no pointless meetings. Just good work and real results.</p>
+    <div class="join-roles">
+      <span class="join-role">SEO Specialists</span><span class="join-role">Social Media Managers</span><span class="join-role">Copywriters</span><span class="join-role">Web Designers</span><span class="join-role">Client Success</span><span class="join-role">Account Strategists</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap">
+      <a class="btn btn-primary" href="talk_to_expert.html">View open roles <span class="arr">&rarr;</span></a>
+      <a class="btn btn-outline" href="talk_to_expert.html">Send us a message</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <canvas id="cta-canvas"></canvas>
+  <h2 class="cta-h">Now you know who we are.<br>Ready to <em>work together?</em></h2>
+  <p class="cta-sub">Build your marketing plan in 5 minutes &mdash; or get your free audit and we&rsquo;ll tell you exactly what&rsquo;s holding your business back.</p>
+  <div class="cta-btns">
+    <a class="btn btn-brand btn-lg" href="master_hub.html">Build my plan &mdash; free <span class="arr">&rarr;</span></a>
+    <a class="btn btn-ghost-dark btn-lg" href="talk_to_expert.html">Talk to our team first</a>
+  </div>
+  <p style="font-size:11px;color:rgba(255,255,255,.18);margin-top:16px;letter-spacing:.03em">No credit card. No commitment. Results in 30 days or your first month is free.</p>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="f-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <div class="f-links">
+      <a class="f-link" href="apnosh_homepage.html">Home</a>
+      <a class="f-link" href="apnosh_services.html">Services</a>
+      <a class="f-link" href="apnosh_results.html">Results</a>
+      <a class="f-link" href="apnosh_pricing.html">Pricing</a>
+      <a class="f-link" href="talk_to_expert.html">Contact</a>
+    </div>
+    <p class="f-copy">&copy; 2026 Apnosh. All rights reserved.</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function(){
+  const nav=document.getElementById('site-nav');
+  if(nav)window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>10),{passive:true});
+  window.toggleMega=function(e,id){e.stopPropagation();const btn=e.currentTarget;const mega=document.getElementById(id);if(!mega)return;const isOpen=mega.classList.contains('open');closeAll();if(!isOpen){mega.classList.add('open');btn.classList.add('open');document.getElementById('nav-overlay').classList.add('show');}};
+  window.toggleDrawer=function(){const d=document.getElementById('mob-drawer'),t=document.getElementById('mob-toggle'),ov=document.getElementById('nav-overlay');const isOpen=d.classList.contains('open');closeAll();if(!isOpen){d.classList.add('open');t.classList.add('open');ov.classList.add('show');document.body.style.overflow='hidden';}};
+  window.closeAll=function(){document.querySelectorAll('.mega.open').forEach(m=>m.classList.remove('open'));document.querySelectorAll('.nav-link.open').forEach(l=>l.classList.remove('open'));const d=document.getElementById('mob-drawer'),t=document.getElementById('mob-toggle'),ov=document.getElementById('nav-overlay');if(d)d.classList.remove('open');if(t)t.classList.remove('open');if(ov)ov.classList.remove('show');document.body.style.overflow='';};
+  document.addEventListener('click',e=>{if(!e.target.closest('.mega')&&!e.target.closest('.nav-link')&&!e.target.closest('.nav-hamburger')&&!e.target.closest('.mobile-drawer'))closeAll();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll();});
+})();
+function animCount(el,target,dur){if(!el)return;let st=null;function step(ts){if(!st)st=ts;const p=Math.min((ts-st)/dur,1);const e=1-Math.pow(1-p,3);el.textContent=Math.round(target*e);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+const numObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(!e.isIntersecting)return;animCount(document.getElementById('n1'),200,1800);animCount(document.getElementById('n2'),94,2000);animCount(document.getElementById('n3'),45,1600);animCount(document.getElementById('n4'),0,800);numObs.unobserve(e.target);});},{threshold:.4});
+const nb=document.querySelector('.numbers-section');if(nb)numObs.observe(nb);
+!function(){const c=document.getElementById('cta-canvas');if(!c)return;const ctx=c.getContext('2d');let W,H,dots=[];function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}function mk(){return{x:Math.random()*W,y:H+10,s:Math.random()*.45+.15,r:Math.random()*1.4+.5,o:Math.random()*.13+.04};}function init(){resize();for(let i=0;i<36;i++){const d=mk();d.y=Math.random()*H;dots.push(d);}}function draw(){ctx.clearRect(0,0,W,H);dots.forEach(d=>{d.y-=d.s;if(d.y<-10)Object.assign(d,mk());ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle='rgba(74,189,152,'+d.o+')';ctx.fill();});requestAnimationFrame(draw);}init();draw();window.addEventListener('resize',resize);}();
+const io=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('on');io.unobserve(el.target);}});},{threshold:0.08,rootMargin:'0px 0px -36px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

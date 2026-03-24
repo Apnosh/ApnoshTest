@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popular Packages</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; color: #1a1a18; min-height: 100vh; padding: 40px 20px; }
+  .page { max-width: 1060px; margin: 0 auto; }
+  .hero { text-align: center; margin-bottom: 48px; }
+  .hero h1 { font-size: 30px; font-weight: 500; margin-bottom: 8px; }
+  .hero p { font-size: 15px; color: #73726c; max-width: 540px; margin: 0 auto; line-height: 1.6; }
+  .tabs-wrap { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 32px; }
+  .tab { padding: 8px 18px; border-radius: 99px; border: 0.5px solid rgba(0,0,0,0.15); background: #fff; font-size: 13px; font-weight: 500; cursor: pointer; color: #73726c; transition: all 0.15s; white-space: nowrap; }
+  .tab:hover { border-color: rgba(0,0,0,0.3); color: #1a1a18; }
+  .tab.active { background: #1a1a18; color: #fff; border-color: #1a1a18; }
+  .packages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 900px) { .packages-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .packages-grid { grid-template-columns: 1fr; } }
+  .pkg { background: #fff; border: 0.5px solid rgba(0,0,0,0.12); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; transition: box-shadow 0.15s; }
+  .pkg:hover { box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+  .pkg.popular { border: 2px solid #185fa5; }
+  .pkg-badge { font-size: 10px; font-weight: 600; padding: 2px 10px; border-radius: 99px; display: inline-block; margin-bottom: 10px; width: fit-content; }
+  .b1 { background: #eaf3de; color: #3b6d11; }
+  .b2 { background: #e6f1fb; color: #185fa5; }
+  .b3 { background: #faeeda; color: #854f0b; }
+  .b4 { background: #e1f5ee; color: #0f6e56; }
+  .bp { background: #185fa5; color: #fff; }
+  .pkg-name { font-size: 17px; font-weight: 500; margin-bottom: 4px; }
+  .pkg-tagline { font-size: 12px; color: #73726c; line-height: 1.5; margin-bottom: 14px; }
+  .pkg-setup { font-size: 12px; color: #73726c; margin-bottom: 2px; }
+  .pkg-setup span { font-weight: 500; color: #1a1a18; }
+  .pkg-monthly { font-size: 24px; font-weight: 500; color: #1a1a18; line-height: 1; margin-bottom: 14px; }
+  .pkg-monthly sub { font-size: 13px; font-weight: 400; color: #73726c; }
+  .pkg-divider { border: none; border-top: 0.5px solid rgba(0,0,0,0.08); margin: 0 0 12px; }
+  .pkg-section { font-size: 10px; font-weight: 600; color: #73726c; text-transform: uppercase; letter-spacing: 0.05em; margin: 10px 0 5px; }
+  .pkg-feature { font-size: 12px; color: #5f5e5a; padding: 2px 0; display: flex; gap: 7px; line-height: 1.4; }
+  .pkg-feature::before { content: "✓"; color: #1D9E75; font-size: 11px; flex-shrink: 0; margin-top: 1px; }
+  .pkg-feature.video::before { content: "🎬"; font-size: 10px; }
+  .pkg-feature.content::before { content: "📸"; font-size: 10px; }
+  .pkg-value { font-size: 11px; color: #1D9E75; margin-top: 10px; font-weight: 500; }
+  .pkg-spacer { flex: 1; }
+  .pkg-cta { display: block; width: 100%; margin-top: 16px; padding: 11px; background: #1a1a18; color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; transition: opacity 0.15s; }
+  .pkg-cta:hover { opacity: 0.82; }
+  .pkg.popular .pkg-cta { background: #185fa5; }
+  .pkg-secondary { display: block; width: 100%; margin-top: 8px; padding: 9px; background: transparent; color: #73726c; border: 0.5px solid rgba(0,0,0,0.15); border-radius: 8px; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.15s; }
+  .pkg-secondary:hover { border-color: rgba(0,0,0,0.3); color: #1a1a18; }
+  .value-banner { background: #1a1a18; color: #fff; border-radius: 12px; padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 32px; flex-wrap: wrap; }
+  .value-banner p { font-size: 14px; line-height: 1.6; opacity: 0.85; }
+  .value-banner strong { color: #fff; opacity: 1; }
+  .value-banner-cta { padding: 10px 22px; background: #fff; color: #1a1a18; border: none; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+
+  /* Modal */
+  .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; overflow-y: auto; padding: 20px; justify-content: center; align-items: flex-start; }
+  .overlay.open { display: flex; }
+  .modal { background: #fff; border-radius: 16px; max-width: 640px; width: 100%; margin: auto; position: relative; }
+  @media (max-width: 600px) { .overlay { padding: 0; align-items: flex-end; } .modal { border-radius: 20px 20px 0 0; max-width: 100%; } }
+  .modal-close { position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; border-radius: 50%; border: none; background: rgba(0,0,0,0.07); cursor: pointer; font-size: 14px; color: #73726c; display: flex; align-items: center; justify-content: center; }
+  .modal-close:hover { background: rgba(0,0,0,0.14); }
+  .modal-head { padding: 24px 24px 0; }
+  .modal-badge { font-size: 10px; font-weight: 600; padding: 2px 10px; border-radius: 99px; display: inline-block; margin-bottom: 8px; }
+  .modal-title { font-size: 22px; font-weight: 500; margin-bottom: 4px; }
+  .modal-sub { font-size: 13px; color: #73726c; line-height: 1.5; margin-bottom: 16px; }
+  .modal-prices { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+  .modal-pbox { background: #f5f4f0; border-radius: 10px; padding: 10px 14px; flex: 1; min-width: 110px; }
+  .modal-plabel { font-size: 11px; color: #73726c; margin-bottom: 2px; }
+  .modal-pval { font-size: 18px; font-weight: 500; }
+  .modal-pval.blue { color: #185fa5; }
+  .modal-pval.green { color: #1D9E75; }
+  .modal-body { padding: 0 24px 24px; }
+  .modal-why { background: #f4f9fe; border-radius: 10px; padding: 14px 16px; font-size: 13px; color: #1a1a18; line-height: 1.7; margin-bottom: 18px; }
+  .modal-sec-title { font-size: 10px; font-weight: 600; color: #73726c; text-transform: uppercase; letter-spacing: 0.05em; margin: 16px 0 8px; padding-bottom: 6px; border-bottom: 0.5px solid rgba(0,0,0,0.08); }
+  .modal-row { display: flex; gap: 10px; padding: 8px 0; border-bottom: 0.5px solid rgba(0,0,0,0.05); }
+  .modal-row:last-child { border-bottom: none; }
+  .modal-icon { width: 28px; height: 28px; border-radius: 6px; background: #eaf3de; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  .modal-icon.video { background: #faeeda; }
+  .modal-icon.auto { background: #e6f1fb; }
+  .modal-icon.seo { background: #e1f5ee; }
+  .modal-sname { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+  .modal-sdesc { font-size: 11px; color: #73726c; line-height: 1.5; }
+  .modal-cost-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 0.5px solid rgba(0,0,0,0.05); font-size: 13px; }
+  .modal-cost-row:last-child { border-bottom: none; }
+  .modal-total { display: flex; justify-content: space-between; align-items: center; padding: 12px 0 0; font-size: 15px; font-weight: 500; }
+  .modal-savings { font-size: 11px; color: #1D9E75; background: #eaf3de; padding: 2px 8px; border-radius: 6px; font-weight: 500; }
+  .modal-upgrade { background: #f5f4f0; border-radius: 10px; padding: 12px 14px; font-size: 12px; color: #73726c; line-height: 1.6; margin-top: 16px; }
+  .modal-saving-banner { background: #eaf3de; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #2d5c2d; line-height: 1.6; margin-bottom: 14px; }
+  .modal-saving-banner strong { color: #1a4a1a; font-weight: 600; }
+  .modal-footer { padding: 14px 24px; border-top: 0.5px solid rgba(0,0,0,0.08); display: flex; gap: 10px; }
+  .modal-btn-primary { flex: 1; padding: 12px; background: #185fa5; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; }
+  .modal-btn-secondary { padding: 12px 16px; background: transparent; color: #73726c; border: 0.5px solid rgba(0,0,0,0.15); border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; }
+
+  /* Billing toggle */
+  .billing-toggle { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 32px; }
+  .billing-label { font-size: 14px; font-weight: 500; color: #73726c; cursor: pointer; }
+  .billing-label.active { color: #1a1a18; }
+  .toggle-track { width: 48px; height: 26px; background: #d3d1c7; border-radius: 99px; position: relative; cursor: pointer; transition: background 0.2s; }
+  .toggle-track.on { background: #1a1a18; }
+  .toggle-thumb { width: 20px; height: 20px; background: #fff; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: transform 0.2s; }
+  .toggle-track.on .toggle-thumb { transform: translateX(22px); }
+  .annual-badge { font-size: 11px; font-weight: 600; background: #eaf3de; color: #3b6d11; padding: 2px 8px; border-radius: 99px; }
+  .pkg-original { font-size: 13px; color: #b4b2a9; text-decoration: line-through; margin-bottom: 2px; display: none; }
+  .pkg-saving { font-size: 11px; color: #3b6d11; font-weight: 600; background: #eaf3de; padding: 1px 7px; border-radius: 99px; display: none; margin-left: 6px; }
+
+  /* Billing toggle */
+  .billing-toggle { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 28px; }
+  .toggle-label { font-size: 13px; font-weight: 500; color: #73726c; }
+  .toggle-label.active { color: #1a1a18; }
+  .toggle-track { width: 44px; height: 24px; background: #1a1a18; border-radius: 99px; position: relative; cursor: pointer; transition: background 0.2s; border: none; padding: 0; }
+  .toggle-track.monthly { background: #d3d1c7; }
+  .toggle-thumb { width: 18px; height: 18px; background: #fff; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: transform 0.2s; }
+  .toggle-track.monthly .toggle-thumb { transform: translateX(0); }
+  .toggle-track:not(.monthly) .toggle-thumb { transform: translateX(20px); }
+  .annual-badge { font-size: 11px; font-weight: 600; background: #1D9E75; color: #fff; padding: 2px 8px; border-radius: 99px; }
+  .pkg-original { font-size: 13px; color: #b4b2a9; text-decoration: line-through; margin-bottom: 2px; height: 18px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hero">
+    <h1>Find the right plan for your business</h1>
+    <p>Choose your industry and stage. Every package is built with the exact services, content, and support your business needs — bundled at a price that makes sense.</p>
+  </div>
+
+  <div class="tabs-wrap" id="tabs"></div>
+  <div class="billing-toggle">
+    <span class="toggle-label" id="label-monthly">Monthly</span>
+    <button class="toggle-track monthly" id="billing-toggle" onclick="toggleBilling()">
+      <div class="toggle-thumb"></div>
+    </button>
+    <span class="toggle-label active" id="label-annual">Annual</span>
+  </div>
+  <div id="annual-promo" style="text-align:center;margin-bottom:28px;display:block">
+    <span style="font-size:13px;color:#1a1a18;font-weight:500">🎁 Switch to annual and get </span><span style="font-size:13px;font-weight:700;color:#1D9E75">2 months completely free</span><span style="font-size:13px;color:#1a1a18;font-weight:500"> — billed monthly, cancel anytime after year 1.</span>
+  </div>
+  <div id="monthly-promo" style="text-align:center;margin-bottom:28px;display:none">
+    <span style="font-size:13px;color:#73726c">💡 Switch to annual billing and save the equivalent of </span><span style="font-size:13px;font-weight:600;color:#1D9E75">2 months free</span><span style="font-size:13px;color:#73726c"> every year.</span>
+  </div>
+  <div class="packages-grid" id="packages"></div>
+  <div class="value-banner">
+    <p><strong>Not sure which plan is right for you?</strong> Answer 5 quick questions and we'll build a custom recommendation based on your goals, budget, and business type.</p>
+    <button class="value-banner-cta">Find my perfect plan →</button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="overlay" id="overlay" onclick="overlayClick(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-head" id="modal-head"></div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer">
+      <button class="modal-btn-primary">Get started with this plan →</button>
+      <button class="modal-btn-secondary" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var currentPkgs = [];
+var isAnnual = false;
+var activeType = 'restaurant';
+
+var businessTypes = [
+  { id:'restaurant',   label:'🍽 Restaurant / F&B' },
+  { id:'service',      label:'🔧 Service Business' },
+  { id:'professional', label:'💼 Professional Services' },
+  { id:'wellness',     label:'💆 Health & Wellness' },
+  { id:'realestate',   label:'🏠 Real Estate' },
+  { id:'general',      label:'✦ General' }
+];
+
+var contentCosts = { just_started: 599, growing: 1343, scaling: 2593, established: 5041 };
+
+var contentFeatures = {
+  just_started: [
+    { type:'video',   text:'4 Trend Videos/mo (no people)' },
+    { type:'content', text:'4 Feed Posts/mo' }
+  ],
+  growing: [
+    { type:'content', text:'8 Feed Posts/mo' },
+    { type:'content', text:'8 Story Graphics/mo' },
+    { type:'content', text:'4 Carousel Posts/mo' }
+  ],
+  scaling: [
+    { type:'content', text:'8 Feed Posts/mo' },
+    { type:'content', text:'8 Story Graphics/mo' },
+    { type:'content', text:'4 Carousel Posts/mo' },
+    { type:'video',   text:'2 Polished Reels/mo (15-30s)' }
+  ],
+  established: [
+    { type:'content', text:'8 Feed Posts/mo' },
+    { type:'content', text:'8 Story Graphics/mo' },
+    { type:'content', text:'4 Carousel Posts/mo' },
+    { type:'video',   text:'4 Polished Reels/mo (15-30s)' },
+    { type:'video',   text:'2 Cinematic Reels/mo (40-60s)' }
+  ]
+};
+
+var contentDescriptions = {
+  just_started: [
+    { icon:'🎬', type:'video', name:'4 Trend/Meme Videos (no people)', desc:'We hop on current trending formats using your product or niche — fast-turnaround content that keeps you relevant and visible on TikTok, Reels, and Shorts.' },
+    { icon:'📸', type:'content', name:'4 Feed Posts', desc:'Brand-aligned static posts with AI-assisted, SEO-optimized captions designed to stop the scroll and drive profile visits.' }
+  ],
+  growing: [
+    { icon:'📸', type:'content', name:'8 Feed Posts/mo', desc:'Brand-aligned static posts — quotes, promos, or announcements with AI-assisted SEO-optimized captions.' },
+    { icon:'📸', type:'content', name:'8 Story Graphics/mo', desc:'Vertical 9:16 story graphics with CTAs and swipe-up overlays to drive action and keep your brand visible daily.' },
+    { icon:'📸', type:'content', name:'4 Carousel Posts/mo', desc:'Up to 10-slide educational or storytelling carousels — the highest-engagement static format on Instagram, optimized for saves and shares.' }
+  ],
+  scaling: [
+    { icon:'📸', type:'content', name:'8 Feed Posts/mo', desc:'Brand-aligned static posts with AI-assisted SEO-optimized captions.' },
+    { icon:'📸', type:'content', name:'8 Story Graphics/mo', desc:'Vertical story graphics with CTAs for consistent daily presence.' },
+    { icon:'📸', type:'content', name:'4 Carousel Posts/mo', desc:'High-engagement carousel posts optimized for saves, shares, and reach.' },
+    { icon:'🎬', type:'video', name:'2 Polished Reels/mo (15-30s)', desc:'Professionally scripted and edited short-form reels — filmed on location or studio, with sound design and professional editing. Built to perform.' }
+  ],
+  established: [
+    { icon:'📸', type:'content', name:'8 Feed Posts/mo', desc:'Brand-aligned static posts with AI-assisted SEO-optimized captions.' },
+    { icon:'📸', type:'content', name:'8 Story Graphics/mo', desc:'Daily story graphics keeping your brand top-of-mind every single day.' },
+    { icon:'📸', type:'content', name:'4 Carousel Posts/mo', desc:'High-engagement carousels optimized for saves and shares.' },
+    { icon:'🎬', type:'video', name:'4 Polished Reels/mo (15-30s)', desc:'Four professionally scripted and edited short-form reels per month — consistent video presence that drives followers and engagement.' },
+    { icon:'🎬', type:'video', name:'2 Cinematic Reels/mo (40-60s)', desc:'Full cinematic production — scripting, storytelling, on-location shoot, color grade, and sound design. Brand films that make people stop and watch.' }
+  ]
+};
+
+var whyMessages = {
+  just_started: 'You need a professional foundation before anything else. This package gives you the digital presence to be taken seriously — a real website, Google visibility, social media management, and a consistent content presence — without overwhelming your budget or your time.',
+  growing: 'You are past the just-getting-started phase and ready to actually grow. This package gives you a full content engine, local SEO, and social presence to consistently attract new customers — not just look good online.',
+  scaling: 'You are ready to dominate. This package combines everything that moves the needle — video content, full SEO, social management, email marketing, and automation — all working together as one integrated system.',
+  established: 'This is for businesses that are serious about owning their market. Every channel, every touchpoint, every piece of content — fully managed, fully branded, and fully automated. The complete system.'
+};
+
+var upgradeMessages = {
+  just_started: 'Ready to level up? The Growing tier adds 8 feed posts, 8 story graphics, and 4 carousels per month — a full content presence across all platforms.',
+  growing: 'Want to add video? The Scaling tier includes 2 Polished Reels per month — the single highest-impact upgrade for social media growth.',
+  scaling: 'Ready to go all in? The Established tier adds 4 Polished Reels and 2 Cinematic Reels — a full content production engine built for market-leading brands.',
+  established: 'You are at the top tier. For multi-location, enterprise, or fully custom engagements, talk to us — we will build something bespoke.'
+};
+
+var serviceDescriptions = {
+  'Basic Website (5 pages)': { icon:'🌐', type:'', desc:'A clean, mobile-responsive website with all the essential pages — Home, Services, About, Contact, and one more. Built on WordPress, Webflow, or Wix.' },
+  'Standard Website (10 pages)': { icon:'🌐', type:'', desc:'A fully custom 10-page website with branded design, SEO setup, lead capture forms, and analytics installed from day one.' },
+  'Advanced Website (20 pages)': { icon:'🌐', type:'', desc:'A comprehensive 20-page website with custom layouts, CMS blog, advanced analytics, and full integration capabilities.' },
+  'Basic Website + Booking Integration': { icon:'📅', type:'auto', desc:'A 5-page website with a built-in booking system — clients can schedule appointments 24/7 directly from your site.' },
+  'Standard Website + Menu Design': { icon:'🌐', type:'', desc:'A 10-page website plus a professionally designed print-ready menu — perfect for restaurants wanting a cohesive brand.' },
+  'Standard Website + Booking Flow': { icon:'📅', type:'auto', desc:'A 10-page website with a seamlessly integrated booking system — clients book, get confirmations, and receive reminders automatically.' },
+  'Standard Website + AI Chatbot': { icon:'🤖', type:'auto', desc:'A 10-page website with a custom AI chatbot — capturing leads, booking appointments, and answering questions 24/7.' },
+  'Standard Website + Brand Identity': { icon:'🎨', type:'', desc:'A 10-page custom website paired with a full logo and visual identity — so your site and brand look like they were built together.' },
+  'Standard Website + Brand Shoot Ready': { icon:'🎨', type:'', desc:'A 10-page website built alongside a brand identity package — designed to showcase professional photography and video.' },
+  'Advanced Website + Blog/CMS': { icon:'✍️', type:'', desc:'A 20-page website with a full CMS blog — publish articles, guides, and updates without touching any code.' },
+  'Advanced Website + Property Pages': { icon:'🏠', type:'', desc:'A 20-page real estate website with dedicated property listing pages and lead capture on every page.' },
+  'Advanced Website + Listings CMS': { icon:'🏠', type:'', desc:'A 20-page website with a property listings CMS — add and manage listings without a developer.' },
+  'Advanced Website + Client Portal': { icon:'🌐', type:'auto', desc:'A 20-page website with a secure client login portal — ideal for sharing documents, reports, or gated resources.' },
+  'Custom Web App / Property Portal': { icon:'🌐', type:'auto', desc:'A fully custom-built web application — property search, client portals, dashboards, or any complex functionality scoped for your business.' },
+  'GBP Setup & Optimization': { icon:'📍', type:'seo', desc:'Your Google Business Profile fully built and optimized — categories, descriptions, photos, services, and Q&A. The #1 driver of local search traffic.' },
+  'Local SEO Starter ($149/mo)': { icon:'🔍', type:'seo', desc:'Monthly GBP management, review monitoring and responses, and a visibility report so you always know where you stand locally.' },
+  'Local Growth SEO ($299/mo)': { icon:'🔍', type:'seo', desc:'Everything in Starter plus citation cleanup, keyword rank tracking, photo optimization, and a detailed monthly insights report.' },
+  'Local Authority SEO ($499/mo)': { icon:'🔍', type:'seo', desc:'Full local SEO strategy — 12 GBP posts per month, competitor tracking, active citation building, review generation, and a dedicated account contact.' },
+  'Local Authority SEO + Citations': { icon:'🔍', type:'seo', desc:'Full local SEO authority plan including citation cleanup and building across 50+ directories — maximum local ranking signal.' },
+  'Local Authority SEO + Multi-location': { icon:'🔍', type:'seo', desc:'Full local SEO strategy managed across multiple locations — each with its own content, reviews, and ranking strategy.' },
+  'Local Authority SEO + Blog Posts': { icon:'🔍', type:'seo', desc:'Full local SEO authority plan plus monthly SEO blog posts that drive organic traffic and establish your expertise.' },
+  'Basic Hosting ($49/mo)': { icon:'⚡', type:'', desc:'Managed hosting, SSL certificate, security patches, backups, plugin updates, and uptime monitoring — all handled for you.' },
+  'Growth Hosting ($125/mo)': { icon:'⚡', type:'', desc:'Everything in Basic plus up to 3hrs of content updates per month, a performance report, and an SEO blog post.' },
+  'Pro Care Hosting ($249/mo)': { icon:'⚡', type:'', desc:'Full-service care — up to 6hrs development updates, full SEO strategy, 2 blog posts per month, priority support, and a quarterly strategy review.' },
+  'Bot Care + Growth Hosting': { icon:'⚡', type:'', desc:'Monthly maintenance for your AI bot plus hosting — uptime monitoring, unlimited FAQ updates, performance optimization, and site updates.' },
+  'Review Monitoring & Responses': { icon:'⭐', type:'', desc:'We monitor your Google reviews 24/7 and craft professional, brand-aligned responses to every review.' },
+  'Review Generation System': { icon:'⭐', type:'', desc:'Automated SMS and email review requests sent to customers at the perfect moment — consistently building your rating automatically.' },
+  'Review Request Automation': { icon:'⭐', type:'auto', desc:'A triggered automation that sends a personalized review request after every appointment or transaction.' },
+  'Lead Capture Form': { icon:'📋', type:'', desc:'A professionally designed contact and lead capture form connected to your CRM or email.' },
+  'Lead Capture Forms': { icon:'📋', type:'', desc:'Custom forms with CRM integrations and autoresponders — every lead captured, tagged, and followed up automatically.' },
+  'Lead Capture & CRM Automation': { icon:'🤖', type:'auto', desc:'When a lead fills out a form, they are instantly added to your CRM, tagged, your team is notified, and a follow-up fires — within seconds.' },
+  'Full CRM Setup & Automation': { icon:'🤖', type:'auto', desc:'Complete CRM build with pipeline stages, all lead sources connected, and automated follow-up sequences — your entire sales process on rails.' },
+  'Appointment Reminder Automation': { icon:'📅', type:'auto', desc:'Automated appointment confirmations, reminders at 24hrs and 2hrs before, and a no-show follow-up — reducing cancellations by 30-50%.' },
+  'Appointment + Invoice Automation': { icon:'📅', type:'auto', desc:'Combined flow — reminders before appointments and automatic payment follow-ups after — saving hours of manual chasing every week.' },
+  'Appointment + Re-engagement Automation': { icon:'📅', type:'auto', desc:'Reminder sequences before appointments plus a re-engagement flow for clients who have not returned in a while.' },
+  'Full Automation Suite (4 flows)': { icon:'🤖', type:'auto', desc:'Four custom automation flows — lead capture, appointment reminders, review requests, and invoice follow-ups.' },
+  'Full Automation Suite (5 flows)': { icon:'🤖', type:'auto', desc:'Five fully custom automation flows — lead capture, reminders, reviews, invoices, and a re-engagement sequence.' },
+  'Full Automation Suite': { icon:'🤖', type:'auto', desc:'All key automation flows managed and maintained — lead capture, reminders, reviews, invoices, and re-engagement.' },
+  'SMM Essentials Management ($99/mo)': { icon:'📱', type:'', desc:'Instagram and Facebook managed end-to-end — content calendar, scheduling, community management, and SEO-optimized captions.' },
+  'SMM Growth Plan (IG, FB, TikTok)': { icon:'📱', type:'', desc:'All three platforms managed — Instagram, Facebook, and TikTok — with daily story posts, competitor tracking, and a monthly Visibility Intelligence Report.' },
+  'SMM Growth Plan (3 platforms)': { icon:'📱', type:'', desc:'Instagram, Facebook, and TikTok fully managed with AI trend monitoring, competitor benchmarking, and a dedicated account contact.' },
+  'SMM Growth Plan (all 3 platforms)': { icon:'📱', type:'', desc:'Full management across Instagram, Facebook, and TikTok — daily stories, AI trend monitoring, competitor tracking, and monthly reporting.' },
+  'SMM Growth Plan (IG, LinkedIn, FB)': { icon:'📱', type:'', desc:'LinkedIn, Instagram, and Facebook managed — ideal for professional service businesses building authority and generating referrals.' },
+  'SMM Pro Plan': { icon:'📱', type:'', desc:'Full social media strategy — audience growth, advanced analytics, deep competitor analysis, and a quarterly strategy call.' },
+  'Email Starter Plan ($199/mo)': { icon:'✉️', type:'', desc:'2 email campaigns per month — AI-assisted copywriting and design, A/B testing, list management, and a monthly performance report.' },
+  'Email & SMS Starter ($199/mo)': { icon:'✉️', type:'', desc:'Email and SMS campaigns managed monthly — AI-personalized messaging and monthly analytics.' },
+  'Email & SMS Growth ($299/mo)': { icon:'✉️', type:'', desc:'4 email campaigns plus 2 SMS campaigns per month, advanced segmentation, and a dedicated account contact.' },
+  'Smart AI Assistant Chatbot': { icon:'🤖', type:'auto', desc:'A fully custom AI chatbot trained on your business — answers questions 24/7, books appointments, captures leads, and routes them to you.' },
+  'Smart AI Chatbot + Booking': { icon:'🤖', type:'auto', desc:'An AI chatbot that answers FAQs and books appointments directly — turning website visitors into confirmed bookings around the clock.' },
+  'AI Starter Chatbot': { icon:'🤖', type:'auto', desc:'A GPT-powered chatbot answering up to 30 FAQs, capturing leads, and embedded on your website — working 24/7 without any staff.' },
+  'Brand Messaging & Voice': { icon:'✍️', type:'', desc:'Your taglines, value propositions, tone of voice, and brand story — the words that define how your business sounds.' },
+  'Brand Guidelines Package': { icon:'🎨', type:'', desc:'Full brand style guide covering logo usage, color palette, typography, imagery direction, and social media brand kit.' },
+  'Brand Strategy & Identity Package': { icon:'🎨', type:'', desc:'Strategy-first branding — competitor research, audience mapping, positioning, full visual identity, and a complete messaging framework.' },
+  'Complete Brand & Launch System': { icon:'🚀', type:'', desc:'Everything in Brand Strategy plus a 90-day launch plan, social media template kit, website copy, GBP setup, and a pitch deck template.' },
+  'Business Dev Strategy Session': { icon:'💼', type:'', desc:'A 60-90 minute session with one of our $25M+ business operators — bring your biggest challenge and leave with a battle-tested action plan.' },
+  'Executive Strategy Session (included)': { icon:'💼', type:'', desc:'An included session with a $25M+ business leader reviewing your marketing, operations, and growth strategy.' },
+  'AI Starter Chatbot + Full Automation Suite': { icon:'🤖', type:'auto', desc:'A custom AI chatbot combined with all key automation flows — a complete AI-powered marketing and operations system.' },
+  'Pro Care + Quarterly Review': { icon:'⚡', type:'', desc:'Full-service hosting care plus a quarterly in-depth strategy review with your account team.' },
+  'Pro Care + Quarterly Strategy Call': { icon:'⚡', type:'', desc:'Full-service hosting care plus a quarterly strategy call to review performance and plan next steps.' }
+};
+
+function buildPkgs(list) {
+  var tiers = ['just_started','growing','scaling','established'];
+  return list.map(function(p, i) {
+    var tier = tiers[i];
+    p.tier = tier;
+    p.monthly = p.baseMonthly + contentCosts[tier];
+    return p;
+  });
+}
+
+var allPackages = {
+  restaurant: buildPkgs([
+    { badge:'Just Getting Started', bc:'b1', popular:false, name:'The First Table', tagline:'Get your restaurant found online with a professional presence from day one.', setup:898, baseMonthly:248, services:['Basic Website (5 pages)','GBP Setup & Optimization','Local SEO Starter ($149/mo)','SMM Essentials Management ($99/mo)','Basic Hosting ($49/mo)','Review Monitoring & Responses'], value:'Market value: $3,000+ setup' },
+    { badge:'Growing', bc:'b2', popular:false, name:'Full House', tagline:'Build your reputation, fill more tables, and keep customers coming back.', setup:1747, baseMonthly:273, services:['Standard Website + Menu Design','Local Growth SEO ($299/mo)','SMM Growth Plan (IG, FB, TikTok)','Review Generation System','Growth Hosting ($125/mo)'], value:'Market value: $6,000+ setup' },
+    { badge:'Scaling', bc:'b3', popular:true, name:'The Packed House', tagline:'Dominate local search, grow your audience, and automate your marketing.', setup:2747, baseMonthly:523, services:['Standard Website + Menu Design','Local Authority SEO ($499/mo)','SMM Growth Plan (IG, FB, TikTok)','Email Starter Plan ($199/mo)','Review Request Automation','Growth Hosting ($125/mo)'], value:'Market value: $14,000+ setup' },
+    { badge:'Established', bc:'b4', popular:false, name:'The Empire', tagline:'The full system — brand, content, automation, and strategy all working as one.', setup:5497, baseMonthly:847, services:['Advanced Website (20 pages)','Complete Brand & Launch System','Local Authority SEO + Citations','SMM Pro Plan','Email & SMS Growth ($299/mo)','Smart AI Assistant Chatbot','Lead Capture & CRM Automation','Pro Care Hosting ($249/mo)'], value:'Market value: $28,000+ setup' }
+  ]),
+  service: buildPkgs([
+    { badge:'Just Getting Started', bc:'b1', popular:false, name:'The First Call', tagline:'Get your service business online and start showing up where customers search.', setup:898, baseMonthly:198, services:['Basic Website (5 pages)','GBP Setup & Optimization','Local SEO Starter ($149/mo)','SMM Essentials Management ($99/mo)','Basic Hosting ($49/mo)','Lead Capture Form'], value:'Market value: $2,500+ setup' },
+    { badge:'Growing', bc:'b2', popular:false, name:'More Leads', tagline:'Build trust online, generate more leads, and never miss a follow-up again.', setup:1897, baseMonthly:324, services:['Standard Website (10 pages)','Lead Capture & CRM Automation','Appointment Reminder Automation','Local Growth SEO ($299/mo)','SMM Growth Plan (IG, FB, TikTok)','Review Request Automation','Growth Hosting ($125/mo)'], value:'Market value: $7,000+ setup' },
+    { badge:'Scaling', bc:'b3', popular:true, name:'The Lead Machine', tagline:'A fully automated lead-to-booking system that works while you work.', setup:2997, baseMonthly:548, services:['Standard Website + AI Chatbot','Full CRM Setup & Automation','Appointment + Invoice Automation','Local Authority SEO ($499/mo)','SMM Growth Plan (IG, FB, TikTok)','Email Starter Plan ($199/mo)','Bot Care + Growth Hosting'], value:'Market value: $12,000+ setup' },
+    { badge:'Established', bc:'b4', popular:false, name:'The Full Operation', tagline:'Enterprise-level marketing and automation for serious service businesses.', setup:5997, baseMonthly:847, services:['Advanced Website (20 pages)','Brand Strategy & Identity Package','Smart AI Assistant Chatbot','Full Automation Suite (4 flows)','Local Authority SEO ($499/mo)','SMM Pro Plan','Email & SMS Growth ($299/mo)','Pro Care Hosting ($249/mo)'], value:'Market value: $22,000+ setup' }
+  ]),
+  professional: buildPkgs([
+    { badge:'Just Getting Started', bc:'b1', popular:false, name:'The Practice Launch', tagline:'Establish your professional online presence and start attracting the right clients.', setup:1299, baseMonthly:174, services:['Standard Website (10 pages)','Brand Messaging & Voice','GBP Setup & Optimization','SMM Essentials Management ($99/mo)','Basic Hosting ($49/mo)','Lead Capture Forms'], value:'Market value: $4,000+ setup' },
+    { badge:'Growing', bc:'b2', popular:false, name:'The Authority Builder', tagline:'Build credibility, generate referrals, and grow your client base consistently.', setup:1997, baseMonthly:274, services:['Advanced Website (20 pages)','Brand Guidelines Package','Local Growth SEO ($299/mo)','SMM Growth Plan (IG, LinkedIn, FB)','Review Generation System','Growth Hosting ($125/mo)'], value:'Market value: $8,000+ setup' },
+    { badge:'Scaling', bc:'b3', popular:true, name:'The Thought Leader', tagline:'Position yourself as the go-to expert with content, SEO, and automation.', setup:3297, baseMonthly:623, services:['Advanced Website + Blog/CMS','Brand Strategy & Identity Package','Local Authority SEO + Blog Posts','SMM Growth Plan (3 platforms)','Email Starter Plan ($199/mo)','Lead Capture & CRM Automation','Pro Care Hosting ($249/mo)'], value:'Market value: $14,000+ setup' },
+    { badge:'Established', bc:'b4', popular:false, name:'The Firm', tagline:'A full-service marketing system for established professional practices.', setup:6497, baseMonthly:997, services:['Advanced Website + Client Portal','Complete Brand & Launch System','Local Authority SEO + Citations','SMM Pro Plan','Email & SMS Growth ($299/mo)','Smart AI Assistant Chatbot','Executive Strategy Session (included)','Pro Care + Quarterly Review'], value:'Market value: $25,000+ setup' }
+  ]),
+  wellness: buildPkgs([
+    { badge:'Just Getting Started', bc:'b1', popular:false, name:'Open for Business', tagline:'Get booked online and make a great first impression from day one.', setup:1047, baseMonthly:198, services:['Basic Website + Booking Integration','GBP Setup & Optimization','Local SEO Starter ($149/mo)','SMM Essentials Management ($99/mo)','Basic Hosting ($49/mo)','Review Monitoring & Responses'], value:'Market value: $3,000+ setup' },
+    { badge:'Growing', bc:'b2', popular:false, name:'Fully Booked', tagline:'Fill your calendar, reduce no-shows, and build a loyal client base.', setup:1897, baseMonthly:324, services:['Standard Website + Booking Flow','Appointment Reminder Automation','Review Generation System','Local Growth SEO ($299/mo)','SMM Growth Plan (IG, FB, TikTok)','Growth Hosting ($125/mo)'], value:'Market value: $7,000+ setup' },
+    { badge:'Scaling', bc:'b3', popular:true, name:'The Wellness Brand', tagline:'Build a recognizable brand that clients love and refer to their friends.', setup:2997, baseMonthly:523, services:['Standard Website + Brand Shoot Ready','Brand Strategy & Identity Package','Local Authority SEO ($499/mo)','SMM Growth Plan (all 3 platforms)','Email Starter Plan ($199/mo)','Appointment + Re-engagement Automation','Growth Hosting ($125/mo)'], value:'Market value: $14,000+ setup' },
+    { badge:'Established', bc:'b4', popular:false, name:'The Destination', tagline:'A premium full-service system for wellness businesses that want to lead their market.', setup:5997, baseMonthly:847, services:['Advanced Website (20 pages)','Complete Brand & Launch System','Local Authority SEO + Multi-location','SMM Pro Plan','Email & SMS Growth ($299/mo)','Smart AI Chatbot + Booking','Full Automation Suite','Pro Care Hosting ($249/mo)'], value:'Market value: $25,000+ setup' }
+  ]),
+  realestate: buildPkgs([
+    { badge:'Just Getting Started', bc:'b1', popular:false, name:'The Listing', tagline:'Get professional online and start building your real estate brand.', setup:1299, baseMonthly:174, services:['Standard Website (10 pages)','GBP Setup & Optimization','Brand Messaging & Voice','SMM Essentials Management ($99/mo)','Basic Hosting ($49/mo)','Lead Capture Forms'], value:'Market value: $3,500+ setup' },
+    { badge:'Growing', bc:'b2', popular:false, name:'The Agent', tagline:'Build your personal brand, grow your social presence, and capture more leads.', setup:2197, baseMonthly:324, services:['Advanced Website + Property Pages','Brand Guidelines Package','Local Growth SEO ($299/mo)','SMM Growth Plan (IG, FB, TikTok)','Lead Capture & CRM Automation','Growth Hosting ($125/mo)'], value:'Market value: $8,000+ setup' },
+    { badge:'Scaling', bc:'b3', popular:true, name:'The Top Producer', tagline:'Dominate your local market with content, automation, and a premium brand.', setup:3997, baseMonthly:673, services:['Advanced Website + Listings CMS','Brand Strategy & Identity Package','Local Authority SEO + Citations','SMM Growth Plan (3 platforms)','Email & SMS Starter ($199/mo)','Lead Capture & CRM Automation','Pro Care Hosting ($249/mo)'], value:'Market value: $16,000+ setup' },
+    { badge:'Established', bc:'b4', popular:false, name:'The Brokerage', tagline:'Enterprise-level marketing for teams, brokerages, and high-volume agents.', setup:7497, baseMonthly:1147, services:['Custom Web App / Property Portal','Complete Brand & Launch System','Local Authority SEO + Multi-location','SMM Pro Plan','Email & SMS Growth ($299/mo)','Smart AI Assistant Chatbot','Full Automation Suite (5 flows)','Pro Care + Quarterly Strategy Call'], value:'Market value: $30,000+ setup' }
+  ]),
+  general: buildPkgs([
+    { badge:'Just Getting Started', bc:'b1', popular:false, name:'The Digital Launchpad', tagline:'Everything a new business needs to look professional and get found online.', setup:898, baseMonthly:248, services:['Basic Website (5 pages)','GBP Setup & Optimization','Local SEO Starter ($149/mo)','SMM Essentials Management ($99/mo)','Basic Hosting ($49/mo)','Review Monitoring & Responses'], value:'Market value: $2,500+ setup' },
+    { badge:'Growing', bc:'b2', popular:false, name:'The Growth Starter', tagline:'A complete foundation — website, local SEO, social media, and content.', setup:1797, baseMonthly:349, services:['Standard Website (10 pages)','Local Growth SEO ($299/mo)','SMM Growth Plan (IG, FB, TikTok)','Review Generation System','Growth Hosting ($125/mo)'], value:'Market value: $6,000+ setup' },
+    { badge:'Scaling', bc:'b3', popular:true, name:'The Digital Overhaul', tagline:'Website, branding, SEO, social, content, and automation — all in one system.', setup:3497, baseMonthly:598, services:['Standard Website + Brand Identity','Local Authority SEO ($499/mo)','SMM Growth Plan (3 platforms)','Email Starter Plan ($199/mo)','Lead Capture & CRM Automation','AI Starter Chatbot','Pro Care Hosting ($249/mo)'], value:'Market value: $14,000+ setup' },
+    { badge:'Established', bc:'b4', popular:false, name:'The Growth Engine', tagline:'The complete system for businesses serious about dominating their market.', setup:6497, baseMonthly:897, services:['Advanced Website (20 pages)','Complete Brand & Launch System','Local Authority SEO + Citations','SMM Pro Plan','Email & SMS Growth ($299/mo)','Smart AI Assistant Chatbot','Full Automation Suite (4 flows)','Pro Care + Quarterly Review'], value:'Market value: $28,000+ setup' }
+  ])
+};
+
+function fmt(n) { return '$' + n.toLocaleString(); }
+
+function cleanName(s) {
+  var i = s.indexOf(' ($');
+  return i > -1 ? s.substring(0, i) : s;
+}
+
+var isAnnual = false;
+
+function toggleBilling() {
+  isAnnual = !isAnnual;
+  document.getElementById('toggle-track').classList.toggle('on', isAnnual);
+  document.getElementById('label-monthly').classList.toggle('active', !isAnnual);
+  document.getElementById('label-annual').classList.toggle('active', isAnnual);
+  renderPackages();
+}
+
+function annualMonthly(monthly) {
+  return Math.round(monthly * 10 / 12 * 10) / 10;
+}
+
+function toggleBilling() {
+  isAnnual = !isAnnual;
+  var track = document.getElementById('billing-toggle');
+  var lm = document.getElementById('label-monthly');
+  var la = document.getElementById('label-annual');
+  track.classList.toggle('monthly', !isAnnual);
+  lm.classList.toggle('active', !isAnnual);
+  la.classList.toggle('active', isAnnual);
+  document.getElementById('annual-promo').style.display = isAnnual ? 'none' : 'block';
+  document.getElementById('monthly-promo').style.display = isAnnual ? 'block' : 'none';
+  renderPackages();
+}
+
+function annualMonthly(monthly) {
+  return Math.round(monthly * 10 / 12);
+}
+
+function buildTabs() {
+  var c = document.getElementById('tabs');
+  businessTypes.forEach(function(t) {
+    var el = document.createElement('button');
+    el.className = 'tab' + (t.id === activeType ? ' active' : '');
+    el.textContent = t.label;
+    el.onclick = function() { switchType(t.id); };
+    c.appendChild(el);
+  });
+}
+
+function switchType(id) {
+  activeType = id;
+  document.querySelectorAll('.tab').forEach(function(t, i) {
+    t.classList.toggle('active', businessTypes[i].id === id);
+  });
+  renderPackages();
+}
+
+function renderPackages() {
+  var c = document.getElementById('packages');
+  c.innerHTML = '';
+  var pkgs = allPackages[activeType] || [];
+  currentPkgs = pkgs;
+  pkgs.forEach(function(p, idx) {
+    var el = document.createElement('div');
+    el.className = 'pkg' + (p.popular ? ' popular' : '');
+    var badgeClass = p.popular ? 'bp' : p.bc;
+    var badgeLabel = p.popular ? '⚡ Most Popular' : p.badge;
+    var serviceHtml = p.services.map(function(s) { return '<div class="pkg-feature">' + s + '</div>'; }).join('');
+    var contentHtml = '<p class="pkg-section">Monthly Content</p>' + contentFeatures[p.tier].map(function(f) { return '<div class="pkg-feature ' + f.type + '">' + f.text + '</div>'; }).join('');
+    var displayMonthly = isAnnual ? annualMonthly(p.monthly) : p.monthly;
+    var originalMonthly = p.monthly;
+    var annualSaving = Math.round(p.monthly * 2);
+    el.innerHTML = '<span class="pkg-badge ' + badgeClass + '">' + badgeLabel + '</span>'
+      + '<p class="pkg-name">' + p.name + '</p>'
+      + '<p class="pkg-tagline">' + p.tagline + '</p>'
+      + '<p class="pkg-setup">One-time setup: <span>' + fmt(p.setup) + '</span></p>'
+      + (isAnnual ? '<p class="pkg-original" style="display:block">' + fmt(originalMonthly) + '/mo</p>' : '')
+      + '<p class="pkg-monthly">' + fmt(displayMonthly) + '<sub>/mo</sub>' + (isAnnual ? ' <span class="pkg-saving" style="display:inline-block">Save ' + fmt(annualSaving) + '/yr</span>' : '') + '</p>'
+      + '<hr class="pkg-divider">'
+      + '<p class="pkg-section">Services Included</p>'
+      + serviceHtml
+      + contentHtml
+      + '<p class="pkg-value">↑ ' + p.value + ' · ' + fmt(p.monthly * 12 / 1000 | 0) + 'k+/yr at agencies</p>'
+      + '<div class="pkg-spacer"></div>'
+      + '<button class="pkg-cta">Get started →</button>'
+      + '<button class="pkg-secondary" onclick="openModal(' + idx + ')">See full details</button>';
+    c.appendChild(el);
+  });
+}
+
+function openModal(idx) {
+  var p = currentPkgs[idx];
+  var displayMonthly = isAnnual ? annualMonthly(p.monthly) : p.monthly;
+  var billingNote = isAnnual ? '<span style="font-size:11px;background:#eaf3de;color:#3b6d11;padding:2px 8px;border-radius:99px;margin-left:6px">2 months free</span>' : '';
+  var tier = p.tier;
+  var badgeClass = p.popular ? 'bp' : p.bc;
+  var badgeLabel = p.popular ? '⚡ Most Popular' : p.badge;
+  var baseCost = p.baseMonthly;
+  var contCost = contentCosts[tier];
+
+  // Header
+  document.getElementById('modal-head').innerHTML =
+    '<span class="modal-badge ' + badgeClass + '">' + badgeLabel + '</span>'
+    + '<p class="modal-title">' + p.name + '</p>'
+    + '<p class="modal-sub">' + p.tagline + '</p>'
+    var mktSetup = p.value.replace('Market value: ','').split(' setup')[0];
+    document.getElementById('modal-head').innerHTML =
+      '<span class="modal-badge ' + badgeClass + '">' + badgeLabel + '</span>'
+      + '<p class="modal-title">' + p.name + '</p>'
+      + '<p class="modal-sub">' + p.tagline + '</p>'
+      + '<div class="modal-saving-banner">Agencies charge <strong>' + mktSetup + '+</strong> for setup alone. Your all-in year-one cost with us: <strong>' + fmt(p.setup + p.monthly * 12) + '</strong>.</div>'
+      + '<div class="modal-prices">'
+      + '<div class="modal-pbox"><p class="modal-plabel">One-time setup</p><p class="modal-pval blue">' + fmt(p.setup) + '</p></div>'
+      + '<div class="modal-pbox"><p class="modal-plabel">' + (isAnnual ? 'Monthly (annual)' : 'Monthly') + '</p><p class="modal-pval green">' + fmt(isAnnual ? annualMonthly(p.monthly) : p.monthly) + '<span style="font-size:12px;color:#73726c">/mo</span></p></div>'
+      + '<div class="modal-pbox" style="background:#eaf3de"><p class="modal-plabel" style="color:#3b6d11">Est. year 1 savings vs. agencies</p><p class="modal-pval" style="color:#1D9E75;font-size:16px">' + fmt(Math.round((p.setup * 3 + p.monthly * 12 * 4) - (p.setup + p.monthly * 12))) + '+</p></div>'
+      + '</div>';
+
+  // Services
+  var servicesHtml = p.services.map(function(s) {
+    var info = serviceDescriptions[s] || { icon:'✓', type:'', desc:s };
+    return '<div class="modal-row"><div class="modal-icon ' + info.type + '">' + info.icon + '</div><div><p class="modal-sname">' + cleanName(s) + '</p><p class="modal-sdesc">' + info.desc + '</p></div></div>';
+  }).join('');
+
+  // Content
+  var cItems = contentDescriptions[tier] || [];
+  var contentHtml = cItems.map(function(c) {
+    return '<div class="modal-row"><div class="modal-icon ' + c.type + '">' + c.icon + '</div><div><p class="modal-sname">' + c.name + '</p><p class="modal-sdesc">' + c.desc + '</p></div></div>';
+  }).join('');
+
+  // Cost breakdown
+  var costHtml = '<div class="modal-cost-row"><span style="color:#5f5e5a">Core services & management</span><span style="font-weight:500">' + fmt(baseCost) + '/mo</span></div>'
+    + '<div class="modal-cost-row"><span style="color:#5f5e5a">Monthly content production</span><span style="font-weight:500">' + fmt(contCost) + '/mo</span></div>';
+
+  document.getElementById('modal-body').innerHTML =
+    '<div class="modal-why">' + whyMessages[tier] + '</div>'
+    + '<p class="modal-sec-title">Services Included</p>' + servicesHtml
+    + '<p class="modal-sec-title">Monthly Content Production</p>' + contentHtml
+    + '<p class="modal-sec-title">Monthly Cost Breakdown</p>' + costHtml
+    + '<div class="modal-total"><span style="font-size:13px;color:#5f5e5a">One-time setup</span><span style="font-size:15px;font-weight:500">' + fmt(p.setup) + '</span></div>'
+    + '<div class="modal-total" style="padding-top:6px;border-top:0.5px solid rgba(0,0,0,0.06);margin-top:6px"><span style="font-size:13px;color:#5f5e5a">Monthly recurring</span><span style="font-size:22px;font-weight:500;color:#1D9E75">' + fmt(isAnnual ? annualMonthly(p.monthly) : p.monthly) + '<span style="font-size:13px;font-weight:400;color:#73726c">/mo</span>' + (isAnnual ? ' <span style="font-size:11px;background:#eaf3de;color:#3b6d11;padding:2px 8px;border-radius:99px">2 months free</span>' : '') + '</span></div>'
+    + '<p style="font-size:11px;color:#73726c;margin-top:10px;padding:8px 12px;background:#f5f4f0;border-radius:6px">' + (isAnnual ? 'Annual plan — billed monthly at the discounted rate. 2 months free vs. monthly pricing. Setup fee due at signing.' : '') + '</p>'
+    + '<div style="display:flex;justify-content:space-between;padding:6px 0;font-size:12px;color:#73726c"><span>+ One-time setup fee</span><span style="font-weight:500;color:#1a1a18">' + fmt(p.setup) + '</span></div>'
+    + '<div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px;font-weight:500;border-top:0.5px solid rgba(0,0,0,0.08);margin-top:4px"><span>Year one all-in</span><span>' + fmt(p.setup + p.monthly * 12) + '</span></div>'
+    + '<div class="modal-upgrade">' + upgradeMessages[tier] + '</div>';
+
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function overlayClick(e) {
+  if (e.target === document.getElementById('overlay')) closeModal();
+}
+
+function closeModal() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+buildTabs();
+renderPackages();
+</script>
+</body>
+</html>

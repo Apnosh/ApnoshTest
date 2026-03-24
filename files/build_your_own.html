@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Your Own Plan</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f5f4f0; color: #1a1a18; min-height: 100vh; }
+
+/* ── HEADER ─────────────────────────────────────── */
+.page-head { text-align: center; padding: 40px 20px 0; }
+.page-badge { display: inline-flex; align-items: center; gap: 6px; background: #1a1a18; color: #fff; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 99px; margin-bottom: 14px; letter-spacing: 0.04em; }
+.page-head h1 { font-size: 26px; font-weight: 500; margin-bottom: 6px; }
+.page-head p { font-size: 14px; color: #73726c; max-width: 480px; margin: 0 auto; line-height: 1.6; }
+
+/* ── LAYOUT ─────────────────────────────────────── */
+.layout { display: flex; gap: 0; max-width: 1080px; margin: 0 auto; padding: 28px 20px 120px; }
+@media (min-width: 900px) { .layout { gap: 24px; padding-bottom: 40px; } }
+.main { flex: 1; min-width: 0; }
+
+/* ── TABS ───────────────────────────────────────── */
+.tabs-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 20px; }
+.tabs-scroll::-webkit-scrollbar { display: none; }
+.tabs { display: flex; gap: 6px; min-width: max-content; padding-bottom: 2px; }
+.tab-btn { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 10px 14px; border-radius: 10px; border: 0.5px solid rgba(0,0,0,0.12); background: #fff; cursor: pointer; transition: all 0.15s; white-space: nowrap; min-width: 80px; }
+.tab-btn:hover { border-color: rgba(0,0,0,0.25); }
+.tab-btn.active { background: #1a1a18; border-color: #1a1a18; color: #fff; }
+.tab-icon { font-size: 18px; }
+.tab-label { font-size: 11px; font-weight: 500; }
+.tab-sub { font-size: 10px; opacity: 0.6; }
+.tab-badge { font-size: 9px; font-weight: 700; background: #1D9E75; color: #fff; padding: 1px 5px; border-radius: 99px; margin-top: 1px; }
+.tab-btn.active .tab-badge { background: rgba(255,255,255,0.3); }
+
+/* ── SECTION CARD ───────────────────────────────── */
+.section-card { background: #fff; border-radius: 14px; border: 0.5px solid rgba(0,0,0,0.1); padding: 24px; }
+.section-title { font-size: 18px; font-weight: 500; margin-bottom: 4px; }
+.section-sub { font-size: 13px; color: #73726c; margin-bottom: 22px; line-height: 1.5; }
+
+/* ── SERVICE ROWS ───────────────────────────────── */
+.service-group { margin-bottom: 24px; }
+.service-group-title { font-size: 10px; font-weight: 600; color: #73726c; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 0.5px solid rgba(0,0,0,0.07); }
+.service-wrap { border-bottom: 0.5px solid rgba(0,0,0,0.05); padding: 4px 0; }
+.service-wrap:last-child { border: none; }
+.service-row { display: flex; align-items: center; gap: 12px; padding: 8px 0 4px; }
+.service-row-bottom { padding: 0 0 8px; }
+.service-info { flex: 1; min-width: 0; }
+.service-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+.service-desc { font-size: 11px; color: #73726c; line-height: 1.4; }
+.service-price { font-size: 13px; font-weight: 500; color: #185fa5; white-space: nowrap; margin-right: 4px; }
+.service-toggle { width: 36px; height: 20px; border-radius: 99px; border: none; cursor: pointer; position: relative; flex-shrink: 0; transition: background 0.2s; }
+.service-toggle.on { background: #1a1a18; }
+.service-toggle.off { background: #d3d1c7; }
+.service-toggle-thumb { width: 14px; height: 14px; background: #fff; border-radius: 50%; position: absolute; top: 3px; transition: left 0.2s; }
+.service-toggle.on .service-toggle-thumb { left: 19px; }
+.service-toggle.off .service-toggle-thumb { left: 3px; }
+
+/* Tier select */
+.tier-select { font-size: 12px; border: 0.5px solid rgba(0,0,0,0.15); border-radius: 8px; padding: 6px 10px; background: #fff; cursor: pointer; max-width: 200px; }
+.tier-select:focus { outline: none; border-color: #1a1a18; }
+
+/* Qty controls */
+.qty-wrap { display: flex; align-items: center; gap: 6px; }
+.qty-btn { width: 24px; height: 24px; border-radius: 6px; border: 0.5px solid rgba(0,0,0,0.15); background: #fff; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.qty-btn:hover { background: #f5f4f0; }
+.qty-val { font-size: 13px; font-weight: 500; min-width: 20px; text-align: center; }
+
+/* Custom input */
+.custom-input-wrap { display: flex; align-items: center; gap: 6px; }
+.custom-input-prefix { font-size: 13px; color: #73726c; }
+.custom-input { width: 80px; border: 0.5px solid rgba(0,0,0,0.15); border-radius: 6px; padding: 5px 8px; font-size: 13px; font-family: inherit; }
+.custom-input:focus { outline: none; border-color: #1a1a18; }
+
+/* Section subtotal */
+.section-subtotal { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 16px; border-top: 1.5px solid rgba(0,0,0,0.08); font-size: 13px; }
+.section-subtotal-label { color: #73726c; font-weight: 500; }
+.section-subtotal-vals { display: flex; gap: 16px; }
+.subtotal-mo { font-weight: 500; color: #1D9E75; }
+.subtotal-ot { font-weight: 500; color: #185fa5; }
+
+/* Nav buttons */
+.section-nav { display: flex; justify-content: space-between; margin-top: 16px; gap: 10px; }
+.nav-btn { padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s; }
+.nav-btn-back { background: transparent; border: 0.5px solid rgba(0,0,0,0.15); color: #73726c; }
+.nav-btn-back:hover { border-color: rgba(0,0,0,0.3); color: #1a1a18; }
+.nav-btn-next { background: #1a1a18; border: none; color: #fff; flex: 1; }
+.nav-btn-next:hover { opacity: 0.85; }
+
+/* ── SIDEBAR (desktop) ──────────────────────────── */
+.sidebar { display: none; }
+@media (min-width: 900px) {
+  .sidebar { display: block; width: 280px; flex-shrink: 0; }
+  .sidebar-inner { position: sticky; top: 24px; }
+}
+.sidebar-card { background: #fff; border-radius: 14px; border: 0.5px solid rgba(0,0,0,0.1); padding: 20px; }
+.sidebar-title { font-size: 12px; font-weight: 600; color: #73726c; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px; }
+.sidebar-line { display: flex; justify-content: space-between; font-size: 12px; padding: 4px 0; border-bottom: 0.5px solid rgba(0,0,0,0.05); }
+.sidebar-line:last-of-type { border: none; }
+.sidebar-line-label { color: #73726c; flex: 1; }
+.sidebar-line-val { font-weight: 500; color: #1a1a18; white-space: nowrap; margin-left: 8px; }
+.sidebar-divider { border: none; border-top: 0.5px solid rgba(0,0,0,0.1); margin: 12px 0; }
+.sidebar-total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.sidebar-total-label { font-size: 11px; color: #73726c; }
+.sidebar-total-val { font-size: 20px; font-weight: 500; }
+.sidebar-total-val.green { color: #1D9E75; }
+.sidebar-total-val.blue { color: #185fa5; }
+.sidebar-empty { font-size: 12px; color: #b4b2a9; text-align: center; padding: 8px 0; }
+.sidebar-cta { display: block; width: 100%; padding: 12px; background: #1a1a18; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; text-align: center; margin-top: 14px; transition: opacity 0.15s; }
+.sidebar-cta:hover { opacity: 0.85; }
+.sidebar-cta:disabled { opacity: 0.35; cursor: not-allowed; }
+.sidebar-reset { display: block; width: 100%; text-align: center; font-size: 11px; color: #b4b2a9; cursor: pointer; margin-top: 10px; background: none; border: none; }
+.sidebar-reset:hover { color: #73726c; }
+.sidebar-progress { margin-bottom: 16px; }
+.sidebar-prog-label { font-size: 11px; color: #73726c; margin-bottom: 5px; }
+.sidebar-prog-bar { height: 3px; background: rgba(0,0,0,0.08); border-radius: 99px; overflow: hidden; }
+.sidebar-prog-fill { height: 100%; background: #1D9E75; border-radius: 99px; transition: width 0.3s; }
+
+/* ── STICKY BOTTOM (mobile) ─────────────────────── */
+.sticky-bottom { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 0.5px solid rgba(0,0,0,0.1); padding: 12px 16px; z-index: 100; }
+@media (min-width: 900px) { .sticky-bottom { display: none; } }
+.sticky-bottom-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.sticky-totals { display: flex; gap: 16px; }
+.sticky-total { }
+.sticky-total-label { font-size: 10px; color: #73726c; }
+.sticky-total-val { font-size: 16px; font-weight: 500; }
+.sticky-total-val.green { color: #1D9E75; }
+.sticky-total-val.blue { color: #185fa5; }
+.sticky-cta { padding: 11px 20px; background: #1a1a18; color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+.sticky-expand { background: none; border: none; font-size: 11px; color: #185fa5; cursor: pointer; white-space: nowrap; display: block; text-align: center; margin-top: 4px; }
+
+/* Expand drawer on mobile */
+.sticky-drawer { display: none; border-top: 0.5px solid rgba(0,0,0,0.08); margin-top: 10px; padding-top: 10px; max-height: 220px; overflow-y: auto; }
+.sticky-drawer.open { display: block; }
+.sticky-drawer-line { display: flex; justify-content: space-between; font-size: 12px; padding: 3px 0; }
+.sticky-drawer-label { color: #73726c; flex: 1; }
+.sticky-drawer-val { font-weight: 500; color: #1a1a18; margin-left: 8px; }
+
+/* Contact only pill */
+.contact-pill { font-size: 11px; color: #73726c; background: #f5f4f0; padding: 4px 10px; border-radius: 99px; white-space: nowrap; }
+
+/* Explainer toggle */
+.explainer-toggle { display: flex; align-items: center; gap: 4px; background: none; border: none; cursor: pointer; font-size: 11px; color: #185fa5; padding: 6px 0 0; font-family: inherit; }
+.explainer-arrow { font-size: 9px; transition: transform 0.2s; display: inline-block; }
+.explainer-arrow.open { transform: rotate(90deg); }
+.explainer-box { display: none; margin-top: 8px; padding: 10px 12px; background: #f5f4f0; border-radius: 8px; font-size: 11.5px; color: #5f5e5a; line-height: 1.6; }
+.explainer-box.open { display: block; }
+.explainer-box strong { color: #1a1a18; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <div class="page-badge">&#9998; Build Your Own Plan</div>
+  <h1>Build exactly what you need</h1>
+  <p>Pick from our full service catalog section by section. Your running total updates as you go — no surprises.</p>
+</div>
+
+<div class="layout">
+  <div class="main">
+    <div class="tabs-scroll">
+      <div class="tabs" id="tabs"></div>
+    </div>
+    <div id="section-content"></div>
+  </div>
+  <div class="sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-card">
+        <div class="sidebar-progress">
+          <p class="sidebar-prog-label" id="prog-label">0 of 8 sections configured</p>
+          <div class="sidebar-prog-bar"><div class="sidebar-prog-fill" id="prog-fill" style="width:0%"></div></div>
+        </div>
+        <p class="sidebar-title">Your Plan</p>
+        <div id="sidebar-lines"><p class="sidebar-empty">Add services to see your plan here</p></div>
+        <hr class="sidebar-divider" id="sidebar-divider" style="display:none">
+        <div id="sidebar-totals" style="display:none">
+          <div class="sidebar-total-row"><span class="sidebar-total-label">Monthly</span><span class="sidebar-total-val green" id="sb-monthly">—</span></div>
+          <div class="sidebar-total-row"><span class="sidebar-total-label">One-time setup</span><span class="sidebar-total-val blue" id="sb-setup">—</span></div>
+        </div>
+        <button class="sidebar-cta" id="sidebar-cta" disabled>Get started with this plan →</button>
+        <button class="sidebar-reset" onclick="resetAll()">Clear all selections</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky mobile bar -->
+<div class="sticky-bottom">
+  <div class="sticky-bottom-row">
+    <div class="sticky-totals">
+      <div class="sticky-total">
+        <p class="sticky-total-label">Monthly</p>
+        <p class="sticky-total-val green" id="sticky-monthly">$0</p>
+      </div>
+      <div class="sticky-total">
+        <p class="sticky-total-label">Setup</p>
+        <p class="sticky-total-val blue" id="sticky-setup">$0</p>
+      </div>
+    </div>
+    <button class="sticky-cta">Get started →</button>
+  </div>
+  <button class="sticky-expand" id="sticky-expand-btn" onclick="toggleDrawer()">Show plan details ▾</button>
+  <div class="sticky-drawer" id="sticky-drawer"></div>
+</div>
+
+<script>
+// ── STATE ────────────────────────────────────────
+var selections = {}; // key -> { type, value, monthly, setup, label }
+var activeTab = 0;
+var drawerOpen = false;
+
+// ── SECTIONS DATA ────────────────────────────────
+var SECTIONS = [
+  {
+    icon: "🌐", label: "Website", sub: "Hosting",
+    title: "Website & Hosting",
+    description: "Choose your website package and monthly care plan. All websites are mobile-responsive and SEO-ready from day one.",
+    groups: [
+      {
+        title: "Website Build (one-time)",
+        services: [
+          { id: "website", name: "Website Package", desc: "Choose the right size for your business.", explainer: "<strong>Who this is for:</strong> Any business that needs a professional online home.<br><br><strong>Why it matters:</strong> Your website is the #1 trust signal for new customers. 75% of people judge a business's credibility by its website. A properly built site with SEO foundations generates leads around the clock — even while you sleep.", type: "tier", tiers: [
+            { name: "Basic — 5 pages", setup: 699, monthly: 0 },
+            { name: "Standard — 10 pages", setup: 1299, monthly: 0 },
+            { name: "Advanced — 20 pages", setup: 1999, monthly: 0 },
+            { name: "Custom build", setup: 0, monthly: 0, contact: true }
+          ]},
+          { id: "website_booking", name: "Booking / Scheduling Integration", desc: "Let clients book appointments directly from your site.", explainer: "<strong>Who this is for:</strong> Service businesses, wellness providers, consultants, and any business where appointments are the primary conversion.<br><br><strong>Why it matters:</strong> Every extra step between 'interested' and 'booked' loses customers. A live booking system converts 3-5x better than a contact form because it eliminates the back-and-forth and lets customers book at 11pm when they're actually thinking about it.", type: "toggle", setup: 199, monthly: 0 },
+          { id: "website_blog", name: "Blog / CMS Hub", desc: "Publish articles and updates without touching code.", explainer: "<strong>Who this is for:</strong> Businesses that want to rank on Google for more search terms and build long-term organic traffic.<br><br><strong>Why it matters:</strong> Every blog post is a new page Google can index and rank. Businesses that blog consistently generate 67% more leads than those that don't. It also positions you as the expert in your field — building trust before a customer ever contacts you.", type: "toggle", setup: 249, monthly: 0 },
+          { id: "website_onpage_seo", name: "On-Page SEO Setup", desc: "Full technical SEO foundation installed at launch.", explainer: "<strong>Who this is for:</strong> Any business launching or relaunching a website that wants to rank on Google from day one.<br><br><strong>Why it matters:</strong> Most websites launch without proper SEO and then wonder why they don't show up in search. Meta titles, schema markup, page speed, internal linking, and keyword structure need to be right at launch — retrofitting SEO later costs 2-3x more.", type: "toggle", setup: 149, monthly: 0 },
+          { id: "website_analytics", name: "Analytics & Conversion Tracking", desc: "Google Analytics 4 + goal tracking configured.", explainer: "<strong>Who this is for:</strong> Any business that wants to know what's actually working in their marketing.<br><br><strong>Why it matters:</strong> Without tracking, you're flying blind. Proper analytics tells you which pages convert, where traffic comes from, what customers do before they call or book, and where they drop off. It's the data foundation every other marketing decision is built on.", type: "toggle", setup: 99, monthly: 0 },
+          { id: "website_copy", name: "Copywriting (per page)", desc: "Professional page copy written in your brand voice.", explainer: "<strong>Who this is for:</strong> Businesses that want their website to actually persuade and convert — not just look good.<br><br><strong>Why it matters:</strong> Design gets attention. Copy converts. Professional copywriting that speaks to your customer's problems, objections, and desires can double conversion rates on an otherwise identical website. AI-assisted drafting with human refinement means you get quality without the agency price tag.", type: "qty", unitSetup: 99, unitMonthly: 0, unit: "page", qty: 1 }
+        ]
+      },
+      {
+        title: "Monthly Hosting & Care",
+        services: [
+          { id: "hosting", name: "Hosting & Care Plan", desc: "Managed hosting, security, backups, and updates.", explainer: "<strong>Who this is for:</strong> Any business that doesn't want to worry about their website going down, getting hacked, or becoming outdated.<br><br><strong>Why it matters:</strong> A hacked or broken website can disappear from Google rankings overnight. Managed hosting handles SSL certificates, daily backups, security patches, and plugin updates — so your site stays fast, secure, and online without you lifting a finger.", type: "tier", tiers: [
+            { name: "Basic Hosting", setup: 0, monthly: 49 },
+            { name: "Growth Care (includes 1 SEO blog/mo)", setup: 0, monthly: 125 },
+            { name: "Pro Care (includes 2 SEO blogs + quarterly review)", setup: 0, monthly: 249 }
+          ]}
+        ]
+      }
+    ]
+  },
+  {
+    icon: "📍", label: "Local SEO", sub: "GBP",
+    title: "Local SEO & GBP",
+    description: "Get found on Google Maps and local search. The highest-ROI channel for local businesses.",
+    groups: [
+      {
+        title: "Monthly SEO Plans",
+        services: [
+          { id: "local_seo", name: "Local SEO Plan", desc: "Choose your monthly local SEO management level.", explainer: "<strong>Who this is for:</strong> Any local business that wants to show up when customers search for services nearby on Google.<br><br><strong>Why it matters:</strong> 46% of all Google searches have local intent. Businesses in the top 3 of Google Maps get the overwhelming majority of clicks — and those below rarely get called at all. Monthly SEO management keeps your listing optimized, reviews responded to, and your ranking climbing.", type: "tier", tiers: [
+            { name: "Local Starter — GBP + reviews + monthly report", setup: 0, monthly: 149 },
+            { name: "Local Growth — + citations + rank tracking", setup: 0, monthly: 299 },
+            { name: "Local Authority — + competitor tracking + blog post", setup: 0, monthly: 499 }
+          ]},
+          { id: "gbp_extra", name: "Additional GBP Location", desc: "Multi-location management add-on.", explainer: "<strong>Who this is for:</strong> Businesses with 2 or more physical locations.<br><br><strong>Why it matters:</strong> Each location needs its own GBP profile, reviews, photos, and posts to rank in local search for that area. An unmanaged second location is invisible to customers searching nearby — even if your main location ranks well.", type: "qty", unitSetup: 0, unitMonthly: 99, unit: "location", qty: 1 }
+        ]
+      },
+      {
+        title: "One-Time Setup Services",
+        services: [
+          { id: "seo_audit", name: "Local SEO Audit & Citation Cleanup", desc: "Full audit + fix every inconsistent listing across 50+ directories.", explainer: "<strong>Who this is for:</strong> Any established business whose name, address, or phone number might be listed inconsistently across the web.<br><br><strong>Why it matters:</strong> Google cross-references your business information across hundreds of directories. Inconsistent NAP (Name, Address, Phone) is one of the most common hidden reasons local businesses don't rank. A full cleanup can produce noticeable ranking improvements within 60-90 days.", type: "toggle", setup: 199, monthly: 0 },
+          { id: "gbp_setup", name: "GBP Setup & Full Optimization", desc: "Full Google Business Profile build and optimization.", explainer: "<strong>Who this is for:</strong> Any local business that hasn't fully set up or optimized their Google Business Profile.<br><br><strong>Why it matters:</strong> Your GBP is the single most important local SEO asset you own. A fully optimized profile — with the right categories, services, photos, descriptions, and Q&A — can put you in Google's Map Pack and drive immediate calls and directions without any paid advertising.", type: "toggle", setup: 249, monthly: 0 },
+          { id: "citation_build", name: "Citation Building (50 directories)", desc: "Get listed across 50 directories for maximum local signal.", explainer: "<strong>Who this is for:</strong> New businesses or businesses that haven't been actively managing their local listings.<br><br><strong>Why it matters:</strong> Citations are mentions of your business across the web — Yelp, Apple Maps, Facebook, industry directories, and dozens more. Each consistent listing is a trust signal to Google that your business is real and established. 50 quality citations can meaningfully improve your local ranking within 30-60 days.", type: "toggle", setup: 249, monthly: 0 },
+          { id: "review_system", name: "Review Generation System Setup", desc: "Automated review request flows via SMS and email.", explainer: "<strong>Who this is for:</strong> Any local business that wants more Google reviews without awkwardly asking every customer in person.<br><br><strong>Why it matters:</strong> Reviews are the #2 local ranking factor after proximity. A business with 50+ recent reviews gets dramatically more clicks than one with 12. This system sends a personalized review request at the perfect moment — 1-2 hours after a visit or transaction — when satisfaction is highest and conversion is 3-5x better.", type: "toggle", setup: 149, monthly: 0 }
+        ]
+      }
+    ]
+  },
+  {
+    icon: "📱", label: "Social & Content", sub: "Management",
+    title: "Social Media & Content",
+    description: "Full social media management and content production — strategy, scheduling, community, static posts, and video all in one place.",
+    groups: [
+      {
+        title: "Monthly Management Plan",
+        services: [
+          { id: "smm", name: "Social Media Management", desc: "Choose your management tier.", explainer: "<strong>Who this is for:</strong> Any business that wants a consistent, professional social media presence without spending hours a week on it.<br><br><strong>Why it matters:</strong> 54% of people research brands on social media before making a purchase. Inconsistent or low-quality posting signals an inactive business. Professional management means every post is on-brand, optimized for engagement, and published at the right time — so your social presence actually drives awareness and trust.", type: "tier", tiers: [
+            { name: "Essentials — IG + FB, captions, calendar, basic community", setup: 0, monthly: 99 },
+            { name: "Starter — + TikTok, basic strategy, active engagement", setup: 0, monthly: 299 },
+            { name: "Growth — + daily stories, trend monitoring, competitor tracking", setup: 0, monthly: 699 },
+            { name: "Pro — + full strategy, deep analytics, quarterly call", setup: 0, monthly: 1099 }
+          ]}
+        ]
+      },
+      {
+        title: "Static & Graphic Posts (monthly)",
+        services: [
+          { id: "feed_posts", name: "Single Feed Posts", desc: "Brand-aligned feed posts with SEO-optimized captions.", explainer: "<strong>Who this is for:</strong> Any business that wants a consistent feed presence with professional, brand-aligned graphics.<br><br><strong>Why it matters:</strong> Your Instagram and Facebook feed is a first impression. Inconsistent or DIY-looking posts erode trust. AI-assisted, SEO-optimized captions paired with branded graphics create a professional presence that attracts followers and converts profile visitors.", type: "qty", unitSetup: 0, unitMonthly: 35, bundleAt: 8, bundlePrice: 25, unit: "post", qty: 4 },
+          { id: "story_graphics", name: "Story Graphics", desc: "Vertical 9:16 story graphics with CTAs.", explainer: "<strong>Who this is for:</strong> Businesses that want to maintain daily visibility without the cost of video production.<br><br><strong>Why it matters:</strong> Stories are seen by a different audience than feed posts and create daily touchpoints with your followers. Consistent story presence keeps your brand at the top of followers' feeds and drives traffic through swipe-up CTAs and link stickers.", type: "qty", unitSetup: 0, unitMonthly: 25, bundleAt: 8, bundlePrice: 18, unit: "graphic", qty: 4 },
+          { id: "carousels", name: "Carousel Posts (up to 10 slides)", desc: "High-engagement educational or storytelling carousels.", explainer: "<strong>Who this is for:</strong> Businesses that want to educate their audience, showcase products, or tell a brand story in an engaging multi-slide format.<br><br><strong>Why it matters:</strong> Carousels are the highest-engagement static content format on Instagram — they get 3x more reach than single image posts because the algorithm rewards multi-swipe engagement. They also drive saves, which is one of the strongest signals for organic reach.", type: "qty", unitSetup: 0, unitMonthly: 95, bundleAt: 4, bundlePrice: 75, unit: "carousel", qty: 1 },
+          { id: "infographics", name: "Infographics", desc: "Data-driven or educational infographic posts.", explainer: "<strong>Who this is for:</strong> Businesses that want to share expertise, statistics, or processes in a highly shareable visual format.<br><br><strong>Why it matters:</strong> Infographics are shared 3x more than any other type of content. They establish authority, drive saves, and are particularly powerful for professional services, health and wellness, and any business where expertise is a key differentiator.", type: "qty", unitSetup: 0, unitMonthly: 120, bundleAt: 4, bundlePrice: 95, unit: "infographic", qty: 1 }
+        ]
+      },
+      {
+        title: "Video Content (monthly)",
+        services: [
+          { id: "video_basic", name: "Basic Product / Service Video", desc: "Clean product or service showcase video.", explainer: "<strong>Who this is for:</strong> Businesses that want to showcase their product or service in a clean, professional short-form format.<br><br><strong>Why it matters:</strong> Video content gets 1200% more shares than text and images combined. A basic product video is the most efficient way to communicate what you do and why someone should choose you — in 15-30 seconds that actually gets watched.", type: "qty", unitSetup: 0, unitMonthly: 100, bundleAt: 4, bundlePrice: 75, unit: "video", qty: 1 },
+          { id: "video_trend", name: "Trend / Meme Video (no people)", desc: "On-trend meme or format video without on-camera talent.", explainer: "<strong>Who this is for:</strong> Businesses that want to stay culturally relevant and reach new audiences through trending formats — without needing anyone on camera.<br><br><strong>Why it matters:</strong> TikTok and Reels algorithms heavily favor trend-based content because it drives higher engagement. Trending videos can reach audiences 10-50x larger than your current following. No people required means lower production friction and faster turnaround.", type: "qty", unitSetup: 0, unitMonthly: 125, bundleAt: 4, bundlePrice: 112, unit: "video", qty: 1 },
+          { id: "video_trend_people", name: "Trend / Meme Video (with people)", desc: "On-trend video featuring on-camera talent.", explainer: "<strong>Who this is for:</strong> Businesses that want the authenticity and trust of a real person on camera combined with the virality of trending formats.<br><br><strong>Why it matters:</strong> Human faces drive significantly higher engagement than faceless content — viewers are wired to connect with people. Trend videos with on-camera talent combine the reach of trending formats with the trust-building power of a real person representing your brand.", type: "qty", unitSetup: 0, unitMonthly: 199, bundleAt: 4, bundlePrice: 175, unit: "video", qty: 1 },
+          { id: "video_ad", name: "Ad Creative Video", desc: "High-converting video built for paid social ads.", explainer: "<strong>Who this is for:</strong> Businesses running or planning to run paid social ads on Meta, TikTok, or YouTube.<br><br><strong>Why it matters:</strong> Ad creative is the #1 factor in paid social performance — more than targeting, bidding, or budget. A professionally produced ad creative with a strong hook, clear value proposition, and direct CTA can reduce cost-per-lead by 40-60% compared to boosted organic posts.", type: "qty", unitSetup: 0, unitMonthly: 299, bundleAt: 4, bundlePrice: 249, unit: "video", qty: 1 },
+          { id: "video_polished", name: "Polished Reel (15-30s)", desc: "Professionally edited short-form reel with sound design.", explainer: "<strong>Who this is for:</strong> Businesses that want premium short-form video content that positions them as a high-quality brand.<br><br><strong>Why it matters:</strong> Polished reels are the content format that most dramatically elevates brand perception. Professional editing, sound design, and visual storytelling communicate quality in the first 3 seconds — before a word is spoken. For beauty, hospitality, wellness, and premium service businesses, this is the single highest-impact content investment.", type: "qty", unitSetup: 0, unitMonthly: 699, bundleAt: 2, bundlePrice: 625, unit: "reel", qty: 1 },
+          { id: "video_cinematic", name: "Cinematic Reel (40-60s)", desc: "Full cinematic production with color grade and sound design.", explainer: "<strong>Who this is for:</strong> Businesses that want brand films — the kind of content that makes people stop scrolling and feel something.<br><br><strong>Why it matters:</strong> Cinematic content is what separates good brands from iconic ones. A 40-60 second brand film with proper cinematography, color grading, and sound design can be repurposed across your website hero, social ads, Google ads, and email — making it one of the highest-ROI content investments you can make.", type: "qty", unitSetup: 0, unitMonthly: 899, bundleAt: 2, bundlePrice: 799, unit: "reel", qty: 1 }
+        ]
+      }
+    ]
+  },
+  {
+    icon: "✉️", label: "Email & SMS", sub: "Marketing",
+    title: "Email & SMS Marketing",
+    description: "Managed email and SMS campaigns — strategy, copywriting, design, automation, and reporting.",
+    groups: [
+      {
+        title: "Monthly Retainer Plans",
+        services: [
+          { id: "email_plan", name: "Email & SMS Plan", desc: "Choose your monthly email and SMS management tier.", explainer: "<strong>Who this is for:</strong> Any business with a customer list that wants to stay top of mind and drive repeat business.<br><br><strong>Why it matters:</strong> Email marketing delivers an average $36-42 return for every $1 spent — the highest ROI of any marketing channel. Unlike social media, your email list is an owned asset that no algorithm can take away. Consistent campaigns keep your brand in front of customers exactly when they're ready to buy again.", type: "tier", tiers: [
+            { name: "Email Starter — 2 campaigns/mo, A/B testing, reports", setup: 0, monthly: 199 },
+            { name: "Email & SMS Growth — 4 emails + 2 SMS/mo, AI personalization", setup: 0, monthly: 299 },
+            { name: "Full Retention Suite — 8 emails + 4 SMS/mo, automation management", setup: 0, monthly: 599 }
+          ]}
+        ]
+      },
+      {
+        title: "One-Time Setup Services",
+        services: [
+          { id: "email_platform", name: "Platform Setup (Klaviyo, Mailchimp, etc.)", desc: "Full account setup, domain auth, list import, and templates.", explainer: "<strong>Who this is for:</strong> Businesses starting email marketing from scratch or migrating to a new platform.<br><br><strong>Why it matters:</strong> A misconfigured email platform means your emails land in spam. Domain authentication (SPF, DKIM, DMARC) is the foundation of deliverability — without it, you could be sending campaigns that 40-60% of recipients never see. A proper setup from day one protects your sender reputation permanently.", type: "toggle", setup: 199, monthly: 0 },
+          { id: "email_automation", name: "Automation Flows Setup", desc: "Welcome series, abandoned cart, post-purchase, re-engagement.", explainer: "<strong>Who this is for:</strong> Any business that wants email working 24/7 without manually sending every campaign.<br><br><strong>Why it matters:</strong> Automation flows generate revenue while you sleep. A welcome series converts new subscribers at 3x the rate of regular campaigns. Abandoned cart flows recover 10-15% of lost sales on average. These sequences are built once and run forever — making them the single highest-ROI investment in email marketing.", type: "toggle", setup: 399, monthly: 0 },
+          { id: "sms_setup", name: "SMS Platform Setup", desc: "SMS account, compliance config, and opt-in flow.", explainer: "<strong>Who this is for:</strong> Businesses adding SMS to their marketing mix for the first time.<br><br><strong>Why it matters:</strong> SMS has a 98% open rate vs 20% for email — and most messages are read within 3 minutes of receipt. But SMS requires proper TCPA compliance setup, carrier registration, and opt-in flows to avoid fines and ensure deliverability. We handle everything so you can start texting customers legally and effectively from day one.", type: "toggle", setup: 149, monthly: 0 },
+          { id: "list_building", name: "List Building Setup", desc: "Pop-ups, lead magnets, and opt-in flows to grow your list.", explainer: "<strong>Who this is for:</strong> Businesses with a website but a small or stagnant email list.<br><br><strong>Why it matters:</strong> Your email list is your most valuable owned marketing asset. A well-designed pop-up and lead magnet system can add hundreds of new subscribers per month on autopilot. Every subscriber is a future customer who opted in — making them far more likely to convert than a cold social media follower.", type: "toggle", setup: 249, monthly: 0 },
+          { id: "email_template", name: "Custom Email Template Design", desc: "Branded, mobile-responsive email template.", explainer: "<strong>Who this is for:</strong> Businesses that want their emails to look as professional as their website.<br><br><strong>Why it matters:</strong> A branded email template is a one-time investment that pays off on every single send. Professional design increases click-through rates, builds brand recognition, and ensures your emails look great on every device. Includes a master template plus variations for campaigns, newsletters, and promotions.", type: "toggle", setup: 199, monthly: 0 }
+        ]
+      }
+    ]
+  },
+  {
+    icon: "🎨", label: "Branding", sub: "Identity",
+    title: "Branding & Identity",
+    description: "Professional brand identity built to last — from logo and colors to full brand strategy and launch systems.",
+    groups: [
+      {
+        title: "Branding Packages (one-time)",
+        services: [
+          { id: "brand_logo", name: "Logo & Visual Identity", desc: "3 logo concepts, final files, color palette, typography.", explainer: "<strong>Who this is for:</strong> New businesses or those with an outdated or DIY logo that doesn't reflect their quality.<br><br><strong>Why it matters:</strong> Your logo is the foundation of every brand touchpoint — your website, signage, social media, packaging, and printed materials. A professionally designed logo system communicates credibility, quality, and consistency before a word is read. Market average for this service is $2,000-$10,000.", type: "toggle", setup: 499, monthly: 0 },
+          { id: "brand_guidelines", name: "Brand Guidelines Package", desc: "Full style guide — logo usage, colors, type, social kit.", explainer: "<strong>Who this is for:</strong> Businesses that have a logo but need rules for how to use it consistently across all channels.<br><br><strong>Why it matters:</strong> Brand consistency across all touchpoints increases revenue by up to 23%. Guidelines ensure your agency, designers, printers, and team all use your brand correctly — so every customer touchpoint reinforces the same professional identity.", type: "toggle", setup: 999, monthly: 0 },
+          { id: "brand_strategy", name: "Brand Strategy & Identity Package", desc: "Strategy-first branding with competitor research and messaging.", explainer: "<strong>Who this is for:</strong> Businesses ready to invest in positioning — not just a logo, but a brand that stands for something specific in the market.<br><br><strong>Why it matters:</strong> Strategy-first branding starts with research — who your competitors are, what your customers actually want, and where the gap is. The result is a brand identity built on insight, not aesthetics alone. Market average for this service is $5,000-$25,000.", type: "toggle", setup: 1499, monthly: 0 },
+          { id: "brand_launch", name: "Complete Brand & Launch System", desc: "Full brand + 90-day launch plan, templates, and digital kit.", explainer: "<strong>Who this is for:</strong> Businesses launching or relaunching who want everything done together — brand, digital presence, and launch strategy as one cohesive system.<br><br><strong>Why it matters:</strong> A launch system means you go from zero to fully operational in one project — brand identity, website copy direction, social templates, email header, GBP setup, and a 90-day content plan. No piecing it together from multiple vendors over 6 months.", type: "toggle", setup: 2999, monthly: 0 },
+          { id: "brand_rebrand", name: "Full Rebrand", desc: "Complete overhaul of an existing brand from scratch.", explainer: "<strong>Who this is for:</strong> Established businesses whose brand no longer reflects their quality, values, or market position.<br><br><strong>Why it matters:</strong> A rebrand is more than a new logo — it's a signal to the market that you've evolved. Done right, a rebrand can re-energize a customer base, attract a new audience, and command higher prices. Includes brand audit, new visual identity, updated guidelines, and migration support.", type: "toggle", setup: 1999, monthly: 0 }
+        ]
+      },
+      {
+        title: "Additional Brand Services (one-time)",
+        services: [
+          { id: "brand_bizcard", name: "Business Card Design", desc: "Print-ready front and back business card design.", explainer: "<strong>Who this is for:</strong> Any business professional who attends events, meetings, or networking where physical cards are exchanged.<br><br><strong>Why it matters:</strong> A well-designed business card leaves a lasting impression that a digital contact exchange simply cannot replicate. It communicates professionalism and attention to detail at every in-person touchpoint. Print-ready files included — just send to your printer.", type: "toggle", setup: 99, monthly: 0 },
+          { id: "brand_packaging", name: "Packaging Design", desc: "Product packaging, labels, or boxes.", explainer: "<strong>Who this is for:</strong> Product-based businesses selling physical goods — food, beauty, retail, or any brand where packaging is part of the customer experience.<br><br><strong>Why it matters:</strong> Packaging is the first physical brand touchpoint your customer has. Research consistently shows packaging quality directly influences perceived product value and purchase decisions — the same product in premium packaging commands a higher price. Print-ready files for your manufacturer included.", type: "toggle", setup: 399, monthly: 0 },
+          { id: "brand_messaging", name: "Brand Messaging & Voice", desc: "Taglines, value props, tone of voice, and brand story.", explainer: "<strong>Who this is for:</strong> Businesses that know what they do but struggle to articulate it in a way that resonates with their ideal customer.<br><br><strong>Why it matters:</strong> The words you use to describe your business are as important as the visuals. A clear tagline, compelling value proposition, and defined brand voice ensure your website, social media, ads, and sales conversations all tell the same story — and tell it persuasively.", type: "toggle", setup: 349, monthly: 0 }
+        ]
+      }
+    ]
+  },
+  {
+    icon: "📸", label: "Creative", sub: "Photo & Video",
+    title: "Photography & Videography",
+    description: "Professional photo and video production. All shoots include edited, high-res deliverables.",
+    groups: [
+      {
+        title: "Photography (hourly)",
+        services: [
+          { id: "photo_product", name: "Product Photography", desc: "Clean, brand-aligned product shots. Min. 2 hrs.", explainer: "<strong>Who this is for:</strong> E-commerce businesses, restaurants, retailers, and any brand that sells a physical product or experience.<br><br><strong>Why it matters:</strong> Product photography is the primary purchase trigger in e-commerce — 93% of consumers say visual appearance is the key deciding factor. Professional shots tailored to your brand convert at significantly higher rates than stock photos or phone photos.", type: "qty", unitSetup: 115, unitMonthly: 0, unit: "hr", qty: 2 },
+          { id: "photo_lifestyle", name: "Lifestyle / Brand Photography", desc: "On-location brand storytelling. Min. 2 hrs.", explainer: "<strong>Who this is for:</strong> Businesses that want authentic images showing their team, culture, environment, or brand in action.<br><br><strong>Why it matters:</strong> Real photos of real people outperform stock photography by up to 35% in conversion rate. Lifestyle photography humanizes your brand, builds emotional connection, and gives you original assets for your website, social media, and ads that no competitor can replicate.", type: "qty", unitSetup: 130, unitMonthly: 0, unit: "hr", qty: 2 },
+          { id: "photo_event", name: "Event Photography", desc: "Live event coverage. Min. 2 hrs.", explainer: "<strong>Who this is for:</strong> Businesses hosting openings, launches, pop-ups, conferences, or community events.<br><br><strong>Why it matters:</strong> Event photos are among the highest-performing social content — they show real community, energy, and social proof. Professional event coverage gives you weeks of content from a single shoot, plus assets for press, future marketing, and your website.", type: "qty", unitSetup: 115, unitMonthly: 0, unit: "hr", qty: 2 },
+          { id: "photo_realestate", name: "Real Estate / Property Photography", desc: "Interior and exterior shots. Min. 2 hrs.", explainer: "<strong>Who this is for:</strong> Real estate agents, property managers, Airbnb hosts, restaurants, salons, and any business where the physical space is a selling point.<br><br><strong>Why it matters:</strong> Properties with professional photography sell 32% faster and for up to 11% more. For hospitality and service businesses, your space is your product — professional photography communicates quality before a customer walks through the door.", type: "qty", unitSetup: 95, unitMonthly: 0, unit: "hr", qty: 2 }
+        ]
+      },
+      {
+        title: "Videography (hourly)",
+        services: [
+          { id: "video_brand_shoot", name: "Brand / Commercial Videography", desc: "High-quality footage for ads and brand stories. Min. 2 hrs.", explainer: "<strong>Who this is for:</strong> Businesses that want professional video footage for their website, social ads, or brand storytelling content.<br><br><strong>Why it matters:</strong> A single professional shoot gives you raw footage that can be edited into a website hero video, social media clips, ad creatives, and email content — making it one of the most versatile investments in your content library.", type: "qty", unitSetup: 160, unitMonthly: 0, unit: "hr", qty: 2 },
+          { id: "video_event_shoot", name: "Event Videography", desc: "Live event coverage. Min. 2 hrs.", explainer: "<strong>Who this is for:</strong> Businesses hosting events, launches, or any live experience worth capturing.<br><br><strong>Why it matters:</strong> Event video creates FOMO — people who weren't there wish they were, and people who were there share it. A well-edited event recap is among the most watched and shared content a local business can produce.", type: "qty", unitSetup: 140, unitMonthly: 0, unit: "hr", qty: 2 }
+        ]
+      },
+      {
+        title: "Editing (hourly)",
+        services: [
+          { id: "edit_basic", name: "Basic Editing", desc: "Clips, captions, basic sounds and music.", explainer: "<strong>Who this is for:</strong> Businesses with existing footage that needs quick, clean editing for social media or internal use.<br><br><strong>Why it matters:</strong> Raw footage is unusable for marketing. Basic editing — trimming, captions, music, and simple transitions — transforms raw clips into publishable social content fast and affordably.", type: "qty", unitSetup: 55, unitMonthly: 0, unit: "hr", qty: 1 },
+          { id: "edit_pro", name: "Professional Video Editing", desc: "Custom-style editing tailored to your brand.", explainer: "<strong>Who this is for:</strong> Businesses with raw footage that needs premium post-production — color grading, sound design, pacing, and brand-consistent style.<br><br><strong>Why it matters:</strong> The editing is what makes content feel premium. Color grade, sound design, and rhythm transform ordinary footage into something that communicates brand quality in the first 3 seconds.", type: "qty", unitSetup: 85, unitMonthly: 0, unit: "hr", qty: 1 },
+          { id: "edit_photo", name: "Photo Editing & Retouching", desc: "Culling, color correction, retouching, export.", explainer: "<strong>Who this is for:</strong> Businesses with existing raw photos that need professional post-processing.<br><br><strong>Why it matters:</strong> Raw photos rarely look polished enough for brand use. Color grading, retouching, and consistent treatment transform ordinary photos into professional assets without the cost of a full new shoot.", type: "qty", unitSetup: 55, unitMonthly: 0, unit: "hr", qty: 1 },
+          { id: "edit_motion", name: "Motion Graphics / Animation", desc: "Animated logos, lower thirds, intros.", explainer: "<strong>Who this is for:</strong> Businesses that want polished animated elements for their video content — animated logo reveals, intro sequences, lower thirds with names and titles, and motion overlay elements.<br><br><strong>Why it matters:</strong> Motion graphics are the detail that separates amateur video from professional production. An animated logo reveal at the end of every reel creates brand recognition. Lower thirds add credibility to testimonials and interview content.", type: "qty", unitSetup: 90, unitMonthly: 0, unit: "hr", qty: 1 }
+        ]
+      }
+    ]
+  },
+  {
+    icon: "💼", label: "Consulting", sub: "Strategy",
+    title: "Consulting & Strategy",
+    description: "Expert guidance from our team — including business leaders who have built $25M+/year businesses.",
+    groups: [
+      {
+        title: "Marketing & Strategy (hourly)",
+        services: [
+          { id: "con_marketing", name: "Marketing Strategy Session", desc: "Direction, campaigns, or growth planning. 60 min min.", explainer: "<strong>Who this is for:</strong> Business owners who want expert guidance on marketing direction without committing to a full retainer.<br><br><strong>Why it matters:</strong> Most marketing mistakes are strategic, not tactical — spending on the wrong channels, targeting the wrong audience, or optimizing for the wrong metric. A single strategy session can reframe your entire approach and save months of wasted spend.", type: "qty", unitSetup: 120, unitMonthly: 0, unit: "hr", qty: 1 },
+          { id: "con_content", name: "Content Planning Session", desc: "Content calendar, theme ideation, platform strategy.", explainer: "<strong>Who this is for:</strong> Business owners who want a structured content plan they can execute themselves or hand off to their team.<br><br><strong>Why it matters:</strong> Consistent content requires a system, not just inspiration. A content planning session delivers a 30-90 day calendar with themes, post formats, and platform-specific strategies — so you never stare at a blank screen wondering what to post.", type: "qty", unitSetup: 100, unitMonthly: 0, unit: "hr", qty: 1 },
+          { id: "con_brand", name: "Brand & Creative Consulting", desc: "Brand direction, visual identity, creative problem-solving.", explainer: "<strong>Who this is for:</strong> Businesses at a brand crossroads — considering a rebrand, launching a new product line, or wanting expert feedback on their visual identity.<br><br><strong>Why it matters:</strong> Brand decisions have long-term consequences. An expert perspective at the decision-making stage prevents expensive mistakes and gives you a clear creative direction backed by strategy.", type: "qty", unitSetup: 120, unitMonthly: 0, unit: "hr", qty: 1 }
+        ]
+      },
+      {
+        title: "Business Development (with $25M+ operators)",
+        services: [
+          { id: "biz_session", name: "Executive Strategy Session", desc: "60-90 min with a $25M+ founder. Bring your biggest challenge.", explainer: "<strong>Who this is for:</strong> Business owners who want to sit across from someone who has actually built a $25M+ business and have them look at their specific situation.<br><br><strong>Why it matters:</strong> Most consultants have theory. Our advisors have scars. They have navigated scaling, hiring, positioning, pricing, and market competition at levels most consultants have only read about. One session with the right person at the right moment can change the trajectory of your business.", type: "qty", unitSetup: 299, unitMonthly: 0, unit: "hr", qty: 1 },
+          { id: "biz_audit", name: "Business Growth Audit", desc: "Deep-dive assessment + 90-min debrief. Coming soon.", type: "toggle", setup: 999, monthly: 0, comingSoon: true },
+          { id: "biz_pitch", name: "Pitch & Fundraising Prep", desc: "Investor pitch review and fundraising strategy. Coming soon.", type: "toggle", setup: 499, monthly: 0, comingSoon: true },
+          { id: "biz_scale", name: "Scaling & Operations Review", desc: "Systems, hiring, processes, and growth roadmap. Coming soon.", type: "toggle", setup: 799, monthly: 0, comingSoon: true }
+        ]
+      }
+    ]
+  }
+];
+
+// ── HELPERS ──────────────────────────────────────
+function fmt(n) { return "$" + n.toLocaleString(); }
+
+function calcServiceCost(svc, val) {
+  if (!val || val.active === false) return { monthly: 0, setup: 0 };
+  if (svc.type === "toggle") return { monthly: svc.monthly, setup: svc.setup };
+  if (svc.type === "tier") {
+    var t = svc.tiers[val.tier || 0];
+    if (t.contact) return { monthly: 0, setup: 0 };
+    return { monthly: t.monthly, setup: t.setup };
+  }
+  if (svc.type === "qty") {
+    var q = val.qty || 1;
+    var unitMo = svc.unitMonthly;
+    var unitOt = svc.unitSetup;
+    if (svc.bundleAt && q >= svc.bundleAt) unitMo = svc.bundlePrice || unitMo;
+    return { monthly: unitMo * q, setup: unitOt * q };
+  }
+  return { monthly: 0, setup: 0 };
+}
+
+function getSelection(id) { return selections[id] || null; }
+
+function setSelection(id, val) {
+  if (val === null) { delete selections[id]; }
+  else { selections[id] = val; }
+  updateTotals();
+}
+
+function sectionHasSelections(sIdx) {
+  var sec = SECTIONS[sIdx];
+  return sec.groups.some(function(g) {
+    return g.services.some(function(svc) {
+      var sel = getSelection(svc.id);
+      return sel && sel.active !== false;
+    });
+  });
+}
+
+function calcSectionTotals(sIdx) {
+  var mo = 0, setup = 0;
+  SECTIONS[sIdx].groups.forEach(function(g) {
+    g.services.forEach(function(svc) {
+      var sel = getSelection(svc.id);
+      if (sel && sel.active !== false) {
+        var c = calcServiceCost(svc, sel);
+        mo += c.monthly; setup += c.setup;
+      }
+    });
+  });
+  return { monthly: mo, setup: setup };
+}
+
+// ── CALC TOTALS ──────────────────────────────────
+function calcGrandTotals() {
+  var mo = 0, setup = 0;
+  SECTIONS.forEach(function(sec) {
+    sec.groups.forEach(function(g) {
+      g.services.forEach(function(svc) {
+        var sel = getSelection(svc.id);
+        if (sel && sel.active !== false) {
+          var c = calcServiceCost(svc, sel);
+          mo += c.monthly; setup += c.setup;
+        }
+      });
+    });
+  });
+  return { monthly: mo, setup: setup };
+}
+
+function getLineItems() {
+  var lines = [];
+  SECTIONS.forEach(function(sec) {
+    sec.groups.forEach(function(g) {
+      g.services.forEach(function(svc) {
+        var sel = getSelection(svc.id);
+        if (!sel || sel.active === false) return;
+        var c = calcServiceCost(svc, sel);
+        if (c.monthly === 0 && c.setup === 0) return;
+        var label = svc.name;
+        if (svc.type === "tier" && sel.tier !== undefined) {
+          var t = svc.tiers[sel.tier];
+          if (t && !t.contact) label += " — " + t.name.split(" —")[0];
+        }
+        if (svc.type === "qty") label += " x" + (sel.qty || 1);
+        lines.push({ label: label, monthly: c.monthly, setup: c.setup });
+      });
+    });
+  });
+  return lines;
+}
+
+// ── RENDER TABS ──────────────────────────────────
+function renderTabs() {
+  var c = document.getElementById("tabs");
+  c.innerHTML = "";
+  SECTIONS.forEach(function(sec, i) {
+    var hasSel = sectionHasSelections(i);
+    var t = calcSectionTotals(i);
+    var btn = document.createElement("button");
+    btn.className = "tab-btn" + (i === activeTab ? " active" : "");
+    btn.innerHTML = '<span class="tab-icon">' + sec.icon + '</span>'
+      + '<span class="tab-label">' + sec.label + '</span>'
+      + '<span class="tab-sub">' + sec.sub + '</span>'
+      + (hasSel ? '<span class="tab-badge">' + (t.monthly ? fmt(t.monthly) + "/mo" : fmt(t.setup)) + '</span>' : '');
+    btn.onclick = (function(idx) { return function() { switchTab(idx); }; })(i);
+    c.appendChild(btn);
+  });
+}
+
+function switchTab(idx) {
+  activeTab = idx;
+  renderTabs();
+  renderSection();
+}
+
+// ── RENDER SECTION ───────────────────────────────
+function renderSection() {
+  var sec = SECTIONS[activeTab];
+  var html = '<div class="section-card">'
+    + '<p class="section-title">' + sec.title + '</p>'
+    + '<p class="section-sub">' + sec.description + '</p>';
+
+  sec.groups.forEach(function(g) {
+    html += '<div class="service-group">'
+      + '<p class="service-group-title">' + g.title + '</p>';
+
+    g.services.forEach(function(svc) {
+      var sel = getSelection(svc.id);
+      var isOn = sel && sel.active !== false;
+
+      if (svc.comingSoon) {
+        html += '<div class="service-wrap">'
+          + '<div class="service-row">'
+          + '<div class="service-info"><p class="service-name">' + svc.name + '</p><p class="service-desc">' + svc.desc + '</p></div>'
+          + '<span class="contact-pill" style="background:#faeeda;color:#854f0b">Coming soon</span>'
+          + '</div>'
+          + '</div>';
+        return;
+      }
+
+      html += '<div class="service-wrap"><div class="service-row">';
+      html += '<div class="service-info"><p class="service-name">' + svc.name + '</p><p class="service-desc">' + svc.desc + '</p></div>';
+
+      if (svc.type === "toggle") {
+        var price = svc.monthly ? fmt(svc.monthly) + "/mo" : (svc.setup ? "+" + fmt(svc.setup) : "");
+        html += '<span class="service-price">' + price + '</span>';
+        html += '<button class="service-toggle ' + (isOn ? "on" : "off") + '" onclick="toggleSvc(\'' + svc.id + '\')">'
+          + '<div class="service-toggle-thumb"></div></button>';
+      }
+
+      if (svc.type === "tier") {
+        var curTier = isOn ? (sel.tier || 0) : -1;
+        html += '<select class="tier-select" onchange="tierSvc(\'' + svc.id + '\', this.value)">';
+        html += '<option value="-1"' + (curTier === -1 ? " selected" : "") + '>Not included</option>';
+        svc.tiers.forEach(function(t, i) {
+          var priceStr = t.contact ? "Custom pricing" : (t.monthly ? fmt(t.monthly) + "/mo" : (t.setup ? "+" + fmt(t.setup) : "Included"));
+          html += '<option value="' + i + '"' + (curTier === i ? " selected" : "") + '>' + t.name + ' — ' + priceStr + '</option>';
+        });
+        html += '</select>';
+      }
+
+      if (svc.type === "qty") {
+        var curQty = isOn ? (sel.qty || 0) : 0;
+        var unitPrice = svc.unitMonthly || svc.unitSetup;
+        var isMonthly = !!svc.unitMonthly;
+        var priceLabel = isMonthly ? fmt(unitPrice) + " per " + svc.unit + "/mo" : fmt(unitPrice) + "/" + svc.unit;
+        var bundleTag = svc.bundleAt ? '<span style="display:inline-block;margin-top:3px;font-size:10px;font-weight:600;background:#eaf3de;color:#1D9E75;padding:2px 7px;border-radius:99px;white-space:nowrap">&#10003; Save at 2+</span>' : '';
+        html += '<span class="service-price" style="font-size:11px;max-width:120px;text-align:right;white-space:normal;display:flex;flex-direction:column;align-items:flex-end;gap:2px">' + priceLabel + bundleTag + '</span>';
+        html += '<div class="qty-wrap">'
+          + '<button class="qty-btn" onclick="qtyChange(\'' + svc.id + '\',-1)">-</button>'
+          + '<span class="qty-val" id="qty-' + svc.id + '">' + curQty + '</span>'
+          + '<button class="qty-btn" onclick="qtyChange(\'' + svc.id + '\',1)">+</button>'
+          + '</div>';
+      }
+
+      html += '</div>'; // close service-row
+
+      if (svc.explainer) {
+        var expId = "exp-" + svc.id;
+        html += "<div style='padding:2px 0 8px'>"
+          + "<button class='explainer-toggle' data-exp='" + expId + "'>"
+          + "<span class='explainer-arrow' id='arr-" + expId + "'>&#9658;</span>"
+          + " What is this for?</button>"
+          + "<div class='explainer-box' id='" + expId + "'>" + svc.explainer + "</div>"
+          + "</div>";
+      }
+
+      html += '</div>'; // close service-wrap
+    });
+
+    html += '</div>'; // close service-group
+  });
+
+  // Section subtotal
+  var st = calcSectionTotals(activeTab);
+  if (st.monthly > 0 || st.setup > 0) {
+    html += '<div class="section-subtotal">'
+      + '<span class="section-subtotal-label">Section subtotal</span>'
+      + '<div class="section-subtotal-vals">'
+      + (st.monthly ? '<span class="subtotal-mo">' + fmt(st.monthly) + '/mo</span>' : '')
+      + (st.setup ? '<span class="subtotal-ot">+' + fmt(st.setup) + ' setup</span>' : '')
+      + '</div></div>';
+  }
+
+  // Nav
+  html += '<div class="section-nav">';
+  if (activeTab > 0) html += '<button class="nav-btn nav-btn-back" onclick="switchTab(' + (activeTab - 1) + ')">Back</button>';
+  else html += '<span></span>';
+  if (activeTab < SECTIONS.length - 1) {
+    html += '<button class="nav-btn nav-btn-next" onclick="switchTab(' + (activeTab + 1) + ')">Next: ' + SECTIONS[activeTab + 1].label + '</button>';
+  } else {
+    html += '<button class="nav-btn nav-btn-next" onclick="finalize()">Review my plan</button>';
+  }
+  html += '</div>';
+
+  html += '</div>'; // close section-card
+  document.getElementById("section-content").innerHTML = html;
+}
+
+
+// ── INTERACTION ──────────────────────────────────
+function toggleSvc(id) {
+  var sel = getSelection(id);
+  if (sel && sel.active !== false) {
+    setSelection(id, null);
+  } else {
+    setSelection(id, { active: true });
+  }
+  renderSection();
+}
+
+function tierSvc(id, val) {
+  val = parseInt(val);
+  if (val === -1) {
+    setSelection(id, null);
+  } else {
+    setSelection(id, { active: true, tier: val });
+  }
+  renderSection();
+}
+
+function findSvc(id) {
+  for (var si = 0; si < SECTIONS.length; si++) {
+    for (var gi = 0; gi < SECTIONS[si].groups.length; gi++) {
+      for (var vi = 0; vi < SECTIONS[si].groups[gi].services.length; vi++) {
+        if (SECTIONS[si].groups[gi].services[vi].id === id) return SECTIONS[si].groups[gi].services[vi];
+      }
+    }
+  }
+  return null;
+}
+
+function qtyChange(id, delta) {
+  var sel = getSelection(id);
+  var curQty = (sel && sel.active !== false) ? (sel.qty || 0) : 0;
+  var newQty = Math.max(0, curQty + delta);
+  if (newQty === 0) {
+    setSelection(id, null);
+  } else {
+    setSelection(id, { active: true, qty: newQty });
+  }
+  var el = document.getElementById("qty-" + id);
+  if (el) el.textContent = newQty;
+  updateTotals();
+}
+
+// ── TOTALS ───────────────────────────────────────
+function updateTotals() {
+  var totals = calcGrandTotals();
+  var lines = getLineItems();
+  var hasAny = lines.length > 0;
+
+  var sbLines = document.getElementById("sidebar-lines");
+  var sbDiv = document.getElementById("sidebar-divider");
+  var sbTotals = document.getElementById("sidebar-totals");
+  var sbCta = document.getElementById("sidebar-cta");
+
+  if (hasAny) {
+    var html = "";
+    lines.forEach(function(l) {
+      html += '<div class="sidebar-line">'
+        + '<span class="sidebar-line-label">' + l.label + '</span>'
+        + '<span class="sidebar-line-val">'
+        + (l.monthly ? fmt(l.monthly) + "/mo" : "+" + fmt(l.setup))
+        + '</span></div>';
+    });
+    sbLines.innerHTML = html;
+    if (sbDiv) sbDiv.style.display = "";
+    if (sbTotals) sbTotals.style.display = "";
+    document.getElementById("sb-monthly").textContent = totals.monthly ? fmt(totals.monthly) + "/mo" : "—";
+    document.getElementById("sb-setup").textContent = totals.setup ? fmt(totals.setup) : "—";
+    if (sbCta) sbCta.disabled = false;
+  } else {
+    sbLines.innerHTML = '<p class="sidebar-empty">Add services to see your plan here</p>';
+    if (sbDiv) sbDiv.style.display = "none";
+    if (sbTotals) sbTotals.style.display = "none";
+    if (sbCta) sbCta.disabled = true;
+  }
+
+  var configured = SECTIONS.filter(function(s, i) { return sectionHasSelections(i); }).length;
+  var progLabel = document.getElementById("prog-label");
+  var progFill = document.getElementById("prog-fill");
+  if (progLabel) progLabel.textContent = configured + " of " + SECTIONS.length + " sections configured";
+  if (progFill) progFill.style.width = Math.round(configured / SECTIONS.length * 100) + "%";
+
+  var stickyMo = document.getElementById("sticky-monthly");
+  var stickySetup = document.getElementById("sticky-setup");
+  if (stickyMo) stickyMo.textContent = totals.monthly ? fmt(totals.monthly) : "$0";
+  if (stickySetup) stickySetup.textContent = totals.setup ? fmt(totals.setup) : "$0";
+
+  if (hasAny) {
+    var dHtml = "";
+    lines.forEach(function(l) {
+      dHtml += '<div class="sticky-drawer-line">'
+        + '<span class="sticky-drawer-label">' + l.label + '</span>'
+        + '<span class="sticky-drawer-val">' + (l.monthly ? fmt(l.monthly) + "/mo" : "+" + fmt(l.setup)) + '</span>'
+        + '</div>';
+    });
+    var drawer = document.getElementById("sticky-drawer");
+    if (drawer) drawer.innerHTML = dHtml;
+  }
+
+  renderTabs();
+}
+
+function toggleDrawer() {
+  drawerOpen = !drawerOpen;
+  var drawer = document.getElementById("sticky-drawer");
+  var btn = document.getElementById("sticky-expand-btn");
+  if (drawer) drawer.classList.toggle("open", drawerOpen);
+  if (btn) btn.textContent = drawerOpen ? "Hide plan details ▴" : "Show plan details ▾";
+}
+
+function resetAll() {
+  if (!confirm("Clear all your selections?")) return;
+  selections = {};
+  updateTotals();
+  renderSection();
+}
+
+function finalize() {
+  alert("Get Started flow coming soon — your plan will be saved and sent to our team!");
+}
+
+// ── INIT ─────────────────────────────────────────
+// Event delegation for explainer toggles
+document.getElementById("section-content").addEventListener("click", function(e) {
+  var btn = e.target.closest("[data-exp]");
+  if (!btn) return;
+  var id = btn.getAttribute("data-exp");
+  var box = document.getElementById(id);
+  var arr = document.getElementById("arr-" + id);
+  if (box) box.classList.toggle("open");
+  if (arr) arr.classList.toggle("open");
+});
+
+renderTabs();
+renderSection();
+updateTotals();
+</script>
+</body>
+</html>
