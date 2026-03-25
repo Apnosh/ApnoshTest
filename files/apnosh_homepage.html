@@ -147,11 +147,16 @@ a:hover .arr,button:hover .arr{transform:translateX(3px)}
 .hs-l{font-size:11px;font-weight:400;color:var(--ink4);letter-spacing:.03em}
 
 /* ══ LOGO BAR ══ */
-.logo-bar{background:var(--bg2);border-top:1px solid var(--ink6);border-bottom:1px solid var(--ink6);padding:18px 0}
-.lb-inner{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;padding:0 24px}
+.logo-bar{background:var(--bg2);border-top:1px solid var(--ink6);border-bottom:1px solid var(--ink6);padding:24px 0;overflow:hidden}
+.lb-inner{display:flex;flex-direction:column;align-items:center;gap:14px}
 .lb-lbl{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink5)}
-.lb-cos{display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:center}
-.lb-co{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink5);letter-spacing:-.01em}
+.lb-track{display:flex;align-items:center;gap:0;animation:marquee var(--dur,18s) linear infinite;width:max-content}
+.lb-set{display:flex;align-items:center;gap:120px;padding-right:120px;flex-shrink:0}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-33.333%)}}
+.lb-logo{height:44px;width:auto;object-fit:contain;flex-shrink:0}
+.lb-logo.blend{mix-blend-mode:multiply}
+.lb-logo.circle{border-radius:50%;overflow:hidden;object-fit:cover;width:58px;height:58px}
+@media(max-width:600px){.lb-logo{height:34px}.lb-logo.circle{width:36px;height:36px}.lb-track{gap:32px}}
 
 /* ══ PROBLEM TABS ══ */
 .problem-section{padding:88px 0;background:var(--ink);position:relative;overflow:hidden}
@@ -499,46 +504,46 @@ a:hover .arr,button:hover .arr{transform:translateX(3px)}
   <canvas id="hero-canvas"></canvas>
   <div class="hero-bg"></div>
 
-  <div class="hero-badge"><span class="bp"></span>Full-Service Digital Marketing Agency</div>
+  <div class="hero-badge"><span class="bp"></span>AI-Powered Digital Marketing Agency</div>
 
   <h1 class="h1 hero-h1">
-    More customers.<br>Less <span class="hero-swap" id="hero-swap">agency overhead.</span>
+    More customers.<br>No more <span class="hero-swap" id="hero-swap">wasted money.</span>
   </h1>
 
   <p class="lead hero-sub" style="opacity:0;animation:fadeUp .6s .34s ease forwards">
-    We run your SEO, social media, website, ads, and content — powered by AI, run by experts. Results in 30 days. Only pay for what your business actually needs.
+    All your marketing, done for you. AI does the heavy lifting, you pick only what you need, and we build a plan around your business.
   </p>
 
   <div class="hero-pills" style="opacity:0;animation:fadeUp .6s .42s ease forwards">
     <span class="hero-pill">Local SEO</span>
     <span class="hero-pill">Social Media</span>
     <span class="hero-pill">Website Design</span>
-    <span class="hero-pill">Video & Content</span>
     <span class="hero-pill">Email & SMS</span>
+    <span class="hero-pill">Video & Content</span>
     <span class="hero-pill">Branding</span>
   </div>
 
   <div class="hero-btns">
-    <a class="btn btn-primary btn-lg" href="#start">Get my free marketing audit <span class="arr">→</span></a>
+    <a class="btn btn-primary btn-lg" href="#start">Get my free growth plan <span class="arr">→</span></a>
     <a class="btn btn-outline btn-lg" href="#how">See how it works</a>
   </div>
 
   <div class="hero-stats">
     <div class="hs-card">
-      <div class="hs-n"><span id="c1">0</span><em>%</em></div>
-      <div class="hs-l">Cost savings</div>
+      <div class="hs-n"><span id="c1">3–5</span><em>x</em></div>
+      <div class="hs-l">Less than other agencies. Same results.</div>
     </div>
     <div class="hs-card">
       <div class="hs-n"><span id="c2">0</span></div>
-      <div class="hs-l">Days to results</div>
+      <div class="hs-l">Days to first results</div>
     </div>
     <div class="hs-card">
       <div class="hs-n"><span id="c3">0</span><em>%</em></div>
-      <div class="hs-l">Client retention</div>
+      <div class="hs-l">Clients who stay after year one</div>
     </div>
     <div class="hs-card">
-      <div class="hs-n"><span id="c4">0</span><em>+</em></div>
-      <div class="hs-l">Services available</div>
+      <div class="hs-n"><span id="c4">0</span></div>
+      <div class="hs-l">Days until you're live</div>
     </div>
   </div>
 </section>
@@ -547,8 +552,37 @@ a:hover .arr,button:hover .arr{transform:translateX(3px)}
 <div class="logo-bar">
   <div class="lb-inner">
     <span class="lb-lbl">Trusted by</span>
-    <div class="lb-cos">
-      <span class="lb-co">Meridian</span><span class="lb-co">Crestview</span><span class="lb-co">Solis Group</span><span class="lb-co">Harrow & Co.</span><span class="lb-co">Lumina</span><span class="lb-co">Vesta</span>
+    <div class="lb-track">
+      <div class="lb-set">
+        <img class="lb-logo" src="logos/vinason.png" alt="Vinason Pho Kitchen" style="height:86px">
+        <img class="lb-logo" src="logos/anchovies-salt.png" alt="Anchovies & Salt" style="height:108px;margin-top:16px">
+        <img class="lb-logo" src="logos/yellowbee-horizontal.avif" alt="Yellow Bee" style="height:46px">
+        <img class="lb-logo" src="logos/mrdimsum.png" alt="Mr. Dim Sum" style="height:36px">
+        <img class="lb-logo" src="logos/dosi.avif" alt="Do Si" style="height:62px">
+        <img class="lb-logo" src="logos/sushi-burrito.png" alt="Sushi Burrito" style="height:68px">
+        <img class="lb-logo blend" src="logos/shinya-shokudo.jpg" alt="Shinya Shokudo" style="height:60px">
+        <img class="lb-logo circle" src="logos/hk-bistro.jpeg" alt="Hong Kong Bistro">
+      </div>
+      <div class="lb-set" aria-hidden="true">
+        <img class="lb-logo" src="logos/vinason.png" alt="" style="height:86px">
+        <img class="lb-logo" src="logos/anchovies-salt.png" alt="" style="height:108px;margin-top:16px">
+        <img class="lb-logo" src="logos/yellowbee-horizontal.avif" alt="" style="height:46px">
+        <img class="lb-logo" src="logos/mrdimsum.png" alt="" style="height:36px">
+        <img class="lb-logo" src="logos/dosi.avif" alt="" style="height:62px">
+        <img class="lb-logo" src="logos/sushi-burrito.png" alt="" style="height:68px">
+        <img class="lb-logo blend" src="logos/shinya-shokudo.jpg" alt="" style="height:60px">
+        <img class="lb-logo circle" src="logos/hk-bistro.jpeg" alt="">
+      </div>
+      <div class="lb-set" aria-hidden="true">
+        <img class="lb-logo" src="logos/vinason.png" alt="" style="height:86px">
+        <img class="lb-logo" src="logos/anchovies-salt.png" alt="" style="height:108px;margin-top:16px">
+        <img class="lb-logo" src="logos/yellowbee-horizontal.avif" alt="" style="height:46px">
+        <img class="lb-logo" src="logos/mrdimsum.png" alt="" style="height:36px">
+        <img class="lb-logo" src="logos/dosi.avif" alt="" style="height:62px">
+        <img class="lb-logo" src="logos/sushi-burrito.png" alt="" style="height:68px">
+        <img class="lb-logo blend" src="logos/shinya-shokudo.jpg" alt="" style="height:60px">
+        <img class="lb-logo circle" src="logos/hk-bistro.jpeg" alt="">
+      </div>
     </div>
   </div>
 </div>
@@ -1023,15 +1057,14 @@ a:hover .arr,button:hover .arr{transform:translateX(3px)}
 !function(){const c=document.getElementById('cta-canvas');if(!c)return;const ctx=c.getContext('2d');let W,H,dots=[];function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight}function mk(){return{x:Math.random()*W,y:H+10,s:Math.random()*.45+.15,r:Math.random()*1.4+.5,o:Math.random()*.13+.04}}function init(){resize();for(let i=0;i<36;i++){const d=mk();d.y=Math.random()*H;dots.push(d)}}function draw(){ctx.clearRect(0,0,W,H);dots.forEach(d=>{d.y-=d.s;if(d.y<-10)Object.assign(d,mk());ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle=`rgba(74,189,152,${d.o})`;ctx.fill()});requestAnimationFrame(draw)}init();draw();window.addEventListener('resize',resize)}();
 
 /* HERO WORD SWAP */
-const words=['agency overhead.','wasted budget.','slow agencies.','broken promises.'];let wi=0;const swapEl=document.getElementById('hero-swap');if(swapEl){setInterval(()=>{swapEl.style.opacity='0';swapEl.style.transform='translateY(6px)';swapEl.style.transition='all .3s ease';setTimeout(()=>{wi=(wi+1)%words.length;swapEl.textContent=words[wi];swapEl.style.opacity='1';swapEl.style.transform='translateY(0)'},300)},3000)}
+const words=['wasted money.','empty promises.','starting over.','guesswork.'];let wi=0;const swapEl=document.getElementById('hero-swap');if(swapEl){setInterval(()=>{swapEl.style.opacity='0';swapEl.style.transform='translateY(6px)';swapEl.style.transition='all .3s ease';setTimeout(()=>{wi=(wi+1)%words.length;swapEl.textContent=words[wi];swapEl.style.opacity='1';swapEl.style.transform='translateY(0)'},300)},3000)}
 
 /* COUNTERS */
 function animCount(setter,target,dur){let st=null;function step(ts){if(!st)st=ts;const p=Math.min((ts-st)/dur,1);const e=1-Math.pow(1-p,3);setter(Math.round(target*e));if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
 setTimeout(()=>{
-  const c1=document.getElementById('c1');if(c1)animCount(v=>c1.textContent=v,65,1800);
   const c2=document.getElementById('c2');if(c2)animCount(v=>c2.textContent=v,30,1400);
-  const c3=document.getElementById('c3');if(c3)animCount(v=>c3.textContent=v,94,2000);
-  const c4=document.getElementById('c4');if(c4)animCount(v=>c4.textContent=v,40,1600);
+  const c3=document.getElementById('c3');if(c3)animCount(v=>c3.textContent=v,92,2000);
+  const c4=document.getElementById('c4');if(c4)animCount(v=>c4.textContent=v,7,1000);
 },700);
 
 /* TABS */
