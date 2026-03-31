@@ -3,5 +3,80 @@
   command = "npm run build"
 
 [[plugins]]
-  # Installs the Lighthouse Build Plugin for all deploy contexts
   package = "@netlify/plugin-lighthouse"
+
+# Cache static assets for 1 year
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/svgs/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Security headers for all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Clean URL redirects
+[[redirects]]
+  from = "/home"
+  to = "/apnosh_homepage.html"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/apnosh_about.html"
+  status = 301
+
+[[redirects]]
+  from = "/services"
+  to = "/apnosh_services.html"
+  status = 301
+
+[[redirects]]
+  from = "/pricing"
+  to = "/apnosh_pricing.html"
+  status = 301
+
+[[redirects]]
+  from = "/resources"
+  to = "/apnosh_resources.html"
+  status = 301
+
+[[redirects]]
+  from = "/results"
+  to = "/apnosh_results.html"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/talk_to_expert.html"
+  status = 301
+
+[[redirects]]
+  from = "/plan"
+  to = "/master_hub.html"
+  status = 301
