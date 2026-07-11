@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why 73% of Local Searches End at the Top 3 &mdash; Apnosh Blog</title>
+<meta name="description" content="The Google Maps top 3 isn't just good visibility — it's the only visibility that matters. Here's the exact ranking formula we use across 200+ clients.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#4abd98;--brand-d:#2e9a78;--brand-t:#eaf7f3;
+  --ink:#1d1d1f;--ink2:#424245;--ink3:#6e6e73;--ink4:#aeaeb2;--ink5:#d2d2d7;--ink6:#f0f0f5;
+  --bg:#fff;--bg2:#f5f5f7;
+  --fd:'Playfair Display',Georgia,serif;--fb:'Inter',-apple-system,sans-serif;
+  --s3:0 8px 32px rgba(0,0,0,.09);--s4:0 16px 56px rgba(0,0,0,.11);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:1080px;margin:0 auto;padding:0 40px}
+.wmd{max-width:740px;margin:0 auto;padding:0 40px}
+@media(max-width:600px){.w,.wmd{padding:0 20px}}
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fb);font-weight:500;font-size:14px;text-decoration:none;border:none;cursor:pointer;border-radius:99px;padding:12px 24px;transition:all .2s;white-space:nowrap;line-height:1}
+.btn-primary{background:var(--ink);color:#fff}.btn-primary:hover{background:#2d2d2f;transform:translateY(-1px)}
+.btn-brand{background:var(--brand);color:var(--ink);font-weight:600}.btn-brand:hover{background:var(--brand-d);color:#fff;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink5)}.btn-outline:hover{border-color:var(--ink3);transform:translateY(-1px)}
+.btn-lg{padding:15px 32px;font-size:15px}
+.arr{transition:transform .2s;display:inline-block}
+a:hover .arr{transform:translateX(3px)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:44px;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.07);display:flex;align-items:center;transition:box-shadow .2s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.nav-inner{width:100%;max-width:1080px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.nav-logo em{font-style:italic;color:var(--brand-d)}
+.nav-back{font-size:12px;color:var(--ink3);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .15s}
+.nav-back:hover{color:var(--ink)}
+.nav-back-arr{display:inline-block;transform:rotate(180deg)}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-audit{font-size:12px;font-weight:600;color:#fff;background:var(--brand-d);padding:7px 16px;border-radius:99px;text-decoration:none;transition:all .15s}
+.nav-audit:hover{background:var(--brand)}
+
+/* PROGRESS */
+.progress-bar{position:fixed;top:44px;left:0;right:0;height:3px;z-index:899}
+.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--brand),var(--brand-d));transition:width .1s linear}
+
+/* BREADCRUMB */
+.breadcrumb{padding:56px 0 0}
+.bc-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink4)}
+@media(max-width:600px){.bc-inner{padding:0 20px}}
+.bc-link{color:var(--ink4);text-decoration:none;transition:color .15s}.bc-link:hover{color:var(--brand-d)}
+.bc-sep{color:var(--ink5)}
+.bc-current{color:var(--ink2);font-weight:500}
+
+/* HERO */
+.art-hero{padding:32px 0 48px}
+.art-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);border:1px solid rgba(74,189,152,.22);padding:5px 14px;border-radius:99px;margin-bottom:20px;text-decoration:none}
+.art-h{font-family:var(--fd);font-size:clamp(30px,5vw,54px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink);margin-bottom:18px}
+.art-h em{font-style:italic;color:var(--brand-d)}
+.art-lede{font-size:clamp(16px,2vw,20px);font-weight:300;color:var(--ink2);line-height:1.68;margin-bottom:24px}
+.art-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ink4);padding-bottom:24px;border-bottom:1px solid var(--ink6)}
+.art-author{display:flex;align-items:center;gap:10px}
+.art-avatar{width:32px;height:32px;border-radius:50%;background:var(--brand-t);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.art-author-name{font-size:12px;font-weight:500;color:var(--ink);display:block}
+.art-author-role{font-size:11px;color:var(--ink4)}
+.art-meta-dot{color:var(--ink5)}
+
+/* ARTICLE VISUAL */
+.art-visual{width:100%;border-radius:16px;overflow:hidden;height:300px;position:relative;margin-bottom:48px;display:flex;align-items:center;justify-content:center}
+.art-vis-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(74,189,152,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(74,189,152,.06) 1px,transparent 1px);background-size:48px 48px}
+.art-vis-orb{position:absolute;border-radius:50%;filter:blur(60px)}
+.art-vis-icon{position:relative;z-index:1;font-size:80px;opacity:.25}
+
+/* BODY */
+.art-body{font-size:clamp(15px,1.6vw,17px);font-weight:300;color:var(--ink2);line-height:1.78}
+.art-body h2{font-family:var(--fd);font-size:clamp(20px,2.8vw,30px);font-weight:400;color:var(--ink);margin:44px 0 16px;letter-spacing:-.02em;line-height:1.18}
+.art-body h2 em{font-style:italic;color:var(--brand-d)}
+.art-body h3{font-family:var(--fd);font-size:clamp(17px,2vw,22px);font-weight:400;color:var(--ink);margin:32px 0 12px;letter-spacing:-.015em}
+.art-body p{margin-bottom:20px}
+.art-body ul,.art-body ol{padding-left:24px;margin-bottom:20px;display:flex;flex-direction:column;gap:10px}
+.art-body li{font-size:clamp(15px,1.6vw,17px);font-weight:300;color:var(--ink2);line-height:1.7}
+.art-body strong{font-weight:600;color:var(--ink)}
+.art-body a{color:var(--brand-d);text-decoration:underline;text-decoration-color:rgba(46,154,120,.3);text-underline-offset:3px}
+.art-body a:hover{color:var(--brand)}
+
+/* CALLOUTS */
+.callout{background:var(--brand-t);border:1px solid rgba(74,189,152,.22);border-left:3px solid var(--brand);border-radius:10px;padding:20px 24px;margin:28px 0}
+.callout p{margin-bottom:0;font-size:15px;color:var(--ink2)}
+.callout strong{color:var(--ink)}
+.stat-block{background:var(--ink);border-radius:16px;padding:32px 36px;margin:36px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:500px){.stat-block{grid-template-columns:1fr 1fr}}
+.stat-item{text-align:center}
+.stat-num{font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--brand);line-height:1;margin-bottom:6px}
+.stat-label{font-size:12px;color:rgba(255,255,255,.38);font-weight:300;line-height:1.4}
+.pullquote{border-left:none;padding:28px 32px 28px 0;margin:40px 0;position:relative}
+.pullquote::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--brand),var(--brand-d))}
+.pullquote p{font-family:var(--fd);font-size:clamp(18px,2.5vw,26px);font-weight:400;color:var(--ink);line-height:1.4;margin-bottom:8px;padding-left:28px;font-style:italic;letter-spacing:-.015em}
+.pullquote cite{font-size:12px;color:var(--ink4);padding-left:28px;display:block;font-style:normal}
+.step-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:14px;padding:22px 24px;margin-bottom:14px;display:flex;gap:16px;align-items:flex-start}
+.step-num{font-family:var(--fd);font-size:28px;font-weight:400;color:var(--brand-d);line-height:1;flex-shrink:0;width:36px}
+.step-title{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:5px}
+.step-desc{font-size:14px;font-weight:300;color:var(--ink3);line-height:1.65;margin-bottom:0}
+
+/* TAGS */
+.art-tags{display:flex;flex-wrap:wrap;gap:8px;padding:32px 0;border-top:1px solid var(--ink6);border-bottom:1px solid var(--ink6);margin:48px 0 40px}
+.art-tag-pill{font-size:11px;font-weight:500;color:var(--ink3);background:var(--ink6);padding:5px 14px;border-radius:99px;text-decoration:none;transition:all .15s}
+.art-tag-pill:hover{background:var(--brand-t);color:var(--brand-d)}
+
+/* RELATED */
+.related-section{background:var(--bg2);padding:56px 0}
+.related-h{font-family:var(--fd);font-size:clamp(20px,2.8vw,28px);font-weight:400;color:var(--ink);margin-bottom:24px;letter-spacing:-.02em}
+.related-h em{font-style:italic;color:var(--brand-d)}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:720px){.related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.related-grid{grid-template-columns:1fr}}
+.rc{background:var(--bg);border:1px solid var(--ink6);border-radius:14px;overflow:hidden;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;display:block}
+.rc:hover{transform:translateY(-2px);box-shadow:var(--s3);border-color:rgba(74,189,152,.2)}
+.rc-vis{height:110px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.rc-vis-orb{position:absolute;border-radius:50%;filter:blur(30px)}
+.rc-icon{font-size:32px;opacity:.2;position:relative;z-index:1}
+.rc-body{padding:16px 18px 18px}
+.rc-cat{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);padding:2px 8px;border-radius:99px;display:inline-block;margin-bottom:7px}
+.rc-title{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);line-height:1.3;margin-bottom:6px;letter-spacing:-.01em}
+.rc-meta{font-size:11px;color:var(--ink4)}
+
+/* NEWSLETTER */
+.art-nl{background:var(--ink);border-radius:20px;padding:40px 44px;text-align:center;position:relative;overflow:hidden;margin:56px 0}
+@media(max-width:600px){.art-nl{padding:32px 24px}}
+.art-nl::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(74,189,152,.07) 0%,transparent 70%)}
+.art-nl>*{position:relative;z-index:1}
+.art-nl-h{font-family:var(--fd);font-size:clamp(20px,3vw,28px);font-weight:400;color:#fff;margin-bottom:8px;letter-spacing:-.02em}
+.art-nl-h em{font-style:italic;color:var(--brand)}
+.art-nl-sub{font-size:14px;font-weight:300;color:rgba(255,255,255,.38);max-width:400px;margin:0 auto 22px;line-height:1.65}
+.art-nl-form{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.art-nl-input{flex:1;min-width:180px;padding:11px 16px;border:1px solid rgba(255,255,255,.15);border-radius:99px;background:rgba(255,255,255,.07);font-family:var(--fb);font-size:13px;color:#fff;outline:none}
+.art-nl-input::placeholder{color:rgba(255,255,255,.25)}
+.art-nl-input:focus{border-color:var(--brand)}
+.art-nl-btn{background:var(--brand);color:var(--ink);padding:11px 20px;border-radius:99px;font-family:var(--fb);font-size:13px;font-weight:600;border:none;cursor:pointer;white-space:nowrap;transition:background .2s}
+.art-nl-btn:hover{background:var(--brand-d);color:#fff}
+
+/* FOOTER */
+.footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:36px 40px}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none}
+.f-logo em{font-style:italic;color:var(--brand)}
+.f-links{display:flex;gap:20px;flex-wrap:wrap}
+.f-link{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .15s}
+.f-link:hover{color:rgba(255,255,255,.6)}
+.f-copy{font-size:11px;color:rgba(255,255,255,.16)}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <a class="nav-back" href="apnosh_blog.html"><span class="nav-back-arr">&rarr;</span> Back to Blog</a>
+    <div class="nav-right">
+      <a class="nav-audit" href="apnosh_homepage.html#start">Get free audit</a>
+    </div>
+  </div>
+</nav>
+
+<div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+
+<div class="breadcrumb">
+  <div class="bc-inner">
+    <a class="bc-link" href="apnosh_homepage.html">Home</a>
+    <span class="bc-sep">/</span>
+    <a class="bc-link" href="apnosh_blog.html">Blog</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">Local SEO</span>
+  </div>
+</div>
+
+<article>
+  <div class="wmd">
+    <div class="art-hero">
+      <a class="art-tag" href="apnosh_blog.html?cat=seo">&#128205; Local SEO</a>
+      <h1 class="art-h">Why 73% of local searches end at the <em>top 3 results</em> &mdash; and how to get there</h1>
+      <p class="art-lede">The Google Maps top 3 isn&rsquo;t just good visibility. It&rsquo;s the only visibility that matters. Here&rsquo;s the exact ranking formula we use across 200+ clients &mdash; and the changes that produce results in 30 days or less.</p>
+      <div class="art-meta">
+        <div class="art-author">
+          <div class="art-avatar">&#10022;</div>
+          <div>
+            <span class="art-author-name">Apnosh Team</span>
+            <span class="art-author-role">Marketing Strategy</span>
+          </div>
+        </div>
+        <span class="art-meta-dot">&middot;</span>
+        <span>July 8, 2026</span>
+        <span class="art-meta-dot">&middot;</span>
+        <span>6 min read</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="w">
+    <div class="art-visual" style="background:linear-gradient(135deg,#0a1a0f,#0f2a1a,#112415)">
+      <div class="art-vis-grid"></div>
+      <div class="art-vis-orb" style="width:500px;height:500px;background:rgba(74,189,152,.08);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+      <span class="art-vis-icon">&#128205;</span>
+    </div>
+  </div>
+
+  <div class="wmd">
+    <div class="art-body">
+
+      <p>Search for any local business &mdash; "coffee shop near me," "best pizza in Austin," "plumber open now" &mdash; and Google shows you a map with three business pins. Those three spots get 73% of all clicks. Position four gets about 4%. Positions five through ten split the rest.</p>
+
+      <p>If you&rsquo;re not in the top 3, you are effectively invisible to the majority of local searchers. This isn&rsquo;t a guideline or an opinion &mdash; it&rsquo;s a pattern we&rsquo;ve measured across hundreds of campaigns.</p>
+
+      <div class="stat-block">
+        <div class="stat-item"><div class="stat-num">73%</div><div class="stat-label">of clicks go to the top 3 map results</div></div>
+        <div class="stat-item"><div class="stat-num">4%</div><div class="stat-label">go to position 4</div></div>
+        <div class="stat-item"><div class="stat-num">2.4&times;</div><div class="stat-label">more calls from position 1 vs. position 3</div></div>
+      </div>
+
+      <h2>How Google decides who ranks <em>in the top 3</em></h2>
+
+      <p>Google uses three signals to determine local map rankings. Understanding these is the entire game.</p>
+
+      <h3>1. Relevance &mdash; do you match what they searched for?</h3>
+      <p>Google matches search queries to business categories, services, and keywords in your Google Business Profile (GBP). If you&rsquo;re a Korean BBQ restaurant but your GBP only says "restaurant," you are competing against every restaurant in your city. If it says "Korean BBQ, KBBQ, Korean barbecue, all-you-can-eat Korean," you surface for exactly the people looking for you.</p>
+
+      <h3>2. Distance &mdash; how close are you to the searcher?</h3>
+      <p>This one you can&rsquo;t control directly. Google favors proximity. What you can do: make sure your address in your GBP matches your address on your website, on every directory, and on every citation. Discrepancies confuse Google&rsquo;s location algorithm.</p>
+
+      <h3>3. Prominence &mdash; do other sources trust you?</h3>
+      <p>Prominence is the most actionable signal and the one most businesses neglect. It comes from three places: your review count and rating, links to your website from other sites, and consistency across the web (what SEOs call "citations").</p>
+
+      <div class="callout">
+        <p><strong>The short version:</strong> Relevance + Distance + Prominence. You control two of the three. Focus there.</p>
+      </div>
+
+      <h2>The 8 changes that move the needle fastest</h2>
+
+      <p>After working with 200+ local businesses, we&rsquo;ve identified the optimizations that produce the highest-impact results in the shortest time.</p>
+
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div><div class="step-title">Claim and fully complete your Google Business Profile</div><div class="step-desc">Google says fully completed profiles get 7x more clicks than incomplete ones. Every field matters: hours, photos, services, description, attributes. If any field is blank, you&rsquo;re leaving ranking on the table.</div></div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div><div class="step-title">Choose the right primary category &mdash; and add secondary categories</div><div class="step-desc">Your primary category is the single most important relevance signal. Be specific. "Pizza restaurant" beats "restaurant." Then add relevant secondary categories for each service you offer.</div></div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div><div class="step-title">Write a description that uses your actual search terms</div><div class="step-desc">Your GBP business description has 750 characters. Use them. Naturally mention your city, neighborhood, key services, and how you differ from competitors. Don&rsquo;t keyword-stuff &mdash; write for a human first.</div></div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div><div class="step-title">Get your NAP consistent across the web</div><div class="step-desc">Name, Address, Phone (NAP) must be identical everywhere: your website, Yelp, Facebook, Apple Maps, Bing, TripAdvisor, and every industry directory. One inconsistency can undermine your ranking. Run a citation audit quarterly.</div></div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <div><div class="step-title">Build your review volume and recency</div><div class="step-desc">Google values both the number of reviews and how recent they are. A business with 200 reviews from 3 years ago often loses to a business with 40 reviews from the last 6 months. You need a system that generates reviews consistently, not one big push.</div></div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">6</div>
+        <div><div class="step-title">Respond to every review &mdash; especially the negative ones</div><div class="step-desc">Google treats review responses as an engagement signal. Responding to negative reviews professionally also shows potential customers (and Google) that you&rsquo;re an active, attentive business.</div></div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">7</div>
+        <div><div class="step-title">Post to your GBP weekly</div><div class="step-desc">GBP posts are like social media posts for your Google listing. They signal activity and freshness. Post updates, offers, events, and new products consistently. Businesses that post weekly outrank comparable businesses that don&rsquo;t.</div></div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">8</div>
+        <div><div class="step-title">Add high-quality photos &mdash; and keep adding them</div><div class="step-desc">Listings with 100+ photos get 520% more calls than listings with no photos. That said, quality matters too. Professional photos of your space, food, products, and team outperform blurry phone snaps.</div></div>
+      </div>
+
+      <div class="pullquote">
+        <p>"The businesses that rank consistently aren&rsquo;t gaming the algorithm. They&rsquo;re just doing the basics more completely than their competitors."</p>
+        <cite>&mdash; Apnosh Local SEO team, from 200+ client audits</cite>
+      </div>
+
+      <h2>What to expect: a realistic <em>timeline</em></h2>
+
+      <p>Local SEO is not instant. Here&rsquo;s what a typical timeline looks like when you implement these changes systematically:</p>
+
+      <ul>
+        <li><strong>Days 1&ndash;7:</strong> Complete your GBP, fix NAP, add photos. These are free and take a few hours.</li>
+        <li><strong>Weeks 2&ndash;4:</strong> First review requests go out. You start seeing movement in "near me" searches where you were previously off the map.</li>
+        <li><strong>Month 2:</strong> Consistent posting and new reviews start accumulating. Positions begin to shift, especially for long-tail searches.</li>
+        <li><strong>Month 3:</strong> Most businesses that execute consistently hit the top 5 for their primary keywords.</li>
+        <li><strong>Month 4&ndash;6:</strong> Top 3 is achievable in most markets with consistent execution. Highly competitive markets (multiple locations, franchise competition) take longer.</li>
+      </ul>
+
+      <h2>The one thing most businesses get wrong</h2>
+
+      <p>They do a big optimization sprint and then stop. They clean up their GBP, get 20 reviews in one month, post for a few weeks, and then drop everything when they get busy.</p>
+
+      <p>Google rewards consistency. A business that posts once a week for six months outperforms one that posts ten times in January and disappears. A business that gets two or three new reviews every week outperforms one that gets 30 in a single month.</p>
+
+      <p>The businesses that hold top 3 spots long-term treat local SEO like a utility &mdash; something that runs in the background, consistently, month after month. The businesses that lose those spots are the ones that treat it like a project with an end date.</p>
+
+      <div class="callout">
+        <p><strong>Your next step:</strong> Go to your Google Business Profile right now and check your completeness score. If anything is blank or incomplete, that&rsquo;s your first hour of work. Our <a href="resource-local-seo-playbook.html">Local SEO Playbook</a> has a full audit checklist you can use for free.</p>
+      </div>
+
+      <div class="art-tags">
+        <span style="font-size:12px;color:var(--ink4);font-weight:500">Topics:</span>
+        <a class="art-tag-pill" href="apnosh_blog.html?cat=seo">Local SEO</a>
+        <a class="art-tag-pill" href="#">Google Business Profile</a>
+        <a class="art-tag-pill" href="#">Google Maps</a>
+        <a class="art-tag-pill" href="#">Reviews</a>
+        <a class="art-tag-pill" href="apnosh_blog.html?cat=growth">Growth</a>
+      </div>
+
+      <div class="art-nl">
+        <h2 class="art-nl-h">Get one tip like this <em>every Tuesday</em></h2>
+        <p class="art-nl-sub">3-minute read. One tip, one trend, one tool. 2,400+ business owners subscribed. No spam.</p>
+        <form class="art-nl-form" onsubmit="subNL(event)">
+          <input class="art-nl-input" type="email" placeholder="your@email.com" required>
+          <button class="art-nl-btn" type="submit">Subscribe free</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</article>
+
+<!-- RELATED -->
+<section class="related-section">
+  <div class="w">
+    <h2 class="related-h">Keep <em>reading</em></h2>
+    <div class="related-grid">
+      <a class="rc" href="blog-gbp-audit.html">
+        <div class="rc-vis" style="background:linear-gradient(135deg,#0f0f0f,#1a2e1f)"><div class="rc-vis-orb" style="width:150px;height:150px;background:rgba(74,189,152,.08);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="rc-icon">&#11088;</span></div>
+        <div class="rc-body"><span class="rc-cat">Local SEO</span><div class="rc-title">The GBP audit every local business needs to do today</div><div class="rc-meta">5 min read</div></div>
+      </a>
+      <a class="rc" href="blog-review-strategy.html">
+        <div class="rc-vis" style="background:linear-gradient(135deg,#0f0f0f,#1a2e1f)"><div class="rc-vis-orb" style="width:150px;height:150px;background:rgba(74,189,152,.08);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="rc-icon">&#128172;</span></div>
+        <div class="rc-body"><span class="rc-cat">Local SEO</span><div class="rc-title">The review strategy that gets 10x more Google reviews</div><div class="rc-meta">4 min read</div></div>
+      </a>
+      <a class="rc" href="blog-5-marketing-levers.html">
+        <div class="rc-vis" style="background:linear-gradient(135deg,#1a0e00,#2e1900)"><div class="rc-vis-orb" style="width:150px;height:150px;background:rgba(217,119,6,.08);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="rc-icon">&#128200;</span></div>
+        <div class="rc-body"><span class="rc-cat">Growth</span><div class="rc-title">The 5 marketing levers every local business should pull first</div><div class="rc-meta">8 min read</div></div>
+      </a>
+    </div>
+    <div style="margin-top:28px">
+      <a class="btn btn-outline" href="apnosh_blog.html">View all articles <span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="f-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <div class="f-links">
+      <a class="f-link" href="apnosh_services.html">Services</a>
+      <a class="f-link" href="apnosh_pricing.html">Pricing</a>
+      <a class="f-link" href="apnosh_results.html">Results</a>
+      <a class="f-link" href="apnosh_blog.html">Blog</a>
+      <a class="f-link" href="apnosh_about.html">About</a>
+      <a class="f-link" href="talk_to_expert.html">Contact</a>
+    </div>
+    <p class="f-copy">&copy; 2026 Apnosh. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+var nav=document.getElementById('site-nav');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('scrolled',window.scrollY>10);
+  var h=document.body.scrollHeight-window.innerHeight;
+  document.getElementById('prog').style.width=(h>0?Math.min(100,window.scrollY/h*100):0)+'%';
+},{passive:true});
+window.subNL=function(e){e.preventDefault();e.target.querySelector('.art-nl-btn').textContent='Subscribed!';e.target.reset();};
+</script>
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why inconsistent branding costs local businesses customers every day | Apnosh Blog</title>
+<meta name="description" content="Different logo on Google vs your sign vs your website vs your packaging. Customers notice — and they leave. Here's how to audit and fix your brand consistency in a weekend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#22c55e;--brand2:#16a34a;--ink:#0a0a0a;--ink2:#111;--ink3:#1a1a1a;
+  --ink6:rgba(255,255,255,.08);--ink7:rgba(255,255,255,.06);
+  --bg:#0d0d0d;--bg2:#111;--bg3:#161616;
+  --fd:#f5f5f5;--fb:rgba(255,255,255,.55);--fm:rgba(255,255,255,.38);
+  --accent:#059669;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fd);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+.progress-bar{position:fixed;top:0;left:0;right:0;height:3px;background:rgba(255,255,255,.08);z-index:2000}
+.progress-fill{height:100%;width:0%;background:var(--accent);transition:width .1s linear}
+
+nav{position:sticky;top:3px;z-index:1000;background:rgba(13,13,13,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--ink6);height:56px;display:flex;align-items:center}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;width:100%;gap:32px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--fd);letter-spacing:-.02em;flex-shrink:0}
+.nav-logo span{color:var(--brand)}
+.nav-links{display:flex;align-items:center;gap:4px;flex:1}
+.nav-item{position:relative}
+.nav-link{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--fb);transition:all .2s;cursor:pointer;display:flex;align-items:center;gap:4px;white-space:nowrap}
+.nav-link:hover,.nav-link.active{color:var(--fd);background:var(--ink6)}
+.nav-link svg{opacity:.6;transition:transform .2s}
+.nav-item:hover .nav-link svg{transform:rotate(180deg)}
+.nav-cta{margin-left:auto;padding:8px 18px;background:var(--brand);color:#000;border-radius:9px;font-size:.875rem;font-weight:600;transition:all .2s;white-space:nowrap;flex-shrink:0}
+.nav-cta:hover{background:var(--brand2);transform:translateY(-1px)}
+.mega{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--ink2);border:1px solid var(--ink6);border-radius:16px;padding:20px;min-width:520px;opacity:0;visibility:hidden;transition:all .2s;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.nav-item:hover .mega{opacity:1;visibility:visible}
+.mega-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.mega-item{padding:10px 12px;border-radius:10px;transition:background .15s;cursor:pointer}
+.mega-item:hover{background:var(--ink6)}
+.mega-item-title{font-size:.8125rem;font-weight:600;color:var(--fd);margin-bottom:2px}
+.mega-item-desc{font-size:.75rem;color:var(--fm);line-height:1.4}
+.mega-wide{grid-column:1/-1;border-top:1px solid var(--ink6);margin-top:8px;padding-top:12px}
+
+.breadcrumb{max-width:800px;margin:0 auto;padding:24px 24px 0;display:flex;align-items:center;gap:8px;font-size:.8125rem;color:var(--fm)}
+.bc-link{color:var(--fb);transition:color .2s}
+.bc-link:hover{color:var(--fd)}
+.bc-sep{opacity:.4}
+.bc-cur{color:var(--accent)}
+
+.article-hero{max-width:800px;margin:0 auto;padding:40px 24px 48px}
+.art-cat{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;font-size:.75rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:20px;background:rgba(5,150,105,.12);color:var(--accent);border:1px solid rgba(5,150,105,.2)}
+.art-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.25rem);font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--fd);margin-bottom:16px}
+.art-sub{font-size:1.125rem;color:var(--fb);line-height:1.6;margin-bottom:28px;max-width:680px}
+.art-meta{display:flex;align-items:center;gap:16px;font-size:.8125rem;color:var(--fm);flex-wrap:wrap}
+.art-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--fm)}
+.art-author{display:flex;align-items:center;gap:8px}
+.art-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#22c55e);display:flex;align-items:center;justify-content:center;font-size:.6875rem;font-weight:700;color:#fff;flex-shrink:0}
+
+.stat-block{max-width:800px;margin:0 auto 48px;padding:0 24px}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ink6);border-radius:18px;overflow:hidden;border:1px solid var(--ink6)}
+.stat-cell{background:var(--bg2);padding:28px 24px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:6px}
+.stat-label{font-size:.8125rem;color:var(--fm);line-height:1.4}
+
+.article-body{max-width:800px;margin:0 auto;padding:0 24px 80px}
+.art-section{margin-bottom:52px}
+.art-h2{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:var(--fd);margin-bottom:16px;letter-spacing:-.01em}
+.art-p{font-size:1rem;color:var(--fb);line-height:1.75;margin-bottom:16px}
+.art-p:last-child{margin-bottom:0}
+
+/* Touchpoint audit grid */
+.audit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+.audit-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:16px;padding:20px}
+.audit-icon{font-size:1.5rem;margin-bottom:10px}
+.audit-place{font-size:.9375rem;font-weight:600;color:var(--fd);margin-bottom:8px}
+.audit-checks{display:flex;flex-direction:column;gap:6px}
+.ach{display:flex;align-items:center;gap:8px;font-size:.8125rem;color:var(--fb)}
+.ach-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+/* Before/after */
+.ba-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.ba-card{border-radius:14px;overflow:hidden}
+.ba-label{padding:10px 16px;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.ba-before .ba-label{background:rgba(239,68,68,.12);color:#f87171}
+.ba-after .ba-label{background:rgba(5,150,105,.12);color:var(--accent)}
+.ba-content{background:var(--bg2);border:1px solid var(--ink6);border-top:none;padding:16px;font-size:.875rem;color:var(--fb);line-height:1.6}
+.ba-content strong{color:var(--fd)}
+
+/* Pullquote */
+.pullquote{border-left:3px solid var(--accent);padding:20px 24px;margin:32px 0;background:rgba(5,150,105,.04);border-radius:0 12px 12px 0}
+.pq-text{font-family:'Playfair Display',serif;font-size:1.25rem;font-style:italic;color:var(--fd);line-height:1.5;margin-bottom:8px}
+.pq-attr{font-size:.8125rem;color:var(--fm)}
+
+/* Brand kit box */
+.kit-box{background:var(--bg2);border:1px solid var(--ink6);border-radius:16px;overflow:hidden;margin-top:24px}
+.kit-head{background:var(--ink3);padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+.kit-title{font-size:.9375rem;font-weight:600;color:var(--fd)}
+.kit-tag{font-size:.6875rem;font-weight:600;padding:3px 10px;border-radius:10px;background:rgba(5,150,105,.15);color:var(--accent)}
+.kit-body{padding:20px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.kit-item{display:flex;align-items:flex-start;gap:10px}
+.ki-num{width:22px;height:22px;border-radius:50%;background:rgba(5,150,105,.15);display:flex;align-items:center;justify-content:center;font-size:.6875rem;font-weight:700;color:var(--accent);flex-shrink:0;margin-top:1px}
+.ki-text{font-size:.8125rem;color:var(--fb);line-height:1.5}
+.ki-text strong{color:var(--fd)}
+
+/* Quick wins */
+.quick-wins{display:grid;gap:10px;margin-top:20px}
+.qw-item{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:14px 16px;background:var(--bg2);border:1px solid var(--ink6);border-radius:12px}
+.qw-num{font-size:.8125rem;font-weight:700;color:var(--accent);min-width:24px}
+.qw-text{font-size:.9375rem;color:var(--fb)}
+.qw-text strong{color:var(--fd)}
+.qw-time{font-size:.75rem;color:var(--fm);white-space:nowrap}
+
+/* Newsletter */
+.nl-section{background:var(--bg2);border-top:1px solid var(--ink6);border-bottom:1px solid var(--ink6);padding:56px 24px;text-align:center;margin-bottom:56px}
+.nl-inner{max-width:480px;margin:0 auto}
+.nl-label{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);margin-bottom:12px}
+.nl-title{font-family:'Playfair Display',serif;font-size:1.875rem;font-weight:700;color:var(--fd);margin-bottom:10px}
+.nl-sub{font-size:.9375rem;color:var(--fb);margin-bottom:24px;line-height:1.5}
+.nl-form{display:flex;gap:10px;max-width:400px;margin:0 auto}
+.nl-input{flex:1;padding:11px 16px;background:var(--bg3);border:1px solid var(--ink6);border-radius:10px;font-size:.875rem;color:var(--fd);outline:none;font-family:'Inter',sans-serif}
+.nl-input:focus{border-color:rgba(5,150,105,.4)}
+.nl-input::placeholder{color:var(--fm)}
+.nl-btn{padding:11px 20px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:.875rem;font-weight:600;cursor:pointer;white-space:nowrap;font-family:'Inter',sans-serif;transition:all .2s}
+.nl-btn:hover{background:var(--brand2);transform:translateY(-1px)}
+
+.related-section{max-width:800px;margin:0 auto;padding:0 24px 80px}
+.related-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--fd);margin-bottom:24px}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.related-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:14px;padding:20px;transition:all .2s;display:block}
+.related-card:hover{border-color:rgba(255,255,255,.15);transform:translateY(-2px)}
+.rc-cat{font-size:.6875rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--brand);margin-bottom:8px}
+.rc-title{font-size:.9375rem;font-weight:600;color:var(--fd);line-height:1.4}
+
+.cta-section{background:linear-gradient(135deg,rgba(5,150,105,.08),rgba(34,197,94,.05));border:1px solid var(--ink6);border-radius:20px;padding:48px 32px;text-align:center;max-width:800px;margin:0 auto 64px;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(5,150,105,.1),transparent 70%);pointer-events:none}
+.cta-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--fd);margin-bottom:12px;position:relative}
+.cta-sub{font-size:1rem;color:var(--fb);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;position:relative}
+.cta-btn{display:inline-block;padding:14px 32px;background:var(--brand);color:#000;border-radius:12px;font-size:.9375rem;font-weight:700;transition:all .2s;position:relative}
+.cta-btn:hover{background:var(--brand2);transform:translateY(-2px);box-shadow:0 12px 32px rgba(34,197,94,.25)}
+
+footer{background:var(--ink);border-top:1px solid var(--ink6);padding:48px 24px 32px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand .nav-logo{font-size:1.5rem;margin-bottom:12px;display:block}
+.footer-desc{font-size:.875rem;color:var(--fm);line-height:1.6}
+.footer-col-title{font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--fm);margin-bottom:14px}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:.875rem;color:var(--fb);transition:color .2s}
+.footer-links a:hover{color:var(--fd)}
+.footer-bottom{border-top:1px solid var(--ink6);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.8125rem;color:var(--fm)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:all .5s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .stat-grid{grid-template-columns:1fr}
+  .audit-grid{grid-template-columns:1fr}
+  .ba-compare{grid-template-columns:1fr}
+  .kit-body{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .nl-form{flex-direction:column}
+  .qw-item{grid-template-columns:auto 1fr;gap:8px}
+  .qw-time{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar"><div class="progress-fill" id="pf"></div></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="apnosh_homepage.html" class="nav-logo">Apn<span>o</span>sh</a>
+    <div class="nav-links">
+      <div class="nav-item">
+        <div class="nav-link">Services <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="mega">
+          <div class="mega-grid">
+            <div class="mega-item"><div class="mega-item-title">Social Media</div><div class="mega-item-desc">Content creation & posting</div></div>
+            <div class="mega-item"><div class="mega-item-title">Email & SMS</div><div class="mega-item-desc">Campaigns that convert</div></div>
+            <div class="mega-item"><div class="mega-item-title">Local SEO</div><div class="mega-item-desc">Rank higher, get found</div></div>
+            <div class="mega-item"><div class="mega-item-title">Paid Ads</div><div class="mega-item-desc">Google & Meta advertising</div></div>
+            <div class="mega-item"><div class="mega-item-title">Websites</div><div class="mega-item-desc">Design, build & optimize</div></div>
+            <div class="mega-item"><div class="mega-item-title">Photography</div><div class="mega-item-desc">Product & lifestyle shoots</div></div>
+            <div class="mega-wide"><div class="mega-item"><div class="mega-item-title">View all 55+ services →</div><div class="mega-item-desc">Marketing plans starting at $299/mo</div></div></div>
+          </div>
+        </div>
+      </div>
+      <a href="apnosh_resources.html" class="nav-link">Resources</a>
+      <a href="apnosh_blog.html" class="nav-link active">Blog</a>
+      <div class="nav-item">
+        <div class="nav-link">About <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="mega">
+          <div class="mega-grid">
+            <div class="mega-item"><div class="mega-item-title">Our Story</div><div class="mega-item-desc">Why we built Apnosh</div></div>
+            <div class="mega-item"><div class="mega-item-title">Results</div><div class="mega-item-desc">Client wins & case studies</div></div>
+            <div class="mega-item"><div class="mega-item-title">Pricing</div><div class="mega-item-desc">Transparent, flat-rate plans</div></div>
+            <div class="mega-item"><div class="mega-item-title">Contact</div><div class="mega-item-desc">Talk to a real person</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="apnosh_homepage.html#get-started" class="nav-cta">Get started</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="apnosh_homepage.html" class="bc-link">Home</a>
+  <span class="bc-sep">›</span>
+  <a href="apnosh_blog.html" class="bc-link">Blog</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-cur">Growth</span>
+</div>
+
+<div class="article-hero reveal">
+  <div class="art-cat">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L5 7M5 7L3 5L10 2L7 9L5 7Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+    Growth
+  </div>
+  <h1 class="art-title">Why inconsistent branding costs local businesses customers every day</h1>
+  <p class="art-sub">Your logo looks different on Yelp than it does on your sign. Your Instagram bio says one thing, your website says another. Customers notice — even when they can't name what feels off. Trust breaks silently, and they pick the competitor who looks like they have it together.</p>
+  <div class="art-meta">
+    <div class="art-author">
+      <div class="art-avatar">A</div>
+      <span>Apnosh Team</span>
+    </div>
+    <div class="art-meta-dot"></div>
+    <span>Growth</span>
+    <div class="art-meta-dot"></div>
+    <span>6 min read</span>
+  </div>
+</div>
+
+<div class="stat-block reveal">
+  <div class="stat-grid">
+    <div class="stat-cell">
+      <div class="stat-num">3–7×</div>
+      <div class="stat-label">More likely to choose a business that looks consistent across platforms vs one that doesn't</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">23%</div>
+      <div class="stat-label">Average revenue increase for businesses with consistent brand presentation</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">7 sec</div>
+      <div class="stat-label">Time it takes a new customer to form a first impression of your brand</div>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="art-section reveal">
+    <h2 class="art-h2">What "brand consistency" actually means for a local business</h2>
+    <p class="art-p">It doesn't mean having a brand book from a design agency. It means that when a customer sees your name on Google, walks past your sign, finds you on Instagram, and lands on your website — it feels like the same business. Same name spelling, same logo, same colors, same tone of voice.</p>
+    <p class="art-p">Most local businesses have drifted. The original logo from 2018 is still on Yelp. The website uses a different shade of green than the sign. The Instagram bio says "Fresh Italian food" but the website says "Authentic Italian cuisine." None of these feel like deal-breakers — but together, they create a subtle, uneasy feeling in a potential customer's gut. Something feels off. They can't name it. They just click somewhere else.</p>
+  </div>
+
+  <div class="art-section reveal">
+    <h2 class="art-h2">The 6 places your brand lives (and where it usually breaks)</h2>
+    <div class="audit-grid">
+      <div class="audit-card">
+        <div class="audit-icon">🗺️</div>
+        <div class="audit-place">Google Business Profile</div>
+        <div class="audit-checks">
+          <div class="ach"><div class="ach-dot"></div>Business name spelled exactly right</div>
+          <div class="ach"><div class="ach-dot"></div>Logo high-res and correctly cropped</div>
+          <div class="ach"><div class="ach-dot"></div>Cover photo on-brand, not a random snap</div>
+          <div class="ach"><div class="ach-dot"></div>Description matches website tone</div>
+        </div>
+      </div>
+      <div class="audit-card">
+        <div class="audit-icon">🌐</div>
+        <div class="audit-place">Website</div>
+        <div class="audit-checks">
+          <div class="ach"><div class="ach-dot"></div>Same logo file used everywhere on-site</div>
+          <div class="ach"><div class="ach-dot"></div>Brand colors consistent across pages</div>
+          <div class="ach"><div class="ach-dot"></div>Business name uses same capitalization</div>
+          <div class="ach"><div class="ach-dot"></div>Tagline matches other platforms</div>
+        </div>
+      </div>
+      <div class="audit-card">
+        <div class="audit-icon">📱</div>
+        <div class="audit-place">Social Media Profiles</div>
+        <div class="audit-checks">
+          <div class="ach"><div class="ach-dot"></div>Same profile photo across all platforms</div>
+          <div class="ach"><div class="ach-dot"></div>Username consistent (or clearly explained)</div>
+          <div class="ach"><div class="ach-dot"></div>Bio language matches your website</div>
+          <div class="ach"><div class="ach-dot"></div>Cover photo reflects current branding</div>
+        </div>
+      </div>
+      <div class="audit-card">
+        <div class="audit-icon">📦</div>
+        <div class="audit-place">Packaging & Physical</div>
+        <div class="audit-checks">
+          <div class="ach"><div class="ach-dot"></div>Business cards match digital colors</div>
+          <div class="ach"><div class="ach-dot"></div>Packaging logo is the current version</div>
+          <div class="ach"><div class="ach-dot"></div>Signage consistent with online presence</div>
+          <div class="ach"><div class="ach-dot"></div>Receipt/invoice looks professional</div>
+        </div>
+      </div>
+      <div class="audit-card">
+        <div class="audit-icon">⭐</div>
+        <div class="audit-place">Review Platforms</div>
+        <div class="audit-checks">
+          <div class="ach"><div class="ach-dot"></div>Same business name on Yelp, TripAdvisor</div>
+          <div class="ach"><div class="ach-dot"></div>Logo and photos current, not old</div>
+          <div class="ach"><div class="ach-dot"></div>Hours and contact info match everywhere</div>
+          <div class="ach"><div class="ach-dot"></div>Response tone matches your brand voice</div>
+        </div>
+      </div>
+      <div class="audit-card">
+        <div class="audit-icon">📧</div>
+        <div class="audit-place">Email & SMS</div>
+        <div class="audit-checks">
+          <div class="ach"><div class="ach-dot"></div>Email template includes your logo</div>
+          <div class="ach"><div class="ach-dot"></div>From name is your business name</div>
+          <div class="ach"><div class="ach-dot"></div>Font and color match website</div>
+          <div class="ach"><div class="ach-dot"></div>Email signature looks professional</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pullquote reveal">
+    <div class="pq-text">"Customers don't consciously compare your Yelp photo to your website logo. But their gut does — and the gut controls the click."</div>
+    <div class="pq-attr">— UX research on local business trust signals</div>
+  </div>
+
+  <div class="art-section reveal">
+    <h2 class="art-h2">The most common brand inconsistencies (and what to do)</h2>
+    <div class="ba-compare">
+      <div class="ba-card ba-before">
+        <div class="ba-label">Before</div>
+        <div class="ba-content">Business listed as <strong>"Mike's Bakery"</strong> on Google, <strong>"Mikes Bakery"</strong> on Yelp, <strong>"Mike's Artisan Bakehouse"</strong> on Instagram</div>
+      </div>
+      <div class="ba-card ba-after">
+        <div class="ba-label">After</div>
+        <div class="ba-content">Every platform uses the exact same name: <strong>"Mike's Bakery"</strong> — matched to your official business registration</div>
+      </div>
+    </div>
+    <div class="ba-compare" style="margin-top:12px">
+      <div class="ba-card ba-before">
+        <div class="ba-label">Before</div>
+        <div class="ba-content">Logo is a JPG with white background on Google, a transparent PNG on the website, and a different version on Facebook that's two redesigns old</div>
+      </div>
+      <div class="ba-card ba-after">
+        <div class="ba-label">After</div>
+        <div class="ba-content">One master logo file folder with current versions in correct sizes for every platform — updated every time the logo changes</div>
+      </div>
+    </div>
+    <div class="ba-compare" style="margin-top:12px">
+      <div class="ba-card ba-before">
+        <div class="ba-label">Before</div>
+        <div class="ba-content">Instagram bio: "Best tacos in the city 🌮." Website homepage: "Authentic Mexican cuisine in [Neighborhood]." Google description: "We serve Mexican food."</div>
+      </div>
+      <div class="ba-card ba-after">
+        <div class="ba-label">After</div>
+        <div class="ba-content">One core sentence that appears everywhere: <strong>"Family-run tacos in [Neighborhood] since 2012."</strong> Adapted slightly for each platform but always recognizable.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="art-section reveal">
+    <h2 class="art-h2">Build a simple brand kit — no designer needed</h2>
+    <p class="art-p">You don't need a 40-page brand guideline. You need one document that anyone on your team can open to answer the question "what are we supposed to use here?" Here's what goes in it:</p>
+    <div class="kit-box">
+      <div class="kit-head">
+        <div class="kit-title">Your Local Business Brand Kit</div>
+        <div class="kit-tag">One Google Doc is enough</div>
+      </div>
+      <div class="kit-body">
+        <div class="kit-item">
+          <div class="ki-num">1</div>
+          <div class="ki-text"><strong>Official business name</strong> — exact spelling and capitalization, used everywhere</div>
+        </div>
+        <div class="kit-item">
+          <div class="ki-num">2</div>
+          <div class="ki-text"><strong>Logo files</strong> — link to a shared folder with PNG (transparent), JPG (white bg), and square version</div>
+        </div>
+        <div class="kit-item">
+          <div class="ki-num">3</div>
+          <div class="ki-text"><strong>Brand colors</strong> — HEX codes for your primary and secondary colors</div>
+        </div>
+        <div class="kit-item">
+          <div class="ki-num">4</div>
+          <div class="ki-text"><strong>Font names</strong> — heading font and body font (or "we use Inter everywhere")</div>
+        </div>
+        <div class="kit-item">
+          <div class="ki-num">5</div>
+          <div class="ki-text"><strong>One-liner</strong> — your core description sentence for bios and listings</div>
+        </div>
+        <div class="kit-item">
+          <div class="ki-num">6</div>
+          <div class="ki-text"><strong>Tone words</strong> — 3–4 words that describe how you write: warm, direct, no-fluff, local</div>
+        </div>
+        <div class="kit-item">
+          <div class="ki-num">7</div>
+          <div class="ki-text"><strong>Photo style</strong> — bright/natural vs moody/dark, props vs clean backgrounds</div>
+        </div>
+        <div class="kit-item">
+          <div class="ki-num">8</div>
+          <div class="ki-text"><strong>What we never do</strong> — stock photos, all-caps, specific colors that feel off-brand</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="art-section reveal">
+    <h2 class="art-h2">Fix the biggest gaps this weekend — in order</h2>
+    <p class="art-p">Don't try to fix everything at once. Start with the touchpoints that get the most eyes, and work down:</p>
+    <div class="quick-wins">
+      <div class="qw-item">
+        <div class="qw-num">01</div>
+        <div class="qw-text"><strong>Google Business Profile</strong> — update logo, cover photo, and business description to match your current brand</div>
+        <div class="qw-time">~20 min</div>
+      </div>
+      <div class="qw-item">
+        <div class="qw-num">02</div>
+        <div class="qw-text"><strong>Website homepage header</strong> — one logo, one tagline, brand-matched hero image or color</div>
+        <div class="qw-time">~30 min</div>
+      </div>
+      <div class="qw-item">
+        <div class="qw-num">03</div>
+        <div class="qw-text"><strong>Instagram and Facebook profile photos and bios</strong> — use the same profile photo everywhere, same core description</div>
+        <div class="qw-time">~15 min</div>
+      </div>
+      <div class="qw-item">
+        <div class="qw-num">04</div>
+        <div class="qw-text"><strong>Yelp, TripAdvisor, or other review platforms</strong> — match your business name spelling and upload current photos</div>
+        <div class="qw-time">~20 min</div>
+      </div>
+      <div class="qw-item">
+        <div class="qw-num">05</div>
+        <div class="qw-text"><strong>Email footer and "from name"</strong> — make sure it reads as your business name, not a personal email address</div>
+        <div class="qw-time">~10 min</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="art-section reveal">
+    <h2 class="art-h2">The ongoing habit that keeps it consistent</h2>
+    <p class="art-p">Brand drift is sneaky — it happens one small compromise at a time. Someone posts a photo with a slightly different logo. A new team member writes a bio that goes off-tone. A listing gets updated by a third-party data aggregator without your knowledge.</p>
+    <p class="art-p">Set a calendar reminder once a quarter: "Brand audit — 30 minutes." Open your brand kit, visit each of the 6 touchpoints, and check the list. It takes less time than you think, and it's the reason some local businesses always look like they have their act together — even when they're just as busy as everyone else.</p>
+  </div>
+
+</div>
+
+<div class="nl-section">
+  <div class="nl-inner reveal">
+    <div class="nl-label">Free Template</div>
+    <h2 class="nl-title">Get the brand consistency checklist</h2>
+    <p class="nl-sub">A one-page audit you can run in 30 minutes — covers all 6 touchpoints with a field for current status.</p>
+    <div class="nl-form">
+      <input type="email" class="nl-input" placeholder="Your email address" id="nl-email">
+      <button class="nl-btn" onclick="submitNL()">Send it</button>
+    </div>
+  </div>
+</div>
+
+<div class="related-section reveal">
+  <h2 class="related-title">Keep reading</h2>
+  <div class="related-grid">
+    <a href="blog-5-marketing-levers.html" class="related-card">
+      <div class="rc-cat">Growth</div>
+      <div class="rc-title">The 5 marketing levers every local business should pull first</div>
+    </a>
+    <a href="blog-website-conversion.html" class="related-card">
+      <div class="rc-cat">Websites</div>
+      <div class="rc-title">Why most small business websites convert at under 1% — and how to fix it</div>
+    </a>
+    <a href="blog-local-seo-top3.html" class="related-card">
+      <div class="rc-cat">Local SEO</div>
+      <div class="rc-title">Why 73% of local searches end at the top 3 results — and how to get there</div>
+    </a>
+  </div>
+</div>
+
+<div style="max-width:800px;margin:0 auto;padding:0 24px 80px">
+  <div class="cta-section reveal">
+    <h2 class="cta-title">Want us to audit your brand presence?</h2>
+    <p class="cta-sub">Apnosh does a free brand consistency audit for local businesses — and fixes what's broken as part of every marketing plan.</p>
+    <a href="apnosh_homepage.html#get-started" class="cta-btn">Get a free audit</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo">Apn<span style="color:var(--brand)">o</span>sh</span>
+        <p class="footer-desc">Marketing built for local businesses. Real results, flat-rate pricing, no contracts.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="#">Social Media</a><a href="#">Email &amp; SMS</a><a href="#">Local SEO</a><a href="#">Paid Ads</a><a href="#">Websites</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Resources</div>
+        <div class="footer-links">
+          <a href="apnosh_blog.html">Blog</a><a href="apnosh_resources.html">Guides</a><a href="#">Case Studies</a><a href="#">Pricing</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <div class="footer-links">
+          <a href="#">About</a><a href="#">Contact</a><a href="#">Privacy</a><a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Apnosh. All rights reserved.</span>
+      <span class="footer-copy">Made for local business owners.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('pf').style.width=pct+'%';
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function submitNL(){
+  const v=document.getElementById('nl-email').value.trim();
+  if(!v||!v.includes('@'))return;
+  const btn=document.querySelector('.nl-btn');
+  btn.textContent='Sent!';btn.style.background='#059669';
+  document.getElementById('nl-email').value='';
+  setTimeout(()=>{btn.textContent='Send it';btn.style.background='';},3000);
+}
+</script>
+</body>
+</html>
