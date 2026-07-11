@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Google Business Profile Audit Every Local Business Needs — Apnosh Blog</title>
+<meta name="description" content="Most GBP profiles are leaving money on the table. This 15-minute audit covers the 8 fields that actually affect your ranking.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--brand:#4abd98;--brand-d:#2e9a78;--brand-t:#eaf7f3;--ink:#1d1d1f;--ink2:#424245;--ink3:#6e6e73;--ink4:#aeaeb2;--ink5:#d2d2d7;--ink6:#f0f0f5;--bg:#fff;--bg2:#f5f5f7;--fd:'Playfair Display',Georgia,serif;--fb:'Inter',-apple-system,sans-serif;--s3:0 8px 32px rgba(0,0,0,.09)}
+html{scroll-behavior:smooth}body{font-family:var(--fb);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:1080px;margin:0 auto;padding:0 40px}.wmd{max-width:740px;margin:0 auto;padding:0 40px}
+@media(max-width:600px){.w,.wmd{padding:0 20px}}
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fb);font-weight:500;font-size:14px;text-decoration:none;border:none;cursor:pointer;border-radius:99px;padding:12px 24px;transition:all .2s;white-space:nowrap;line-height:1}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink5)}.btn-outline:hover{border-color:var(--ink3);transform:translateY(-1px)}
+.arr{transition:transform .2s;display:inline-block}a:hover .arr{transform:translateX(3px)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:44px;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.07);display:flex;align-items:center;transition:box-shadow .2s}.nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.nav-inner{width:100%;max-width:1080px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:-.01em}.nav-logo em{font-style:italic;color:var(--brand-d)}
+.nav-back{font-size:12px;color:var(--ink3);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .15s}.nav-back:hover{color:var(--ink)}.nav-back-arr{display:inline-block;transform:rotate(180deg)}
+.nav-right{display:flex;align-items:center;gap:8px}.nav-audit{font-size:12px;font-weight:600;color:#fff;background:var(--brand-d);padding:7px 16px;border-radius:99px;text-decoration:none;transition:all .15s}.nav-audit:hover{background:var(--brand)}
+.progress-bar{position:fixed;top:44px;left:0;right:0;height:3px;z-index:899}.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--brand),var(--brand-d));transition:width .1s linear}
+.breadcrumb{padding:56px 0 0}.bc-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink4)}
+@media(max-width:600px){.bc-inner{padding:0 20px}}
+.bc-link{color:var(--ink4);text-decoration:none;transition:color .15s}.bc-link:hover{color:var(--brand-d)}.bc-sep{color:var(--ink5)}.bc-current{color:var(--ink2);font-weight:500}
+.art-hero{padding:32px 0 48px}
+.art-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-d);background:var(--brand-t);border:1px solid rgba(74,189,152,.22);padding:5px 14px;border-radius:99px;margin-bottom:20px;text-decoration:none}
+.art-h{font-family:var(--fd);font-size:clamp(30px,5vw,54px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink);margin-bottom:18px}.art-h em{font-style:italic;color:var(--brand-d)}
+.art-lede{font-size:clamp(16px,2vw,20px);font-weight:300;color:var(--ink2);line-height:1.68;margin-bottom:24px}
+.art-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ink4);padding-bottom:24px;border-bottom:1px solid var(--ink6)}
+.art-author{display:flex;align-items:center;gap:10px}.art-avatar{width:32px;height:32px;border-radius:50%;background:var(--brand-t);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.art-author-name{font-size:12px;font-weight:500;color:var(--ink);display:block}.art-author-role{font-size:11px;color:var(--ink4)}.art-meta-dot{color:var(--ink5)}
+.art-visual{width:100%;border-radius:16px;overflow:hidden;height:300px;position:relative;margin-bottom:48px;display:flex;align-items:center;justify-content:center}
+.art-vis-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(74,189,152,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(74,189,152,.06) 1px,transparent 1px);background-size:48px 48px}
+.art-vis-orb{position:absolute;border-radius:50%;filter:blur(60px)}.art-vis-icon{position:relative;z-index:1;font-size:80px;opacity:.18}
+.art-body{font-size:clamp(15px,1.6vw,17px);font-weight:300;color:var(--ink2);line-height:1.78}
+.art-body h2{font-family:var(--fd);font-size:clamp(20px,2.8vw,30px);font-weight:400;color:var(--ink);margin:44px 0 16px;letter-spacing:-.02em;line-height:1.18}.art-body h2 em{font-style:italic;color:var(--brand-d)}
+.art-body p{margin-bottom:20px}.art-body ul{padding-left:24px;margin-bottom:20px;display:flex;flex-direction:column;gap:10px}
+.art-body li{font-size:clamp(15px,1.6vw,17px);font-weight:300;color:var(--ink2);line-height:1.7}.art-body strong{font-weight:600;color:var(--ink)}
+.art-body a{color:var(--brand-d);text-decoration:underline;text-decoration-color:rgba(46,154,120,.3);text-underline-offset:3px}
+.callout{background:var(--brand-t);border:1px solid rgba(74,189,152,.22);border-left:3px solid var(--brand);border-radius:10px;padding:20px 24px;margin:28px 0}.callout p{margin-bottom:0;font-size:15px;color:var(--ink2)}.callout strong{color:var(--ink)}
+.checklist{display:flex;flex-direction:column;gap:0;margin:24px 0;border:1px solid var(--ink6);border-radius:14px;overflow:hidden}
+.cl-item{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;border-bottom:1px solid var(--ink6)}
+.cl-item:last-child{border-bottom:none}
+.cl-item:nth-child(even){background:var(--bg2)}
+.cl-check{width:22px;height:22px;border-radius:6px;border:2px solid var(--ink5);flex-shrink:0;margin-top:2px;cursor:pointer;transition:all .15s;position:relative;display:flex;align-items:center;justify-content:center}
+.cl-check.done{background:var(--brand);border-color:var(--brand)}
+.cl-check.done::after{content:'✓';color:#fff;font-size:13px;font-weight:700;line-height:1}
+.cl-text{flex:1}
+.cl-title{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.cl-desc{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.6}
+.cl-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:1px 8px;border-radius:99px;margin-left:8px;vertical-align:middle}
+.cl-tag.high{color:var(--brand-d);background:var(--brand-t)}
+.cl-tag.med{color:#d97706;background:rgba(217,119,6,.1)}
+.art-tags{display:flex;flex-wrap:wrap;gap:8px;padding:32px 0;border-top:1px solid var(--ink6);border-bottom:1px solid var(--ink6);margin:48px 0 40px}
+.art-tag-pill{font-size:11px;font-weight:500;color:var(--ink3);background:var(--ink6);padding:5px 14px;border-radius:99px;text-decoration:none;transition:all .15s}.art-tag-pill:hover{background:var(--brand-t);color:var(--brand-d)}
+.art-nl{background:var(--ink);border-radius:20px;padding:40px 44px;text-align:center;position:relative;overflow:hidden;margin:56px 0}
+@media(max-width:600px){.art-nl{padding:32px 24px}}
+.art-nl::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(74,189,152,.07) 0%,transparent 70%)}.art-nl>*{position:relative;z-index:1}
+.art-nl-h{font-family:var(--fd);font-size:clamp(20px,3vw,28px);font-weight:400;color:#fff;margin-bottom:8px;letter-spacing:-.02em}.art-nl-h em{font-style:italic;color:var(--brand)}
+.art-nl-sub{font-size:14px;font-weight:300;color:rgba(255,255,255,.38);max-width:400px;margin:0 auto 22px;line-height:1.65}
+.art-nl-form{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.art-nl-input{flex:1;min-width:180px;padding:11px 16px;border:1px solid rgba(255,255,255,.15);border-radius:99px;background:rgba(255,255,255,.07);font-family:var(--fb);font-size:13px;color:#fff;outline:none}.art-nl-input::placeholder{color:rgba(255,255,255,.25)}.art-nl-input:focus{border-color:var(--brand)}
+.art-nl-btn{background:var(--brand);color:var(--ink);padding:11px 20px;border-radius:99px;font-family:var(--fb);font-size:13px;font-weight:600;border:none;cursor:pointer;white-space:nowrap;transition:background .2s}.art-nl-btn:hover{background:var(--brand-d);color:#fff}
+.related-section{background:var(--bg2);padding:56px 0}.related-h{font-family:var(--fd);font-size:clamp(20px,2.8vw,28px);font-weight:400;color:var(--ink);margin-bottom:24px;letter-spacing:-.02em}.related-h em{font-style:italic;color:var(--brand-d)}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:720px){.related-grid{grid-template-columns:1fr 1fr}}@media(max-width:480px){.related-grid{grid-template-columns:1fr}}
+.rc{background:var(--bg);border:1px solid var(--ink6);border-radius:14px;overflow:hidden;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;display:block}.rc:hover{transform:translateY(-2px);box-shadow:var(--s3);border-color:rgba(74,189,152,.2)}
+.rc-vis{height:110px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.rc-vis-orb{position:absolute;border-radius:50%;filter:blur(30px)}.rc-icon{font-size:32px;opacity:.2;position:relative;z-index:1}
+.rc-body{padding:16px 18px 18px}.rc-cat{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:99px;display:inline-block;margin-bottom:7px}.rc-title{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);line-height:1.3;margin-bottom:6px;letter-spacing:-.01em}.rc-meta{font-size:11px;color:var(--ink4)}
+.footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:36px 40px}.footer-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none}.f-logo em{font-style:italic;color:var(--brand)}
+.f-links{display:flex;gap:20px;flex-wrap:wrap}.f-link{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .15s}.f-link:hover{color:rgba(255,255,255,.6)}.f-copy{font-size:11px;color:rgba(255,255,255,.16)}
+</style>
+</head>
+<body>
+<nav class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <a class="nav-back" href="apnosh_blog.html"><span class="nav-back-arr">&rarr;</span> Back to Blog</a>
+    <div class="nav-right"><a class="nav-audit" href="apnosh_homepage.html#start">Get free audit</a></div>
+  </div>
+</nav>
+<div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+<div class="breadcrumb"><div class="bc-inner"><a class="bc-link" href="apnosh_homepage.html">Home</a><span class="bc-sep">/</span><a class="bc-link" href="apnosh_blog.html">Blog</a><span class="bc-sep">/</span><span class="bc-current">Local SEO</span></div></div>
+
+<article>
+  <div class="wmd">
+    <div class="art-hero">
+      <a class="art-tag" href="apnosh_blog.html?cat=seo">&#11088; Local SEO</a>
+      <h1 class="art-h">The Google Business Profile audit every local business needs to do <em>today</em></h1>
+      <p class="art-lede">Most GBP profiles are leaving money on the table. This 15-minute audit covers the 8 fields that actually affect your Google Maps ranking &mdash; with a clickable checklist you can work through right now.</p>
+      <div class="art-meta">
+        <div class="art-author"><div class="art-avatar">&#11088;</div><div><span class="art-author-name">Apnosh Team</span><span class="art-author-role">Local SEO</span></div></div>
+        <span class="art-meta-dot">&middot;</span><span>June 10, 2026</span><span class="art-meta-dot">&middot;</span><span>5 min read</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="w">
+    <div class="art-visual" style="background:linear-gradient(135deg,#0a1a0f,#0f2a1a,#112415)">
+      <div class="art-vis-grid"></div>
+      <div class="art-vis-orb" style="width:500px;height:500px;background:rgba(74,189,152,.08);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+      <span class="art-vis-icon">&#11088;</span>
+    </div>
+  </div>
+
+  <div class="wmd">
+    <div class="art-body">
+
+      <p>Google says fully completed Business Profiles get 7x more clicks than incomplete ones. In practice, we find that most local businesses have completed about 60% of their profile &mdash; leaving the remaining 40% to eat into their rankings and click rates.</p>
+
+      <p>This audit is designed to take 15 minutes. Open your Google Business Profile Manager in a new tab and work through these 8 items. Check each one off as you go &mdash; the checkboxes below actually work.</p>
+
+      <div class="callout">
+        <p><strong>How to access your GBP:</strong> Search for your business name on Google. If you&rsquo;re logged in as the owner, you&rsquo;ll see an "Edit profile" button. Click that, or go directly to business.google.com.</p>
+      </div>
+
+      <h2>The 8-point <em>GBP audit checklist</em></h2>
+
+      <div class="checklist" id="cl">
+        <div class="cl-item"><div class="cl-check" onclick="toggleCheck(this)"></div><div class="cl-text"><div class="cl-title">Business name is exactly correct <span class="cl-tag high">High impact</span></div><div class="cl-desc">Matches your signage and legal name. No keyword stuffing (e.g., "Joe's Pizza — Best Pizza in Austin" is against Google's TOS and can get your listing suspended).</div></div></div>
+        <div class="cl-item"><div class="cl-check" onclick="toggleCheck(this)"></div><div class="cl-text"><div class="cl-title">Primary category is set and specific <span class="cl-tag high">High impact</span></div><div class="cl-desc">"Pizza restaurant" beats "restaurant." Check what your top competitors are using &mdash; your primary category should match the most specific accurate descriptor for what you do.</div></div></div>
+        <div class="cl-item"><div class="cl-check" onclick="toggleCheck(this)"></div><div class="cl-text"><div class="cl-title">Secondary categories are filled in <span class="cl-tag high">High impact</span></div><div class="cl-desc">Add every relevant secondary category. If you're a restaurant that also does catering, add "Caterer." If you're a salon that does both hair and nails, both categories should be present.</div></div></div>
+        <div class="cl-item"><div class="cl-check" onclick="toggleCheck(this)"></div><div class="cl-text"><div class="cl-title">Business description uses real keywords <span class="cl-tag med">Medium impact</span></div><div class="cl-desc">Your 750-character description should naturally mention your city, neighborhood, services, and 2&ndash;3 key differentiators. Write for humans first &mdash; no keyword lists. Example: "Austin's most-reviewed Korean BBQ restaurant in the Domain area, open until midnight on weekends."</div></div></div>
+        <div class="cl-item"><div class="cl-check" onclick="toggleCheck(this)"></div><div class="cl-text"><div class="cl-title">Hours are accurate (including special hours) <span class="cl-tag high">High impact</span></div><div class="cl-desc">Inaccurate hours are the #1 cause of 1-star reviews ("We drove 20 minutes and they were closed"). Update holiday hours proactively. Google lets you set special hours weeks in advance.</div></div></div>
+        <div class="cl-item"><div class="cl-check" onclick="toggleCheck(this)"></div><div class="cl-text"><div class="cl-title">Phone number matches your website exactly <span class="cl-tag high">High impact</span></div><div class="cl-desc">Name, Address, Phone (NAP) consistency is a ranking signal. Your GBP phone must match your website, Yelp, and every other directory. Even minor formatting differences matter.</div></div></div>
+        <div class="cl-item"><div class="cl-check" onclick="toggleCheck(this)"></div><div class="cl-text"><div class="cl-title">At least 20 real photos are uploaded <span class="cl-tag high">High impact</span></div><div class="cl-desc">Listings with 100+ photos get 520% more calls. Start with 20: your exterior, interior, best products/dishes, and team. Add new photos monthly. Owner-uploaded photos outrank customer-uploaded photos in prominence.</div></div></div>
+        <div class="cl-item"><div class="cl-check" onclick="toggleCheck(this)"></div><div class="cl-text"><div class="cl-title">A GBP post was published in the last 7 days <span class="cl-tag med">Medium impact</span></div><div class="cl-desc">Posts signal activity to Google. A weekly post (an update, offer, event, or new product) keeps your profile fresh. Posts expire after 7 days for offers, 6 months for standard posts. Make it a weekly habit.</div></div></div>
+      </div>
+
+      <h2>After the audit: the <em>next step</em></h2>
+
+      <p>If you checked all 8, your profile is in solid shape. The next focus is review velocity &mdash; getting a consistent flow of new reviews every month, not one big push. See our <a href="blog-review-strategy.html">review strategy article</a> for the system we use with clients.</p>
+
+      <p>If you had more than 2 unchecked items, those are your priority. Each one is potentially costing you ranking positions and clicks from customers who are actively looking for what you offer right now.</p>
+
+      <div class="callout">
+        <p><strong>Want a full local SEO audit?</strong> Our <a href="resource-local-seo-playbook.html">Local SEO Playbook</a> covers the complete picture &mdash; GBP, citations, reviews, and website signals &mdash; with step-by-step instructions for each. Free, no email required.</p>
+      </div>
+
+      <div class="art-tags">
+        <span style="font-size:12px;color:var(--ink4);font-weight:500">Topics:</span>
+        <a class="art-tag-pill" href="apnosh_blog.html?cat=seo">Local SEO</a>
+        <a class="art-tag-pill" href="#">Google Business Profile</a>
+        <a class="art-tag-pill" href="#">Google Maps</a>
+      </div>
+
+      <div class="art-nl">
+        <h2 class="art-nl-h">Get one tip like this <em>every Tuesday</em></h2>
+        <p class="art-nl-sub">3-minute read. One tip, one trend, one tool. 2,400+ business owners subscribed. No spam.</p>
+        <form class="art-nl-form" onsubmit="subNL(event)"><input class="art-nl-input" type="email" placeholder="your@email.com" required><button class="art-nl-btn" type="submit">Subscribe free</button></form>
+      </div>
+    </div>
+  </div>
+</article>
+
+<section class="related-section">
+  <div class="w">
+    <h2 class="related-h">Keep <em>reading</em></h2>
+    <div class="related-grid">
+      <a class="rc" href="blog-local-seo-top3.html"><div class="rc-vis" style="background:linear-gradient(135deg,#0f0f0f,#1a2e1f)"><div class="rc-vis-orb" style="width:150px;height:150px;background:rgba(74,189,152,.08);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="rc-icon">&#128205;</span></div><div class="rc-body"><span class="rc-cat" style="color:var(--brand-d);background:var(--brand-t)">Local SEO</span><div class="rc-title">Why 73% of local searches end at the top 3 &mdash; and how to get there</div><div class="rc-meta">6 min read</div></div></a>
+      <a class="rc" href="blog-review-strategy.html"><div class="rc-vis" style="background:linear-gradient(135deg,#0f0f0f,#1a2e1f)"><div class="rc-vis-orb" style="width:150px;height:150px;background:rgba(74,189,152,.08);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="rc-icon">&#128172;</span></div><div class="rc-body"><span class="rc-cat" style="color:var(--brand-d);background:var(--brand-t)">Local SEO</span><div class="rc-title">The review strategy that gets 10x more Google reviews</div><div class="rc-meta">4 min read</div></div></a>
+      <a class="rc" href="blog-5-marketing-levers.html"><div class="rc-vis" style="background:linear-gradient(135deg,#1a0e00,#2e1900)"><div class="rc-vis-orb" style="width:150px;height:150px;background:rgba(217,119,6,.08);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="rc-icon">&#128200;</span></div><div class="rc-body"><span class="rc-cat" style="color:#059669;background:rgba(5,150,105,.1)">Growth</span><div class="rc-title">The 5 marketing levers every local business should pull first</div><div class="rc-meta">8 min read</div></div></a>
+    </div>
+    <div style="margin-top:28px"><a class="btn btn-outline" href="apnosh_blog.html">View all articles <span class="arr">&rarr;</span></a></div>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-inner"><a class="f-logo" href="apnosh_homepage.html">Apn<em>osh</em></a><div class="f-links"><a class="f-link" href="apnosh_services.html">Services</a><a class="f-link" href="apnosh_pricing.html">Pricing</a><a class="f-link" href="apnosh_results.html">Results</a><a class="f-link" href="apnosh_blog.html">Blog</a><a class="f-link" href="apnosh_about.html">About</a><a class="f-link" href="talk_to_expert.html">Contact</a></div><p class="f-copy">&copy; 2026 Apnosh. All rights reserved.</p></div></footer>
+<script>
+var nav=document.getElementById('site-nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>10);var h=document.body.scrollHeight-window.innerHeight;document.getElementById('prog').style.width=(h>0?Math.min(100,window.scrollY/h*100):0)+'%';},{passive:true});
+window.subNL=function(e){e.preventDefault();e.target.querySelector('.art-nl-btn').textContent='Subscribed!';e.target.reset();};
+window.toggleCheck=function(el){el.classList.toggle('done');};
+</script>
+</body>
+</html>

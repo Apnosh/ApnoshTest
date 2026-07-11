@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How a 4-Email Sequence Added $4,200/mo for One Restaurant &mdash; Apnosh Blog</title>
+<meta name="description" content="A simple post-visit follow-up email flow turned one-time diners into regulars. Here's the exact 4-email sequence — subject lines, timing, and results included.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--brand:#4abd98;--brand-d:#2e9a78;--brand-t:#eaf7f3;--ink:#1d1d1f;--ink2:#424245;--ink3:#6e6e73;--ink4:#aeaeb2;--ink5:#d2d2d7;--ink6:#f0f0f5;--bg:#fff;--bg2:#f5f5f7;--fd:'Playfair Display',Georgia,serif;--fb:'Inter',-apple-system,sans-serif;--s3:0 8px 32px rgba(0,0,0,.09);--s4:0 16px 56px rgba(0,0,0,.11)}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:1080px;margin:0 auto;padding:0 40px}
+.wmd{max-width:740px;margin:0 auto;padding:0 40px}
+@media(max-width:600px){.w,.wmd{padding:0 20px}}
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fb);font-weight:500;font-size:14px;text-decoration:none;border:none;cursor:pointer;border-radius:99px;padding:12px 24px;transition:all .2s;white-space:nowrap;line-height:1}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink5)}.btn-outline:hover{border-color:var(--ink3);transform:translateY(-1px)}
+.arr{transition:transform .2s;display:inline-block}
+a:hover .arr{transform:translateX(3px)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:44px;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.07);display:flex;align-items:center;transition:box-shadow .2s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.nav-inner{width:100%;max-width:1080px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.nav-logo em{font-style:italic;color:var(--brand-d)}
+.nav-back{font-size:12px;color:var(--ink3);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .15s}
+.nav-back:hover{color:var(--ink)}
+.nav-back-arr{display:inline-block;transform:rotate(180deg)}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-audit{font-size:12px;font-weight:600;color:#fff;background:var(--brand-d);padding:7px 16px;border-radius:99px;text-decoration:none;transition:all .15s}
+.nav-audit:hover{background:var(--brand)}
+.progress-bar{position:fixed;top:44px;left:0;right:0;height:3px;z-index:899}
+.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--brand),var(--brand-d));transition:width .1s linear}
+.breadcrumb{padding:56px 0 0}
+.bc-inner{max-width:1080px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink4)}
+@media(max-width:600px){.bc-inner{padding:0 20px}}
+.bc-link{color:var(--ink4);text-decoration:none;transition:color .15s}.bc-link:hover{color:var(--brand-d)}
+.bc-sep{color:var(--ink5)}
+.bc-current{color:var(--ink2);font-weight:500}
+.art-hero{padding:32px 0 48px}
+.art-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7c3aed;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.18);padding:5px 14px;border-radius:99px;margin-bottom:20px;text-decoration:none}
+.art-h{font-family:var(--fd);font-size:clamp(30px,5vw,54px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--ink);margin-bottom:18px}
+.art-h em{font-style:italic;color:#7c3aed}
+.art-lede{font-size:clamp(16px,2vw,20px);font-weight:300;color:var(--ink2);line-height:1.68;margin-bottom:24px}
+.art-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ink4);padding-bottom:24px;border-bottom:1px solid var(--ink6)}
+.art-author{display:flex;align-items:center;gap:10px}
+.art-avatar{width:32px;height:32px;border-radius:50%;background:rgba(124,58,237,.1);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.art-author-name{font-size:12px;font-weight:500;color:var(--ink);display:block}
+.art-author-role{font-size:11px;color:var(--ink4)}
+.art-meta-dot{color:var(--ink5)}
+.art-visual{width:100%;border-radius:16px;overflow:hidden;height:300px;position:relative;margin-bottom:48px;display:flex;align-items:center;justify-content:center}
+.art-vis-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(124,58,237,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,.04) 1px,transparent 1px);background-size:48px 48px}
+.art-vis-orb{position:absolute;border-radius:50%;filter:blur(60px)}
+.art-vis-icon{position:relative;z-index:1;font-size:80px;opacity:.2}
+.art-body{font-size:clamp(15px,1.6vw,17px);font-weight:300;color:var(--ink2);line-height:1.78}
+.art-body h2{font-family:var(--fd);font-size:clamp(20px,2.8vw,30px);font-weight:400;color:var(--ink);margin:44px 0 16px;letter-spacing:-.02em;line-height:1.18}
+.art-body h2 em{font-style:italic;color:#7c3aed}
+.art-body h3{font-family:var(--fd);font-size:clamp(17px,2vw,22px);font-weight:400;color:var(--ink);margin:32px 0 12px;letter-spacing:-.015em}
+.art-body p{margin-bottom:20px}
+.art-body ul,.art-body ol{padding-left:24px;margin-bottom:20px;display:flex;flex-direction:column;gap:10px}
+.art-body li{font-size:clamp(15px,1.6vw,17px);font-weight:300;color:var(--ink2);line-height:1.7}
+.art-body strong{font-weight:600;color:var(--ink)}
+.art-body a{color:#7c3aed;text-decoration:underline;text-decoration-color:rgba(124,58,237,.3);text-underline-offset:3px}
+.callout{background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.14);border-left:3px solid #7c3aed;border-radius:10px;padding:20px 24px;margin:28px 0}
+.callout p{margin-bottom:0;font-size:15px;color:var(--ink2)}
+.callout strong{color:var(--ink)}
+.email-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:14px;padding:0;margin:16px 0;overflow:hidden}
+.email-header{background:var(--ink);padding:16px 22px;display:flex;align-items:center;justify-content:space-between}
+.email-num{font-family:var(--fd);font-size:13px;font-weight:400;color:rgba(255,255,255,.4);margin-right:8px}
+.email-tag{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);background:rgba(74,189,152,.1);padding:2px 10px;border-radius:99px}
+.email-timing{font-size:11px;color:rgba(255,255,255,.28)}
+.email-body{padding:20px 22px}
+.email-subject{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.email-subject-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);margin-bottom:6px}
+.email-preview{font-size:13px;font-weight:300;color:var(--ink3);line-height:1.65;margin-top:10px;padding-top:10px;border-top:1px solid var(--ink6)}
+.email-cta{margin-top:10px;font-size:12px;font-weight:600;color:#7c3aed}
+.stat-block{background:var(--ink);border-radius:16px;padding:32px 36px;margin:36px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:500px){.stat-block{grid-template-columns:1fr 1fr}}
+.stat-item{text-align:center}
+.stat-num{font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--brand);line-height:1;margin-bottom:6px}
+.stat-label{font-size:12px;color:rgba(255,255,255,.38);font-weight:300;line-height:1.4}
+.art-tags{display:flex;flex-wrap:wrap;gap:8px;padding:32px 0;border-top:1px solid var(--ink6);border-bottom:1px solid var(--ink6);margin:48px 0 40px}
+.art-tag-pill{font-size:11px;font-weight:500;color:var(--ink3);background:var(--ink6);padding:5px 14px;border-radius:99px;text-decoration:none;transition:all .15s}
+.art-tag-pill:hover{background:var(--brand-t);color:var(--brand-d)}
+.art-nl{background:var(--ink);border-radius:20px;padding:40px 44px;text-align:center;position:relative;overflow:hidden;margin:56px 0}
+@media(max-width:600px){.art-nl{padding:32px 24px}}
+.art-nl::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(74,189,152,.07) 0%,transparent 70%)}
+.art-nl>*{position:relative;z-index:1}
+.art-nl-h{font-family:var(--fd);font-size:clamp(20px,3vw,28px);font-weight:400;color:#fff;margin-bottom:8px;letter-spacing:-.02em}
+.art-nl-h em{font-style:italic;color:var(--brand)}
+.art-nl-sub{font-size:14px;font-weight:300;color:rgba(255,255,255,.38);max-width:400px;margin:0 auto 22px;line-height:1.65}
+.art-nl-form{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.art-nl-input{flex:1;min-width:180px;padding:11px 16px;border:1px solid rgba(255,255,255,.15);border-radius:99px;background:rgba(255,255,255,.07);font-family:var(--fb);font-size:13px;color:#fff;outline:none}
+.art-nl-input::placeholder{color:rgba(255,255,255,.25)}
+.art-nl-input:focus{border-color:var(--brand)}
+.art-nl-btn{background:var(--brand);color:var(--ink);padding:11px 20px;border-radius:99px;font-family:var(--fb);font-size:13px;font-weight:600;border:none;cursor:pointer;white-space:nowrap;transition:background .2s}
+.art-nl-btn:hover{background:var(--brand-d);color:#fff}
+.related-section{background:var(--bg2);padding:56px 0}
+.related-h{font-family:var(--fd);font-size:clamp(20px,2.8vw,28px);font-weight:400;color:var(--ink);margin-bottom:24px;letter-spacing:-.02em}
+.related-h em{font-style:italic;color:var(--brand-d)}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:720px){.related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.related-grid{grid-template-columns:1fr}}
+.rc{background:var(--bg);border:1px solid var(--ink6);border-radius:14px;overflow:hidden;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;display:block}
+.rc:hover{transform:translateY(-2px);box-shadow:var(--s3);border-color:rgba(74,189,152,.2)}
+.rc-vis{height:110px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.rc-vis-orb{position:absolute;border-radius:50%;filter:blur(30px)}
+.rc-icon{font-size:32px;opacity:.2;position:relative;z-index:1}
+.rc-body{padding:16px 18px 18px}
+.rc-cat{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:99px;display:inline-block;margin-bottom:7px}
+.rc-title{font-family:var(--fd);font-size:14px;font-weight:500;color:var(--ink);line-height:1.3;margin-bottom:6px;letter-spacing:-.01em}
+.rc-meta{font-size:11px;color:var(--ink4)}
+.footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:36px 40px}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:var(--fd);font-size:16px;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none}
+.f-logo em{font-style:italic;color:var(--brand)}
+.f-links{display:flex;gap:20px;flex-wrap:wrap}
+.f-link{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .15s}
+.f-link:hover{color:rgba(255,255,255,.6)}
+.f-copy{font-size:11px;color:rgba(255,255,255,.16)}
+</style>
+</head>
+<body>
+<nav class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="apnosh_homepage.html">Apn<em>osh</em></a>
+    <a class="nav-back" href="apnosh_blog.html"><span class="nav-back-arr">&rarr;</span> Back to Blog</a>
+    <div class="nav-right"><a class="nav-audit" href="apnosh_homepage.html#start">Get free audit</a></div>
+  </div>
+</nav>
+<div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+<div class="breadcrumb"><div class="bc-inner"><a class="bc-link" href="apnosh_homepage.html">Home</a><span class="bc-sep">/</span><a class="bc-link" href="apnosh_blog.html">Blog</a><span class="bc-sep">/</span><span class="bc-current">Email &amp; SMS</span></div></div>
+
+<article>
+  <div class="wmd">
+    <div class="art-hero">
+      <a class="art-tag" href="apnosh_blog.html?cat=email">&#9993;&#65039; Email &amp; SMS</a>
+      <h1 class="art-h">How one restaurant owner added $4,200/mo with a <em>4-email sequence</em></h1>
+      <p class="art-lede">A simple post-visit follow-up turned one-time diners into regulars. Here&rsquo;s the exact email flow they used &mdash; subject lines, timing, and full results included.</p>
+      <div class="art-meta">
+        <div class="art-author"><div class="art-avatar">&#9993;&#65039;</div><div><span class="art-author-name">Apnosh Team</span><span class="art-author-role">Email Marketing</span></div></div>
+        <span class="art-meta-dot">&middot;</span><span>June 28, 2026</span><span class="art-meta-dot">&middot;</span><span>4 min read</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="w">
+    <div class="art-visual" style="background:linear-gradient(135deg,#1a0d2e,#2d1b47,#1e0f30)">
+      <div class="art-vis-grid"></div>
+      <div class="art-vis-orb" style="width:500px;height:500px;background:rgba(124,58,237,.09);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+      <span class="art-vis-icon">&#9993;&#65039;</span>
+    </div>
+  </div>
+
+  <div class="wmd">
+    <div class="art-body">
+
+      <p>The owner of a casual Mexican restaurant in Austin came to us with a common problem: plenty of first-time visitors, not enough regulars. Their Google reviews were strong (4.6 stars, 140+ reviews), their food was good, but most people only came back two or three times a year &mdash; if at all.</p>
+
+      <p>The fix wasn&rsquo;t a new marketing channel. It was a simple email sequence triggered every time a customer gave their email at checkout. Four emails. Sent automatically. Zero ongoing effort after setup.</p>
+
+      <p>Here are the results after 90 days:</p>
+
+      <div class="stat-block">
+        <div class="stat-item"><div class="stat-num">$4,200</div><div class="stat-label">monthly revenue added from repeat visits</div></div>
+        <div class="stat-item"><div class="stat-num">34%</div><div class="stat-label">open rate (industry avg: 21%)</div></div>
+        <div class="stat-item"><div class="stat-num">2.1&times;</div><div class="stat-label">increase in 60-day return visit rate</div></div>
+      </div>
+
+      <h2>The <em>4-email sequence</em> (with exact subject lines)</h2>
+
+      <div class="email-card">
+        <div class="email-header">
+          <div><span class="email-num">Email 1</span><span class="email-tag">Welcome</span></div>
+          <span class="email-timing">Sent: immediately after signup</span>
+        </div>
+        <div class="email-body">
+          <div class="email-subject-label">Subject line</div>
+          <div class="email-subject">"Thanks for coming in &mdash; here's something for next time"</div>
+          <div class="email-preview">Short, warm, personal. Acknowledges the visit, thanks them by name, offers a simple incentive (10% off next visit, or a free chips and guac). No fluff. Just: glad you came, here&rsquo;s a reason to return.<br><br>Key: this is not a promotional email. It reads like a message from the owner, not a marketing department.</div>
+          <div class="email-cta">CTA: "Book a table" or "Show this email next time you visit"</div>
+        </div>
+      </div>
+
+      <div class="email-card">
+        <div class="email-header">
+          <div><span class="email-num">Email 2</span><span class="email-tag">Story</span></div>
+          <span class="email-timing">Sent: 5 days later</span>
+        </div>
+        <div class="email-body">
+          <div class="email-subject-label">Subject line</div>
+          <div class="email-subject">"Why we make our tortillas by hand (every single day)"</div>
+          <div class="email-preview">A behind-the-scenes story about how the food is made or where it comes from. In this case: the owner&rsquo;s grandmother&rsquo;s tortilla recipe, why they use a specific masa, why they bother when pre-made would be cheaper.<br><br>This email builds the relationship. It gives people a story to tell when they bring friends. It reminds them why this place is different from the chain down the street.</div>
+          <div class="email-cta">CTA: Soft nudge to check out a new menu item or upcoming event</div>
+        </div>
+      </div>
+
+      <div class="email-card">
+        <div class="email-header">
+          <div><span class="email-num">Email 3</span><span class="email-tag">Social Proof</span></div>
+          <span class="email-timing">Sent: 12 days after signup</span>
+        </div>
+        <div class="email-body">
+          <div class="email-subject-label">Subject line</div>
+          <div class="email-subject">"What people say about the enchiladas (we blush every time)"</div>
+          <div class="email-preview">A curated set of 3&ndash;4 real Google reviews, focused on specific dishes or experiences. Pair each review with a photo of the dish. Let the customers do the talking.<br><br>For people who haven&rsquo;t returned yet, this is a reminder of what they liked. For people who are on the fence about what to order next time, it&rsquo;s a decision-maker.</div>
+          <div class="email-cta">CTA: "Leave us a review" (recapture Google review opportunity) + "See the full menu"</div>
+        </div>
+      </div>
+
+      <div class="email-card">
+        <div class="email-header">
+          <div><span class="email-num">Email 4</span><span class="email-tag">Re-engagement</span></div>
+          <span class="email-timing">Sent: 21 days after signup</span>
+        </div>
+        <div class="email-body">
+          <div class="email-subject-label">Subject line</div>
+          <div class="email-subject">"Haven't seen you in a while &mdash; here's a reason to come back"</div>
+          <div class="email-preview">A simple, direct re-engagement email. Acknowledges the time that&rsquo;s passed without making it weird. Offers a slightly stronger incentive than email 1 (free dessert, 15% off, buy-one-get-one appetizer).<br><br>This is the email that converts fence-sitters. The timing (3 weeks) is intentional &mdash; long enough that it doesn&rsquo;t feel pushy, short enough that they still remember you.</div>
+          <div class="email-cta">CTA: Discount code or show-this-email offer with expiry date</div>
+        </div>
+      </div>
+
+      <h2>Why this works (and why most email doesn&rsquo;t)</h2>
+
+      <p>The sequence above feels like a relationship, not a drip campaign. Each email has a reason to exist beyond "we want you to spend money." Email 1 thanks them. Email 2 tells a story. Email 3 lets customers speak. Email 4 gives a genuine reason to return.</p>
+
+      <p>Compare that to the typical restaurant email: a weekly "TACO TUESDAY 15% OFF" blast to a list they haven&rsquo;t cleaned in two years. Those get 10% open rates and train customers to ignore you.</p>
+
+      <div class="callout">
+        <p><strong>The list-building piece:</strong> None of this works without an email list. The restaurant collected emails at checkout with a simple iPad sign-up: "Get our menu updates and exclusive offers." Within 90 days they had 680 subscribers from real visitors. Our <a href="resource-email-marketing-kit.html">Email Marketing Starter Kit</a> covers list-building strategies in detail &mdash; free download.</p>
+      </div>
+
+      <h2>How to adapt this for your business</h2>
+
+      <p>The four-email structure works for almost any local business where repeat customers are valuable. The specific content changes &mdash; a salon uses a "care tips for your new cut" email instead of a recipe story &mdash; but the logic is identical.</p>
+
+      <ul>
+        <li><strong>Email 1:</strong> Thank you + small incentive to return</li>
+        <li><strong>Email 2:</strong> A story that builds connection and trust</li>
+        <li><strong>Email 3:</strong> Social proof (reviews, testimonials, before/afters)</li>
+        <li><strong>Email 4:</strong> Re-engagement offer with a real deadline</li>
+      </ul>
+
+      <p>Set this up once. It runs automatically for every new customer who signs up, forever.</p>
+
+      <div class="art-tags">
+        <span style="font-size:12px;color:var(--ink4);font-weight:500">Topics:</span>
+        <a class="art-tag-pill" href="apnosh_blog.html?cat=email">Email Marketing</a>
+        <a class="art-tag-pill" href="#">Restaurants</a>
+        <a class="art-tag-pill" href="#">Customer Retention</a>
+        <a class="art-tag-pill" href="#">Automation</a>
+      </div>
+
+      <div class="art-nl">
+        <h2 class="art-nl-h">Get one tip like this <em>every Tuesday</em></h2>
+        <p class="art-nl-sub">3-minute read. One tip, one trend, one tool. 2,400+ business owners subscribed. No spam.</p>
+        <form class="art-nl-form" onsubmit="subNL(event)">
+          <input class="art-nl-input" type="email" placeholder="your@email.com" required>
+          <button class="art-nl-btn" type="submit">Subscribe free</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</article>
+
+<section class="related-section">
+  <div class="w">
+    <h2 class="related-h">Keep <em>reading</em></h2>
+    <div class="related-grid">
+      <a class="rc" href="blog-sms-marketing.html"><div class="rc-vis" style="background:linear-gradient(135deg,#1a0d2e,#2d1b47)"><div class="rc-vis-orb" style="width:150px;height:150px;background:rgba(124,58,237,.08);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="rc-icon">&#128242;</span></div><div class="rc-body"><span class="rc-cat" style="color:#7c3aed;background:rgba(124,58,237,.1)">Email &amp; SMS</span><div class="rc-title">SMS marketing: 98% open rates and how to use them right</div><div class="rc-meta">5 min read</div></div></a>
+      <a class="rc" href="blog-social-content-types.html"><div class="rc-vis" style="background:linear-gradient(135deg,#0d1b2e,#0f1a35)"><div class="rc-vis-orb" style="width:150px;height:150px;background:rgba(0,112,201,.08);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="rc-icon">&#128241;</span></div><div class="rc-body"><span class="rc-cat" style="color:#0070c9;background:rgba(0,112,201,.1)">Social Media</span><div class="rc-title">The 3 content types that actually drive customers through the door</div><div class="rc-meta">5 min read</div></div></a>
+      <a class="rc" href="blog-5-marketing-levers.html"><div class="rc-vis" style="background:linear-gradient(135deg,#1a0e00,#2e1900)"><div class="rc-vis-orb" style="width:150px;height:150px;background:rgba(217,119,6,.08);top:50%;left:50%;transform:translate(-50%,-50%)"></div><span class="rc-icon">&#128200;</span></div><div class="rc-body"><span class="rc-cat" style="color:#059669;background:rgba(5,150,105,.1)">Growth</span><div class="rc-title">The 5 marketing levers every local business should pull first</div><div class="rc-meta">8 min read</div></div></a>
+    </div>
+    <div style="margin-top:28px"><a class="btn btn-outline" href="apnosh_blog.html">View all articles <span class="arr">&rarr;</span></a></div>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-inner"><a class="f-logo" href="apnosh_homepage.html">Apn<em>osh</em></a><div class="f-links"><a class="f-link" href="apnosh_services.html">Services</a><a class="f-link" href="apnosh_pricing.html">Pricing</a><a class="f-link" href="apnosh_results.html">Results</a><a class="f-link" href="apnosh_blog.html">Blog</a><a class="f-link" href="apnosh_about.html">About</a><a class="f-link" href="talk_to_expert.html">Contact</a></div><p class="f-copy">&copy; 2026 Apnosh. All rights reserved.</p></div></footer>
+
+<script>
+var nav=document.getElementById('site-nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>10);var h=document.body.scrollHeight-window.innerHeight;document.getElementById('prog').style.width=(h>0?Math.min(100,window.scrollY/h*100):0)+'%';},{passive:true});
+window.subNL=function(e){e.preventDefault();e.target.querySelector('.art-nl-btn').textContent='Subscribed!';e.target.reset();};
+</script>
+</body>
+</html>

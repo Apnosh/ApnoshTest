@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to grow a local business social following from 0 to 500 in 90 days | Apnosh Blog</title>
+<meta name="description" content="A step-by-step system any local business owner can follow to build a real, engaged social audience in 90 days — without buying followers or going viral.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#22c55e;--brand2:#16a34a;--ink:#0a0a0a;--ink2:#111;--ink3:#1a1a1a;
+  --ink6:rgba(255,255,255,.08);--ink7:rgba(255,255,255,.06);
+  --bg:#0d0d0d;--bg2:#111;--bg3:#161616;
+  --fd:#f5f5f5;--fb:rgba(255,255,255,.55);--fm:rgba(255,255,255,.38);
+  --r8:8px;--r12:12px;--r18:18px;--r24:24px;
+  --accent:#0070c9;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fd);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* Progress bar */
+.progress-bar{position:fixed;top:0;left:0;right:0;height:3px;background:rgba(255,255,255,.08);z-index:2000}
+.progress-fill{height:100%;width:0%;background:var(--accent);transition:width .1s linear}
+
+/* Nav */
+nav{position:sticky;top:3px;z-index:1000;background:rgba(13,13,13,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--ink6);height:56px;display:flex;align-items:center}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;width:100%;gap:32px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--fd);letter-spacing:-.02em;flex-shrink:0}
+.nav-logo span{color:var(--brand)}
+.nav-links{display:flex;align-items:center;gap:4px;flex:1}
+.nav-item{position:relative}
+.nav-link{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--fb);transition:all .2s;cursor:pointer;display:flex;align-items:center;gap:4px;white-space:nowrap}
+.nav-link:hover,.nav-link.active{color:var(--fd);background:var(--ink6)}
+.nav-link svg{opacity:.6;transition:transform .2s}
+.nav-item:hover .nav-link svg{transform:rotate(180deg)}
+.nav-cta{margin-left:auto;padding:8px 18px;background:var(--brand);color:#000;border-radius:9px;font-size:.875rem;font-weight:600;transition:all .2s;white-space:nowrap;flex-shrink:0}
+.nav-cta:hover{background:var(--brand2);transform:translateY(-1px)}
+.mega{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--ink2);border:1px solid var(--ink6);border-radius:16px;padding:20px;min-width:520px;opacity:0;visibility:hidden;transition:all .2s;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.nav-item:hover .mega{opacity:1;visibility:visible}
+.mega-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.mega-item{padding:10px 12px;border-radius:10px;transition:background .15s;cursor:pointer}
+.mega-item:hover{background:var(--ink6)}
+.mega-item-title{font-size:.8125rem;font-weight:600;color:var(--fd);margin-bottom:2px}
+.mega-item-desc{font-size:.75rem;color:var(--fm);line-height:1.4}
+.mega-wide{grid-column:1/-1;border-top:1px solid var(--ink6);margin-top:8px;padding-top:12px}
+
+/* Breadcrumb */
+.breadcrumb{max-width:800px;margin:0 auto;padding:24px 24px 0;display:flex;align-items:center;gap:8px;font-size:.8125rem;color:var(--fm)}
+.bc-link{color:var(--fb);transition:color .2s}
+.bc-link:hover{color:var(--fd)}
+.bc-sep{opacity:.4}
+.bc-cur{color:var(--accent)}
+
+/* Article hero */
+.article-hero{max-width:800px;margin:0 auto;padding:40px 24px 48px}
+.art-cat{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;font-size:.75rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:20px;background:rgba(0,112,201,.15);color:var(--accent);border:1px solid rgba(0,112,201,.25)}
+.art-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.25rem);font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--fd);margin-bottom:16px}
+.art-sub{font-size:1.125rem;color:var(--fb);line-height:1.6;margin-bottom:28px;max-width:680px}
+.art-meta{display:flex;align-items:center;gap:16px;font-size:.8125rem;color:var(--fm);flex-wrap:wrap}
+.art-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--fm)}
+.art-author{display:flex;align-items:center;gap:8px}
+.art-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--brand),#0070c9);display:flex;align-items:center;justify-content:center;font-size:.6875rem;font-weight:700;color:#000;flex-shrink:0}
+
+/* Stat block */
+.stat-block{max-width:800px;margin:0 auto 48px;padding:0 24px}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ink6);border-radius:18px;overflow:hidden;border:1px solid var(--ink6)}
+.stat-cell{background:var(--bg2);padding:28px 24px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:6px}
+.stat-label{font-size:.8125rem;color:var(--fm);line-height:1.4}
+
+/* Article body */
+.article-body{max-width:800px;margin:0 auto;padding:0 24px 80px}
+.art-section{margin-bottom:52px}
+.art-h2{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:var(--fd);margin-bottom:16px;letter-spacing:-.01em}
+.art-h3{font-size:1.125rem;font-weight:600;color:var(--fd);margin-bottom:12px}
+.art-p{font-size:1rem;color:var(--fb);line-height:1.75;margin-bottom:16px}
+.art-p:last-child{margin-bottom:0}
+
+/* Phase cards */
+.phase-cards{display:grid;gap:16px;margin-top:24px}
+.phase-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:16px;overflow:hidden}
+.phase-head{background:var(--ink3);padding:16px 20px;display:flex;align-items:center;gap:12px}
+.phase-num{width:32px;height:32px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:.8125rem;font-weight:700;color:#000;flex-shrink:0}
+.phase-title{font-size:1rem;font-weight:600;color:var(--fd)}
+.phase-tag{margin-left:auto;padding:3px 10px;border-radius:10px;font-size:.6875rem;font-weight:600;background:rgba(0,112,201,.15);color:var(--accent);white-space:nowrap}
+.phase-body{padding:20px}
+.phase-body .art-p{margin-bottom:12px}
+.phase-tip{background:rgba(0,112,201,.06);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;font-size:.875rem;color:var(--fb);margin-top:12px}
+.phase-tip strong{color:var(--fd)}
+
+/* Content pillars */
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.pillar-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:14px;padding:20px;text-align:center}
+.pillar-icon{font-size:1.75rem;margin-bottom:10px}
+.pillar-name{font-size:.9375rem;font-weight:600;color:var(--fd);margin-bottom:6px}
+.pillar-pct{font-size:1.5rem;font-weight:700;color:var(--accent);margin-bottom:6px;font-family:'Playfair Display',serif}
+.pillar-desc{font-size:.8125rem;color:var(--fm);line-height:1.4}
+
+/* Platform table */
+.platform-table{width:100%;border-collapse:collapse;margin-top:24px;border-radius:14px;overflow:hidden}
+.platform-table th{background:var(--ink3);padding:12px 16px;text-align:left;font-size:.8125rem;font-weight:600;color:var(--fm);text-transform:uppercase;letter-spacing:.04em}
+.platform-table td{padding:14px 16px;font-size:.875rem;color:var(--fb);border-bottom:1px solid var(--ink6)}
+.platform-table tr:last-child td{border-bottom:none}
+.platform-table tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+.plat-name{color:var(--fd);font-weight:500}
+.plat-badge{display:inline-block;padding:2px 8px;border-radius:8px;font-size:.6875rem;font-weight:600}
+.pb-high{background:rgba(34,197,94,.15);color:#22c55e}
+.pb-med{background:rgba(0,112,201,.15);color:var(--accent)}
+.pb-low{background:rgba(255,255,255,.08);color:var(--fm)}
+
+/* Pullquote */
+.pullquote{border-left:3px solid var(--accent);padding:20px 24px;margin:32px 0;background:rgba(0,112,201,.05);border-radius:0 12px 12px 0}
+.pq-text{font-family:'Playfair Display',serif;font-size:1.25rem;font-style:italic;color:var(--fd);line-height:1.5;margin-bottom:8px}
+.pq-attr{font-size:.8125rem;color:var(--fm)}
+
+/* Week timeline */
+.week-list{display:grid;gap:12px;margin-top:20px}
+.week-item{display:grid;grid-template-columns:100px 1fr;gap:16px;align-items:start}
+.week-label{font-size:.8125rem;font-weight:600;color:var(--accent);padding-top:2px}
+.week-content{font-size:.9375rem;color:var(--fb);line-height:1.5}
+.week-content strong{color:var(--fd)}
+
+/* Newsletter */
+.nl-section{background:var(--bg2);border-top:1px solid var(--ink6);border-bottom:1px solid var(--ink6);padding:56px 24px;text-align:center;margin-bottom:56px}
+.nl-inner{max-width:480px;margin:0 auto}
+.nl-label{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);margin-bottom:12px}
+.nl-title{font-family:'Playfair Display',serif;font-size:1.875rem;font-weight:700;color:var(--fd);margin-bottom:10px}
+.nl-sub{font-size:.9375rem;color:var(--fb);margin-bottom:24px;line-height:1.5}
+.nl-form{display:flex;gap:10px;max-width:400px;margin:0 auto}
+.nl-input{flex:1;padding:11px 16px;background:var(--bg3);border:1px solid var(--ink6);border-radius:10px;font-size:.875rem;color:var(--fd);outline:none;font-family:'Inter',sans-serif}
+.nl-input:focus{border-color:rgba(0,112,201,.4)}
+.nl-input::placeholder{color:var(--fm)}
+.nl-btn{padding:11px 20px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:.875rem;font-weight:600;cursor:pointer;white-space:nowrap;font-family:'Inter',sans-serif;transition:all .2s}
+.nl-btn:hover{background:#0060b3;transform:translateY(-1px)}
+
+/* Related */
+.related-section{max-width:800px;margin:0 auto;padding:0 24px 80px}
+.related-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--fd);margin-bottom:24px}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.related-card{background:var(--bg2);border:1px solid var(--ink6);border-radius:14px;padding:20px;transition:all .2s;display:block}
+.related-card:hover{border-color:rgba(255,255,255,.15);transform:translateY(-2px)}
+.rc-cat{font-size:.6875rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--brand);margin-bottom:8px}
+.rc-title{font-size:.9375rem;font-weight:600;color:var(--fd);line-height:1.4}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,rgba(0,112,201,.08),rgba(34,197,94,.06));border:1px solid var(--ink6);border-radius:20px;padding:48px 32px;text-align:center;max-width:800px;margin:0 auto 64px;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,112,201,.1),transparent 70%);pointer-events:none}
+.cta-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--fd);margin-bottom:12px;position:relative}
+.cta-sub{font-size:1rem;color:var(--fb);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;position:relative}
+.cta-btn{display:inline-block;padding:14px 32px;background:var(--brand);color:#000;border-radius:12px;font-size:.9375rem;font-weight:700;transition:all .2s;position:relative}
+.cta-btn:hover{background:var(--brand2);transform:translateY(-2px);box-shadow:0 12px 32px rgba(34,197,94,.25)}
+
+/* Footer */
+footer{background:var(--ink);border-top:1px solid var(--ink6);padding:48px 24px 32px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand .nav-logo{font-size:1.5rem;margin-bottom:12px;display:block}
+.footer-desc{font-size:.875rem;color:var(--fm);line-height:1.6;margin-bottom:16px}
+.footer-col-title{font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--fm);margin-bottom:14px}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:.875rem;color:var(--fb);transition:color .2s}
+.footer-links a:hover{color:var(--fd)}
+.footer-bottom{border-top:1px solid var(--ink6);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.8125rem;color:var(--fm)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:all .5s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* Mobile */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-cta{padding:7px 14px;font-size:.8125rem}
+  .stat-grid{grid-template-columns:1fr}
+  .stat-cell{padding:20px}
+  .pillars-grid{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr}
+  .week-item{grid-template-columns:1fr;gap:4px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .nl-form{flex-direction:column}
+  .platform-table{font-size:.8125rem}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar"><div class="progress-fill" id="pf"></div></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="apnosh_homepage.html" class="nav-logo">Apn<span>o</span>sh</a>
+    <div class="nav-links">
+      <div class="nav-item">
+        <div class="nav-link">Services <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="mega">
+          <div class="mega-grid">
+            <div class="mega-item"><div class="mega-item-title">Social Media</div><div class="mega-item-desc">Content creation & posting</div></div>
+            <div class="mega-item"><div class="mega-item-title">Email & SMS</div><div class="mega-item-desc">Campaigns that convert</div></div>
+            <div class="mega-item"><div class="mega-item-title">Local SEO</div><div class="mega-item-desc">Rank higher, get found</div></div>
+            <div class="mega-item"><div class="mega-item-title">Paid Ads</div><div class="mega-item-desc">Google & Meta advertising</div></div>
+            <div class="mega-item"><div class="mega-item-title">Websites</div><div class="mega-item-desc">Design, build & optimize</div></div>
+            <div class="mega-item"><div class="mega-item-title">Photography</div><div class="mega-item-desc">Product & lifestyle shoots</div></div>
+            <div class="mega-wide"><div class="mega-item"><div class="mega-item-title">View all 55+ services →</div><div class="mega-item-desc">Marketing plans starting at $299/mo</div></div></div>
+          </div>
+        </div>
+      </div>
+      <a href="apnosh_resources.html" class="nav-link">Resources</a>
+      <a href="apnosh_blog.html" class="nav-link active">Blog</a>
+      <div class="nav-item">
+        <div class="nav-link">About <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="mega">
+          <div class="mega-grid">
+            <div class="mega-item"><div class="mega-item-title">Our Story</div><div class="mega-item-desc">Why we built Apnosh</div></div>
+            <div class="mega-item"><div class="mega-item-title">Results</div><div class="mega-item-desc">Client wins & case studies</div></div>
+            <div class="mega-item"><div class="mega-item-title">Pricing</div><div class="mega-item-desc">Transparent, flat-rate plans</div></div>
+            <div class="mega-item"><div class="mega-item-title">Contact</div><div class="mega-item-desc">Talk to a real person</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="apnosh_homepage.html#get-started" class="nav-cta">Get started</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="apnosh_homepage.html" class="bc-link">Home</a>
+  <span class="bc-sep">›</span>
+  <a href="apnosh_blog.html" class="bc-link">Blog</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-cur">Social Media</span>
+</div>
+
+<div class="article-hero reveal">
+  <div class="art-cat">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M6 4V6L7.5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Social Media
+  </div>
+  <h1 class="art-title">How to grow a local business social following from 0 to 500 in 90 days</h1>
+  <p class="art-sub">Not with gimmicks or follow-for-follow games. A repeatable system that builds a local audience who actually shows up — to your storefront and your DMs.</p>
+  <div class="art-meta">
+    <div class="art-author">
+      <div class="art-avatar">A</div>
+      <span>Apnosh Team</span>
+    </div>
+    <div class="art-meta-dot"></div>
+    <span>Social Media</span>
+    <div class="art-meta-dot"></div>
+    <span>8 min read</span>
+  </div>
+</div>
+
+<div class="stat-block reveal">
+  <div class="stat-grid">
+    <div class="stat-cell">
+      <div class="stat-num">500</div>
+      <div class="stat-label">Real local followers in 90 days — achievable for any storefront</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">3×</div>
+      <div class="stat-label">More DMs and walk-ins compared to accounts without a strategy</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">15 min</div>
+      <div class="stat-label">Per day is all it takes when you follow the right posting formula</div>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="art-section reveal">
+    <h2 class="art-h2">Why 500 is the magic number</h2>
+    <p class="art-p">Most local businesses either give up before 100 followers or waste months chasing numbers that don't pay rent. 500 local followers changes the math. At 500 engaged local followers, Instagram and Facebook algorithms start showing your posts to friends-of-followers in your area. You start getting DMs. People recognize your name before they walk in. The first 500 is harder than the next 5,000 — but it unlocks everything else.</p>
+    <p class="art-p">The system below has one rule: every follower should be a potential customer within 10 miles of your door. 50 local followers who care beat 5,000 bots who don't.</p>
+  </div>
+
+  <div class="art-section reveal">
+    <h2 class="art-h2">The 3 content pillars (and the ratio that works)</h2>
+    <p class="art-p">Post without a formula and you'll burn out or go silent. Local businesses that grow consistently use three types of content in a specific ratio:</p>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon">👀</div>
+        <div class="pillar-name">Show the work</div>
+        <div class="pillar-pct">50%</div>
+        <div class="pillar-desc">Behind-the-scenes, process shots, team moments. People buy from people they know.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">💡</div>
+        <div class="pillar-name">Teach something</div>
+        <div class="pillar-pct">30%</div>
+        <div class="pillar-desc">Tips, how-tos, "did you know" content in your category. Saves get you reach.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🎯</div>
+        <div class="pillar-name">Promote</div>
+        <div class="pillar-pct">20%</div>
+        <div class="pillar-desc">Deals, events, new products. Never lead with this — earn attention first.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="art-section reveal">
+    <h2 class="art-h2">The 90-day phase plan</h2>
+    <p class="art-p">Don't try to do everything at once. This is a three-month build with a clear focus each month:</p>
+    <div class="phase-cards">
+      <div class="phase-card">
+        <div class="phase-head">
+          <div class="phase-num">1</div>
+          <div class="phase-title">Days 1–30 · Foundation</div>
+          <div class="phase-tag">0 → 150 followers</div>
+        </div>
+        <div class="phase-body">
+          <p class="art-p">Post 4 times per week. Introduce yourself and your team, show your space, and share your story. Follow every local business, local influencer, and neighborhood account you can find. Like and comment on their posts — genuinely, not with spam. DM new followers with a simple welcome. Don't promote anything yet.</p>
+          <div class="phase-tip"><strong>Week 1 move:</strong> Reintroduce your business as if it's new. Pin that post to the top of your profile.</div>
+        </div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-head">
+          <div class="phase-num">2</div>
+          <div class="phase-title">Days 31–60 · Consistency</div>
+          <div class="phase-tag">150 → 350 followers</div>
+        </div>
+        <div class="phase-body">
+          <p class="art-p">Move to 5 posts per week. Introduce a recurring format — a weekly tip, a "meet the team" Thursday, a transformation Tuesday. Recurring formats train your audience to look for you. Start using local hashtags (your city + neighborhood + business type). Run one collaboration with a neighboring business — tag each other, do a giveaway, or go live together.</p>
+          <div class="phase-tip"><strong>Collaboration hack:</strong> Tag a complementary business in a post ("our customers love pairing us with..."). They often reshare it.</div>
+        </div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-head">
+          <div class="phase-num">3</div>
+          <div class="phase-title">Days 61–90 · Momentum</div>
+          <div class="phase-tag">350 → 500+ followers</div>
+        </div>
+        <div class="phase-body">
+          <p class="art-p">Add one Reel or short video per week — local algorithms heavily favor video right now. Create a "locals love" moment: ask followers to share your post for a small discount or entry into a giveaway. Post an offer exclusive to social followers. By now, your regular commenters are your real community — feature them (with permission). They'll share that post to everyone they know.</p>
+          <div class="phase-tip"><strong>Milestone post:</strong> When you hit 400 followers, post a "thank you + what's coming" teaser. Appreciation posts always spike engagement.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="art-section reveal">
+    <h2 class="art-h2">Which platform to start on</h2>
+    <p class="art-p">Pick one platform and do it well. Most local businesses spread too thin. Here's how to choose:</p>
+    <table class="platform-table">
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Best for</th>
+          <th>Local reach</th>
+          <th>Start here if...</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="plat-name">Instagram</td>
+          <td>Visual businesses, food, retail</td>
+          <td><span class="plat-badge pb-high">High</span></td>
+          <td>Your product photographs well</td>
+        </tr>
+        <tr>
+          <td class="plat-name">Facebook</td>
+          <td>35+ audience, events, community</td>
+          <td><span class="plat-badge pb-high">High</span></td>
+          <td>Your customers are 35+</td>
+        </tr>
+        <tr>
+          <td class="plat-name">TikTok</td>
+          <td>Younger crowd, restaurants, salons</td>
+          <td><span class="plat-badge pb-med">Med</span></td>
+          <td>You're comfortable on video</td>
+        </tr>
+        <tr>
+          <td class="plat-name">Nextdoor</td>
+          <td>Services, home improvement, health</td>
+          <td><span class="plat-badge pb-high">Very high</span></td>
+          <td>You serve people within 5 miles</td>
+        </tr>
+        <tr>
+          <td class="plat-name">LinkedIn</td>
+          <td>B2B, professional services</td>
+          <td><span class="plat-badge pb-low">Low</span></td>
+          <td>Your customers are other businesses</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pullquote reveal">
+    <div class="pq-text">"The best social media strategy is one you'll actually stick to. Boring and consistent beats brilliant and sporadic every time."</div>
+    <div class="pq-attr">— Insight from 200+ local business social audits</div>
+  </div>
+
+  <div class="art-section reveal">
+    <h2 class="art-h2">What to post when you have nothing</h2>
+    <p class="art-p">Every owner hits a "content blank" moment. Here's a week of posts that require no planning, no photoshoot, and no copywriter:</p>
+    <div class="week-list">
+      <div class="week-item">
+        <div class="week-label">Monday</div>
+        <div class="week-content"><strong>Show your Monday prep.</strong> Unlocking the door, stocking shelves, writing the specials. Caption: "Another week, another chance to..."</div>
+      </div>
+      <div class="week-item">
+        <div class="week-label">Tuesday</div>
+        <div class="week-content"><strong>A tip from your category.</strong> "3 things to look for in a good [your product]." You already know this — write it like you're texting a friend.</div>
+      </div>
+      <div class="week-item">
+        <div class="week-label">Wednesday</div>
+        <div class="week-content"><strong>Repost a customer review</strong> (with a thank you). Tag the neighborhood if you know it. Add "This made our week ❤️"</div>
+      </div>
+      <div class="week-item">
+        <div class="week-label">Thursday</div>
+        <div class="week-content"><strong>Meet the team.</strong> One sentence bio per person. Include what they order/make/use most. Customers love knowing who makes their experience.</div>
+      </div>
+      <div class="week-item">
+        <div class="week-label">Friday</div>
+        <div class="week-content"><strong>Your weekend special or hours.</strong> Keep it simple: "We're open [hours]. Come see us." + a photo of your most popular item.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="art-section reveal">
+    <h2 class="art-h2">The one thing that kills local growth fastest</h2>
+    <p class="art-p">Buying followers. Seriously — don't. Instagram and Facebook's algorithms detect fake engagement and quietly suppress your account. You'll get 200 followers who never interact, which tanks your engagement rate, which means the algorithm shows your posts to fewer real people. It takes months to recover.</p>
+    <p class="art-p">The second-fastest killer: going silent for more than 2 weeks. Algorithms treat inactive accounts like ghost towns. If you need to take a break, schedule a few posts in advance using Meta Business Suite (it's free). Even one post per week keeps your account warm.</p>
+  </div>
+
+</div>
+
+<div class="nl-section">
+  <div class="nl-inner reveal">
+    <div class="nl-label">Free Weekly Playbook</div>
+    <h2 class="nl-title">Get the 90-day content calendar</h2>
+    <p class="nl-sub">We'll email you a day-by-day posting plan — including captions and photo ideas — for free.</p>
+    <div class="nl-form">
+      <input type="email" class="nl-input" placeholder="Your email address" id="nl-email">
+      <button class="nl-btn" onclick="submitNL()">Send it</button>
+    </div>
+  </div>
+</div>
+
+<div class="related-section reveal">
+  <h2 class="related-title">Keep reading</h2>
+  <div class="related-grid">
+    <a href="blog-social-content-types.html" class="related-card">
+      <div class="rc-cat">Social Media</div>
+      <div class="rc-title">The 3 types of content that actually drive customers through the door</div>
+    </a>
+    <a href="blog-email-restaurant.html" class="related-card">
+      <div class="rc-cat">Email & SMS</div>
+      <div class="rc-title">How one restaurant owner added $4,200/mo with a 4-email sequence</div>
+    </a>
+    <a href="blog-5-marketing-levers.html" class="related-card">
+      <div class="rc-cat">Growth</div>
+      <div class="rc-title">The 5 marketing levers every local business should pull first</div>
+    </a>
+  </div>
+</div>
+
+<div style="max-width:800px;margin:0 auto;padding:0 24px 80px">
+  <div class="cta-section reveal">
+    <h2 class="cta-title">Want someone to handle this for you?</h2>
+    <p class="cta-sub">Apnosh manages social media for local businesses — content, posting, and growth — from $299/mo.</p>
+    <a href="apnosh_homepage.html#get-started" class="cta-btn">See our social plans</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo">Apn<span style="color:var(--brand)">o</span>sh</span>
+        <p class="footer-desc">Marketing built for local businesses. Real results, flat-rate pricing, no contracts.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="#">Social Media</a>
+          <a href="#">Email & SMS</a>
+          <a href="#">Local SEO</a>
+          <a href="#">Paid Ads</a>
+          <a href="#">Websites</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Resources</div>
+        <div class="footer-links">
+          <a href="apnosh_blog.html">Blog</a>
+          <a href="apnosh_resources.html">Guides</a>
+          <a href="#">Case Studies</a>
+          <a href="#">Pricing</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <div class="footer-links">
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Apnosh. All rights reserved.</span>
+      <span class="footer-copy">Made for local business owners.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('pf').style.width=pct+'%';
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function submitNL(){
+  const v=document.getElementById('nl-email').value.trim();
+  if(!v||!v.includes('@'))return;
+  const btn=document.querySelector('.nl-btn');
+  btn.textContent='Sent!';btn.style.background='#059669';
+  document.getElementById('nl-email').value='';
+  setTimeout(()=>{btn.textContent='Send it';btn.style.background='';},3000);
+}
+</script>
+</body>
+</html>
