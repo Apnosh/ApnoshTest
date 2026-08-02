@@ -27,10 +27,10 @@
     width: 100%;
   }
   #hero .cs-picture img {
-    position: absolute;
+    position: right;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 109%;
     width: 100%;
     /* Makes image act like a background-image */
     object-fit: cover;
@@ -41,13 +41,13 @@
     top: 0;
     left: 0;
     /* Black Color Overlay 
-    content: "";
-    opacity: 0.7;
-    display: block;
-    background: #000;
-    height: 100%;
-    width: 100%;
-     prevents the cursor from interacting with it */
+                content: "";
+                opacity: 0.7;
+                display: block;
+                background: #000;
+                height: 100%;
+                width: 100%;
+                 prevents the cursor from interacting with it */
     pointer-events: none;
   }
   #hero .cs-container {
@@ -58,7 +58,7 @@
     /* we put the padding top and bottom on the container instead of #Hero so the pseudo element lines go to the top and bottom of the section */
     /* 144px - 280px - leaving extra space for the navigation */
     /* changes on tablet */
-    padding: clamp(9em, 25.95vw, 17.5em) 0;
+    padding: clamp(7em, 25.95vw, 17.5em) 0;
   }
   #hero .cs-container:before {
     position: absolute;
@@ -68,11 +68,12 @@
     content: "";
     opacity: 1;
     display: block;
-    background: -moz-linear-gradient(top, rgba(250, 251, 252, 0.5) 0%, rgba(250, 251, 252, 0.5) 100%);
+    background: -moz-linear-gradient(top, rgba(250, 251, 252, 0.5) 0%, rgba(250, 251, 252, 0) 100%);
     /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(250, 251, 252, 0.5) 0%, rgba(250, 251, 252, 0.5) 100%);
+    background: -webkit-linear-gradient(top, rgba(250, 251, 252, 0.5) 0%, rgba(250, 251, 252, 0) 100%);
     /* Chrome10-25,Safari5.1-6 */
     height: 100%;
+    /* width: 1px; */
   }
   #hero .cs-flex-group {
     display: flex;
@@ -83,7 +84,7 @@
     /* 60px - 220px */
     margin-bottom: clamp(3.75em, 15.5vw, 13.75em);
     /* 464px - 562px */
-    max-width: clamp(29em, 60vw, 35.125em);
+    max-width: clamp(19em, 60vw, 35.125em);
     width: 80vw;
     box-sizing: border-box;
   }
@@ -94,7 +95,7 @@
   }
   #hero .cs-title {
     width: 100%;
-    color: var(--bodyTextColorWhite);
+    color: var(--bodyTextColorBlack);
     text-align: center;
   }
   #hero .cs-text {
@@ -102,13 +103,15 @@
     margin: 0 auto clamp(2rem, 4vw, 2.5rem) 0;
     /* 40px - 48px */
     margin-bottom: clamp(2.5rem, 4vw, 3rem);
-    color: var(--bodyTextColorWhite);
+    color: var(--bodyTextColorBlack);
     text-align: center;
   }
   #hero .cs-button-solid {
     margin-bottom: 1rem;
     height: initial;
     line-height: clamp(2.875em, 5.5vw, 3.5em);
+    color: var(--bodyTextColorWhite);
+    border-radius: 8px;
   }
   #hero .cs-button-transparent {
     z-index: 1;
@@ -117,6 +120,7 @@
     justify-content: center;
     align-items: center;
     border: 1px solid var(--bodyTextColorWhite);
+    border-radius: 8px;
     margin: 0 0.5rem;
     background-color: transparent;
     /* 46px - 56px */
@@ -146,6 +150,7 @@
     content: "";
     opacity: 1;
     /* this is what creates the grow affect on hover */
+    border-radius: 8px;
     transform: scaleX(0);
     display: block;
     background: #000;
@@ -153,6 +158,7 @@
     transform-origin: left;
   }
   #hero .cs-button-transparent:hover:before {
+    border-radius: 8px;
     transform: scaleX(1);
   }
 }
@@ -183,13 +189,14 @@
   #hero .cs-button-solid {
     margin-right: 1.25rem;
     margin-bottom: 0;
+    border-radius: 8px;
   }
 }
 /* Desktop Parallax Effect - 1300px */
 @media only screen and (min-width: 81.25em) {
   #hero {
-    background: url("/assets/images/landing.jpg");
-    background-position: center;
+    background: url("/assets/Background_Image.png");
+    background-position: right;
     background-size: cover;
     background-repeat: no-repeat;
     /* creates parallax effect on background image */

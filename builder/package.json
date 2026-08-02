@@ -1,0 +1,30 @@
+{
+  "name": "apnosh-builder",
+  "version": "1.0.0",
+  "description": "Apnosh 3-layer autonomous builder system — Discord bot, KB rebuild, heartbeat",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "lint": "tsc --noEmit",
+    "deploy:commands": "tsx src/deploy-commands.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@octokit/rest": "^21.0.0",
+    "@supabase/supabase-js": "^2.49.0",
+    "discord.js": "^14.16.0",
+    "node-cron": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/node-cron": "^3.0.11",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

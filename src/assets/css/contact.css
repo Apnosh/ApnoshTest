@@ -87,6 +87,7 @@
   #cs-contact #cs-form .cs-button-solid {
     border: none;
     width: 100%;
+    border-radius: 8px;
   }
   #cs-contact .cs-right-section {
     position: relative;
