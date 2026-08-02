@@ -41,17 +41,25 @@ export interface Business {
   owner_id: string
   name: string
   industry: string
+  business_type?: string
   description?: string
   website_url?: string
   phone?: string
   locations: BusinessLocation[]
   hours?: string
+  year_established?: number
+  years_in_business_label?: string
+  logo_description?: string
+  target_interests?: string[]
+  monthly_ad_budget_label?: string
+  monthly_ad_budget_min?: number
+  monthly_ad_budget_max?: number
   // Brand Identity
   brand_voice_words: string[] // 3 adjectives
   brand_tone?: string
-  brand_do_nots?: string
-  brand_colors: { primary?: string; secondary?: string; [key: string]: string | undefined }
-  fonts?: string
+  brand_do_nots?: string[]
+  brand_colors: Array<{ hex: string; name: string }> | { primary?: string; secondary?: string; [key: string]: string | undefined }
+  fonts?: string[]
   style_notes?: string
   // Target Audience
   target_audience?: string
@@ -64,6 +72,7 @@ export interface Business {
   differentiator?: string
   // Marketing Context
   current_platforms: string[]
+  current_efforts?: string
   posting_frequency?: string
   has_google_business?: boolean
   monthly_budget?: number
@@ -352,4 +361,167 @@ export interface ServiceCatalog {
   is_subscription: boolean
   is_active: boolean
   sort_order: number
+}
+
+// --- Marketing Intelligence Dashboard ---
+
+export type DashboardViewType = 'visibility' | 'foottraffic'
+
+export type SocialPlatform = 'instagram' | 'facebook' | 'tiktok' | 'linkedin' | 'google_business'
+
+export interface SocialMetric {
+  id: string
+  client_id: string
+  platform: SocialPlatform
+  metric_date: string
+  reach: number
+  impressions: number
+  engagement: number
+  followers: number
+  new_followers: number
+  profile_visits: number
+  posts_published: number
+  fetched_at: string
+}
+
+export interface GBPMetric {
+  id: string
+  client_id: string
+  metric_date: string
+  search_impressions: number
+  direction_requests: number
+  phone_calls: number
+  website_clicks: number
+  fetched_at: string
+}
+
+export interface BreakdownItem {
+  label: string
+  value: number
+  description: string
+  trend: number
+  sparkline: number[]
+}
+
+export interface DashboardSnapshot {
+  id: string
+  client_id: string
+  snapshot_date: string
+  view_type: DashboardViewType
+  primary_metric: number
+  pct_change_mom: number
+  pct_change_prev: number
+  breakdown_data: BreakdownItem[]
+  trend_data: { date: string; value: number }[]
+  fetched_at: string
+}
+
+export interface ClientBenchmark {
+  id: string
+  client_id: string
+  view_type: DashboardViewType
+  benchmark_month: string
+  client_value: number
+  category_average: number
+  category_top_25: number
+  category_top_10: number
+  percentile_rank: number
+  updated_at: string
+}
+
+export interface ClientInsight {
+  id: string
+  client_id: string
+  view_type: DashboardViewType
+  insight_month: string
+  insight_1: string | null
+  insight_2: string | null
+  created_by: string
+  published_at: string | null
+  created_at: string
+}
+
+export interface AMClientNote {
+  id: string
+  client_id: string
+  note_text: string
+  created_by: string
+  created_at: string
+  updated_at: string
+}
+
+// ============================================================
+// CRM  (admin-only — clients never see these records)
+// ============================================================
+
+export type AccountStatus = 'prospect' | 'active' | 'paused' | 'churned'
+export type HealthScore = 'green' | 'yellow' | 'red'
+export type PreferredChannel = 'Email' | 'Phone' | 'SMS' | 'Slack' | 'Other'
+
+export interface Account {
+  id: string
+  business_id: string
+
+  // Primary contact
+  contact_name?: string
+  contact_role?: string
+  contact_email?: string
+  contact_phone?: string
+  contact_preferred_channel?: PreferredChannel
+  last_contacted_at?: string
+
+  // Contract
+  contract_start_date?: string
+  contract_renewal_date?: string
+  contract_term_months?: number
+  contract_auto_renew: boolean
+  contract_cancellation_notice?: string
+
+  // Financials
+  mrr: number
+  ltv_projected: number
+  total_paid: number
+  cac?: number
+
+  // Acquisition
+  lead_source?: string
+  acquired_at?: string
+
+  // Health
+  health_score: HealthScore
+  health_reason?: string
+  nps?: number
+  nps_collected_at?: string
+
+  // Relationship
+  status: AccountStatus
+  assigned_am_id?: string
+
+  created_at: string
+  updated_at: string
+}
+
+export type ClientActivityType =
+  | 'call' | 'email' | 'meeting' | 'message' | 'payment'
+  | 'contract_signed' | 'contract_renewed' | 'nps_survey'
+  | 'health_update' | 'churn' | 'note'
+
+export interface ClientActivity {
+  id: string
+  account_id: string
+  activity_type: ClientActivityType
+  title: string
+  body?: string
+  actor_id?: string
+  occurred_at: string
+  metadata: Record<string, unknown>
+  created_at: string
+}
+
+// Convenience: joined row returned by admin list/detail queries
+export interface AccountWithBusiness extends Account {
+  business: Pick<Business,
+    | 'id' | 'name' | 'industry' | 'business_type'
+    | 'description' | 'website_url' | 'locations'
+  >
 }

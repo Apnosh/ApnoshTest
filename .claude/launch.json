@@ -1,0 +1,87 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "eleventy",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "watch:eleventy"],
+      "port": 8080
+    },
+    {
+      "name": "full-site",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "port": 8080
+    },
+    {
+      "name": "decap-cms",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "watch:cms"],
+      "port": 8081
+    },
+    {
+      "name": "portal",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd portal && npm run dev"],
+      "port": 3000
+    },
+    {
+      "name": "apnosh-portal",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd /Users/mjbutler35/Documents/GitHub/apnosh-portal && npm run dev"],
+      "port": 3000
+    },
+    {
+      "name": "yellow-bee",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4321", "--directory", "/Users/mjbutler35/Documents/GitHub/yellow-bee/_site"],
+      "port": 4321
+    },
+    {
+      "name": "mr-dimsum",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4500", "--directory", "/Users/mjbutler35/Documents/GitHub/mr-dimsum"],
+      "port": 4500
+    },
+    {
+      "name": "dosi",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["/Users/mjbutler35/Documents/GitHub/do-si-kbbq/.claude/dev-server.py", "4178", "/Users/mjbutler35/Documents/GitHub/do-si-kbbq"],
+      "port": 4178
+    },
+    {
+      "name": "deck",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4600", "--directory", "/Users/mjbutler35/Downloads"],
+      "port": 4600
+    },
+    {
+      "name": "mtg-deck",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4720", "--bind", "127.0.0.1", "--directory", "/Users/mjbutler35/Documents/apnosh-meetings"],
+      "port": 4720
+    },
+    {
+      "name": "bb-deck",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4712", "--bind", "127.0.0.1", "--directory", "/Users/mjbutler35/Documents/GitHub/ApnoshTest/.claude/deck-preview"],
+      "port": 4712
+    },
+    {
+      "name": "media-deck",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4740", "--bind", "127.0.0.1", "--directory", "/Users/mjbutler35/Documents/apnosh-meetings"],
+      "port": 4740
+    },
+    {
+      "name": "decks-live",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "/Users/mjbutler35/Documents/GitHub/ApnoshTest/.claude/live-server.py",
+        "4700",
+        "/Users/mjbutler35/Downloads"
+      ],
+      "port": 4700
+    }
+  ]
+}

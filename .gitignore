@@ -2,3 +2,5 @@
 .cache
 node_modules
 public
+.claude/worktrees/
+.DS_Store
